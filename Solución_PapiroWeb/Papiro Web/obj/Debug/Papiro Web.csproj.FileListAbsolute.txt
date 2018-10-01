@@ -1,0 +1,94 @@
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\ApplicationInsights.config
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\Papiro Web.dll.config
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\Papiro Web.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\Papiro Web.pdb
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\roslyn\csc.exe
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\roslyn\csc.exe.config
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\roslyn\csc.rsp
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\roslyn\csi.exe
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\roslyn\csi.rsp
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\roslyn\System.AppContext.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\roslyn\vbc.exe
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\roslyn\vbc.exe.config
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\roslyn\vbc.rsp
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\roslyn\VBCSCompiler.exe
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\Antlr3.Runtime.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\AspNet.ScriptManager.bootstrap.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\AspNet.ScriptManager.jQuery.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\Microsoft.AI.Web.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\Microsoft.ApplicationInsights.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\Microsoft.AspNet.FriendlyUrls.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\Microsoft.ScriptManager.MSAjax.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\Microsoft.ScriptManager.WebForms.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\Newtonsoft.Json.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\System.Web.Optimization.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\WebGrease.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\Microsoft.AI.PerfCounterCollector.xml
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\Microsoft.AI.Web.xml
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\Microsoft.ApplicationInsights.xml
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\Newtonsoft.Json.xml
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\System.Web.Optimization.xml
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\Antlr3.Runtime.pdb
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\Microsoft.AspNet.FriendlyUrls.xml
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\es\System.Web.Optimization.resources.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\es\Microsoft.AspNet.FriendlyUrls.resources.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\obj\Debug\Papiro Web.csprojAssemblyReference.cache
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\obj\Debug\Papiro Web.csproj.CoreCompileInputs.cache
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\obj\Debug\Papiro Web.csproj.CopyComplete
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\obj\Debug\Papiro Web.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\obj\Debug\Papiro Web.pdb
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\papiro.Negocio.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\papiro.Negocio.pdb
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\papiro.DALC.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\papiro.DALC.pdb
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\papiro.DALC.dll.config
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\EntityFramework.xml
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\CrystalDecisions.Web.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\CrystalDecisions.Shared.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\CrystalDecisions.ReportSource.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\CrystalDecisions.ReportAppServer.Controllers.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\CrystalDecisions.ReportAppServer.CommLayer.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\CrystalDecisions.ReportAppServer.Prompting.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\bin\stdole.dll

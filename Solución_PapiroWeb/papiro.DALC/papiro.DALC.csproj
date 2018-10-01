@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E8C9B7FA-5561-4F4F-81F1-13B2F9E051AE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>papiro.DALC</RootNamespace>
+    <AssemblyName>papiro.DALC</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 6.9.7\Assemblies\v2.0\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity, Version=6.9.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 6.9.7\Assemblies\v2.0\MySql.Data.Entity.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="alerta_precios.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="autorizacion_otros.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="bloqueo.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cartera.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="categoria.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="clientes.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="codigos.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="codigos3.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="codigos4.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="codigos44.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="complementarios.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="compras.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="compras_doc.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="compras_items.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="contacto_venta.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="contacto_venta1.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="departamento.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="despachos.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="facturas.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="facturas3.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="familia_complementaria.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="familia_complementaria1.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fecha.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="folio.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="folio3.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="folio4.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="folios_factura.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="folio_compra.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="folio_guias.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="folio_nc.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="folio_nc3.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="folio_ruta.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="guias_despacho.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="guias_facturar.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="historial_solicitud_ticket.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="llegada_ruta.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="llegada_ruta2.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="log_emails.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="notas_de_pedido.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="notas_de_pedido3.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="notas_de_pedido_val.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="notas_de_pedido_val_aut.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="notas_de_pedido_val_guias.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="notas_de_pedido_val_rech.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="notas_guias.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="nota_compra.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="nota_credito.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="nota_credito3.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="nota_credito_detalle.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="nota_credito_detalle3.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="numero_pedido.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="observaciones_llegada.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="observaciones_llegada1.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ofertas.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PapiroEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PapiroEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PapiroEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PapiroEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PapiroEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="programacion_llamadas.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="proveedores.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="reemprimir.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="registro_de_pagos4.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="registro_llamada.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="registro_pagos.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="registro_pagos3.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="registro_pagos4.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="registro_reemitir.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="reg_cheques.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="retiro_documentos.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ruta.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ruta1.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="solicitud.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="stock.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sustituto.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tabla_asociar.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usuario.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usuario_adm.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="venta4.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="venta41.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="venta_guias.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="venta_mod.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="PapiroEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PapiroEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+    <None Include="PapiroEntities.edmx.diagram">
+      <DependentUpon>PapiroEntities.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PapiroEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PapiroEntities.Context.cs</LastGenOutput>
+      <DependentUpon>PapiroEntities.edmx</DependentUpon>
+    </Content>
+    <Content Include="PapiroEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PapiroEntities.edmx</DependentUpon>
+      <LastGenOutput>PapiroEntities.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,1407 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="const113_papiroModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="alerta_precios">
+    <Key>
+      <PropertyRef Name="Id_alertas" />
+    </Key>
+    <Property Name="Id_alertas" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usuario" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="rut_cliente" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="nom_cliente" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="fecha" Type="DateTime" />
+    <Property Name="num_pedido" Type="Int32" />
+    <Property Name="codigo_producto" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="nom_producto" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="cantidad" Type="Int32" />
+    <Property Name="precio" Type="Int32" />
+    <Property Name="precio_min" Type="Int32" />
+    <Property Name="precio_max" Type="Int32" />
+    <Property Name="tipo" Type="Int32" />
+  </EntityType>
+  <EntityType Name="autorizacion_otros">
+    <Key>
+      <PropertyRef Name="id_autorizacion" />
+    </Key>
+    <Property Name="id_autorizacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_tipo_doc" Type="Int32" />
+    <Property Name="tipo_doc" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="numero_doc" Type="Int32" />
+    <Property Name="id_tipo_aut" Type="Int32" />
+    <Property Name="tipo_aut" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="usuario" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="fecha" Type="DateTime" />
+    <Property Name="hora" Type="Time" />
+  </EntityType>
+  <EntityType Name="bloqueo">
+    <Key>
+      <PropertyRef Name="Id_bloqueo" />
+    </Key>
+    <Property Name="Id_bloqueo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usuario" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="rut" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="cliente" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="fecha" Type="DateTime" />
+    <Property Name="hora" Type="DateTime" />
+    <Property Name="bloqueo_desbloqueo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="senal_advertencia" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="razon" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="cartera">
+    <Key>
+      <PropertyRef Name="Id_cartera" />
+    </Key>
+    <Property Name="Id_cartera" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fecha" Type="DateTime" />
+    <Property Name="factura" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="banco" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="serie" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="monto" Type="Int32" />
+    <Property Name="fecha_cheque" Type="DateTime" />
+    <Property Name="rut" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="cliente" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="categoria">
+    <Key>
+      <PropertyRef Name="Id_categoria" />
+    </Key>
+    <Property Name="Id_categoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Categoria1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Categoria2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="clientes">
+    <Key>
+      <PropertyRef Name="id_clientes" />
+    </Key>
+    <Property Name="id_clientes" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rut" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="clientes1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="comuna" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="telefonos" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="contacto_comercial" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="cargo_contacto_comercial" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="telefonos_contacto" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="email_contacto_comercial" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="contacto_pago_proveedores" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="cargo_contacto_pago" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="telefonos_cargo_contacto" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="email_contacto_pago" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="cond" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="forma_de_pago" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ejec_digital" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ejec_media" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ejec_led" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ejec_mac" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="direccion_despacho" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="email_despacho" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="telefonos_despacho" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="contacto_despacho" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="telefono_despacho" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="senal_advertencia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="estado" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="linea_credito" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="dicom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="fecha_ingreso" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="observacion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="maquinas" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="email_contacto2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="actualizado" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="giro" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="email_contacto_despacho2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="referencia" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ficha_cliente" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="encargado_produccion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="maquina16" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="maquina18" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="maquina320" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="ejec_new" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="ejec_cobranza" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="codigos">
+    <Key>
+      <PropertyRef Name="id_codigos" />
+    </Key>
+    <Property Name="id_codigos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Marca" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo_1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="medidas" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="unid_paquete" Type="Double" />
+    <Property Name="ancho" Type="Double" />
+    <Property Name="largo" Type="Double" />
+    <Property Name="area" Type="Double" />
+    <Property Name="descripcion_2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="area_negocio" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="proveedor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="mapa" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion_3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="obs" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="familia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="familia_2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="familia_3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="stock" Type="Double" />
+    <Property Name="medida_unid" Type="Double" />
+    <Property Name="Precio_lista" Type="Double" />
+    <Property Name="fecha_caducidad" Type="DateTime" />
+    <Property Name="precio_max" Type="Double" />
+    <Property Name="precio_min" Type="Double" />
+    <Property Name="activo" Type="Double" />
+    <Property Name="Categoria" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Categoria2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="codigos3">
+    <Key>
+      <PropertyRef Name="id_codigos" />
+    </Key>
+    <Property Name="id_codigos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Marca" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo_1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="medidas" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="unid_paquete" Type="Double" />
+    <Property Name="ancho" Type="Double" />
+    <Property Name="largo" Type="Double" />
+    <Property Name="area" Type="Double" />
+    <Property Name="descripcion_2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="area_negocio" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="proveedor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="mapa" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion_3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="obs" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="familia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="familia_2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="familia_3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="stock" Type="Double" />
+    <Property Name="medida_unid" Type="Double" />
+    <Property Name="Precio_lista" Type="Double" />
+    <Property Name="fecha_caducidad" Type="DateTime" />
+    <Property Name="precio_max" Type="Double" />
+    <Property Name="precio_min" Type="Double" />
+    <Property Name="activo" Type="Double" />
+    <Property Name="Categoria" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Categoria2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="codigos4">
+    <Key>
+      <PropertyRef Name="id_codigos" />
+    </Key>
+    <Property Name="id_codigos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Marca" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo_1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="medidas" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="unid_paquete" Type="Double" />
+    <Property Name="ancho" Type="Double" />
+    <Property Name="largo" Type="Double" />
+    <Property Name="area" Type="Double" />
+    <Property Name="descripcion_2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="area_negocio" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="proveedor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="mapa" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion_3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="obs" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="familia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="familia_2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="familia_3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="stock" Type="Double" />
+    <Property Name="medida_unid" Type="Double" />
+    <Property Name="Precio_lista" Type="Double" />
+    <Property Name="fecha_caducidad" Type="DateTime" />
+    <Property Name="precio_max" Type="Double" />
+    <Property Name="precio_min" Type="Double" />
+    <Property Name="activo" Type="Double" />
+    <Property Name="Categoria" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Categoria2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="codigos44">
+    <Key>
+      <PropertyRef Name="id_codigos" />
+    </Key>
+    <Property Name="id_codigos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Marca" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo_1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="medidas" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="unid_paquete" Type="Double" />
+    <Property Name="ancho" Type="Double" />
+    <Property Name="largo" Type="Double" />
+    <Property Name="area" Type="Double" />
+    <Property Name="descripcion_2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="area_negocio" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="proveedor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="mapa" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion_3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="obs" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="familia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="familia_2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="familia_3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="stock" Type="Double" />
+    <Property Name="medida_unid" Type="Double" />
+    <Property Name="Precio_lista" Type="Double" />
+    <Property Name="fecha_caducidad" Type="DateTime" />
+    <Property Name="precio_max" Type="Double" />
+    <Property Name="precio_min" Type="Double" />
+    <Property Name="activo" Type="Double" />
+    <Property Name="Categoria" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Categoria2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="complementarios">
+    <Key>
+      <PropertyRef Name="Id_complementario" />
+    </Key>
+    <Property Name="Id_complementario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="codigo2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="compras">
+    <Key>
+      <PropertyRef Name="Id_compras" />
+    </Key>
+    <Property Name="Id_compras" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_proveedor" Type="Int32" />
+    <Property Name="PAI" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="rut" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="nombre_proveedor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="tipo_compra" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="folio_compra" Type="Int32" />
+    <Property Name="eta_estimado" Type="DateTime" />
+    <Property Name="eta_real" Type="DateTime" />
+    <Property Name="fecha_ingreso" Type="DateTime" />
+    <Property Name="tipo_moneda" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="pos" Type="Int32" />
+    <Property Name="codigo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="cant_ped" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="cant_pro" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="pre_pro" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="cant_inv" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="pre_inv" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="certifica" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="obs" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="compras_doc">
+    <Key>
+      <PropertyRef Name="Id_documento" />
+    </Key>
+    <Property Name="Id_documento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_proveedor" Type="Int32" />
+    <Property Name="PAI" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="folio_pedido" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="folio_proforma" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="folio_invoice" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="eta_estimado" Type="DateTime" />
+    <Property Name="eta_real" Type="DateTime" />
+    <Property Name="fecha_ingreso" Type="DateTime" />
+    <Property Name="tipo_moneda" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="compras_items">
+    <Key>
+      <PropertyRef Name="Id_item" />
+    </Key>
+    <Property Name="Id_item" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_documento" Type="Int32" />
+    <Property Name="pos" Type="Int32" />
+    <Property Name="codigo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="cant_ped" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="cant_pro" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="pre_pro" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="cant_inv" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="pre_inv" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="certifica" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="obs" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="contacto_venta">
+    <Key>
+      <PropertyRef Name="Id_contacto_venta" />
+    </Key>
+    <Property Name="Id_contacto_venta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="folio" Type="Int32" />
+    <Property Name="contacto" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="medio" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="documento" Type="Double" />
+  </EntityType>
+  <EntityType Name="contacto_venta1">
+    <Key>
+      <PropertyRef Name="Id_contacto_venta" />
+    </Key>
+    <Property Name="Id_contacto_venta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="folio" Type="Int32" />
+    <Property Name="contacto" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="medio" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="documento" Type="Double" />
+  </EntityType>
+  <EntityType Name="departamento">
+    <Key>
+      <PropertyRef Name="Id_obras" />
+    </Key>
+    <Property Name="Id_obras" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="despachos">
+    <Key>
+      <PropertyRef Name="Id_despachos" />
+    </Key>
+    <Property Name="Id_despachos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cliente" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="numero_pedido" Type="Double" />
+    <Property Name="indicador_despacho" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="fecha" Type="DateTime" />
+    <Property Name="Hora" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="facturas">
+    <Key>
+      <PropertyRef Name="Id_facturas" />
+    </Key>
+    <Property Name="Id_facturas" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rut" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="razon_social" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="factura" Type="Int32" />
+    <Property Name="area_negocio" Type="Int32" />
+    <Property Name="ejecutivo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="fecha_factura" Type="DateTime" />
+    <Property Name="vencimiento" Type="DateTime" />
+    <Property Name="ano_mes" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="total_facturado" Type="Int32" />
+    <Property Name="pagado" Type="Int32" />
+    <Property Name="cheques_en_cartera" Type="Int32" />
+    <Property Name="diferencia" Type="Int32" />
+    <Property Name="deuda_sin_documentar" Type="Int32" />
+    <Property Name="deuda_sin_doc_ven" Type="Int32" />
+    <Property Name="dias" Type="Int32" />
+    <Property Name="deuda_total" Type="Int32" />
+    <Property Name="fecha_cheques" Type="DateTime" />
+    <Property Name="venc_7" Type="Int32" />
+    <Property Name="venc_15" Type="Int32" />
+    <Property Name="venc_21" Type="Int32" />
+    <Property Name="venc_30" Type="Int32" />
+    <Property Name="an1" Type="Int32" />
+    <Property Name="an2" Type="Int32" />
+    <Property Name="an3" Type="Int32" />
+    <Property Name="an4" Type="Int32" />
+    <Property Name="estado" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="existe" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="existe2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="existe3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ano" Type="Int32" />
+    <Property Name="mes" Type="Int32" />
+    <Property Name="dia" Type="Int32" />
+    <Property Name="existe4" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="senal_advertencia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="facturas3">
+    <Key>
+      <PropertyRef Name="Id_facturas" />
+    </Key>
+    <Property Name="Id_facturas" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rut" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="razon_social" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="factura" Type="Int32" />
+    <Property Name="area_negocio" Type="Int32" />
+    <Property Name="ejecutivo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="fecha_factura" Type="DateTime" />
+    <Property Name="vencimiento" Type="DateTime" />
+    <Property Name="ano_mes" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="total_facturado" Type="Int32" />
+    <Property Name="pagado" Type="Int32" />
+    <Property Name="cheques_en_cartera" Type="Int32" />
+    <Property Name="diferencia" Type="Int32" />
+    <Property Name="deuda_sin_documentar" Type="Int32" />
+    <Property Name="deuda_sin_doc_ven" Type="Int32" />
+    <Property Name="dias" Type="Int32" />
+    <Property Name="deuda_total" Type="Int32" />
+    <Property Name="fecha_cheques" Type="DateTime" />
+    <Property Name="venc_7" Type="Int32" />
+    <Property Name="venc_15" Type="Int32" />
+    <Property Name="venc_21" Type="Int32" />
+    <Property Name="venc_30" Type="Int32" />
+    <Property Name="an1" Type="Int32" />
+    <Property Name="an2" Type="Int32" />
+    <Property Name="an3" Type="Int32" />
+    <Property Name="an4" Type="Int32" />
+    <Property Name="estado" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="existe" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="existe2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="existe3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ano" Type="Int32" />
+    <Property Name="mes" Type="Int32" />
+    <Property Name="dia" Type="Int32" />
+    <Property Name="existe4" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="senal_advertencia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="familia_complementaria">
+    <Key>
+      <PropertyRef Name="Id_complementarios" />
+    </Key>
+    <Property Name="Id_complementarios" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="familia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="orden" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="familia_complementaria1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="familia_complementaria1">
+    <Key>
+      <PropertyRef Name="Id_complementarios" />
+    </Key>
+    <Property Name="Id_complementarios" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="familia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="familia_complementaria" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="fecha">
+    <Key>
+      <PropertyRef Name="Id_fecha" />
+    </Key>
+    <Property Name="Id_fecha" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fecha1" Type="DateTime" />
+    <Property Name="Mes" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Año" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Mes_n" Type="Int32" />
+    <Property Name="Trimestre" Type="Int32" />
+    <Property Name="Semestre" Type="Int32" />
+  </EntityType>
+  <EntityType Name="folio">
+    <Key>
+      <PropertyRef Name="Id_folio" />
+    </Key>
+    <Property Name="Id_folio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="folio1" Type="Double" />
+    <Property Name="numero_pedido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cliente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="folio_compra">
+    <Key>
+      <PropertyRef Name="Id_folio_compra" />
+    </Key>
+    <Property Name="Id_folio_compra" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="folio_compra1" Type="Double" />
+    <Property Name="numero_pedido" Type="Double" />
+    <Property Name="proveedor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="folio_guias">
+    <Key>
+      <PropertyRef Name="Id_folio" />
+    </Key>
+    <Property Name="Id_folio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="folio" Type="Double" />
+    <Property Name="numero_pedido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cliente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="condicion" Type="Int32" />
+  </EntityType>
+  <EntityType Name="folio_nc">
+    <Key>
+      <PropertyRef Name="Id_folio_nc" />
+    </Key>
+    <Property Name="Id_folio_nc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="folio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nota_credito" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="factura" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="cliente" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="con_venta" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="con_prod" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="obs_venta" Type="String" MaxLength="16777215" FixedLength="false" Unicode="false" />
+    <Property Name="con_material" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="con_desp" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="obs_logistica" Type="String" MaxLength="16777215" FixedLength="false" Unicode="false" />
+    <Property Name="con_inv" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="obs_serv" Type="String" MaxLength="16777215" FixedLength="false" Unicode="false" />
+    <Property Name="autoriza_venta" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="autoriza_logistica" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="autoriza_serv" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="motivo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="fecha_reclamo" Type="DateTime" />
+    <Property Name="contacto" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="respuesta" Type="String" MaxLength="16777215" FixedLength="false" Unicode="false" />
+    <Property Name="condicion" Type="Int32" />
+  </EntityType>
+  <EntityType Name="folio_nc3">
+    <Key>
+      <PropertyRef Name="Id_folio_nc" />
+    </Key>
+    <Property Name="Id_folio_nc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="folio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nota_credito" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="factura" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="cliente" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="con_venta" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="con_prod" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="obs_venta" Type="String" MaxLength="16777215" FixedLength="false" Unicode="false" />
+    <Property Name="con_material" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="con_desp" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="obs_logistica" Type="String" MaxLength="16777215" FixedLength="false" Unicode="false" />
+    <Property Name="con_inv" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="obs_serv" Type="String" MaxLength="16777215" FixedLength="false" Unicode="false" />
+    <Property Name="autoriza_venta" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="autoriza_logistica" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="autoriza_serv" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="motivo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="fecha_reclamo" Type="DateTime" />
+    <Property Name="contacto" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="respuesta" Type="String" MaxLength="16777215" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="folio_ruta">
+    <Key>
+      <PropertyRef Name="Id_folio_ruta" />
+    </Key>
+    <Property Name="Id_folio_ruta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="folio_ruta1" Type="Double" />
+  </EntityType>
+  <EntityType Name="folio3">
+    <Key>
+      <PropertyRef Name="Id_folio" />
+    </Key>
+    <Property Name="Id_folio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="folio" Type="Double" />
+    <Property Name="numero_pedido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cliente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="folio4">
+    <Key>
+      <PropertyRef Name="Id_folio" />
+    </Key>
+    <Property Name="Id_folio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="folio" Type="Double" />
+    <Property Name="numero_pedido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cliente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="folios_factura">
+    <Key>
+      <PropertyRef Name="Id_folios" />
+    </Key>
+    <Property Name="Id_folios" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="doc" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="fol_in" Type="Int32" />
+    <Property Name="fol_fin" Type="Int32" />
+    <Property Name="ult_fol" Type="Int32" />
+  </EntityType>
+  <EntityType Name="guias_despacho">
+    <Key>
+      <PropertyRef Name="Id_guia" />
+    </Key>
+    <Property Name="Id_guia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="folio_guia" Type="Int32" />
+    <Property Name="tipo_guia" Type="Int32" />
+    <Property Name="rut_cliente" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="factura_rel" Type="Int32" />
+  </EntityType>
+  <EntityType Name="guias_facturar">
+    <Key>
+      <PropertyRef Name="Id_guias_facturar" />
+    </Key>
+    <Property Name="Id_guias_facturar" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cliente" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="rut" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="factura" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="pendiente" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="historial_solicitud_ticket">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="comentario" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="imagen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ingresado" Type="DateTime" Nullable="false" />
+    <Property Name="usuario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="solicitud_id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="llegada_ruta">
+    <Key>
+      <PropertyRef Name="Id_llegada_ruta" />
+    </Key>
+    <Property Name="Id_llegada_ruta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usuario" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="folio" Type="Double" />
+    <Property Name="Fecha" Type="DateTime" />
+    <Property Name="Hora" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="llegada_ruta2">
+    <Key>
+      <PropertyRef Name="Id_llegada_ruta" />
+    </Key>
+    <Property Name="Id_llegada_ruta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usuario" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="folio" Type="Double" />
+    <Property Name="Fecha" Type="DateTime" />
+    <Property Name="Hora" Type="Time" />
+  </EntityType>
+  <EntityType Name="log_emails">
+    <Key>
+      <PropertyRef Name="Id_log_emails" />
+    </Key>
+    <Property Name="Id_log_emails" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pedido" Type="Double" />
+    <Property Name="factura" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="rut_cliente" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="nombre_cliente" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="nota_compra">
+    <Key>
+      <PropertyRef Name="Id_nota_compra" />
+    </Key>
+    <Property Name="Id_nota_compra" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="folio_compra" Type="Double" />
+    <Property Name="fecha_compra" Type="DateTime" />
+    <Property Name="hora_compra" Type="DateTime" />
+    <Property Name="nombre_ejecutivo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="pai_cn" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="nota_credito">
+    <Key>
+      <PropertyRef Name="id_nc" />
+    </Key>
+    <Property Name="id_nc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="n_factura" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="nota_credito1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="razon_social" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="rut" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="accion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="error1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="observaciones" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="motivo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="venta_neta" Type="Double" />
+    <Property Name="iva" Type="Double" />
+    <Property Name="total" Type="Double" />
+    <Property Name="usuario" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="fecha" Type="DateTime" />
+    <Property Name="hora" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="nota_credito_detalle">
+    <Key>
+      <PropertyRef Name="id_nc_detalle" />
+    </Key>
+    <Property Name="id_nc_detalle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="n_factura" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="nota_credito" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="codigo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="precio_rollo" Type="Double" />
+    <Property Name="cantidad_detalle" Type="Double" />
+    <Property Name="total_detalle" Type="Double" />
+  </EntityType>
+  <EntityType Name="nota_credito_detalle3">
+    <Key>
+      <PropertyRef Name="id_nc_detalle" />
+    </Key>
+    <Property Name="id_nc_detalle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="n_factura" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="nota_credito" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="codigo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="precio_rollo" Type="Double" />
+    <Property Name="cantidad_detalle" Type="Double" />
+    <Property Name="total_detalle" Type="Double" />
+  </EntityType>
+  <EntityType Name="nota_credito3">
+    <Key>
+      <PropertyRef Name="id_nc" />
+    </Key>
+    <Property Name="id_nc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="n_factura" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="nota_credito" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="razon_social" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="rut" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="accion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="error1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="observaciones" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="motivo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="venta_neta" Type="Double" />
+    <Property Name="iva" Type="Double" />
+    <Property Name="total" Type="Double" />
+    <Property Name="usuario" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="fecha" Type="DateTime" />
+    <Property Name="hora" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="notas_de_pedido">
+    <Key>
+      <PropertyRef Name="Id_notas_de_pedido" />
+    </Key>
+    <Property Name="Id_notas_de_pedido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Folio" Type="Double" />
+    <Property Name="Fecha" Type="DateTime" />
+    <Property Name="Hora" Type="Time" />
+    <Property Name="Fecha_desp" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="toma_pedido" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="solicitado" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="observaciones" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="comuna_despacho" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="direccion_despacho" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="despachado" Type="Boolean" />
+    <Property Name="retira_cliente" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="notas_de_pedido_val">
+    <Key>
+      <PropertyRef Name="Id_notas_de_pedido" />
+    </Key>
+    <Property Name="Id_notas_de_pedido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Folio" Type="Double" />
+    <Property Name="Fecha" Type="DateTime" />
+    <Property Name="Hora" Type="DateTime" />
+    <Property Name="Fecha_desp" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="toma_pedido" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="solicitado" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="observaciones" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="comuna_despacho" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="direccion_despacho" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="retira_cliente" Type="Boolean" />
+    <Property Name="monto" Type="Double" />
+  </EntityType>
+  <EntityType Name="notas_de_pedido_val_aut">
+    <Key>
+      <PropertyRef Name="Id_notas_de_pedido" />
+    </Key>
+    <Property Name="Id_notas_de_pedido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Folio" Type="Double" />
+    <Property Name="Fecha" Type="DateTime" />
+    <Property Name="Hora" Type="DateTime" />
+    <Property Name="Fecha_desp" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="toma_pedido" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="solicitado" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="observaciones" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="comuna_despacho" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="direccion_despacho" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="autoriza" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="tipo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="observaciones_aut" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="notas_de_pedido_val_guias">
+    <Key>
+      <PropertyRef Name="Id_notas_de_pedido" />
+    </Key>
+    <Property Name="Id_notas_de_pedido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Folio" Type="Double" />
+    <Property Name="Fecha" Type="DateTime" />
+    <Property Name="Hora" Type="DateTime" />
+    <Property Name="Fecha_desp" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="toma_pedido" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="solicitado" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="observaciones" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="comuna_despacho" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="direccion_despacho" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="tipo_doc" Type="Double" />
+    <Property Name="factura_ref" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="fecha_ref" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="notas_de_pedido_val_rech">
+    <Key>
+      <PropertyRef Name="Id_notas_de_pedido" />
+    </Key>
+    <Property Name="Id_notas_de_pedido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Folio" Type="Double" />
+    <Property Name="Fecha" Type="DateTime" />
+    <Property Name="Hora" Type="DateTime" />
+    <Property Name="Fecha_desp" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="toma_pedido" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="solicitado" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="observaciones" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="comuna_despacho" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="direccion_despacho" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="autoriza" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="notas_de_pedido3">
+    <Key>
+      <PropertyRef Name="Id_notas_de_pedido" />
+    </Key>
+    <Property Name="Id_notas_de_pedido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Folio" Type="Double" />
+    <Property Name="Fecha" Type="DateTime" />
+    <Property Name="Hora" Type="Time" />
+    <Property Name="Fecha_desp" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="toma_pedido" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="solicitado" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="observaciones" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="comuna_despacho" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="direccion_despacho" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="notas_guias">
+    <Key>
+      <PropertyRef Name="Id_notas_de_pedido" />
+    </Key>
+    <Property Name="Id_notas_de_pedido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Folio" Type="Double" />
+    <Property Name="Fecha" Type="DateTime" />
+    <Property Name="Hora" Type="Time" />
+    <Property Name="Fecha_desp" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="toma_pedido" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="solicitado" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="observaciones" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="comuna_despacho" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="direccion_despacho" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="tipo_doc" Type="Double" />
+    <Property Name="factura_ref" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="fecha_ref" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="numero_pedido">
+    <Key>
+      <PropertyRef Name="Id_numero_pedido" />
+    </Key>
+    <Property Name="Id_numero_pedido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="numero_pedido1" Type="Double" />
+    <Property Name="cliente" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="observaciones_llegada">
+    <Key>
+      <PropertyRef Name="Id_observaciones" />
+    </Key>
+    <Property Name="Id_observaciones" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pendiente" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="folio_ruta" Type="Double" />
+    <Property Name="tipo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="num_doc" Type="Double" />
+    <Property Name="observacion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="condicion_pago" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="cumplimiento" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="observaciones_llegada1">
+    <Key>
+      <PropertyRef Name="Id_observaciones" />
+    </Key>
+    <Property Name="Id_observaciones" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pendiente" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="folio_ruta" Type="Double" />
+    <Property Name="tipo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="num_doc" Type="Double" />
+    <Property Name="observacion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="condicion_pago" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="cumplimiento" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ofertas">
+    <Key>
+      <PropertyRef Name="Id_ofertas" />
+    </Key>
+    <Property Name="Id_ofertas" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fecha" Type="DateTime" />
+    <Property Name="descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="programacion_llamadas">
+    <Key>
+      <PropertyRef Name="Id_programacion" />
+    </Key>
+    <Property Name="Id_programacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fecha_actual" Type="DateTime" />
+    <Property Name="fecha_programada" Type="DateTime" />
+    <Property Name="Tipo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="folio" Type="Double" />
+    <Property Name="hecho" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="proveedores">
+    <Key>
+      <PropertyRef Name="Id_proveedores" />
+    </Key>
+    <Property Name="Id_proveedores" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipo_prov" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="rut" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="razon_social" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="giro" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="pais" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ciudad" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="observacion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="nombre_comer" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="cargo_comer" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="telefono_comer" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="email_comer" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="reemprimir">
+    <Key>
+      <PropertyRef Name="Id_reemprimir" />
+    </Key>
+    <Property Name="Id_reemprimir" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usuario" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="fecha" Type="DateTime" />
+    <Property Name="hora" Type="Time" />
+    <Property Name="tipo_doc" Type="Int32" />
+    <Property Name="num_doc" Type="Int32" />
+    <Property Name="cuenta_imp" Type="Int32" />
+  </EntityType>
+  <EntityType Name="reg_cheques">
+    <Key>
+      <PropertyRef Name="Id_cambio" />
+    </Key>
+    <Property Name="Id_cambio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rut_cliente" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="num_cheque" Type="Int32" />
+    <Property Name="tipo_cambio_cheque" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="observacion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="fecha" Type="DateTime" />
+    <Property Name="usuario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="registro_de_pagos4">
+    <Key>
+      <PropertyRef Name="Id_registro_pagos" />
+    </Key>
+    <Property Name="Id_registro_pagos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fecha" Type="DateTime" />
+    <Property Name="codigo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="operacion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="banco" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="serie" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="factura" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="total_adeudado" Type="Int32" />
+    <Property Name="monto" Type="Int32" />
+    <Property Name="diferencia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="fecha_cheque" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="registro_llamada">
+    <Key>
+      <PropertyRef Name="Id_registro_llamada" />
+    </Key>
+    <Property Name="Id_registro_llamada" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cliente" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="atendio" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="motivo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="tipo_llamada" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="llamada_iniciada" Type="Time" />
+    <Property Name="llamada_finalizada" Type="Time" />
+    <Property Name="duracion" Type="Time" />
+    <Property Name="estado_de_linea" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="importancia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="informe" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="fecha" Type="DateTime" />
+    <Property Name="usuario" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="tipo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="tipo_medio" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="folio" Type="Double" />
+  </EntityType>
+  <EntityType Name="registro_pagos">
+    <Key>
+      <PropertyRef Name="Id_registro_pagos" />
+    </Key>
+    <Property Name="Id_registro_pagos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fecha" Type="DateTime" />
+    <Property Name="operacion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="banco" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="serie" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="factura" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="total_adecuado" Type="Double" />
+    <Property Name="monto" Type="Double" />
+    <Property Name="diferencia" Type="Double" />
+    <Property Name="fecha_cheque" Type="DateTime" />
+    <Property Name="pendiente" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="estado" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="cliente" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="registro_pagos3">
+    <Key>
+      <PropertyRef Name="Id_registro_pagos" />
+    </Key>
+    <Property Name="Id_registro_pagos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fecha" Type="DateTime" />
+    <Property Name="operacion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="banco" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="serie" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="factura" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="total_adecuado" Type="Double" />
+    <Property Name="monto" Type="Double" />
+    <Property Name="diferencia" Type="Double" />
+    <Property Name="fecha_cheque" Type="DateTime" />
+    <Property Name="pendiente" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="estado" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="cliente" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="registro_pagos4">
+    <Key>
+      <PropertyRef Name="Id_registro_pagos" />
+    </Key>
+    <Property Name="Id_registro_pagos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fecha" Type="DateTime" />
+    <Property Name="operacion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="banco" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="serie" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="factura" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="total_adecuado" Type="Double" />
+    <Property Name="monto" Type="Double" />
+    <Property Name="diferencia" Type="Double" />
+    <Property Name="fecha_cheque" Type="DateTime" />
+    <Property Name="pendiente" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="estado" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="cliente" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="registro_reemitir">
+    <Key>
+      <PropertyRef Name="Id_registro" />
+    </Key>
+    <Property Name="Id_registro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usuario" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="fecha" Type="DateTime" />
+    <Property Name="hora" Type="Time" />
+    <Property Name="tipo_doc" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="num_doc" Type="Double" />
+    <Property Name="num_emi" Type="Double" />
+  </EntityType>
+  <EntityType Name="retiro_documentos">
+    <Key>
+      <PropertyRef Name="Id_retiro" />
+    </Key>
+    <Property Name="Id_retiro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="folio" Type="Int32" />
+    <Property Name="cliente" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="rut" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="fecha" Type="DateTime" />
+    <Property Name="usuario" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="factura" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="monto" Type="Int32" />
+    <Property Name="contacto" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="horario" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="comuna" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ruta">
+    <Key>
+      <PropertyRef Name="Id_ruta" />
+    </Key>
+    <Property Name="Id_ruta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usuario" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="chofer" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="vehiculo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="fecha" Type="DateTime" />
+    <Property Name="hora" Type="Time" />
+    <Property Name="n_pedido" Type="Double" />
+    <Property Name="ejecutivo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="comuna" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="folio_ruta" Type="Double" />
+    <Property Name="tipo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="cliente" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="peoneta" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="revisa_camioneta" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="revisa_camioneta2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ruta1">
+    <Key>
+      <PropertyRef Name="Id_ruta" />
+    </Key>
+    <Property Name="Id_ruta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usuario" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="chofer" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="vehiculo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="fecha" Type="DateTime" />
+    <Property Name="hora" Type="DateTime" />
+    <Property Name="n_pedido" Type="Double" />
+    <Property Name="ejecutivo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="comuna" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="folio_ruta" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="tipo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="cliente" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="peoneta" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="revisa_camioneta" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="solicitud">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="asunto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="departamento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="estado" Type="Boolean" Nullable="false" />
+    <Property Name="fecha_ingreso" Type="DateTime" Nullable="false" />
+    <Property Name="fecha_respuesta" Type="DateTime" />
+    <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="prioridad" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="stock">
+    <Key>
+      <PropertyRef Name="id_stock" />
+    </Key>
+    <Property Name="id_stock" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo_1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo_2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Medida" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ctda_anter" Type="Double" />
+    <Property Name="ctda_actual" Type="Double" />
+    <Property Name="ancho" Type="Double" />
+    <Property Name="largo" Type="Double" />
+    <Property Name="area" Type="Double" />
+    <Property Name="mt_totales" Type="Double" />
+    <Property Name="observacion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="sustituto">
+    <Key>
+      <PropertyRef Name="Id_sustituto" />
+    </Key>
+    <Property Name="Id_sustituto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="codigo2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tabla_asociar">
+    <Key>
+      <PropertyRef Name="Id_asociar" />
+    </Key>
+    <Property Name="Id_asociar" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fecha" Type="DateTime" />
+    <Property Name="numero_pedido" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="numero_documento" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="tipo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="cliente" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="corresponde_cliente" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="monto" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="corresponde_monto" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ejecutivo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="cod_usuario" />
+    </Key>
+    <Property Name="cod_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Obra" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="usuario_adm">
+    <Key>
+      <PropertyRef Name="Id_usuario" />
+    </Key>
+    <Property Name="Id_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipo_nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="usuario" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="tipo_id" Type="Int32" />
+    <Property Name="modulo_nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="modulo_id" Type="Int32" />
+  </EntityType>
+  <EntityType Name="venta_guias">
+    <Key>
+      <PropertyRef Name="Id_ventas" />
+    </Key>
+    <Property Name="Id_ventas" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cliente" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="rut" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="area_negocio" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="senal_advertencia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="comuna" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="familia_1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="familia_2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="familia_3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="tipo_1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="medidas" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="codigo_producto" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="proveedor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="area_calc" Type="Double" />
+    <Property Name="cantidad" Type="Double" />
+    <Property Name="area_total" Type="Double" />
+    <Property Name="venta_rollo" Type="Double" />
+    <Property Name="unit_venta_m2" Type="Double" />
+    <Property Name="venta_neta" Type="Double" />
+    <Property Name="venta_iva" Type="Double" />
+    <Property Name="venta_total" Type="Double" />
+    <Property Name="condicion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="forma_pago" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="dias_pago" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ejecutivo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="observaciones" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="precio_lista" Type="Double" />
+    <Property Name="precio_cliente" Type="Int32" />
+    <Property Name="fecha" Type="DateTime" />
+    <Property Name="numero_pedido" Type="Double" />
+    <Property Name="fecha_act" Type="DateTime" />
+    <Property Name="hora" Type="DateTime" />
+    <Property Name="descuento" Type="Double" />
+    <Property Name="numero_folio" Type="Double" />
+    <Property Name="toma_pedido" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="ancho" Type="Double" />
+    <Property Name="largo" Type="Double" />
+    <Property Name="solicitado" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="venta_mod">
+    <Key>
+      <PropertyRef Name="Id_ventas" />
+    </Key>
+    <Property Name="Id_ventas" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cliente" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="rut" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="medidas" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="codigo_producto" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="area_calc" Type="Double" />
+    <Property Name="cantidad" Type="Double" />
+    <Property Name="area_total" Type="Double" />
+    <Property Name="venta_rollo" Type="Double" />
+    <Property Name="unit_venta_m2" Type="Double" />
+    <Property Name="venta_neta" Type="Double" />
+    <Property Name="venta_iva" Type="Double" />
+    <Property Name="venta_total" Type="Double" />
+    <Property Name="ejecutivo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="fecha_act" Type="DateTime" />
+    <Property Name="numero_folio" Type="Double" />
+    <Property Name="precio_cliente" Type="Double" />
+  </EntityType>
+  <EntityType Name="venta4">
+    <Key>
+      <PropertyRef Name="Id_ventas" />
+    </Key>
+    <Property Name="Id_ventas" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cliente" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="rut" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="area_negocio" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="senal_advertencia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="comuna" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="familia_1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="familia_2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="familia_3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="tipo_1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="medidas" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="codigo_producto" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="proveedor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="area_calc" Type="Double" />
+    <Property Name="cantidad" Type="Double" />
+    <Property Name="area_total" Type="Double" />
+    <Property Name="venta_rollo" Type="Double" />
+    <Property Name="unit_venta_m2" Type="Double" />
+    <Property Name="venta_neta" Type="Double" />
+    <Property Name="venta_iva" Type="Double" />
+    <Property Name="venta_total" Type="Double" />
+    <Property Name="condicion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="forma_pago" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="dias_pago" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ejecutivo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="observaciones" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="precio_lista" Type="Double" />
+    <Property Name="precio_cliente" Type="Int32" />
+    <Property Name="fecha" Type="DateTime" />
+    <Property Name="numero_pedido" Type="Double" />
+    <Property Name="fecha_act" Type="DateTime" />
+    <Property Name="hora" Type="DateTime" />
+    <Property Name="descuento" Type="Double" />
+    <Property Name="numero_folio" Type="Double" />
+    <Property Name="toma_pedido" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="ancho" Type="Double" />
+    <Property Name="largo" Type="Double" />
+    <Property Name="solicitado" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="venta41">
+    <Key>
+      <PropertyRef Name="Id_ventas" />
+    </Key>
+    <Property Name="Id_ventas" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cliente" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="rut" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="area_negocio" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="senal_advertencia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="comuna" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="familia_1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="familia_2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="familia_3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="tipo_1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="medidas" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="codigo_producto" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="proveedor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="area_calc" Type="Double" />
+    <Property Name="cantidad" Type="Double" />
+    <Property Name="area_total" Type="Double" />
+    <Property Name="venta_rollo" Type="Double" />
+    <Property Name="unit_venta_m2" Type="Double" />
+    <Property Name="venta_neta" Type="Double" />
+    <Property Name="venta_iva" Type="Double" />
+    <Property Name="venta_total" Type="Double" />
+    <Property Name="condicion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="forma_pago" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="dias_pago" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ejecutivo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="observaciones" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="precio_lista" Type="Double" />
+    <Property Name="precio_cliente" Type="Int32" />
+    <Property Name="fecha" Type="DateTime" />
+    <Property Name="numero_pedido" Type="Double" />
+    <Property Name="fecha_act" Type="DateTime" />
+    <Property Name="hora" Type="DateTime" />
+    <Property Name="descuento" Type="Double" />
+    <Property Name="numero_folio" Type="Double" />
+    <Property Name="toma_pedido" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="ancho" Type="Double" />
+    <Property Name="largo" Type="Double" />
+    <Property Name="solicitado" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="const113_papiroEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="alerta_precios" EntityType="Self.alerta_precios" />
+    <EntitySet Name="autorizacion_otros" EntityType="Self.autorizacion_otros" />
+    <EntitySet Name="bloqueo" EntityType="Self.bloqueo" />
+    <EntitySet Name="cartera" EntityType="Self.cartera" />
+    <EntitySet Name="categoria" EntityType="Self.categoria" />
+    <EntitySet Name="clientes" EntityType="Self.clientes" />
+    <EntitySet Name="codigos" EntityType="Self.codigos" />
+    <EntitySet Name="codigos3" EntityType="Self.codigos3" />
+    <EntitySet Name="codigos4" EntityType="Self.codigos4" />
+    <EntitySet Name="codigos44" EntityType="Self.codigos44" />
+    <EntitySet Name="complementarios" EntityType="Self.complementarios" />
+    <EntitySet Name="compras" EntityType="Self.compras" />
+    <EntitySet Name="compras_doc" EntityType="Self.compras_doc" />
+    <EntitySet Name="compras_items" EntityType="Self.compras_items" />
+    <EntitySet Name="contacto_venta" EntityType="Self.contacto_venta" />
+    <EntitySet Name="contacto_venta1" EntityType="Self.contacto_venta1" />
+    <EntitySet Name="departamento" EntityType="Self.departamento" />
+    <EntitySet Name="despachos" EntityType="Self.despachos" />
+    <EntitySet Name="facturas" EntityType="Self.facturas" />
+    <EntitySet Name="facturas3" EntityType="Self.facturas3" />
+    <EntitySet Name="familia_complementaria" EntityType="Self.familia_complementaria" />
+    <EntitySet Name="familia_complementaria1" EntityType="Self.familia_complementaria1" />
+    <EntitySet Name="fecha" EntityType="Self.fecha" />
+    <EntitySet Name="folio" EntityType="Self.folio" />
+    <EntitySet Name="folio_compra" EntityType="Self.folio_compra" />
+    <EntitySet Name="folio_guias" EntityType="Self.folio_guias" />
+    <EntitySet Name="folio_nc" EntityType="Self.folio_nc" />
+    <EntitySet Name="folio_nc3" EntityType="Self.folio_nc3" />
+    <EntitySet Name="folio_ruta" EntityType="Self.folio_ruta" />
+    <EntitySet Name="folio3" EntityType="Self.folio3" />
+    <EntitySet Name="folio4" EntityType="Self.folio4" />
+    <EntitySet Name="folios_factura" EntityType="Self.folios_factura" />
+    <EntitySet Name="guias_despacho" EntityType="Self.guias_despacho" />
+    <EntitySet Name="guias_facturar" EntityType="Self.guias_facturar" />
+    <EntitySet Name="historial_solicitud_ticket" EntityType="Self.historial_solicitud_ticket" />
+    <EntitySet Name="llegada_ruta" EntityType="Self.llegada_ruta" />
+    <EntitySet Name="llegada_ruta2" EntityType="Self.llegada_ruta2" />
+    <EntitySet Name="log_emails" EntityType="Self.log_emails" />
+    <EntitySet Name="nota_compra" EntityType="Self.nota_compra" />
+    <EntitySet Name="nota_credito" EntityType="Self.nota_credito" />
+    <EntitySet Name="nota_credito_detalle" EntityType="Self.nota_credito_detalle" />
+    <EntitySet Name="nota_credito_detalle3" EntityType="Self.nota_credito_detalle3" />
+    <EntitySet Name="nota_credito3" EntityType="Self.nota_credito3" />
+    <EntitySet Name="notas_de_pedido" EntityType="Self.notas_de_pedido" />
+    <EntitySet Name="notas_de_pedido_val" EntityType="Self.notas_de_pedido_val" />
+    <EntitySet Name="notas_de_pedido_val_aut" EntityType="Self.notas_de_pedido_val_aut" />
+    <EntitySet Name="notas_de_pedido_val_guias" EntityType="Self.notas_de_pedido_val_guias" />
+    <EntitySet Name="notas_de_pedido_val_rech" EntityType="Self.notas_de_pedido_val_rech" />
+    <EntitySet Name="notas_de_pedido3" EntityType="Self.notas_de_pedido3" />
+    <EntitySet Name="notas_guias" EntityType="Self.notas_guias" />
+    <EntitySet Name="numero_pedido" EntityType="Self.numero_pedido" />
+    <EntitySet Name="observaciones_llegada" EntityType="Self.observaciones_llegada" />
+    <EntitySet Name="observaciones_llegada1" EntityType="Self.observaciones_llegada1" />
+    <EntitySet Name="ofertas" EntityType="Self.ofertas" />
+    <EntitySet Name="programacion_llamadas" EntityType="Self.programacion_llamadas" />
+    <EntitySet Name="proveedores" EntityType="Self.proveedores" />
+    <EntitySet Name="reemprimir" EntityType="Self.reemprimir" />
+    <EntitySet Name="reg_cheques" EntityType="Self.reg_cheques" />
+    <EntitySet Name="registro_de_pagos4" EntityType="Self.registro_de_pagos4" />
+    <EntitySet Name="registro_llamada" EntityType="Self.registro_llamada" />
+    <EntitySet Name="registro_pagos" EntityType="Self.registro_pagos" />
+    <EntitySet Name="registro_pagos3" EntityType="Self.registro_pagos3" />
+    <EntitySet Name="registro_pagos4" EntityType="Self.registro_pagos4" />
+    <EntitySet Name="registro_reemitir" EntityType="Self.registro_reemitir" />
+    <EntitySet Name="retiro_documentos" EntityType="Self.retiro_documentos" />
+    <EntitySet Name="ruta" EntityType="Self.ruta" />
+    <EntitySet Name="ruta1" EntityType="Self.ruta1" />
+    <EntitySet Name="solicitud" EntityType="Self.solicitud" />
+    <EntitySet Name="stock" EntityType="Self.stock" />
+    <EntitySet Name="sustituto" EntityType="Self.sustituto" />
+    <EntitySet Name="tabla_asociar" EntityType="Self.tabla_asociar" />
+    <EntitySet Name="usuario" EntityType="Self.usuario" />
+    <EntitySet Name="usuario_adm" EntityType="Self.usuario_adm" />
+    <EntitySet Name="venta_guias" EntityType="Self.venta_guias" />
+    <EntitySet Name="venta_mod" EntityType="Self.venta_mod" />
+    <EntitySet Name="venta4" EntityType="Self.venta4" />
+    <EntitySet Name="venta41" EntityType="Self.venta41" />
+  </EntityContainer>
+</Schema>

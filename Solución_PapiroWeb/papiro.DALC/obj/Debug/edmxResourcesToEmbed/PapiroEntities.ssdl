@@ -1,0 +1,1457 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="const113_papiroModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="alerta_precios">
+    <Key>
+      <PropertyRef Name="Id_alertas" />
+    </Key>
+    <Property Name="Id_alertas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="usuario" Type="varchar" MaxLength="255" />
+    <Property Name="rut_cliente" Type="varchar" MaxLength="255" />
+    <Property Name="nom_cliente" Type="varchar" MaxLength="255" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="num_pedido" Type="int" />
+    <Property Name="codigo_producto" Type="varchar" MaxLength="255" />
+    <Property Name="nom_producto" Type="varchar" MaxLength="255" />
+    <Property Name="cantidad" Type="int" />
+    <Property Name="precio" Type="int" />
+    <Property Name="precio_min" Type="int" />
+    <Property Name="precio_max" Type="int" />
+    <Property Name="tipo" Type="int" />
+  </EntityType>
+  <EntityType Name="autorizacion_otros">
+    <Key>
+      <PropertyRef Name="id_autorizacion" />
+    </Key>
+    <Property Name="id_autorizacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_tipo_doc" Type="int" />
+    <Property Name="tipo_doc" Type="varchar" MaxLength="45" />
+    <Property Name="numero_doc" Type="int" />
+    <Property Name="id_tipo_aut" Type="int" />
+    <Property Name="tipo_aut" Type="varchar" MaxLength="45" />
+    <Property Name="usuario" Type="varchar" MaxLength="45" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="hora" Type="time" Precision="0" />
+  </EntityType>
+  <EntityType Name="bloqueo">
+    <Key>
+      <PropertyRef Name="Id_bloqueo" />
+    </Key>
+    <Property Name="Id_bloqueo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="usuario" Type="varchar" MaxLength="255" />
+    <Property Name="rut" Type="varchar" MaxLength="255" />
+    <Property Name="cliente" Type="varchar" MaxLength="255" />
+    <Property Name="fecha" Type="datetime" Precision="0" />
+    <Property Name="hora" Type="datetime" Precision="0" />
+    <Property Name="bloqueo_desbloqueo" Type="varchar" MaxLength="255" />
+    <Property Name="senal_advertencia" Type="varchar" MaxLength="45" />
+    <Property Name="razon" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'def.const113_papiro.boleta_garantia' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="boleta_garantia">
+          <Property Name="Id_boleta_garantia" Type="int" />
+          <Property Name="Cod_bco" Type="varchar" MaxLength="255" />
+          <Property Name="banco" Type="varchar" MaxLength="255" />
+          <Property Name="monto_uf" Type="int" />
+          <Property Name="monto_pesos" Type="int" />
+          <Property Name="monto_usd" Type="int" />
+          <Property Name="f_solicitud" Type="datetime" Precision="0" />
+          <Property Name="f_vcto" Type="datetime" Precision="0" />
+          <Property Name="depart_sol" Type="varchar" MaxLength="255" />
+          <Property Name="obra" Type="varchar" MaxLength="255" />
+          <Property Name="glosa" Type="varchar" MaxLength="255" />
+          <Property Name="estado" Type="varchar" MaxLength="255" />
+          <Property Name="monto_uf2" Type="int" />
+          <Property Name="monto_pesos2" Type="int" />
+          <Property Name="monto_usd2" Type="int" />
+          <Property Name="dias" Type="int" />
+          <Property Name="fecha_termino" Type="datetime" Precision="0" />
+          <Property Name="termino_final" Type="varchar" MaxLength="255" />
+          <Property Name="tramitacion" Type="varchar" MaxLength="255" />
+          <Property Name="fecha_envio" Type="datetime" Precision="0" />
+          <Property Name="fecha_liq" Type="datetime" Precision="0" />
+        </EntityType>-->
+  <EntityType Name="cartera">
+    <Key>
+      <PropertyRef Name="Id_cartera" />
+    </Key>
+    <Property Name="Id_cartera" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha" Type="datetime" Precision="0" />
+    <Property Name="factura" Type="varchar" MaxLength="255" />
+    <Property Name="banco" Type="varchar" MaxLength="255" />
+    <Property Name="serie" Type="varchar" MaxLength="255" />
+    <Property Name="monto" Type="int" />
+    <Property Name="fecha_cheque" Type="datetime" Precision="0" />
+    <Property Name="rut" Type="varchar" MaxLength="255" />
+    <Property Name="cliente" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="categoria">
+    <Key>
+      <PropertyRef Name="Id_categoria" />
+    </Key>
+    <Property Name="Id_categoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Categoria1" Type="varchar" MaxLength="255" />
+    <Property Name="Categoria2" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="clientes">
+    <Key>
+      <PropertyRef Name="id_clientes" />
+    </Key>
+    <Property Name="id_clientes" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rut" Type="varchar" MaxLength="255" />
+    <Property Name="clientes" Type="varchar" MaxLength="255" />
+    <Property Name="direccion" Type="varchar" MaxLength="255" />
+    <Property Name="comuna" Type="varchar" MaxLength="255" />
+    <Property Name="telefonos" Type="varchar" MaxLength="255" />
+    <Property Name="contacto_comercial" Type="varchar" MaxLength="255" />
+    <Property Name="cargo_contacto_comercial" Type="varchar" MaxLength="255" />
+    <Property Name="telefonos_contacto" Type="varchar" MaxLength="255" />
+    <Property Name="email_contacto_comercial" Type="varchar" MaxLength="255" />
+    <Property Name="contacto_pago_proveedores" Type="varchar" MaxLength="255" />
+    <Property Name="cargo_contacto_pago" Type="varchar" MaxLength="255" />
+    <Property Name="telefonos_cargo_contacto" Type="varchar" MaxLength="255" />
+    <Property Name="email_contacto_pago" Type="varchar" MaxLength="255" />
+    <Property Name="cond" Type="varchar" MaxLength="255" />
+    <Property Name="forma_de_pago" Type="varchar" MaxLength="255" />
+    <Property Name="ejec_digital" Type="varchar" MaxLength="255" />
+    <Property Name="ejec_media" Type="varchar" MaxLength="255" />
+    <Property Name="ejec_led" Type="varchar" MaxLength="255" />
+    <Property Name="ejec_mac" Type="varchar" MaxLength="255" />
+    <Property Name="direccion_despacho" Type="varchar" MaxLength="255" />
+    <Property Name="email_despacho" Type="varchar" MaxLength="255" />
+    <Property Name="telefonos_despacho" Type="varchar" MaxLength="255" />
+    <Property Name="contacto_despacho" Type="varchar" MaxLength="255" />
+    <Property Name="telefono_despacho" Type="varchar" MaxLength="45" />
+    <Property Name="senal_advertencia" Type="varchar" MaxLength="255" />
+    <Property Name="estado" Type="varchar" MaxLength="255" />
+    <Property Name="linea_credito" Type="varchar" MaxLength="255" />
+    <Property Name="dicom" Type="varchar" MaxLength="255" />
+    <Property Name="fecha_ingreso" Type="varchar" MaxLength="255" />
+    <Property Name="observacion" Type="varchar" MaxLength="255" />
+    <Property Name="maquinas" Type="varchar" MaxLength="255" />
+    <Property Name="email_contacto2" Type="varchar" MaxLength="255" />
+    <Property Name="actualizado" Type="varchar" MaxLength="255" />
+    <Property Name="giro" Type="varchar" MaxLength="255" />
+    <Property Name="email_contacto_despacho2" Type="varchar" MaxLength="100" />
+    <Property Name="referencia" Type="varchar" MaxLength="100" />
+    <Property Name="ficha_cliente" Type="varchar" MaxLength="45" />
+    <Property Name="encargado_produccion" Type="varchar" MaxLength="45" />
+    <Property Name="maquina16" Type="varchar" MaxLength="45" />
+    <Property Name="maquina18" Type="varchar" MaxLength="45" />
+    <Property Name="maquina320" Type="varchar" MaxLength="45" />
+    <Property Name="ejec_new" Type="varchar" MaxLength="45" />
+    <Property Name="ejec_cobranza" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="codigos">
+    <Key>
+      <PropertyRef Name="id_codigos" />
+    </Key>
+    <Property Name="id_codigos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="255" />
+    <Property Name="Marca" Type="varchar" MaxLength="255" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="255" />
+    <Property Name="Tipo_1" Type="varchar" MaxLength="255" />
+    <Property Name="medidas" Type="varchar" MaxLength="255" />
+    <Property Name="unid_paquete" Type="double" />
+    <Property Name="ancho" Type="double" />
+    <Property Name="largo" Type="double" />
+    <Property Name="area" Type="double" />
+    <Property Name="descripcion_2" Type="varchar" MaxLength="255" />
+    <Property Name="area_negocio" Type="varchar" MaxLength="255" />
+    <Property Name="proveedor" Type="varchar" MaxLength="255" />
+    <Property Name="mapa" Type="varchar" MaxLength="255" />
+    <Property Name="descripcion_3" Type="varchar" MaxLength="255" />
+    <Property Name="obs" Type="varchar" MaxLength="255" />
+    <Property Name="familia" Type="varchar" MaxLength="255" />
+    <Property Name="familia_2" Type="varchar" MaxLength="255" />
+    <Property Name="familia_3" Type="varchar" MaxLength="255" />
+    <Property Name="stock" Type="double" />
+    <Property Name="medida_unid" Type="double" />
+    <Property Name="Precio_lista" Type="double" />
+    <Property Name="fecha_caducidad" Type="datetime" Precision="0" />
+    <Property Name="precio_max" Type="double" />
+    <Property Name="precio_min" Type="double" />
+    <Property Name="activo" Type="double" />
+    <Property Name="Categoria" Type="varchar" MaxLength="255" />
+    <Property Name="Categoria2" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="codigos3">
+    <Key>
+      <PropertyRef Name="id_codigos" />
+    </Key>
+    <Property Name="id_codigos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="255" />
+    <Property Name="Marca" Type="varchar" MaxLength="255" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="255" />
+    <Property Name="Tipo_1" Type="varchar" MaxLength="255" />
+    <Property Name="medidas" Type="varchar" MaxLength="255" />
+    <Property Name="unid_paquete" Type="double" />
+    <Property Name="ancho" Type="double" />
+    <Property Name="largo" Type="double" />
+    <Property Name="area" Type="double" />
+    <Property Name="descripcion_2" Type="varchar" MaxLength="255" />
+    <Property Name="area_negocio" Type="varchar" MaxLength="255" />
+    <Property Name="proveedor" Type="varchar" MaxLength="255" />
+    <Property Name="mapa" Type="varchar" MaxLength="255" />
+    <Property Name="descripcion_3" Type="varchar" MaxLength="255" />
+    <Property Name="obs" Type="varchar" MaxLength="255" />
+    <Property Name="familia" Type="varchar" MaxLength="255" />
+    <Property Name="familia_2" Type="varchar" MaxLength="255" />
+    <Property Name="familia_3" Type="varchar" MaxLength="255" />
+    <Property Name="stock" Type="double" />
+    <Property Name="medida_unid" Type="double" />
+    <Property Name="Precio_lista" Type="double" />
+    <Property Name="fecha_caducidad" Type="datetime" Precision="0" />
+    <Property Name="precio_max" Type="double" />
+    <Property Name="precio_min" Type="double" />
+    <Property Name="activo" Type="double" />
+    <Property Name="Categoria" Type="varchar" MaxLength="255" />
+    <Property Name="Categoria2" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="codigos4">
+    <Key>
+      <PropertyRef Name="id_codigos" />
+    </Key>
+    <Property Name="id_codigos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="255" />
+    <Property Name="Marca" Type="varchar" MaxLength="255" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="255" />
+    <Property Name="Tipo_1" Type="varchar" MaxLength="255" />
+    <Property Name="medidas" Type="varchar" MaxLength="255" />
+    <Property Name="unid_paquete" Type="double" />
+    <Property Name="ancho" Type="double" />
+    <Property Name="largo" Type="double" />
+    <Property Name="area" Type="double" />
+    <Property Name="descripcion_2" Type="varchar" MaxLength="255" />
+    <Property Name="area_negocio" Type="varchar" MaxLength="255" />
+    <Property Name="proveedor" Type="varchar" MaxLength="255" />
+    <Property Name="mapa" Type="varchar" MaxLength="255" />
+    <Property Name="descripcion_3" Type="varchar" MaxLength="255" />
+    <Property Name="obs" Type="varchar" MaxLength="255" />
+    <Property Name="familia" Type="varchar" MaxLength="255" />
+    <Property Name="familia_2" Type="varchar" MaxLength="255" />
+    <Property Name="familia_3" Type="varchar" MaxLength="255" />
+    <Property Name="stock" Type="double" />
+    <Property Name="medida_unid" Type="double" />
+    <Property Name="Precio_lista" Type="double" />
+    <Property Name="fecha_caducidad" Type="datetime" Precision="0" />
+    <Property Name="precio_max" Type="double" />
+    <Property Name="precio_min" Type="double" />
+    <Property Name="activo" Type="double" />
+    <Property Name="Categoria" Type="varchar" MaxLength="255" />
+    <Property Name="Categoria2" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="codigos44">
+    <Key>
+      <PropertyRef Name="id_codigos" />
+    </Key>
+    <Property Name="id_codigos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="255" />
+    <Property Name="Marca" Type="varchar" MaxLength="255" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="255" />
+    <Property Name="Tipo_1" Type="varchar" MaxLength="255" />
+    <Property Name="medidas" Type="varchar" MaxLength="255" />
+    <Property Name="unid_paquete" Type="double" />
+    <Property Name="ancho" Type="double" />
+    <Property Name="largo" Type="double" />
+    <Property Name="area" Type="double" />
+    <Property Name="descripcion_2" Type="varchar" MaxLength="255" />
+    <Property Name="area_negocio" Type="varchar" MaxLength="255" />
+    <Property Name="proveedor" Type="varchar" MaxLength="255" />
+    <Property Name="mapa" Type="varchar" MaxLength="255" />
+    <Property Name="descripcion_3" Type="varchar" MaxLength="255" />
+    <Property Name="obs" Type="varchar" MaxLength="255" />
+    <Property Name="familia" Type="varchar" MaxLength="255" />
+    <Property Name="familia_2" Type="varchar" MaxLength="255" />
+    <Property Name="familia_3" Type="varchar" MaxLength="255" />
+    <Property Name="stock" Type="double" />
+    <Property Name="medida_unid" Type="double" />
+    <Property Name="Precio_lista" Type="double" />
+    <Property Name="fecha_caducidad" Type="datetime" Precision="0" />
+    <Property Name="precio_max" Type="double" />
+    <Property Name="precio_min" Type="double" />
+    <Property Name="activo" Type="double" />
+    <Property Name="Categoria" Type="varchar" MaxLength="255" />
+    <Property Name="Categoria2" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="complementarios">
+    <Key>
+      <PropertyRef Name="Id_complementario" />
+    </Key>
+    <Property Name="Id_complementario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo1" Type="varchar" MaxLength="255" />
+    <Property Name="descripcion1" Type="varchar" MaxLength="255" />
+    <Property Name="codigo2" Type="varchar" MaxLength="255" />
+    <Property Name="descripcion2" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="compras">
+    <Key>
+      <PropertyRef Name="Id_compras" />
+    </Key>
+    <Property Name="Id_compras" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_proveedor" Type="int" />
+    <Property Name="PAI" Type="varchar" MaxLength="45" />
+    <Property Name="rut" Type="varchar" MaxLength="12" />
+    <Property Name="nombre_proveedor" Type="varchar" MaxLength="255" />
+    <Property Name="tipo_compra" Type="varchar" MaxLength="255" />
+    <Property Name="folio_compra" Type="int" />
+    <Property Name="eta_estimado" Type="date" />
+    <Property Name="eta_real" Type="date" />
+    <Property Name="fecha_ingreso" Type="date" />
+    <Property Name="tipo_moneda" Type="varchar" MaxLength="255" />
+    <Property Name="pos" Type="int" />
+    <Property Name="codigo" Type="varchar" MaxLength="255" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="cant_ped" Type="varchar" MaxLength="100" />
+    <Property Name="cant_pro" Type="varchar" MaxLength="100" />
+    <Property Name="pre_pro" Type="varchar" MaxLength="100" />
+    <Property Name="cant_inv" Type="varchar" MaxLength="100" />
+    <Property Name="pre_inv" Type="varchar" MaxLength="100" />
+    <Property Name="certifica" Type="varchar" MaxLength="1" />
+    <Property Name="obs" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="compras_doc">
+    <Key>
+      <PropertyRef Name="Id_documento" />
+    </Key>
+    <Property Name="Id_documento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_proveedor" Type="int" />
+    <Property Name="PAI" Type="varchar" MaxLength="255" />
+    <Property Name="folio_pedido" Type="varchar" MaxLength="255" />
+    <Property Name="folio_proforma" Type="varchar" MaxLength="255" />
+    <Property Name="folio_invoice" Type="varchar" MaxLength="255" />
+    <Property Name="eta_estimado" Type="date" />
+    <Property Name="eta_real" Type="date" />
+    <Property Name="fecha_ingreso" Type="date" />
+    <Property Name="tipo_moneda" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="compras_items">
+    <Key>
+      <PropertyRef Name="Id_item" />
+    </Key>
+    <Property Name="Id_item" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_documento" Type="int" />
+    <Property Name="pos" Type="int" />
+    <Property Name="codigo" Type="varchar" MaxLength="255" />
+    <Property Name="descripcion" Type="varchar" MaxLength="255" />
+    <Property Name="cant_ped" Type="varchar" MaxLength="255" />
+    <Property Name="cant_pro" Type="varchar" MaxLength="255" />
+    <Property Name="pre_pro" Type="varchar" MaxLength="255" />
+    <Property Name="cant_inv" Type="varchar" MaxLength="255" />
+    <Property Name="pre_inv" Type="varchar" MaxLength="255" />
+    <Property Name="certifica" Type="varchar" MaxLength="255" />
+    <Property Name="obs" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'def.const113_papiro.condiciones' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="condiciones">
+          <Property Name="Id_condiciones" Type="int" />
+          <Property Name="codigo" Type="varchar" MaxLength="255" />
+          <Property Name="nombre" Type="varchar" MaxLength="255" />
+          <Property Name="dias" Type="int" />
+        </EntityType>-->
+  <EntityType Name="contacto_venta">
+    <Key>
+      <PropertyRef Name="Id_contacto_venta" />
+    </Key>
+    <Property Name="Id_contacto_venta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="folio" Type="int" />
+    <Property Name="contacto" Type="varchar" MaxLength="255" />
+    <Property Name="medio" Type="varchar" MaxLength="255" />
+    <Property Name="documento" Type="double" />
+  </EntityType>
+  <EntityType Name="contacto_venta1">
+    <Key>
+      <PropertyRef Name="Id_contacto_venta" />
+    </Key>
+    <Property Name="Id_contacto_venta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="folio" Type="int" />
+    <Property Name="contacto" Type="varchar" MaxLength="255" />
+    <Property Name="medio" Type="varchar" MaxLength="255" />
+    <Property Name="documento" Type="double" />
+  </EntityType>
+  <EntityType Name="departamento">
+    <Key>
+      <PropertyRef Name="Id_obras" />
+    </Key>
+    <Property Name="Id_obras" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="despachos">
+    <Key>
+      <PropertyRef Name="Id_despachos" />
+    </Key>
+    <Property Name="Id_despachos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cliente" Type="varchar" MaxLength="255" />
+    <Property Name="numero_pedido" Type="double" />
+    <Property Name="indicador_despacho" Type="varchar" MaxLength="255" />
+    <Property Name="fecha" Type="datetime" Precision="0" />
+    <Property Name="Hora" Type="datetime" Precision="0" />
+  </EntityType>
+  <EntityType Name="facturas">
+    <Key>
+      <PropertyRef Name="Id_facturas" />
+    </Key>
+    <Property Name="Id_facturas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rut" Type="varchar" MaxLength="255" />
+    <Property Name="razon_social" Type="varchar" MaxLength="255" />
+    <Property Name="factura" Type="int" />
+    <Property Name="area_negocio" Type="int" />
+    <Property Name="ejecutivo" Type="varchar" MaxLength="255" />
+    <Property Name="fecha_factura" Type="datetime" Precision="0" />
+    <Property Name="vencimiento" Type="datetime" Precision="0" />
+    <Property Name="ano_mes" Type="varchar" MaxLength="255" />
+    <Property Name="total_facturado" Type="int" />
+    <Property Name="pagado" Type="int" />
+    <Property Name="cheques_en_cartera" Type="int" />
+    <Property Name="diferencia" Type="int" />
+    <Property Name="deuda_sin_documentar" Type="int" />
+    <Property Name="deuda_sin_doc_ven" Type="int" />
+    <Property Name="dias" Type="int" />
+    <Property Name="deuda_total" Type="int" />
+    <Property Name="fecha_cheques" Type="datetime" Precision="0" />
+    <Property Name="venc_7" Type="int" />
+    <Property Name="venc_15" Type="int" />
+    <Property Name="venc_21" Type="int" />
+    <Property Name="venc_30" Type="int" />
+    <Property Name="an1" Type="int" />
+    <Property Name="an2" Type="int" />
+    <Property Name="an3" Type="int" />
+    <Property Name="an4" Type="int" />
+    <Property Name="estado" Type="varchar" MaxLength="255" />
+    <Property Name="existe" Type="varchar" MaxLength="255" />
+    <Property Name="existe2" Type="varchar" MaxLength="255" />
+    <Property Name="existe3" Type="varchar" MaxLength="255" />
+    <Property Name="ano" Type="int" />
+    <Property Name="mes" Type="int" />
+    <Property Name="dia" Type="int" />
+    <Property Name="existe4" Type="varchar" MaxLength="255" />
+    <Property Name="senal_advertencia" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="facturas3">
+    <Key>
+      <PropertyRef Name="Id_facturas" />
+    </Key>
+    <Property Name="Id_facturas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rut" Type="varchar" MaxLength="255" />
+    <Property Name="razon_social" Type="varchar" MaxLength="255" />
+    <Property Name="factura" Type="int" />
+    <Property Name="area_negocio" Type="int" />
+    <Property Name="ejecutivo" Type="varchar" MaxLength="255" />
+    <Property Name="fecha_factura" Type="datetime" Precision="0" />
+    <Property Name="vencimiento" Type="datetime" Precision="0" />
+    <Property Name="ano_mes" Type="varchar" MaxLength="255" />
+    <Property Name="total_facturado" Type="int" />
+    <Property Name="pagado" Type="int" />
+    <Property Name="cheques_en_cartera" Type="int" />
+    <Property Name="diferencia" Type="int" />
+    <Property Name="deuda_sin_documentar" Type="int" />
+    <Property Name="deuda_sin_doc_ven" Type="int" />
+    <Property Name="dias" Type="int" />
+    <Property Name="deuda_total" Type="int" />
+    <Property Name="fecha_cheques" Type="datetime" Precision="0" />
+    <Property Name="venc_7" Type="int" />
+    <Property Name="venc_15" Type="int" />
+    <Property Name="venc_21" Type="int" />
+    <Property Name="venc_30" Type="int" />
+    <Property Name="an1" Type="int" />
+    <Property Name="an2" Type="int" />
+    <Property Name="an3" Type="int" />
+    <Property Name="an4" Type="int" />
+    <Property Name="estado" Type="varchar" MaxLength="255" />
+    <Property Name="existe" Type="varchar" MaxLength="255" />
+    <Property Name="existe2" Type="varchar" MaxLength="255" />
+    <Property Name="existe3" Type="varchar" MaxLength="255" />
+    <Property Name="ano" Type="int" />
+    <Property Name="mes" Type="int" />
+    <Property Name="dia" Type="int" />
+    <Property Name="existe4" Type="varchar" MaxLength="255" />
+    <Property Name="senal_advertencia" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="familia_complementaria">
+    <Key>
+      <PropertyRef Name="Id_complementarios" />
+    </Key>
+    <Property Name="Id_complementarios" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="familia" Type="varchar" MaxLength="255" />
+    <Property Name="orden" Type="varchar" MaxLength="255" />
+    <Property Name="familia_complementaria" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="familia_complementaria1">
+    <Key>
+      <PropertyRef Name="Id_complementarios" />
+    </Key>
+    <Property Name="Id_complementarios" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="familia" Type="varchar" MaxLength="255" />
+    <Property Name="familia_complementaria" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="fecha">
+    <Key>
+      <PropertyRef Name="Id_fecha" />
+    </Key>
+    <Property Name="Id_fecha" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" Precision="0" />
+    <Property Name="Mes" Type="varchar" MaxLength="255" />
+    <Property Name="Año" Type="varchar" MaxLength="255" />
+    <Property Name="Mes_n" Type="int" />
+    <Property Name="Trimestre" Type="int" />
+    <Property Name="Semestre" Type="int" />
+  </EntityType>
+  <EntityType Name="folio">
+    <Key>
+      <PropertyRef Name="Id_folio" />
+    </Key>
+    <Property Name="Id_folio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="folio" Type="double" />
+    <Property Name="numero_pedido" Type="varchar" MaxLength="50" />
+    <Property Name="cliente" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="folio_compra">
+    <Key>
+      <PropertyRef Name="Id_folio_compra" />
+    </Key>
+    <Property Name="Id_folio_compra" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="folio_compra" Type="double" />
+    <Property Name="numero_pedido" Type="double" />
+    <Property Name="proveedor" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="folio_guias">
+    <Key>
+      <PropertyRef Name="Id_folio" />
+    </Key>
+    <Property Name="Id_folio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="folio" Type="double" />
+    <Property Name="numero_pedido" Type="varchar" MaxLength="50" />
+    <Property Name="cliente" Type="varchar" MaxLength="100" />
+    <Property Name="condicion" Type="int" />
+  </EntityType>
+  <EntityType Name="folio_nc">
+    <Key>
+      <PropertyRef Name="Id_folio_nc" />
+    </Key>
+    <Property Name="Id_folio_nc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="folio" Type="varchar" MaxLength="50" />
+    <Property Name="nota_credito" Type="varchar" MaxLength="50" />
+    <Property Name="factura" Type="varchar" MaxLength="100" />
+    <Property Name="cliente" Type="varchar" MaxLength="45" />
+    <Property Name="con_venta" Type="varchar" MaxLength="45" />
+    <Property Name="con_prod" Type="varchar" MaxLength="45" />
+    <Property Name="obs_venta" Type="mediumtext" />
+    <Property Name="con_material" Type="varchar" MaxLength="45" />
+    <Property Name="con_desp" Type="varchar" MaxLength="45" />
+    <Property Name="obs_logistica" Type="mediumtext" />
+    <Property Name="con_inv" Type="varchar" MaxLength="45" />
+    <Property Name="obs_serv" Type="mediumtext" />
+    <Property Name="autoriza_venta" Type="varchar" MaxLength="45" />
+    <Property Name="autoriza_logistica" Type="varchar" MaxLength="45" />
+    <Property Name="autoriza_serv" Type="varchar" MaxLength="45" />
+    <Property Name="motivo" Type="varchar" MaxLength="45" />
+    <Property Name="status" Type="varchar" MaxLength="45" />
+    <Property Name="fecha_reclamo" Type="datetime" Precision="0" />
+    <Property Name="contacto" Type="varchar" MaxLength="45" />
+    <Property Name="respuesta" Type="mediumtext" />
+    <Property Name="condicion" Type="int" />
+  </EntityType>
+  <EntityType Name="folio_nc3">
+    <Key>
+      <PropertyRef Name="Id_folio_nc" />
+    </Key>
+    <Property Name="Id_folio_nc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="folio" Type="varchar" MaxLength="50" />
+    <Property Name="nota_credito" Type="varchar" MaxLength="50" />
+    <Property Name="factura" Type="varchar" MaxLength="100" />
+    <Property Name="cliente" Type="varchar" MaxLength="45" />
+    <Property Name="con_venta" Type="varchar" MaxLength="45" />
+    <Property Name="con_prod" Type="varchar" MaxLength="45" />
+    <Property Name="obs_venta" Type="mediumtext" />
+    <Property Name="con_material" Type="varchar" MaxLength="45" />
+    <Property Name="con_desp" Type="varchar" MaxLength="45" />
+    <Property Name="obs_logistica" Type="mediumtext" />
+    <Property Name="con_inv" Type="varchar" MaxLength="45" />
+    <Property Name="obs_serv" Type="mediumtext" />
+    <Property Name="autoriza_venta" Type="varchar" MaxLength="45" />
+    <Property Name="autoriza_logistica" Type="varchar" MaxLength="45" />
+    <Property Name="autoriza_serv" Type="varchar" MaxLength="45" />
+    <Property Name="motivo" Type="varchar" MaxLength="45" />
+    <Property Name="status" Type="varchar" MaxLength="45" />
+    <Property Name="fecha_reclamo" Type="datetime" Precision="0" />
+    <Property Name="contacto" Type="varchar" MaxLength="45" />
+    <Property Name="respuesta" Type="mediumtext" />
+  </EntityType>
+  <EntityType Name="folio_ruta">
+    <Key>
+      <PropertyRef Name="Id_folio_ruta" />
+    </Key>
+    <Property Name="Id_folio_ruta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="folio_ruta" Type="double" />
+  </EntityType>
+  <EntityType Name="folio3">
+    <Key>
+      <PropertyRef Name="Id_folio" />
+    </Key>
+    <Property Name="Id_folio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="folio" Type="double" />
+    <Property Name="numero_pedido" Type="varchar" MaxLength="50" />
+    <Property Name="cliente" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="folio4">
+    <Key>
+      <PropertyRef Name="Id_folio" />
+    </Key>
+    <Property Name="Id_folio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="folio" Type="double" />
+    <Property Name="numero_pedido" Type="varchar" MaxLength="50" />
+    <Property Name="cliente" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="folios_factura">
+    <Key>
+      <PropertyRef Name="Id_folios" />
+    </Key>
+    <Property Name="Id_folios" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipo" Type="varchar" MaxLength="255" />
+    <Property Name="doc" Type="varchar" MaxLength="255" />
+    <Property Name="fol_in" Type="int" />
+    <Property Name="fol_fin" Type="int" />
+    <Property Name="ult_fol" Type="int" />
+  </EntityType>
+  <EntityType Name="guias_despacho">
+    <Key>
+      <PropertyRef Name="Id_guia" />
+    </Key>
+    <Property Name="Id_guia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="folio_guia" Type="int" />
+    <Property Name="tipo_guia" Type="int" />
+    <Property Name="rut_cliente" Type="varchar" MaxLength="255" />
+    <Property Name="factura_rel" Type="int" />
+  </EntityType>
+  <EntityType Name="guias_facturar">
+    <Key>
+      <PropertyRef Name="Id_guias_facturar" />
+    </Key>
+    <Property Name="Id_guias_facturar" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cliente" Type="varchar" MaxLength="255" />
+    <Property Name="rut" Type="varchar" MaxLength="255" />
+    <Property Name="factura" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="pendiente" Type="bit" />
+  </EntityType>
+  <EntityType Name="historial_solicitud_ticket">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="comentario" Type="text" Nullable="false" />
+    <Property Name="imagen" Type="varchar" MaxLength="100" />
+    <Property Name="ingresado" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="usuario" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="solicitud_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="llegada_ruta">
+    <Key>
+      <PropertyRef Name="Id_llegada_ruta" />
+    </Key>
+    <Property Name="Id_llegada_ruta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="usuario" Type="varchar" MaxLength="255" />
+    <Property Name="folio" Type="double" />
+    <Property Name="Fecha" Type="datetime" Precision="0" />
+    <Property Name="Hora" Type="datetime" Precision="0" />
+  </EntityType>
+  <EntityType Name="llegada_ruta2">
+    <Key>
+      <PropertyRef Name="Id_llegada_ruta" />
+    </Key>
+    <Property Name="Id_llegada_ruta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="usuario" Type="varchar" MaxLength="255" />
+    <Property Name="folio" Type="double" />
+    <Property Name="Fecha" Type="date" />
+    <Property Name="Hora" Type="time" Precision="0" />
+  </EntityType>
+  <EntityType Name="log_emails">
+    <Key>
+      <PropertyRef Name="Id_log_emails" />
+    </Key>
+    <Property Name="Id_log_emails" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pedido" Type="double" />
+    <Property Name="factura" Type="varchar" MaxLength="255" />
+    <Property Name="rut_cliente" Type="varchar" MaxLength="255" />
+    <Property Name="nombre_cliente" Type="varchar" MaxLength="255" />
+    <Property Name="email" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="nota_compra">
+    <Key>
+      <PropertyRef Name="Id_nota_compra" />
+    </Key>
+    <Property Name="Id_nota_compra" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="folio_compra" Type="double" />
+    <Property Name="fecha_compra" Type="datetime" Precision="0" />
+    <Property Name="hora_compra" Type="datetime" Precision="0" />
+    <Property Name="nombre_ejecutivo" Type="varchar" MaxLength="255" />
+    <Property Name="pai_cn" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="nota_credito">
+    <Key>
+      <PropertyRef Name="id_nc" />
+    </Key>
+    <Property Name="id_nc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="n_factura" Type="varchar" MaxLength="255" />
+    <Property Name="nota_credito" Type="varchar" MaxLength="255" />
+    <Property Name="razon_social" Type="varchar" MaxLength="255" />
+    <Property Name="rut" Type="varchar" MaxLength="255" />
+    <Property Name="accion" Type="varchar" MaxLength="255" />
+    <Property Name="error1" Type="varchar" MaxLength="255" />
+    <Property Name="observaciones" Type="varchar" MaxLength="255" />
+    <Property Name="motivo" Type="varchar" MaxLength="255" />
+    <Property Name="venta_neta" Type="double" />
+    <Property Name="iva" Type="double" />
+    <Property Name="total" Type="double" />
+    <Property Name="usuario" Type="varchar" MaxLength="45" />
+    <Property Name="fecha" Type="datetime" Precision="0" />
+    <Property Name="hora" Type="datetime" Precision="0" />
+  </EntityType>
+  <EntityType Name="nota_credito_detalle">
+    <Key>
+      <PropertyRef Name="id_nc_detalle" />
+    </Key>
+    <Property Name="id_nc_detalle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="n_factura" Type="varchar" MaxLength="255" />
+    <Property Name="nota_credito" Type="varchar" MaxLength="255" />
+    <Property Name="codigo" Type="varchar" MaxLength="255" />
+    <Property Name="precio_rollo" Type="double" />
+    <Property Name="cantidad_detalle" Type="double" />
+    <Property Name="total_detalle" Type="double" />
+  </EntityType>
+  <EntityType Name="nota_credito_detalle3">
+    <Key>
+      <PropertyRef Name="id_nc_detalle" />
+    </Key>
+    <Property Name="id_nc_detalle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="n_factura" Type="varchar" MaxLength="255" />
+    <Property Name="nota_credito" Type="varchar" MaxLength="255" />
+    <Property Name="codigo" Type="varchar" MaxLength="255" />
+    <Property Name="precio_rollo" Type="double" />
+    <Property Name="cantidad_detalle" Type="double" />
+    <Property Name="total_detalle" Type="double" />
+  </EntityType>
+  <EntityType Name="nota_credito3">
+    <Key>
+      <PropertyRef Name="id_nc" />
+    </Key>
+    <Property Name="id_nc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="n_factura" Type="varchar" MaxLength="255" />
+    <Property Name="nota_credito" Type="varchar" MaxLength="255" />
+    <Property Name="razon_social" Type="varchar" MaxLength="255" />
+    <Property Name="rut" Type="varchar" MaxLength="255" />
+    <Property Name="accion" Type="varchar" MaxLength="255" />
+    <Property Name="error1" Type="varchar" MaxLength="255" />
+    <Property Name="observaciones" Type="varchar" MaxLength="255" />
+    <Property Name="motivo" Type="varchar" MaxLength="255" />
+    <Property Name="venta_neta" Type="double" />
+    <Property Name="iva" Type="double" />
+    <Property Name="total" Type="double" />
+    <Property Name="usuario" Type="varchar" MaxLength="45" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="hora" Type="datetime" Precision="0" />
+  </EntityType>
+  <EntityType Name="notas_de_pedido">
+    <Key>
+      <PropertyRef Name="Id_notas_de_pedido" />
+    </Key>
+    <Property Name="Id_notas_de_pedido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Folio" Type="double" />
+    <Property Name="Fecha" Type="date" />
+    <Property Name="Hora" Type="time" Precision="0" />
+    <Property Name="Fecha_desp" Type="varchar" MaxLength="45" />
+    <Property Name="toma_pedido" Type="varchar" MaxLength="45" />
+    <Property Name="solicitado" Type="varchar" MaxLength="45" />
+    <Property Name="observaciones" Type="varchar" MaxLength="200" />
+    <Property Name="comuna_despacho" Type="varchar" MaxLength="45" />
+    <Property Name="direccion_despacho" Type="varchar" MaxLength="150" />
+    <Property Name="despachado" Type="bit" />
+    <Property Name="retira_cliente" Type="bit" />
+  </EntityType>
+  <EntityType Name="notas_de_pedido_val">
+    <Key>
+      <PropertyRef Name="Id_notas_de_pedido" />
+    </Key>
+    <Property Name="Id_notas_de_pedido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Folio" Type="double" />
+    <Property Name="Fecha" Type="date" />
+    <Property Name="Hora" Type="datetime" Precision="0" />
+    <Property Name="Fecha_desp" Type="varchar" MaxLength="45" />
+    <Property Name="toma_pedido" Type="varchar" MaxLength="45" />
+    <Property Name="solicitado" Type="varchar" MaxLength="45" />
+    <Property Name="observaciones" Type="varchar" MaxLength="200" />
+    <Property Name="comuna_despacho" Type="varchar" MaxLength="150" />
+    <Property Name="direccion_despacho" Type="varchar" MaxLength="150" />
+    <Property Name="retira_cliente" Type="bit" />
+    <Property Name="monto" Type="double" />
+  </EntityType>
+  <EntityType Name="notas_de_pedido_val_aut">
+    <Key>
+      <PropertyRef Name="Id_notas_de_pedido" />
+    </Key>
+    <Property Name="Id_notas_de_pedido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Folio" Type="double" />
+    <Property Name="Fecha" Type="datetime" Precision="0" />
+    <Property Name="Hora" Type="datetime" Precision="0" />
+    <Property Name="Fecha_desp" Type="varchar" MaxLength="45" />
+    <Property Name="toma_pedido" Type="varchar" MaxLength="45" />
+    <Property Name="solicitado" Type="varchar" MaxLength="45" />
+    <Property Name="observaciones" Type="varchar" MaxLength="200" />
+    <Property Name="comuna_despacho" Type="varchar" MaxLength="150" />
+    <Property Name="direccion_despacho" Type="varchar" MaxLength="150" />
+    <Property Name="autoriza" Type="varchar" MaxLength="45" />
+    <Property Name="tipo" Type="varchar" MaxLength="45" />
+    <Property Name="observaciones_aut" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="notas_de_pedido_val_guias">
+    <Key>
+      <PropertyRef Name="Id_notas_de_pedido" />
+    </Key>
+    <Property Name="Id_notas_de_pedido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Folio" Type="double" />
+    <Property Name="Fecha" Type="datetime" Precision="0" />
+    <Property Name="Hora" Type="datetime" Precision="0" />
+    <Property Name="Fecha_desp" Type="varchar" MaxLength="45" />
+    <Property Name="toma_pedido" Type="varchar" MaxLength="45" />
+    <Property Name="solicitado" Type="varchar" MaxLength="45" />
+    <Property Name="observaciones" Type="varchar" MaxLength="200" />
+    <Property Name="comuna_despacho" Type="varchar" MaxLength="150" />
+    <Property Name="direccion_despacho" Type="varchar" MaxLength="150" />
+    <Property Name="tipo_doc" Type="double" />
+    <Property Name="factura_ref" Type="varchar" MaxLength="255" />
+    <Property Name="fecha_ref" Type="date" />
+  </EntityType>
+  <EntityType Name="notas_de_pedido_val_rech">
+    <Key>
+      <PropertyRef Name="Id_notas_de_pedido" />
+    </Key>
+    <Property Name="Id_notas_de_pedido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Folio" Type="double" />
+    <Property Name="Fecha" Type="datetime" Precision="0" />
+    <Property Name="Hora" Type="datetime" Precision="0" />
+    <Property Name="Fecha_desp" Type="varchar" MaxLength="45" />
+    <Property Name="toma_pedido" Type="varchar" MaxLength="45" />
+    <Property Name="solicitado" Type="varchar" MaxLength="45" />
+    <Property Name="observaciones" Type="varchar" MaxLength="200" />
+    <Property Name="comuna_despacho" Type="varchar" MaxLength="150" />
+    <Property Name="direccion_despacho" Type="varchar" MaxLength="150" />
+    <Property Name="autoriza" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="notas_de_pedido3">
+    <Key>
+      <PropertyRef Name="Id_notas_de_pedido" />
+    </Key>
+    <Property Name="Id_notas_de_pedido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Folio" Type="double" />
+    <Property Name="Fecha" Type="datetime" Precision="0" />
+    <Property Name="Hora" Type="time" Precision="0" />
+    <Property Name="Fecha_desp" Type="varchar" MaxLength="45" />
+    <Property Name="toma_pedido" Type="varchar" MaxLength="45" />
+    <Property Name="solicitado" Type="varchar" MaxLength="45" />
+    <Property Name="observaciones" Type="varchar" MaxLength="200" />
+    <Property Name="comuna_despacho" Type="varchar" MaxLength="45" />
+    <Property Name="direccion_despacho" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="notas_guias">
+    <Key>
+      <PropertyRef Name="Id_notas_de_pedido" />
+    </Key>
+    <Property Name="Id_notas_de_pedido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Folio" Type="double" />
+    <Property Name="Fecha" Type="date" />
+    <Property Name="Hora" Type="time" Precision="0" />
+    <Property Name="Fecha_desp" Type="varchar" MaxLength="45" />
+    <Property Name="toma_pedido" Type="varchar" MaxLength="45" />
+    <Property Name="solicitado" Type="varchar" MaxLength="45" />
+    <Property Name="observaciones" Type="varchar" MaxLength="200" />
+    <Property Name="comuna_despacho" Type="varchar" MaxLength="45" />
+    <Property Name="direccion_despacho" Type="varchar" MaxLength="150" />
+    <Property Name="tipo_doc" Type="double" />
+    <Property Name="factura_ref" Type="varchar" MaxLength="45" />
+    <Property Name="fecha_ref" Type="date" />
+  </EntityType>
+  <EntityType Name="numero_pedido">
+    <Key>
+      <PropertyRef Name="Id_numero_pedido" />
+    </Key>
+    <Property Name="Id_numero_pedido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="numero_pedido" Type="double" />
+    <Property Name="cliente" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="observaciones_llegada">
+    <Key>
+      <PropertyRef Name="Id_observaciones" />
+    </Key>
+    <Property Name="Id_observaciones" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pendiente" Type="varchar" MaxLength="255" />
+    <Property Name="folio_ruta" Type="double" />
+    <Property Name="tipo" Type="varchar" MaxLength="255" />
+    <Property Name="num_doc" Type="double" />
+    <Property Name="observacion" Type="varchar" MaxLength="255" />
+    <Property Name="condicion_pago" Type="varchar" MaxLength="100" />
+    <Property Name="cumplimiento" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="observaciones_llegada1">
+    <Key>
+      <PropertyRef Name="Id_observaciones" />
+    </Key>
+    <Property Name="Id_observaciones" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pendiente" Type="varchar" MaxLength="255" />
+    <Property Name="folio_ruta" Type="double" />
+    <Property Name="tipo" Type="varchar" MaxLength="255" />
+    <Property Name="num_doc" Type="double" />
+    <Property Name="observacion" Type="varchar" MaxLength="255" />
+    <Property Name="condicion_pago" Type="varchar" MaxLength="255" />
+    <Property Name="cumplimiento" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="ofertas">
+    <Key>
+      <PropertyRef Name="Id_ofertas" />
+    </Key>
+    <Property Name="Id_ofertas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha" Type="datetime" Precision="0" />
+    <Property Name="descripcion" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="programacion_llamadas">
+    <Key>
+      <PropertyRef Name="Id_programacion" />
+    </Key>
+    <Property Name="Id_programacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha_actual" Type="datetime" Precision="0" />
+    <Property Name="fecha_programada" Type="datetime" Precision="0" />
+    <Property Name="Tipo" Type="varchar" MaxLength="255" />
+    <Property Name="folio" Type="double" />
+    <Property Name="hecho" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="proveedores">
+    <Key>
+      <PropertyRef Name="Id_proveedores" />
+    </Key>
+    <Property Name="Id_proveedores" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipo_prov" Type="varchar" MaxLength="255" />
+    <Property Name="rut" Type="varchar" MaxLength="20" />
+    <Property Name="razon_social" Type="varchar" MaxLength="255" />
+    <Property Name="giro" Type="varchar" MaxLength="255" />
+    <Property Name="pais" Type="varchar" MaxLength="255" />
+    <Property Name="ciudad" Type="varchar" MaxLength="255" />
+    <Property Name="direccion" Type="varchar" MaxLength="255" />
+    <Property Name="telefono" Type="varchar" MaxLength="255" />
+    <Property Name="observacion" Type="varchar" MaxLength="255" />
+    <Property Name="nombre_comer" Type="varchar" MaxLength="255" />
+    <Property Name="cargo_comer" Type="varchar" MaxLength="255" />
+    <Property Name="telefono_comer" Type="varchar" MaxLength="255" />
+    <Property Name="email_comer" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="reemprimir">
+    <Key>
+      <PropertyRef Name="Id_reemprimir" />
+    </Key>
+    <Property Name="Id_reemprimir" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="usuario" Type="varchar" MaxLength="255" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="hora" Type="time" Precision="0" />
+    <Property Name="tipo_doc" Type="int" />
+    <Property Name="num_doc" Type="int" />
+    <Property Name="cuenta_imp" Type="int" />
+  </EntityType>
+  <EntityType Name="reg_cheques">
+    <Key>
+      <PropertyRef Name="Id_cambio" />
+    </Key>
+    <Property Name="Id_cambio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rut_cliente" Type="varchar" MaxLength="20" />
+    <Property Name="num_cheque" Type="int" />
+    <Property Name="tipo_cambio_cheque" Type="varchar" MaxLength="1" />
+    <Property Name="observacion" Type="varchar" MaxLength="255" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="usuario" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="registro_de_pagos4">
+    <Key>
+      <PropertyRef Name="Id_registro_pagos" />
+    </Key>
+    <Property Name="Id_registro_pagos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha" Type="datetime" Precision="0" />
+    <Property Name="codigo" Type="varchar" MaxLength="255" />
+    <Property Name="operacion" Type="varchar" MaxLength="255" />
+    <Property Name="banco" Type="varchar" MaxLength="255" />
+    <Property Name="serie" Type="varchar" MaxLength="255" />
+    <Property Name="factura" Type="varchar" MaxLength="255" />
+    <Property Name="total_adeudado" Type="int" />
+    <Property Name="monto" Type="int" />
+    <Property Name="diferencia" Type="varchar" MaxLength="255" />
+    <Property Name="fecha_cheque" Type="datetime" Precision="0" />
+  </EntityType>
+  <EntityType Name="registro_llamada">
+    <Key>
+      <PropertyRef Name="Id_registro_llamada" />
+    </Key>
+    <Property Name="Id_registro_llamada" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cliente" Type="varchar" MaxLength="255" />
+    <Property Name="atendio" Type="varchar" MaxLength="255" />
+    <Property Name="motivo" Type="varchar" MaxLength="255" />
+    <Property Name="telefono" Type="varchar" MaxLength="255" />
+    <Property Name="tipo_llamada" Type="varchar" MaxLength="255" />
+    <Property Name="llamada_iniciada" Type="time" Precision="0" />
+    <Property Name="llamada_finalizada" Type="time" Precision="0" />
+    <Property Name="duracion" Type="time" Precision="0" />
+    <Property Name="estado_de_linea" Type="varchar" MaxLength="255" />
+    <Property Name="importancia" Type="varchar" MaxLength="255" />
+    <Property Name="informe" Type="varchar" MaxLength="255" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="usuario" Type="varchar" MaxLength="45" />
+    <Property Name="tipo" Type="varchar" MaxLength="45" />
+    <Property Name="tipo_medio" Type="varchar" MaxLength="45" />
+    <Property Name="folio" Type="double" />
+  </EntityType>
+  <EntityType Name="registro_pagos">
+    <Key>
+      <PropertyRef Name="Id_registro_pagos" />
+    </Key>
+    <Property Name="Id_registro_pagos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha" Type="datetime" Precision="0" />
+    <Property Name="operacion" Type="varchar" MaxLength="255" />
+    <Property Name="banco" Type="varchar" MaxLength="255" />
+    <Property Name="serie" Type="varchar" MaxLength="255" />
+    <Property Name="factura" Type="varchar" MaxLength="50" />
+    <Property Name="total_adecuado" Type="double" />
+    <Property Name="monto" Type="double" />
+    <Property Name="diferencia" Type="double" />
+    <Property Name="fecha_cheque" Type="datetime" Precision="0" />
+    <Property Name="pendiente" Type="varchar" MaxLength="255" />
+    <Property Name="estado" Type="varchar" MaxLength="255" />
+    <Property Name="cliente" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="registro_pagos3">
+    <Key>
+      <PropertyRef Name="Id_registro_pagos" />
+    </Key>
+    <Property Name="Id_registro_pagos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha" Type="datetime" Precision="0" />
+    <Property Name="operacion" Type="varchar" MaxLength="255" />
+    <Property Name="banco" Type="varchar" MaxLength="255" />
+    <Property Name="serie" Type="varchar" MaxLength="255" />
+    <Property Name="factura" Type="varchar" MaxLength="50" />
+    <Property Name="total_adecuado" Type="double" />
+    <Property Name="monto" Type="double" />
+    <Property Name="diferencia" Type="double" />
+    <Property Name="fecha_cheque" Type="datetime" Precision="0" />
+    <Property Name="pendiente" Type="varchar" MaxLength="255" />
+    <Property Name="estado" Type="varchar" MaxLength="255" />
+    <Property Name="cliente" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="registro_pagos4">
+    <Key>
+      <PropertyRef Name="Id_registro_pagos" />
+    </Key>
+    <Property Name="Id_registro_pagos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha" Type="datetime" Precision="0" />
+    <Property Name="operacion" Type="varchar" MaxLength="255" />
+    <Property Name="banco" Type="varchar" MaxLength="255" />
+    <Property Name="serie" Type="varchar" MaxLength="255" />
+    <Property Name="factura" Type="varchar" MaxLength="50" />
+    <Property Name="total_adecuado" Type="double" />
+    <Property Name="monto" Type="double" />
+    <Property Name="diferencia" Type="double" />
+    <Property Name="fecha_cheque" Type="datetime" Precision="0" />
+    <Property Name="pendiente" Type="varchar" MaxLength="255" />
+    <Property Name="estado" Type="varchar" MaxLength="255" />
+    <Property Name="cliente" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="registro_reemitir">
+    <Key>
+      <PropertyRef Name="Id_registro" />
+    </Key>
+    <Property Name="Id_registro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="usuario" Type="varchar" MaxLength="255" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="hora" Type="time" Precision="0" />
+    <Property Name="tipo_doc" Type="varchar" MaxLength="255" />
+    <Property Name="num_doc" Type="double" />
+    <Property Name="num_emi" Type="double" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'def.const113_papiro.registro_subcontrato' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="registro_subcontrato">
+          <Property Name="Id_registro_subcontrato" Type="int" />
+          <Property Name="codigo_subcontrato" Type="int" />
+          <Property Name="representante" Type="varchar" MaxLength="255" />
+          <Property Name="tipo_de_subcontrato" Type="varchar" MaxLength="255" />
+          <Property Name="glosa" Type="varchar" MaxLength="255" />
+          <Property Name="forma_de_pago" Type="varchar" MaxLength="255" />
+          <Property Name="precio" Type="int" />
+          <Property Name="tipo_de_medicion" Type="varchar" MaxLength="255" />
+          <Property Name="cuenta_costo" Type="varchar" MaxLength="255" />
+          <Property Name="Obra" Type="varchar" MaxLength="255" />
+          <Property Name="cantidad_contrato" Type="double" />
+          <Property Name="cantidad_modificacion" Type="double" />
+          <Property Name="tipo_registro" Type="varchar" MaxLength="45" />
+        </EntityType>-->
+  <EntityType Name="retiro_documentos">
+    <Key>
+      <PropertyRef Name="Id_retiro" />
+    </Key>
+    <Property Name="Id_retiro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="folio" Type="int" />
+    <Property Name="cliente" Type="varchar" MaxLength="255" />
+    <Property Name="rut" Type="varchar" MaxLength="255" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="usuario" Type="varchar" MaxLength="255" />
+    <Property Name="factura" Type="varchar" MaxLength="255" />
+    <Property Name="monto" Type="int" />
+    <Property Name="contacto" Type="varchar" MaxLength="255" />
+    <Property Name="horario" Type="varchar" MaxLength="255" />
+    <Property Name="direccion" Type="varchar" MaxLength="255" />
+    <Property Name="comuna" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="ruta">
+    <Key>
+      <PropertyRef Name="Id_ruta" />
+    </Key>
+    <Property Name="Id_ruta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="usuario" Type="varchar" MaxLength="255" />
+    <Property Name="chofer" Type="varchar" MaxLength="255" />
+    <Property Name="vehiculo" Type="varchar" MaxLength="255" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="hora" Type="time" Precision="0" />
+    <Property Name="n_pedido" Type="double" />
+    <Property Name="ejecutivo" Type="varchar" MaxLength="255" />
+    <Property Name="direccion" Type="varchar" MaxLength="255" />
+    <Property Name="comuna" Type="varchar" MaxLength="255" />
+    <Property Name="folio_ruta" Type="double" />
+    <Property Name="tipo" Type="varchar" MaxLength="45" />
+    <Property Name="cliente" Type="varchar" MaxLength="250" />
+    <Property Name="peoneta" Type="varchar" MaxLength="255" />
+    <Property Name="revisa_camioneta" Type="varchar" MaxLength="255" />
+    <Property Name="revisa_camioneta2" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="ruta1">
+    <Key>
+      <PropertyRef Name="Id_ruta" />
+    </Key>
+    <Property Name="Id_ruta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="usuario" Type="varchar" MaxLength="255" />
+    <Property Name="chofer" Type="varchar" MaxLength="255" />
+    <Property Name="vehiculo" Type="varchar" MaxLength="255" />
+    <Property Name="fecha" Type="datetime" Precision="0" />
+    <Property Name="hora" Type="datetime" Precision="0" />
+    <Property Name="n_pedido" Type="double" />
+    <Property Name="ejecutivo" Type="varchar" MaxLength="255" />
+    <Property Name="direccion" Type="varchar" MaxLength="255" />
+    <Property Name="comuna" Type="varchar" MaxLength="255" />
+    <Property Name="folio_ruta" Type="varchar" MaxLength="255" />
+    <Property Name="tipo" Type="varchar" MaxLength="45" />
+    <Property Name="cliente" Type="varchar" MaxLength="250" />
+    <Property Name="peoneta" Type="varchar" MaxLength="255" />
+    <Property Name="revisa_camioneta" Type="varchar" MaxLength="450" />
+  </EntityType>
+  <EntityType Name="solicitud">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="asunto" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="departamento" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="estado" Type="bit" Nullable="false" />
+    <Property Name="fecha_ingreso" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="fecha_respuesta" Type="date" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="prioridad" Type="enum" Nullable="false" />
+  </EntityType>
+  <EntityType Name="stock">
+    <Key>
+      <PropertyRef Name="id_stock" />
+    </Key>
+    <Property Name="id_stock" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="255" />
+    <Property Name="Tipo_1" Type="varchar" MaxLength="255" />
+    <Property Name="Tipo_2" Type="varchar" MaxLength="255" />
+    <Property Name="Medida" Type="varchar" MaxLength="255" />
+    <Property Name="ctda_anter" Type="double" />
+    <Property Name="ctda_actual" Type="double" />
+    <Property Name="ancho" Type="double" />
+    <Property Name="largo" Type="double" />
+    <Property Name="area" Type="double" />
+    <Property Name="mt_totales" Type="double" />
+    <Property Name="observacion" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="sustituto">
+    <Key>
+      <PropertyRef Name="Id_sustituto" />
+    </Key>
+    <Property Name="Id_sustituto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo1" Type="varchar" MaxLength="255" />
+    <Property Name="descripcion1" Type="varchar" MaxLength="255" />
+    <Property Name="codigo2" Type="varchar" MaxLength="255" />
+    <Property Name="descripcion2" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="tabla_asociar">
+    <Key>
+      <PropertyRef Name="Id_asociar" />
+    </Key>
+    <Property Name="Id_asociar" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha" Type="datetime" Precision="0" />
+    <Property Name="numero_pedido" Type="varchar" MaxLength="255" />
+    <Property Name="numero_documento" Type="varchar" MaxLength="255" />
+    <Property Name="tipo" Type="varchar" MaxLength="255" />
+    <Property Name="cliente" Type="varchar" MaxLength="255" />
+    <Property Name="corresponde_cliente" Type="varchar" MaxLength="255" />
+    <Property Name="monto" Type="varchar" MaxLength="255" />
+    <Property Name="corresponde_monto" Type="varchar" MaxLength="255" />
+    <Property Name="ejecutivo" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="cod_usuario" />
+    </Key>
+    <Property Name="cod_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
+    <Property Name="Obra" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="usuario_adm">
+    <Key>
+      <PropertyRef Name="Id_usuario" />
+    </Key>
+    <Property Name="Id_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipo_nombre" Type="varchar" MaxLength="255" />
+    <Property Name="usuario" Type="varchar" MaxLength="255" />
+    <Property Name="tipo_id" Type="int" />
+    <Property Name="modulo_nombre" Type="varchar" MaxLength="255" />
+    <Property Name="modulo_id" Type="int" />
+  </EntityType>
+  <EntityType Name="venta_guias">
+    <Key>
+      <PropertyRef Name="Id_ventas" />
+    </Key>
+    <Property Name="Id_ventas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cliente" Type="varchar" MaxLength="255" />
+    <Property Name="rut" Type="varchar" MaxLength="255" />
+    <Property Name="area_negocio" Type="varchar" MaxLength="255" />
+    <Property Name="senal_advertencia" Type="varchar" MaxLength="255" />
+    <Property Name="comuna" Type="varchar" MaxLength="255" />
+    <Property Name="familia_1" Type="varchar" MaxLength="255" />
+    <Property Name="familia_2" Type="varchar" MaxLength="255" />
+    <Property Name="familia_3" Type="varchar" MaxLength="255" />
+    <Property Name="tipo_1" Type="varchar" MaxLength="255" />
+    <Property Name="medidas" Type="varchar" MaxLength="255" />
+    <Property Name="codigo_producto" Type="varchar" MaxLength="255" />
+    <Property Name="proveedor" Type="varchar" MaxLength="255" />
+    <Property Name="descripcion" Type="varchar" MaxLength="255" />
+    <Property Name="area_calc" Type="double" />
+    <Property Name="cantidad" Type="double" />
+    <Property Name="area_total" Type="double" />
+    <Property Name="venta_rollo" Type="double" />
+    <Property Name="unit_venta_m2" Type="double" />
+    <Property Name="venta_neta" Type="double" />
+    <Property Name="venta_iva" Type="double" />
+    <Property Name="venta_total" Type="double" />
+    <Property Name="condicion" Type="varchar" MaxLength="255" />
+    <Property Name="forma_pago" Type="varchar" MaxLength="255" />
+    <Property Name="dias_pago" Type="varchar" MaxLength="255" />
+    <Property Name="ejecutivo" Type="varchar" MaxLength="255" />
+    <Property Name="observaciones" Type="varchar" MaxLength="45" />
+    <Property Name="precio_lista" Type="double" />
+    <Property Name="precio_cliente" Type="int" />
+    <Property Name="fecha" Type="datetime" Precision="0" />
+    <Property Name="numero_pedido" Type="double" />
+    <Property Name="fecha_act" Type="datetime" Precision="0" />
+    <Property Name="hora" Type="datetime" Precision="0" />
+    <Property Name="descuento" Type="double" />
+    <Property Name="numero_folio" Type="double" />
+    <Property Name="toma_pedido" Type="varchar" MaxLength="45" />
+    <Property Name="ancho" Type="double" />
+    <Property Name="largo" Type="double" />
+    <Property Name="solicitado" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="venta_mod">
+    <Key>
+      <PropertyRef Name="Id_ventas" />
+    </Key>
+    <Property Name="Id_ventas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cliente" Type="varchar" MaxLength="255" />
+    <Property Name="rut" Type="varchar" MaxLength="255" />
+    <Property Name="medidas" Type="varchar" MaxLength="255" />
+    <Property Name="codigo_producto" Type="varchar" MaxLength="255" />
+    <Property Name="descripcion" Type="varchar" MaxLength="255" />
+    <Property Name="area_calc" Type="double" />
+    <Property Name="cantidad" Type="double" />
+    <Property Name="area_total" Type="double" />
+    <Property Name="venta_rollo" Type="double" />
+    <Property Name="unit_venta_m2" Type="double" />
+    <Property Name="venta_neta" Type="double" />
+    <Property Name="venta_iva" Type="double" />
+    <Property Name="venta_total" Type="double" />
+    <Property Name="ejecutivo" Type="varchar" MaxLength="255" />
+    <Property Name="fecha_act" Type="datetime" Precision="0" />
+    <Property Name="numero_folio" Type="double" />
+    <Property Name="precio_cliente" Type="double" />
+  </EntityType>
+  <EntityType Name="venta4">
+    <Key>
+      <PropertyRef Name="Id_ventas" />
+    </Key>
+    <Property Name="Id_ventas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cliente" Type="varchar" MaxLength="255" />
+    <Property Name="rut" Type="varchar" MaxLength="255" />
+    <Property Name="area_negocio" Type="varchar" MaxLength="255" />
+    <Property Name="senal_advertencia" Type="varchar" MaxLength="255" />
+    <Property Name="comuna" Type="varchar" MaxLength="255" />
+    <Property Name="familia_1" Type="varchar" MaxLength="255" />
+    <Property Name="familia_2" Type="varchar" MaxLength="255" />
+    <Property Name="familia_3" Type="varchar" MaxLength="255" />
+    <Property Name="tipo_1" Type="varchar" MaxLength="255" />
+    <Property Name="medidas" Type="varchar" MaxLength="255" />
+    <Property Name="codigo_producto" Type="varchar" MaxLength="255" />
+    <Property Name="proveedor" Type="varchar" MaxLength="255" />
+    <Property Name="descripcion" Type="varchar" MaxLength="255" />
+    <Property Name="area_calc" Type="double" />
+    <Property Name="cantidad" Type="double" />
+    <Property Name="area_total" Type="double" />
+    <Property Name="venta_rollo" Type="double" />
+    <Property Name="unit_venta_m2" Type="double" />
+    <Property Name="venta_neta" Type="double" />
+    <Property Name="venta_iva" Type="double" />
+    <Property Name="venta_total" Type="double" />
+    <Property Name="condicion" Type="varchar" MaxLength="255" />
+    <Property Name="forma_pago" Type="varchar" MaxLength="255" />
+    <Property Name="dias_pago" Type="varchar" MaxLength="255" />
+    <Property Name="ejecutivo" Type="varchar" MaxLength="255" />
+    <Property Name="observaciones" Type="varchar" MaxLength="45" />
+    <Property Name="precio_lista" Type="double" />
+    <Property Name="precio_cliente" Type="int" />
+    <Property Name="fecha" Type="datetime" Precision="0" />
+    <Property Name="numero_pedido" Type="double" />
+    <Property Name="fecha_act" Type="datetime" Precision="0" />
+    <Property Name="hora" Type="datetime" Precision="0" />
+    <Property Name="descuento" Type="double" />
+    <Property Name="numero_folio" Type="double" />
+    <Property Name="toma_pedido" Type="varchar" MaxLength="45" />
+    <Property Name="ancho" Type="double" />
+    <Property Name="largo" Type="double" />
+    <Property Name="solicitado" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="venta41">
+    <Key>
+      <PropertyRef Name="Id_ventas" />
+    </Key>
+    <Property Name="Id_ventas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cliente" Type="varchar" MaxLength="255" />
+    <Property Name="rut" Type="varchar" MaxLength="255" />
+    <Property Name="area_negocio" Type="varchar" MaxLength="255" />
+    <Property Name="senal_advertencia" Type="varchar" MaxLength="255" />
+    <Property Name="comuna" Type="varchar" MaxLength="255" />
+    <Property Name="familia_1" Type="varchar" MaxLength="255" />
+    <Property Name="familia_2" Type="varchar" MaxLength="255" />
+    <Property Name="familia_3" Type="varchar" MaxLength="255" />
+    <Property Name="tipo_1" Type="varchar" MaxLength="255" />
+    <Property Name="medidas" Type="varchar" MaxLength="255" />
+    <Property Name="codigo_producto" Type="varchar" MaxLength="255" />
+    <Property Name="proveedor" Type="varchar" MaxLength="255" />
+    <Property Name="descripcion" Type="varchar" MaxLength="255" />
+    <Property Name="area_calc" Type="double" />
+    <Property Name="cantidad" Type="double" />
+    <Property Name="area_total" Type="double" />
+    <Property Name="venta_rollo" Type="double" />
+    <Property Name="unit_venta_m2" Type="double" />
+    <Property Name="venta_neta" Type="double" />
+    <Property Name="venta_iva" Type="double" />
+    <Property Name="venta_total" Type="double" />
+    <Property Name="condicion" Type="varchar" MaxLength="255" />
+    <Property Name="forma_pago" Type="varchar" MaxLength="255" />
+    <Property Name="dias_pago" Type="varchar" MaxLength="255" />
+    <Property Name="ejecutivo" Type="varchar" MaxLength="255" />
+    <Property Name="observaciones" Type="varchar" MaxLength="45" />
+    <Property Name="precio_lista" Type="double" />
+    <Property Name="precio_cliente" Type="int" />
+    <Property Name="fecha" Type="datetime" Precision="0" />
+    <Property Name="numero_pedido" Type="double" />
+    <Property Name="fecha_act" Type="datetime" Precision="0" />
+    <Property Name="hora" Type="datetime" Precision="0" />
+    <Property Name="descuento" Type="double" />
+    <Property Name="numero_folio" Type="double" />
+    <Property Name="toma_pedido" Type="varchar" MaxLength="45" />
+    <Property Name="ancho" Type="double" />
+    <Property Name="largo" Type="double" />
+    <Property Name="solicitado" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityContainer Name="const113_papiroModelStoreContainer">
+    <EntitySet Name="alerta_precios" EntityType="Self.alerta_precios" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="autorizacion_otros" EntityType="Self.autorizacion_otros" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="bloqueo" EntityType="Self.bloqueo" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="cartera" EntityType="Self.cartera" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="categoria" EntityType="Self.categoria" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="clientes" EntityType="Self.clientes" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="codigos" EntityType="Self.codigos" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="codigos3" EntityType="Self.codigos3" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="codigos4" EntityType="Self.codigos4" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="codigos44" EntityType="Self.codigos44" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="complementarios" EntityType="Self.complementarios" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="compras" EntityType="Self.compras" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="compras_doc" EntityType="Self.compras_doc" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="compras_items" EntityType="Self.compras_items" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="contacto_venta" EntityType="Self.contacto_venta" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="contacto_venta1" EntityType="Self.contacto_venta1" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="departamento" EntityType="Self.departamento" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="despachos" EntityType="Self.despachos" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="facturas" EntityType="Self.facturas" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="facturas3" EntityType="Self.facturas3" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="familia_complementaria" EntityType="Self.familia_complementaria" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="familia_complementaria1" EntityType="Self.familia_complementaria1" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="fecha" EntityType="Self.fecha" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="folio" EntityType="Self.folio" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="folio_compra" EntityType="Self.folio_compra" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="folio_guias" EntityType="Self.folio_guias" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="folio_nc" EntityType="Self.folio_nc" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="folio_nc3" EntityType="Self.folio_nc3" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="folio_ruta" EntityType="Self.folio_ruta" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="folio3" EntityType="Self.folio3" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="folio4" EntityType="Self.folio4" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="folios_factura" EntityType="Self.folios_factura" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="guias_despacho" EntityType="Self.guias_despacho" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="guias_facturar" EntityType="Self.guias_facturar" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="historial_solicitud_ticket" EntityType="Self.historial_solicitud_ticket" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="llegada_ruta" EntityType="Self.llegada_ruta" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="llegada_ruta2" EntityType="Self.llegada_ruta2" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="log_emails" EntityType="Self.log_emails" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="nota_compra" EntityType="Self.nota_compra" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="nota_credito" EntityType="Self.nota_credito" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="nota_credito_detalle" EntityType="Self.nota_credito_detalle" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="nota_credito_detalle3" EntityType="Self.nota_credito_detalle3" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="nota_credito3" EntityType="Self.nota_credito3" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="notas_de_pedido" EntityType="Self.notas_de_pedido" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="notas_de_pedido_val" EntityType="Self.notas_de_pedido_val" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="notas_de_pedido_val_aut" EntityType="Self.notas_de_pedido_val_aut" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="notas_de_pedido_val_guias" EntityType="Self.notas_de_pedido_val_guias" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="notas_de_pedido_val_rech" EntityType="Self.notas_de_pedido_val_rech" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="notas_de_pedido3" EntityType="Self.notas_de_pedido3" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="notas_guias" EntityType="Self.notas_guias" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="numero_pedido" EntityType="Self.numero_pedido" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="observaciones_llegada" EntityType="Self.observaciones_llegada" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="observaciones_llegada1" EntityType="Self.observaciones_llegada1" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="ofertas" EntityType="Self.ofertas" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="programacion_llamadas" EntityType="Self.programacion_llamadas" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="proveedores" EntityType="Self.proveedores" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="reemprimir" EntityType="Self.reemprimir" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="reg_cheques" EntityType="Self.reg_cheques" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="registro_de_pagos4" EntityType="Self.registro_de_pagos4" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="registro_llamada" EntityType="Self.registro_llamada" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="registro_pagos" EntityType="Self.registro_pagos" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="registro_pagos3" EntityType="Self.registro_pagos3" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="registro_pagos4" EntityType="Self.registro_pagos4" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="registro_reemitir" EntityType="Self.registro_reemitir" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="retiro_documentos" EntityType="Self.retiro_documentos" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="ruta" EntityType="Self.ruta" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="ruta1" EntityType="Self.ruta1" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="solicitud" EntityType="Self.solicitud" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="stock" EntityType="Self.stock" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="sustituto" EntityType="Self.sustituto" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="tabla_asociar" EntityType="Self.tabla_asociar" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="usuario" EntityType="Self.usuario" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="usuario_adm" EntityType="Self.usuario_adm" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="venta_guias" EntityType="Self.venta_guias" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="venta_mod" EntityType="Self.venta_mod" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="venta4" EntityType="Self.venta4" Schema="const113_papiro" store:Type="Tables" />
+    <EntitySet Name="venta41" EntityType="Self.venta41" Schema="const113_papiro" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

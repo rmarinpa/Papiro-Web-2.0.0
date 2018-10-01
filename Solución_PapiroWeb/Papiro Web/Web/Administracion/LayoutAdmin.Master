@@ -1,0 +1,195 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="LayoutAdmin.master.cs" Inherits="PapiroWeb.Web.Administracion.LayoutAdmin" %>
+
+<!doctype html>
+<html lang="es">
+
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title></title>
+    <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../Content/Master.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <script src="../../Scripts/jquery-3.3.1.min.js"></script>
+    <script src="../../Scripts/bootstrap.min.js"></script>
+    <script src="../../Scripts/umd/popper.min.js"></script>
+    <script src="../../Scripts/bootstrap.bundle.min.js"></script>
+
+</head>
+
+
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <nav class="navbar navbar-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="MenuAdministracion">
+                                <i class="fa fa-home"></i>
+                                Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Compras">
+                                <i class="fa fa-cart-plus"></i>
+                                Compras y existentes</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink6" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-check-double"></i>
+                                Autorización
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="AutorizarFACT">
+                                    <i class="fa fa-check"></i>
+                                    Autorizar pedido FACT</a>
+                                <a class="dropdown-item" href="AutorizarPedidoGD">
+                                    <i class="fa fa-check"></i>
+                                    Autorizar pedido G/D</a>
+                                <a class="dropdown-item" href="AutorizarGD">
+                                    <i class="fa fa-check"></i>
+                                    Autorizar guía de despacho</a>
+                                <a class="dropdown-item" href="AutorizarNotaCredito">
+                                    <i class="fa fa-check"></i>
+                                    Autorizar nota de credito</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-user-tie"></i>
+                                Clientes y productos
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="Clientes">
+                                    <i class="fa fa-user"></i>
+                                    Clientes</a>
+                                <a class="dropdown-item" href="Productos">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    Productos</a>
+                                <a class="dropdown-item" href="ClientesEImportacion">
+                                    <i class="fa fa-file-import"></i>
+                                    Clientes e importación</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-phone"></i>
+                                Llamadas y alertas
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fa fa-exclamation-triangle"></i>
+                                    Alertas</a>
+                                <a class="dropdown-item" href="RegistroLlamadas">
+                                    <i class="fa fa-headset"></i>
+                                    Registro de llamadas y E-Mails</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-folder"></i>
+                                Documentos
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="NotasDePedidos">
+                                    <i class="fa fa-file-signature"></i>
+                                    Notas de pedidos - Facturas</a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fa fa-file"></i>
+                                    Control guía de despacho</a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fa fa-file-contract"></i>
+                                    Informes ejecutivos</a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fa fa-file-export"></i>
+                                    Retiro de documentos</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink5" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-user-cog"></i>
+                                Usuario
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <!--<a class="dropdown-item" href="#">
+                                    <i class="fa fa-user-edit"></i>
+                                    Administración de usuario</a> -->
+                                <a class="dropdown-item" href="ConfigUsuario">
+                                    <i class="fa fa-cog"></i>
+                                    Configuración de usuario</a>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fa fa-sign-out-alt"></i>
+                            <asp:LoginStatus ID="LoginStatus1" runat="server" />
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+            <br />
+
+            <!-- Footer -->
+            <footer class="page-footer font-small blue pt-4">
+                <!-- Footer Links -->
+                <div class="container-fluid text-center text-md-left">
+                    <!-- Grid row -->
+                    <div class="row">
+                        <!-- Grid column -->
+                        <div class="col-md-6 mt-md-0 mt-3">
+                            <!-- Content -->
+                            <h5 class="text-uppercase">Misión y Visión</h5>
+                            <p>Entregar la más diversa gama de materiales de impresión de alta calidad, en distintos formatos ofreciendo todos los conocimientos de la empresa para ayudar a crecer e innovar a nuestros clientes.</p>
+                        </div>
+                        <!-- Grid column -->
+                        <hr class="clearfix w-100 d-md-none pb-3">
+                        <!-- Grid column -->
+                        <!-- Grid column -->
+                        <!-- Grid column -->
+                        <div class="col-md-3 mb-md-0 mb-3">
+                            <!-- Links -->
+                            <h5 class="text-uppercase">Contacto</h5>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <i class="fa fa-map-marker-alt"></i>
+                                    <p>Alberto Riesco 0223, B3. Huechuraba, Stgo de Chile.</p>
+                                </li>
+                                <li>
+                                    <i class="fa fa-phone"></i>
+                                    <p>+562 22477791</p>
+                                </li>
+                                <li>
+                                    <i class="fa fa-envelope"></i>
+                                    <p>info@papirochile.cl</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Grid column -->
+                    </div>
+                    <!-- Grid row -->
+                </div>
+                <!-- Footer Links -->
+                <!-- Copyright -->
+                <div class="footer-copyright text-center py-3">
+                    ©                    
+                    Copyright:
+     
+                   
+
+                    <a href="https://www.papirochile.cl/">papirochile.cl</a>
+                </div>
+                <!-- Copyright -->
+            </footer>
+            <!-- Footer -->
+        </div>
+    </form>
+
+
+</body>
+</html>
