@@ -72,8 +72,7 @@ namespace PapiroWeb.Web.Administracion
                     txtMaquinas180.Text = cliente.Maquina18;
                     txtMaquinas320.Text = cliente.Maquinas320;
                     txtEmailProveedores2.Text = cliente.EmailContacto2;
-                    txtFechaActualizacion.Text = cliente.Actualizado;
-                    txtFechaIngreso.Text = cliente.FechaIngreso;
+                    txtFechaActualizacion.Text = cliente.Actualizado; ;
                     txtReferencia.Text = cliente.Referencia;
                     ddlFichaCliente.Text = cliente.FichaCliente;
                     txtEncargadoProd.Text = cliente.EncargadoProduccion;
@@ -109,7 +108,7 @@ namespace PapiroWeb.Web.Administracion
                 if (cliente.ReadRazon())
                 {
                     txtIdCliente.Text = cliente.IdCliente.ToString();
-                    txtRazonSocial.Text = cliente.NombreCliente;
+                    txtRutEmpresa.Text = cliente.Rut;
                     txtDireccionEmpresa.Text = cliente.Direccion;
                     txtComuna.Text = cliente.Comuna;
                     txtTelefonoEmpresa.Text = cliente.Telefono;
@@ -147,7 +146,6 @@ namespace PapiroWeb.Web.Administracion
                     txtMaquinas320.Text = cliente.Maquinas320;
                     txtEmailProveedores2.Text = cliente.EmailContacto2;
                     txtFechaActualizacion.Text = cliente.Actualizado;
-                    txtFechaIngreso.Text = cliente.FechaIngreso;
                     txtReferencia.Text = cliente.Referencia;
                     ddlFichaCliente.Text = cliente.FichaCliente;
                     txtEncargadoProd.Text = cliente.EncargadoProduccion;
@@ -182,8 +180,6 @@ namespace PapiroWeb.Web.Administracion
 
                 cliente.Rut = txtRutEmpresa.Text;
                 cliente.NombreCliente = txtRazonSocial.Text;
-
-
                 cliente.Direccion = txtDireccionEmpresa.Text;
                 cliente.Comuna = txtComuna.Text;
                 cliente.Telefono = txtTelefonoEmpresa.Text;
@@ -213,19 +209,18 @@ namespace PapiroWeb.Web.Administracion
                 cliente.Estado = txtCiudad.Text;
                 cliente.LineaCredito = txtLineaCredito.Text;
                 cliente.Dicom = txtDicom.Text;
-                cliente.FechaIngreso = txtFechaIngreso.Text;
                 cliente.Observacion = txtAreaObservacion.Text;
                 cliente.Maquinas = txtMaquinas.Text;
                 cliente.Maquina16 = txtMaquinas160.Text;
                 cliente.Maquina18 = txtMaquinas180.Text;
                 cliente.Maquinas320 = txtMaquinas320.Text;
                 cliente.EmailContacto2 = txtEmailProveedores2.Text;
-                cliente.Actualizado = txtFechaActualizacion.Text;
                 cliente.Referencia = txtReferencia.Text;
                 cliente.FichaCliente = ddlFichaCliente.Text;
                 cliente.EncargadoProduccion = txtEncargadoProd.Text;
                 cliente.Giro = txtGiro.Text;
-                cliente.FechaIngreso = DateTime.Now.ToLongDateString();
+                cliente.FechaIngreso = DateTime.Now.ToString();
+                cliente.Actualizado = DateTime.Now.ToString();
 
                 if (cliente.Create())
                 {
@@ -249,41 +244,6 @@ namespace PapiroWeb.Web.Administracion
             }
         }
 
-
-        // Metodos para la busqueda de rut con JQUERY
-
-        [WebMethod]
-        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static List<string> GetRazon(string pre)
-        {
-            List<string> clientes = new List<string>();
-            using (const113_papiroEntities db = new const113_papiroEntities())
-            {
-                /*
-                clientes = (from c in db.clientes
-                            where c.clientes1.StartsWith(pre)
-                            select c.clientes1).ToList();
-                            */
-                clientes = (from c in db.clientes
-                            where c.clientes1.StartsWith(pre)
-                            select c.clientes1).ToList();
-            }
-            return clientes;
-        }
-
-        [WebMethod]
-        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static List<string> GetRut(string pre)
-        {
-            List<string> clientes = new List<string>();
-            using (const113_papiroEntities db = new const113_papiroEntities())
-            {
-                clientes = (from c in db.clientes
-                            where c.rut.StartsWith(pre)
-                            select c.rut).ToList();
-            }
-            return clientes;
-        }
 
         protected void btnLimpiar_Click(object sender, EventArgs e)
         {
@@ -365,11 +325,9 @@ namespace PapiroWeb.Web.Administracion
             try
             {
                 Cliente cliente = new Cliente();
-
+                cliente.IdCliente = int.Parse(txtIdCliente.Text);
                 cliente.Rut = txtRutEmpresa.Text;
                 cliente.NombreCliente = txtRazonSocial.Text;
-
-
                 cliente.Direccion = txtDireccionEmpresa.Text;
                 cliente.Comuna = txtComuna.Text;
                 cliente.Telefono = txtTelefonoEmpresa.Text;
@@ -399,19 +357,17 @@ namespace PapiroWeb.Web.Administracion
                 cliente.Estado = txtCiudad.Text;
                 cliente.LineaCredito = txtLineaCredito.Text;
                 cliente.Dicom = txtDicom.Text;
-                cliente.FechaIngreso = txtFechaIngreso.Text;
                 cliente.Observacion = txtAreaObservacion.Text;
                 cliente.Maquinas = txtMaquinas.Text;
                 cliente.Maquina16 = txtMaquinas160.Text;
                 cliente.Maquina18 = txtMaquinas180.Text;
                 cliente.Maquinas320 = txtMaquinas320.Text;
                 cliente.EmailContacto2 = txtEmailProveedores2.Text;
-                cliente.Actualizado = txtFechaActualizacion.Text;
                 cliente.Referencia = txtReferencia.Text;
                 cliente.FichaCliente = ddlFichaCliente.Text;
                 cliente.EncargadoProduccion = txtEncargadoProd.Text;
                 cliente.Giro = txtGiro.Text;
-                cliente.FechaIngreso = DateTime.Now.ToLongDateString();
+                cliente.Actualizado = DateTime.Now.ToString();
 
                 if (cliente.Update())
                 {
@@ -431,8 +387,43 @@ namespace PapiroWeb.Web.Administracion
             }
             catch (Exception)
             {
-                lblMensaje.Text = "Error al registrar cliente";
+                lblMensaje.Text = "Error al modificar cliente";
             }
         }
+
+
+        // Metodos para la busqueda de rut con JQUERY
+
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public static List<string> GetRazon(string pre)
+        {
+            List<string> clientes = new List<string>();
+            using (const113_papiroEntities db = new const113_papiroEntities())
+            {
+                clientes = (from c in db.clientes
+                            where c.clientes1.StartsWith(pre)
+                            select c.clientes1).ToList();
+            }
+            return clientes;
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public static List<string> GetRut(string pre)
+        {
+            List<string> clientes = new List<string>();
+            using (const113_papiroEntities db = new const113_papiroEntities())
+            {
+                clientes = (from c in db.clientes
+                            where c.rut.StartsWith(pre)
+                            select c.rut).ToList();
+
+            }
+            return clientes;
+        }
+
+
     }
 }

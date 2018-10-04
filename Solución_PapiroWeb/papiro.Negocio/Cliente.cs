@@ -585,7 +585,6 @@ namespace papiro.Negocio
                 cliente.estado = this.Estado;
                 cliente.linea_credito = this.LineaCredito;
                 cliente.dicom = this.Dicom;
-                cliente.fecha_ingreso = this.FechaIngreso;
                 cliente.observacion = this.Observacion;
                 cliente.maquinas = this.Maquinas;
                 cliente.email_contacto2 = this.EmailContacto2;
@@ -634,7 +633,6 @@ namespace papiro.Negocio
                 return false;
             }
         }
-
 
     }
 }

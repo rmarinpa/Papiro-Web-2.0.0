@@ -61,7 +61,13 @@
     <Compile Include="autorizacion_otros.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="autoriza_pedidos_cliente.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="bloqueo.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cancelacion_fact_cen.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="cartera.cs">
@@ -91,10 +97,34 @@
     <Compile Include="compras.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="compras_agrupadas.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="compras_doc.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="compras_items.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="consulta_alerta_precios.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="consulta_compras.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="consulta_despacho.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="consulta_despacho2.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="consulta_despacho_3.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="consulta_nota_pedido.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="contabilidad_facturas_pendientes_contabilizacion.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="contacto_venta.cs">
@@ -103,16 +133,34 @@
     <Compile Include="contacto_venta1.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="cuenta_reemprimir.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="departamento.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="despachos.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="encargado_rutas.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="facturas.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="facturas3.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="facturas_cen.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="facturas_con_cat.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="facturas_inf2.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="facturas_inf3.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="familia_complementaria.cs">
@@ -133,10 +181,49 @@
     <Compile Include="folio4.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="folio4_clientes.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="folio4_rut.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="folios_factura.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="folio_compra.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="folio_fecha.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="folio_fecha2.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="folio_fecha2_1.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="folio_fecha2_2.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="folio_fecha3_1.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="folio_fecha6.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="folio_fecha7.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="folio_fecha8.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="folio_guia1.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="folio_guia2.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="folio_guia3.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="folio_guias.cs">
@@ -151,10 +238,28 @@
     <Compile Include="folio_ruta.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="folio_ruta1.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="folio_ruta1_1.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="folio_ruta_llegada.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="folio_ruta_llegada_1.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="guias_despacho.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="guias_despachos.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="guias_facturar.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="guias_nota.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="historial_solicitud_ticket.cs">
@@ -169,16 +274,43 @@
     <Compile Include="log_emails.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="nc_cen.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="notas_de_pedido.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="notas_de_pedido3.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="notas_de_pedido_rutas.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="notas_de_pedido_rutas2.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="notas_de_pedido_val.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="notas_de_pedido_val_aut.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="notas_de_pedido_val_aut2.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="notas_de_pedido_val_aut3.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="notas_de_pedido_val_aut4.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="notas_de_pedido_val_aut5.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="notas_de_pedido_val_clientes.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="notas_de_pedido_val_clientes_guias.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="notas_de_pedido_val_guias.cs">
@@ -202,7 +334,16 @@
     <Compile Include="nota_credito_detalle.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="nota_credito_detalle2.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="nota_credito_detalle3.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="np_rutas_guias.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="np_rutas_guias2.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="numero_pedido.cs">
@@ -232,6 +373,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PapiroEntities.edmx</DependentUpon>
     </Compile>
+    <Compile Include="pedidos_despachar.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="programacion_llamadas.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
@@ -239,7 +383,13 @@
     <Compile Include="proveedores.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="prueba.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="reemprimir.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="registrar_rutas_pendientes.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="registro_de_pagos4.cs">
@@ -257,6 +407,30 @@
     <Compile Include="registro_pagos4.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="registro_pagos_cond.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="registro_pagos_imp.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="registro_pagos_rut.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="registro_pagos_rut2.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="registro_pagos_rut3.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="registro_pagos_rut_mod_pagos.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="registro_pago_consulta.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="registro_pago_consulta_final.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="registro_reemitir.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
@@ -270,6 +444,24 @@
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="ruta1.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ruta_cobro.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ruta_condicion.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ruta_fact.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ruta_guia.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ruta_pedido.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ruta_retiro.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="solicitud.cs">
@@ -290,16 +482,58 @@
     <Compile Include="usuario_adm.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="val_monto.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="venta2.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="venta4.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="venta41.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="venta4_clientes.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ventas_clientes.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="venta_fecha_2016.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="venta_guias.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="venta_mod.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="venta_mod2.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="venta_nota.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="venta_nota2.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="venta_nota4.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="venta_nota_aut.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="venta_nota_guia.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="venta_un.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="venta_un4.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="venta_un_guias.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
   </ItemGroup>

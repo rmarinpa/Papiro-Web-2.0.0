@@ -9,16 +9,16 @@
     <!-- Todo el script, se deben transformar en archivos JS, para sacarlo del código -->
 
     <!--AutoComplete-->
+
     <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-
 
     <script type="text/javascript">
         $(function () {
             $('#<%=txtRazonSocial.ClientID%>').autocomplete({
                 source: function (request, response) {
+                    Console.log('HOli')
                     $.ajax({
                         url: "Clientes.aspx/GetRazon",
                         data: "{'pre':'" + request.term + "'}",
@@ -63,6 +63,7 @@
             });
         });
     </script>
+
     <!--FinAutoComplete-->
 
 

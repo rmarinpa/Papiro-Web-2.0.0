@@ -149,6 +149,7 @@
     <Content Include="img\imgAdministracion\1d32a9_9a80a14487c14fd38610be9cf61766f7~mv2.jpg" />
     <Content Include="img\Papiro.gif" />
     <Content Include="Scripts\Reloj.js" />
+    <Content Include="Scripts\WebForms\ValidarRut.js" />
     <Content Include="Web\Administracion\AutorizarFACT.aspx" />
     <Content Include="Web\Administracion\AutorizarGD.aspx" />
     <Content Include="Web\Administracion\AutorizarNotaCredito.aspx" />
@@ -163,6 +164,17 @@
     <Content Include="Web\Administracion\RegistroLlamadas.aspx" />
     <Content Include="Web\Index.aspx" />
     <Content Include="Web\Login.aspx" />
+    <Content Include="Web\Ventas\Clientes.aspx" />
+    <Content Include="Web\Ventas\ConfigUsuario.aspx" />
+    <Content Include="Web\Ventas\ConsultarDespacho.aspx" />
+    <Content Include="Web\Ventas\ConsultarPedidoFactura.aspx" />
+    <Content Include="Web\Ventas\ConsultaServicioTecnico.aspx" />
+    <Content Include="Web\Ventas\EstadoCuentaCliente.aspx" />
+    <Content Include="Web\Ventas\GenerarNotaCredito.aspx" />
+    <Content Include="Web\Ventas\GenerarPedido.aspx" />
+    <Content Include="Web\Ventas\ImprimirPedidosNC.aspx" />
+    <Content Include="Web\Ventas\MapaDeProducto.aspx" />
+    <Content Include="Web\Ventas\MenuVentas.aspx" />
     <None Include="Connected Services\ServicioAutenticacion\Autenticacion.disco" />
     <None Include="Connected Services\ServicioAutenticacion\configuration91.svcinfo" />
     <None Include="Connected Services\ServicioAutenticacion\configuration.svcinfo" />
@@ -259,6 +271,7 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Web\Administracion\LayoutAdmin.Master" />
+    <Content Include="Web\Ventas\Layout.Ventas.Master" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -384,10 +397,93 @@
     <Compile Include="Web\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Web\Ventas\Clientes.aspx.cs">
+      <DependentUpon>Clientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Ventas\Clientes.aspx.designer.cs">
+      <DependentUpon>Clientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Ventas\ConfigUsuario.aspx.cs">
+      <DependentUpon>ConfigUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Ventas\ConfigUsuario.aspx.designer.cs">
+      <DependentUpon>ConfigUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Ventas\ConsultarDespacho.aspx.cs">
+      <DependentUpon>ConsultarDespacho.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Ventas\ConsultarDespacho.aspx.designer.cs">
+      <DependentUpon>ConsultarDespacho.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Ventas\ConsultarPedidoFactura.aspx.cs">
+      <DependentUpon>ConsultarPedidoFactura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Ventas\ConsultarPedidoFactura.aspx.designer.cs">
+      <DependentUpon>ConsultarPedidoFactura.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Ventas\ConsultaServicioTecnico.aspx.cs">
+      <DependentUpon>ConsultaServicioTecnico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Ventas\ConsultaServicioTecnico.aspx.designer.cs">
+      <DependentUpon>ConsultaServicioTecnico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Ventas\EstadoCuentaCliente.aspx.cs">
+      <DependentUpon>EstadoCuentaCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Ventas\EstadoCuentaCliente.aspx.designer.cs">
+      <DependentUpon>EstadoCuentaCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Ventas\GenerarNotaCredito.aspx.cs">
+      <DependentUpon>GenerarNotaCredito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Ventas\GenerarNotaCredito.aspx.designer.cs">
+      <DependentUpon>GenerarNotaCredito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Ventas\GenerarPedido.aspx.cs">
+      <DependentUpon>GenerarPedido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Ventas\GenerarPedido.aspx.designer.cs">
+      <DependentUpon>GenerarPedido.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Ventas\ImprimirPedidosNC.aspx.cs">
+      <DependentUpon>ImprimirPedidosNC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Ventas\ImprimirPedidosNC.aspx.designer.cs">
+      <DependentUpon>ImprimirPedidosNC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Ventas\Layout.Ventas.Master.cs">
+      <DependentUpon>Layout.Ventas.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Ventas\Layout.Ventas.Master.designer.cs">
+      <DependentUpon>Layout.Ventas.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Ventas\MapaDeProducto.aspx.cs">
+      <DependentUpon>MapaDeProducto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Ventas\MapaDeProducto.aspx.designer.cs">
+      <DependentUpon>MapaDeProducto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Ventas\MenuVentas.aspx.cs">
+      <DependentUpon>MenuVentas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Ventas\MenuVentas.aspx.designer.cs">
+      <DependentUpon>MenuVentas.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Web\Ventas\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
