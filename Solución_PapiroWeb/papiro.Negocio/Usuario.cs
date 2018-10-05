@@ -45,7 +45,7 @@ namespace papiro.Negocio
             get { return _obra; }
             set { _obra = value; }
         }
-
+        //Metodo para validar el usuario
         public Usuario LoginUsuario(string username, string password)
         {
             try
@@ -70,6 +70,7 @@ namespace papiro.Negocio
                 return null;
             }
         }
+
 
     }
 }

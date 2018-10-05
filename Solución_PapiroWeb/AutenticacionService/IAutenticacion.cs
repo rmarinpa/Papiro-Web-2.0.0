@@ -4,6 +4,8 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.Web.Script.Services;
+using System.Web.Services;
 
 namespace AutenticacionService
 {
@@ -13,5 +15,6 @@ namespace AutenticacionService
     {
         [OperationContract]
         string LoginUsuario(string nombre, string password);
+
     }
 }

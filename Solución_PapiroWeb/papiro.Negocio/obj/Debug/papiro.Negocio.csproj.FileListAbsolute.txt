@@ -10,3 +10,4 @@ C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\papiro.Ne
 C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\papiro.Negocio\bin\Debug\papiro.DALC.dll.config
 C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\papiro.Negocio\bin\Debug\EntityFramework.xml
 C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\papiro.Negocio\obj\Debug\papiro.Negocio.csproj.CopyComplete
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\papiro.Negocio\bin\Debug\MySql.Data.dll

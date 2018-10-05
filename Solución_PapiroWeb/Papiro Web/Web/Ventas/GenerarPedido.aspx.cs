@@ -1,7 +1,10 @@
-﻿using papiro.DALC;
+﻿using MySql.Data.MySqlClient;
+using papiro.DALC;
 using papiro.Negocio;
+using Papiro_Web.ServicioAutenticacion;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Script.Services;
@@ -21,15 +24,15 @@ namespace PapiroWeb.Web.Ventas
 
         protected void btnBuscarRut_Click(object sender, EventArgs e)
         {
+            Cliente cliente = new Cliente();
             //Validamos que el rut , sea correcto
-            if (validarRut(txtRutEmpresa.Text) == true)
+            if (cliente.validarRut(txtRutEmpresa.Text) == true)
             {
                 //Validamos si el tipo de documento está seleccionado
                 if (ddlTipoDocuento.SelectedIndex != 0)
                 {
                     try
                     {
-                        Cliente cliente = new Cliente();
                         cliente.Rut = txtRutEmpresa.Text;
 
                         if (cliente.ReadRut())
@@ -47,7 +50,8 @@ namespace PapiroWeb.Web.Ventas
                             gvHistorialCliente.DataBind();
                             gvHistorialBloqueo.DataBind();
                             //Traemos los datos
-
+                            //ConMYsql
+                            // VerificarDiferenciaDeProducto();
                         }
                         else
                         {
@@ -59,12 +63,10 @@ namespace PapiroWeb.Web.Ventas
                     {
                         Response.Write("<script>alert('ArgumentException');</script>");
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
-                        Response.Write("<script>alert('Error al buscar');</script>");
+                        Response.Write(ex.Message);
                     }
-
-
                 }
                 else
                 {
@@ -81,6 +83,8 @@ namespace PapiroWeb.Web.Ventas
 
         protected void btnBuscarRazon_Click(object sender, EventArgs e)
         {
+            AutenticacionClient client = new AutenticacionClient();
+
 
             if (ddlTipoDocuento.SelectedIndex != 0)
             {
@@ -127,15 +131,19 @@ namespace PapiroWeb.Web.Ventas
 
         }
 
+        //Metodo limpiar
         private void Limpiar()
         {
-            txtRazonSocial.Text = "";
+            txtRazonSocial.Text = string.Empty;
             txtRutEmpresa.Text = "";
             txtDireccion.Text = "";
             txtComuna.Text = "";
             txtSenal.Text = "";
+            DropDownList1.DataSource = null;
+            DropDownList1.Items.Clear();
         }
 
+        //Implementar estos metodos en la interfaz
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public static List<string> GetRazon(string pre)
@@ -143,7 +151,6 @@ namespace PapiroWeb.Web.Ventas
             List<string> clientes = new List<string>();
             using (const113_papiroEntities db = new const113_papiroEntities())
             {
-
                 clientes = (from c in db.clientes
                             where c.clientes1.StartsWith(pre)
                             select c.clientes1).ToList();
@@ -196,37 +203,30 @@ namespace PapiroWeb.Web.Ventas
             return clientes;
         }
 
-        //Metodo de validación de rut (Cambiar a una función de JS)
-        //Este funciona, por el momento 
-        public bool validarRut(string rut)
+
+        //Metodo que verifica si el cliente posee productos en la guía de despacho parcial 
+        private void VerificarDiferenciaDeProducto()
         {
 
-            bool validacion = false;
-            try
+            DropDownList1.DataSource = null;
+            DropDownList1.Items.Clear();
+            Conexion con = new Conexion();
+            con.AbrirConexion();
+            MySqlCommand com = new MySqlCommand("SELECT Pend FROM dif_producto WHERE rut ='" + txtRutEmpresa.Text + "'and Pend > 0", con.cone);
+            MySqlDataReader dr = com.ExecuteReader();
+            while (dr.Read())
             {
-                rut = rut.ToUpper();
-                rut = rut.Replace(".", "");
-                rut = rut.Replace("-", "");
-                int rutAux = int.Parse(rut.Substring(0, rut.Length - 1));
-
-                char dv = char.Parse(rut.Substring(rut.Length - 1, 1));
-
-                int m = 0, s = 1;
-                for (; rutAux != 0; rutAux /= 10)
-                {
-                    s = (s + rutAux % 10 * (9 - m++ % 6)) % 11;
-                }
-                if (dv == (char)(s != 0 ? s + 47 : 75))
-                {
-                    validacion = true;
-                }
+                
+                DropDownList1.Items.Add(dr.GetValue(0).ToString());
+                
             }
-            catch (Exception ex)
-            {
 
-            }
-            return validacion;
+            con.CerrarConexion();
+        }
+
+        protected void Button1_Click1(object sender, EventArgs e)
+        {
+            Limpiar();
         }
     }
-
 }

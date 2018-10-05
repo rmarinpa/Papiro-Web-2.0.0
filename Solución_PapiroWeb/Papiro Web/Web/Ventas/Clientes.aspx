@@ -68,13 +68,13 @@
                     <label for="lblRut">Rut Empresa</label>
                     <asp:TextBox ID="txtRutEmpresa" CssClass="form-control" runat="server"></asp:TextBox>
                     <asp:TextBox ID="txtIdCliente" Visible="false" runat="server"></asp:TextBox>
-                    <asp:Button ID="btnBuscarRut" CssClass="btn btn-primary" runat="server" Text="Buscar por rut" OnClick="btnBuscarRut_Click" />
+                    <asp:Button ID="btnBuscarRut" CssClass="btn btn-outline-danger" runat="server" Text="Buscar por rut" OnClick="btnBuscarRut_Click" />
                 </div>
 
                 <div class="form-group col-md-4">
                     <label for="lblRazonSocial">Razón social</label>
                     <asp:TextBox ID="txtRazonSocial" CssClass="form-control" runat="server"></asp:TextBox>
-                    <asp:Button ID="btnBuscarRazon" CssClass="btn btn-primary" runat="server" Text="Buscar por razón social" OnClick="btnBuscarRazon_Click" />
+                    <asp:Button ID="btnBuscarRazon" CssClass="btn btn-outline-danger" runat="server" Text="Buscar por razón social" OnClick="btnBuscarRazon_Click" />
                 </div>
                 <div class="form-group col-md-4">
                     <label for="lblGiro">Giro</label>
@@ -93,7 +93,7 @@
                 </div>
                 <div class="form-group col-md-2">
                     <label for="lblComuna">Comuna</label>
-                    <asp:TextBox ID="txtComuna" CssClass="form-control" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtComunaEmpresa" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="lblCiudad">Ciudad</label>
@@ -167,7 +167,7 @@
                 </div>
                 <div class="form-group col-md-2">
                     <label for="lblComuna">Comuna</label>
-                    <asp:TextBox ID="TextBox4" CssClass="form-control" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtComunaDespacho" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="lblDireccionDespacho">Dirección</label>
@@ -351,12 +351,12 @@
 
             </div>
             <hr />
-            <asp:Button ID="btnAgregar" CssClass="btn btn-primary" runat="server" Text="Agregar" OnClick="btnAgregar_Click" />
-            <asp:Button ID="btnModificar" CssClass="btn btn-primary" runat="server" Text="Modificar" OnClick="btnModificar_Click" />
-            <asp:Button ID="btnEliminar" CssClass=" btn btn-primary" runat="server" Text="Eliminar" OnClick="btnEliminar_Click" />
-            <asp:Button ID="btnLimpiar" CssClass="btn btn-primary" runat="server" Text="Limpiar" OnClick="btnLimpiar_Click" />
+            <asp:Button ID="btnAgregar" CssClass="btn btn-outline-danger" runat="server" Text="Agregar" OnClick="btnAgregar_Click" />
+            <asp:Button ID="btnModificar" CssClass="btn btn-outline-danger" runat="server" Text="Modificar" OnClick="btnModificar_Click" />
+            <asp:Button ID="btnEliminar" CssClass=" btn btn-outline-danger" runat="server" Text="Eliminar" OnClick="btnEliminar_Click" />
+            <asp:Button ID="btnLimpiar" CssClass="btn btn-outline-danger" runat="server" Text="Limpiar" OnClick="btnLimpiar_Click" />
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
                 Estado de cuenta cliente</button>
 
             <!-- Modal -->

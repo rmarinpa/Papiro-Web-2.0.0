@@ -7,7 +7,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-
     <script type="text/javascript">
         $(function () {
             $('#<%=txtDescripcion.ClientID%>').autocomplete({
@@ -125,6 +124,7 @@
                         <asp:TextBox ID="txtRazonSocial" CssClass="form-control" runat="server"></asp:TextBox>
                         <asp:Button ID="btnBuscarRazon" CssClass="btn btn-outline-danger" runat="server" Text="Buscar por razón" OnClick="btnBuscarRazon_Click" OnClientClick="Confirm()" />
 
+                        <asp:Button ID="Button1" data-togle runat="server" Text="Button" OnClick="Button1_Click1" />
                     </div>
                     <div class="form-group col-md-6">
                         <label for="lblRut">Rut Empresa</label>
@@ -219,7 +219,11 @@
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <EditRowStyle BackColor="#999999" />
                     <EmptyDataTemplate>
-                        No se encuentra historial de datos del cliente
+                        <div class="alert alert-success" role="alert">
+                            <i class="fas fa-question"></i>
+                            <h4 class="alert-heading">Sin información!</h4>
+                            <p>No se ha encontrado historial de datos del cliente .</p>
+                        </div>
                     </EmptyDataTemplate>
                     <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
                     <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -341,7 +345,6 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        asd
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -364,7 +367,6 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        ...
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -416,6 +418,36 @@
         </div>
         <!-- Fin del Modal -->
 
+
+
+        <!-- Modal de bloqueos -->
+        <div class="modal fade bd-example-modal-lg" id="ModalCenter5" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ModalCenterTitle5">Historial de bloqueos</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+
+                    <h1>holi</h1>
+                    <asp:DropDownList ID="DropDownList1" Visible="false" runat="server"></asp:DropDownList>
+                    <asp:GridView ID="gvProductosGuiaPendiente" runat="server" DataSourceID="SqlDataSource3" AllowPaging="True"></asp:GridView>
+                    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:const113_papiroConnectionString %>" ProviderName="<%$ ConnectionStrings:const113_papiroConnectionString.ProviderName %>" SelectCommand="SELECT * FROM dif_producto WHERE (rut = ?) AND CAST(numero_pedido AS UNSIGNED) <> 0 AND Pend > 0 order by numero_pedido desc">
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="txtRutEmpresa" Name="rut" PropertyName="Text" Type="String" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+
+        </div>
+        <!-- Fin del Modal -->
 
 
     </div>

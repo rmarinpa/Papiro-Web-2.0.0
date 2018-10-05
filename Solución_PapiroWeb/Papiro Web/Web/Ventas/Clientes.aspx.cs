@@ -25,7 +25,7 @@ namespace PapiroWeb.Web.Ventas
             txtRazonSocial.Text = "";
             txtRutEmpresa.Text = "";
             txtDireccionEmpresa.Text = "";
-            txtComuna.Text = "";
+            txtComunaEmpresa.Text = "";
             txtTelefonoEmpresa.Text = "";
             txtNombreContacto.Text = "";
             txtCargoContacto.Text = "";
@@ -81,7 +81,7 @@ namespace PapiroWeb.Web.Ventas
                     txtIdCliente.Text = cliente.IdCliente.ToString();
                     txtRazonSocial.Text = cliente.NombreCliente;
                     txtDireccionEmpresa.Text = cliente.Direccion;
-                    txtComuna.Text = cliente.Comuna;
+                    txtComunaEmpresa.Text = cliente.Comuna;
                     txtTelefonoEmpresa.Text = cliente.Telefono;
                     txtNombreContacto.Text = cliente.ContactoComercial;
                     txtCargoContacto.Text = cliente.CargoContactoComercial;
@@ -155,7 +155,7 @@ namespace PapiroWeb.Web.Ventas
                     txtIdCliente.Text = cliente.IdCliente.ToString();
                     txtRutEmpresa.Text = cliente.Rut;
                     txtDireccionEmpresa.Text = cliente.Direccion;
-                    txtComuna.Text = cliente.Comuna;
+                    txtComunaEmpresa.Text = cliente.Comuna;
                     txtTelefonoEmpresa.Text = cliente.Telefono;
                     txtNombreContacto.Text = cliente.ContactoComercial;
                     txtCargoContacto.Text = cliente.CargoContactoComercial;
@@ -258,7 +258,7 @@ namespace PapiroWeb.Web.Ventas
                 cliente.Rut = txtRutEmpresa.Text;
                 cliente.NombreCliente = txtRazonSocial.Text;
                 cliente.Direccion = txtDireccionEmpresa.Text;
-                cliente.Comuna = txtComuna.Text;
+                cliente.Comuna = txtComunaEmpresa.Text;
                 cliente.Telefono = txtTelefonoEmpresa.Text;
                 cliente.ContactoComercial = txtNombreContacto.Text;
                 cliente.CargoContactoComercial = txtCargoContacto.Text;
@@ -356,7 +356,7 @@ namespace PapiroWeb.Web.Ventas
                 cliente.Rut = txtRutEmpresa.Text;
                 cliente.NombreCliente = txtRazonSocial.Text;
                 cliente.Direccion = txtDireccionEmpresa.Text;
-                cliente.Comuna = txtComuna.Text;
+                cliente.Comuna = txtComunaEmpresa.Text;
                 cliente.Telefono = txtTelefonoEmpresa.Text;
                 cliente.ContactoComercial = txtNombreContacto.Text;
                 cliente.CargoContactoComercial = txtCargoContacto.Text;

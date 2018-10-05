@@ -85,13 +85,13 @@ namespace PapiroWeb.Web.Ventas {
         protected global::System.Web.UI.WebControls.TextBox txtDireccionEmpresa;
         
         /// <summary>
-        /// Control txtComuna.
+        /// Control txtComunaEmpresa.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtComuna;
+        protected global::System.Web.UI.WebControls.TextBox txtComunaEmpresa;
         
         /// <summary>
         /// Control txtCiudad.
@@ -220,13 +220,13 @@ namespace PapiroWeb.Web.Ventas {
         protected global::System.Web.UI.WebControls.TextBox txtTelefonoContacto;
         
         /// <summary>
-        /// Control TextBox4.
+        /// Control txtComunaDespacho.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox4;
+        protected global::System.Web.UI.WebControls.TextBox txtComunaDespacho;
         
         /// <summary>
         /// Control txtDireccionDespacho.
