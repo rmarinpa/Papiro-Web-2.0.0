@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Web/Ventas/Layout.Ventas.Master" AutoEventWireup="true" CodeBehind="Clientes.aspx.cs" Inherits="PapiroWeb.Web.Ventas.Clientes" %>
+﻿<%@ Page Title="Clientes" Language="C#" MasterPageFile="~/Web/Ventas/Layout.Ventas.Master" AutoEventWireup="true" CodeBehind="Clientes.aspx.cs" Inherits="PapiroWeb.Web.Ventas.Clientes" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!--AutoComplete-->
@@ -85,7 +85,6 @@
                     <asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label>
                 </div>
             </div>
-
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputCity">Dirección</label>
@@ -183,11 +182,12 @@
             <div class="form-row">
                 <div class="form-group col-md-2">
                     <label for="lblPago">Condición de pago</label>
-                    <asp:TextBox ID="txtCondicionPago" CssClass="form-control" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtCondicionPago" CssClass="form-control" runat="server" Enabled="False"></asp:TextBox>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="lblFormaPago">Forma de pago</label>
-                    <asp:DropDownList ID="ddlformaPago" CssClass="form-control" runat="server">
+                    <asp:DropDownList ID="ddlformaPago" CssClass="form-control" runat="server" Enabled="False">
+                        <asp:ListItem>Seleccione Forma de Pago</asp:ListItem>
                         <asp:ListItem>Cheque Anticipado</asp:ListItem>
                         <asp:ListItem>Cheque Contra Entrega</asp:ListItem>
                         <asp:ListItem>Cheque Mensual</asp:ListItem>
@@ -201,15 +201,15 @@
                 </div>
                 <div class="form-group col-md-2">
                     <label for="lblLineaCredito">Línea de credito</label>
-                    <asp:TextBox ID="txtLineaCredito" CssClass="form-control" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtLineaCredito" CssClass="form-control" runat="server" Enabled="False"></asp:TextBox>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="lblDicom">Dicom</label>
-                    <asp:TextBox ID="txtDicom" CssClass="form-control" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtDicom" CssClass="form-control" runat="server" Enabled="False"></asp:TextBox>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="lblTelefono">Señal Advertencia</label>
-                    <asp:TextBox ID="txtSenal" CssClass="form-control" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtSenal" CssClass="form-control" runat="server" Enabled="False"></asp:TextBox>
                 </div>
             </div>
             <hr />
@@ -217,7 +217,8 @@
             <div class="form-row">
                 <div class="form-group col-md-2">
                     <label for="lblDigital">Ejec. Digital</label>
-                    <asp:DropDownList ID="ddlEjecDigital" CssClass="form-control" runat="server">
+                    <asp:DropDownList ID="ddlEjecDigital" CssClass="form-control" runat="server" Enabled="False">
+                        <asp:ListItem Value="0">Seleccione Ejecutivo</asp:ListItem>
                         <asp:ListItem>FM</asp:ListItem>
                         <asp:ListItem>AVG</asp:ListItem>
                         <asp:ListItem>ES</asp:ListItem>
@@ -226,12 +227,12 @@
                         <asp:ListItem>OF-SS</asp:ListItem>
                         <asp:ListItem>TBV</asp:ListItem>
                         <asp:ListItem>AG</asp:ListItem>
-                        <asp:ListItem></asp:ListItem>
                     </asp:DropDownList>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="lblEjecMedia">Ejec. Media</label>
-                    <asp:DropDownList ID="ddlEjecMedia" CssClass="form-control" runat="server">
+                    <asp:DropDownList ID="ddlEjecMedia" CssClass="form-control" runat="server" Enabled="False">
+                        <asp:ListItem Value="0">Seleccione Ejecutivo</asp:ListItem>
                         <asp:ListItem>FM</asp:ListItem>
                         <asp:ListItem>AVG</asp:ListItem>
                         <asp:ListItem>ES</asp:ListItem>
@@ -240,13 +241,13 @@
                         <asp:ListItem>OF-SS</asp:ListItem>
                         <asp:ListItem>TBV</asp:ListItem>
                         <asp:ListItem>AG</asp:ListItem>
-                        <asp:ListItem></asp:ListItem>
                     </asp:DropDownList>
 
                 </div>
                 <div class="form-group col-md-2">
                     <label for="lblEjecLed">Ejec. Led</label>
-                    <asp:DropDownList ID="ddlEjecLed" CssClass="form-control" runat="server">
+                    <asp:DropDownList ID="ddlEjecLed" CssClass="form-control" runat="server" Enabled="False">
+                        <asp:ListItem Value="0">Seleccione Ejecutivo</asp:ListItem>
                         <asp:ListItem>FM</asp:ListItem>
                         <asp:ListItem>AVG</asp:ListItem>
                         <asp:ListItem>ES</asp:ListItem>
@@ -255,12 +256,12 @@
                         <asp:ListItem>OF-SS</asp:ListItem>
                         <asp:ListItem>TBV</asp:ListItem>
                         <asp:ListItem>AG</asp:ListItem>
-                        <asp:ListItem></asp:ListItem>
                     </asp:DropDownList>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="lblEjecMac">Ejec Mac</label>
-                    <asp:DropDownList ID="ddlEjecMac" CssClass="form-control" runat="server">
+                    <asp:DropDownList ID="ddlEjecMac" CssClass="form-control" runat="server" Enabled="False">
+                        <asp:ListItem Value="0">Seleccione Ejecutivo</asp:ListItem>
                         <asp:ListItem>FM</asp:ListItem>
                         <asp:ListItem>AVG</asp:ListItem>
                         <asp:ListItem>ES</asp:ListItem>
@@ -269,12 +270,12 @@
                         <asp:ListItem>OF-SS</asp:ListItem>
                         <asp:ListItem>TBV</asp:ListItem>
                         <asp:ListItem>AG</asp:ListItem>
-                        <asp:ListItem></asp:ListItem>
                     </asp:DropDownList>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="lblEjecNew">Ejec. New</label>
-                    <asp:DropDownList ID="ddlEjecNew" CssClass="form-control" runat="server">
+                    <asp:DropDownList ID="ddlEjecNew" CssClass="form-control" runat="server" Enabled="False">
+                        <asp:ListItem Value="0">Seleccione Ejecutivo</asp:ListItem>
                         <asp:ListItem>FM</asp:ListItem>
                         <asp:ListItem>AVG</asp:ListItem>
                         <asp:ListItem>ES</asp:ListItem>
@@ -283,12 +284,12 @@
                         <asp:ListItem>OF-SS</asp:ListItem>
                         <asp:ListItem>TBV</asp:ListItem>
                         <asp:ListItem>AG</asp:ListItem>
-                        <asp:ListItem></asp:ListItem>
                     </asp:DropDownList>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="lblEjecCobranza">Ejec. Cobranza</label>
-                    <asp:DropDownList ID="ddlEjecCob" CssClass="form-control" runat="server">
+                    <asp:DropDownList ID="ddlEjecCob" CssClass="form-control" runat="server" Enabled="False">
+                        <asp:ListItem Value="0">Seleccione Ejecutivo</asp:ListItem>
                         <asp:ListItem>FM</asp:ListItem>
                         <asp:ListItem>AVG</asp:ListItem>
                         <asp:ListItem>ES</asp:ListItem>
@@ -297,7 +298,6 @@
                         <asp:ListItem>OF-SS</asp:ListItem>
                         <asp:ListItem>TBV</asp:ListItem>
                         <asp:ListItem>AG</asp:ListItem>
-                        <asp:ListItem></asp:ListItem>
                     </asp:DropDownList>
                 </div>
             </div>

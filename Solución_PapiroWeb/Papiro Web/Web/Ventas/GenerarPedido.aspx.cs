@@ -19,7 +19,7 @@ namespace PapiroWeb.Web.Ventas
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            ddlTipoDocuento.Enabled = true;
         }
 
         protected void btnBuscarRut_Click(object sender, EventArgs e)
@@ -31,6 +31,7 @@ namespace PapiroWeb.Web.Ventas
                 //Validamos si el tipo de documento está seleccionado
                 if (ddlTipoDocuento.SelectedIndex != 0)
                 {
+                    
                     try
                     {
                         cliente.Rut = txtRutEmpresa.Text;
@@ -49,6 +50,8 @@ namespace PapiroWeb.Web.Ventas
                             //Actualizamos el DataGrid
                             gvHistorialCliente.DataBind();
                             gvHistorialBloqueo.DataBind();
+                            //Bloqueamos el tipo de documento para que el cliente no pueda verlo
+                            ddlTipoDocuento.Enabled = false;
                             //Traemos los datos
                             //ConMYsql
                             // VerificarDiferenciaDeProducto();
@@ -135,12 +138,31 @@ namespace PapiroWeb.Web.Ventas
         private void Limpiar()
         {
             txtRazonSocial.Text = string.Empty;
-            txtRutEmpresa.Text = "";
-            txtDireccion.Text = "";
-            txtComuna.Text = "";
-            txtSenal.Text = "";
-            DropDownList1.DataSource = null;
-            DropDownList1.Items.Clear();
+            txtRutEmpresa.Text = string.Empty;
+            txtDireccion.Text = string.Empty;
+            txtComuna.Text = string.Empty;
+            txtSenal.Text = string.Empty;
+            ddlTipoDocuento.Enabled = true;
+            ddlTipoDocuento.SelectedIndex = 0;
+            txtNombreContacto.Text = string.Empty;
+            txtEmailContacto.Text = string.Empty;
+            txtTelefonoContacto.Text = string.Empty;
+            txtCargoContacto.Text = string.Empty;
+            txtCodigoProducto.Text = string.Empty;
+            txtDescripcion.Text = string.Empty;
+            txtFamiliaI.Text = string.Empty;
+            txtFamiliaII.Text = string.Empty;
+            txtMarca.Text = string.Empty;
+            txtAncho.Text = string.Empty;
+            txtLargo.Text = string.Empty;
+            txtAreaCalculada.Text = string.Empty;
+            txtPrecioM2.Text = string.Empty;
+            txtPrecioMax.Text = string.Empty;
+            txtPrecioMin.Text = string.Empty;
+            txtAreaTotal.Text = string.Empty;
+            txtPrecioUn.Text = string.Empty;
+            txtMontoNeto.Text = string.Empty;
+
         }
 
         //Implementar estos metodos en la interfaz
@@ -224,9 +246,16 @@ namespace PapiroWeb.Web.Ventas
             con.CerrarConexion();
         }
 
-        protected void Button1_Click1(object sender, EventArgs e)
+        protected void btnLimpiar_Click(object sender, EventArgs e)
         {
             Limpiar();
+        }
+
+        protected void gvHistorialCliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow gv = gvHistorialCliente.SelectedRow;
+            
+
         }
     }
 }

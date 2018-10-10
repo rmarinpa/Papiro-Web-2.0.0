@@ -3403,5 +3403,8 @@
     <EntitySet Name="venta2" EntityType="Self.venta2" />
     <EntitySet Name="venta4_clientes" EntityType="Self.venta4_clientes" />
     <EntitySet Name="ventas_clientes" EntityType="Self.ventas_clientes" />
+    <FunctionImport Name="guia_despacho_parcial">
+      <Parameter Name="p_factura" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
 </Schema>

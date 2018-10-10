@@ -123,8 +123,6 @@
                         <label for="lblRazon">Razón Social</label>
                         <asp:TextBox ID="txtRazonSocial" CssClass="form-control" runat="server"></asp:TextBox>
                         <asp:Button ID="btnBuscarRazon" CssClass="btn btn-outline-danger" runat="server" Text="Buscar por razón" OnClick="btnBuscarRazon_Click" OnClientClick="Confirm()" />
-
-                        <asp:Button ID="Button1" data-togle runat="server" Text="Button" OnClick="Button1_Click1" />
                     </div>
                     <div class="form-group col-md-6">
                         <label for="lblRut">Rut Empresa</label>
@@ -207,16 +205,19 @@
                                 <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#ModalCenter3">
                                     Historial de Bloqueos
                                 </button>
+                                <asp:Button ID="btnLimpiar" CssClass="btn btn-outline-danger" runat="server" Text="Limpiar" OnClick="btnLimpiar_Click" />
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- Fin cartas -->
-            </div>
 
-            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                <asp:GridView ID="gvHistorialCliente" CssClass="table-active" runat="server" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None" EnableSortingAndPagingCallbacks="True">
+
+                <asp:GridView ID="gvHistorialCliente" CssClass="table-active" runat="server" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None" EnableSortingAndPagingCallbacks="True" OnSelectedIndexChanged="gvHistorialCliente_SelectedIndexChanged">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                    <Columns>
+                        <asp:CommandField ShowSelectButton="True" />
+                    </Columns>
                     <EditRowStyle BackColor="#999999" />
                     <EmptyDataTemplate>
                         <div class="alert alert-success" role="alert">
@@ -235,12 +236,15 @@
                     <SortedDescendingCellStyle BackColor="#FFFDF8" />
                     <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                 </asp:GridView>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:const113_papiroConnectionString %>" ProviderName="<%$ ConnectionStrings:const113_papiroConnectionString.ProviderName %>" SelectCommand="SELECT numero_folio, fecha, descripcion, medidas, cantidad, unit_venta_m2, precio_cliente, venta_neta FROM venta_nota WHERE (rut = ?) order by fecha desc">
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:const113_papiroConnectionString %>" ProviderName="<%$ ConnectionStrings:const113_papiroConnectionString.ProviderName %>" SelectCommand="SELECT numero_folio, fecha, descripcion, medidas, cantidad, unit_venta_m2, precio_cliente, venta_neta FROM venta_nota WHERE (rut = ?) order by numero_folio desc">
                     <SelectParameters>
                         <asp:ControlParameter ControlID="txtRutEmpresa" Name="rut" PropertyName="Text" Type="String" />
                     </SelectParameters>
                 </asp:SqlDataSource>
 
+            </div>
+
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
             </div>
             <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
                 <div class="card-header">
@@ -448,7 +452,6 @@
 
         </div>
         <!-- Fin del Modal -->
-
 
     </div>
 </asp:Content>

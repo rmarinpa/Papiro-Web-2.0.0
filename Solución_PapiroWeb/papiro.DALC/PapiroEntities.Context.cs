@@ -12,6 +12,9 @@ namespace papiro.DALC
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Objects;
+    using System.Data.Objects.DataClasses;
+    using System.Linq;
     
     public partial class const113_papiroEntities : DbContext
     {
@@ -180,5 +183,14 @@ namespace papiro.DALC
         public DbSet<venta2> venta2 { get; set; }
         public DbSet<venta4_clientes> venta4_clientes { get; set; }
         public DbSet<ventas_clientes> ventas_clientes { get; set; }
+    
+        public virtual int guia_despacho_parcial(string p_factura)
+        {
+            var p_facturaParameter = p_factura != null ?
+                new ObjectParameter("p_factura", p_factura) :
+                new ObjectParameter("p_factura", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("guia_despacho_parcial", p_facturaParameter);
+        }
     }
 }
