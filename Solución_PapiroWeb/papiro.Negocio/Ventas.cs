@@ -328,13 +328,13 @@ namespace papiro.Negocio
             {
                 DALC.venta4 venta = (from v in db.venta4
                                      where v.codigo_producto.Equals(this.CodigoProducto)
-                                     && v.cliente.Equals(this.Cliente)
+                                     &&v.cliente.Equals(this.Cliente)*
                                      select v).First();
 
                 this.UnitVentaM2 = venta.unit_venta_m2;
                 return true;
             }
-            catch (Exception)
+                catch (Exception)
             {
 
                 return false;

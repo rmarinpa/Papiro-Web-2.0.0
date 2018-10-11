@@ -168,7 +168,9 @@ namespace PapiroWeb.Web.Ventas
             gvHistorialCliente.DataSource = null;
         }
 
-        //Implementar estos metodos en la interfaz
+        //IMPORTANTE, IMPLEMENTAR LOS WEBMETHOD EN LA INTERFAZ DE AUTENTICACION.CS Y AUTENTICACION.SVC.
+        //PARA ASÍ, LLAMAR A UN SOLO METODO DE BUSCAR POR RAZÓN O RUT.
+
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public static List<string> GetRazon(string pre)
@@ -245,6 +247,8 @@ namespace PapiroWeb.Web.Ventas
                 Producto producto = new Producto();
                 producto.Codigo = txtCodigoProducto.Text;
                 papiro.Negocio.Ventas ventas = new papiro.Negocio.Ventas();
+                txtCodigoProducto.Text = ventas.CodigoProducto;
+                txtRazonSocial.Text = ventas.Cliente;
                 if (producto.LeerProducto())
                 {
                     txtDescripcion.Text = producto.Descripcion;
@@ -255,13 +259,11 @@ namespace PapiroWeb.Web.Ventas
                     txtLargo.Text = producto.Largo.ToString();
                     txtAreaCalculada.Text = producto.Area.ToString();
 
-                    //Instanciamos el objeto ventas
 
                     //Leemos el m2 desde ventas4
                     if (ventas.LeerAreaM2())
                     {
-                        txtCodigoProducto.Text = ventas.CodigoProducto;
-                        txtRazonSocial.Text = ventas.Cliente;
+
                         txtPrecioM2.Text = ventas.UnitVentaM2.ToString();
                     }
                     else
