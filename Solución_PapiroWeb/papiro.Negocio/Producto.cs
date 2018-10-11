@@ -9,6 +9,7 @@ namespace papiro.Negocio
 {
     public class Producto
     {
+        const113_papiroEntities db = new const113_papiroEntities();
         private int _id_Codigos;
 
         public int Id_Codigos
@@ -57,34 +58,34 @@ namespace papiro.Negocio
             set { _medidas = value; }
         }
 
-        private decimal _unid_Paquete;
+        private double _unid_Paquete;
 
-        public decimal Unid_Paquete
+        public double Unid_Paquete
         {
             get { return _unid_Paquete; }
             set { _unid_Paquete = value; }
         }
 
 
-        private decimal _ancho;
+        private double _ancho;
 
-        public decimal Ancho
+        public double Ancho
         {
             get { return _ancho; }
             set { _ancho = value; }
         }
 
-        private decimal _largo;
+        private double _largo;
 
-        public decimal Largo
+        public double Largo
         {
             get { return _largo; }
             set { _largo = value; }
         }
 
-        private decimal _area;
+        private double _area;
 
-        public decimal Area
+        public double Area
         {
             get { return _area; }
             set { _area = value; }
@@ -100,7 +101,7 @@ namespace papiro.Negocio
 
         private string _area_negocio;
 
-        public string Area_Negocio 
+        public string Area_Negocio
         {
             get { return _area_negocio; }
             set { _area_negocio = value; }
@@ -164,25 +165,25 @@ namespace papiro.Negocio
             set { _familia3 = value; }
         }
 
-        private decimal _stock;
+        private double _stock;
 
-        public decimal Stock
+        public double Stock
         {
             get { return _stock; }
             set { _stock = value; }
         }
 
-        private decimal _medida_unid;
+        private double _medida_unid;
 
-        public decimal Medida_Unidad
+        public double Medida_Unidad
         {
             get { return _medida_unid; }
             set { _medida_unid = value; }
         }
 
-        private decimal _precio_lista;
+        private double _precio_lista;
 
-        public decimal Precio_Lista
+        public double Precio_Lista
         {
             get { return _precio_lista; }
             set { _precio_lista = value; }
@@ -196,25 +197,25 @@ namespace papiro.Negocio
             set { _fecha_caduci = value; }
         }
 
-        private decimal _precio_max;
+        private double _precio_max;
 
-        public decimal Precio_Max
+        public double Precio_Max
         {
             get { return _precio_max; }
             set { _precio_max = value; }
         }
 
-        private decimal _precio_Min;
+        private double _precio_Min;
 
-        public decimal Precio_Min
+        public double Precio_Min
         {
             get { return _precio_Min; }
             set { _precio_Min = value; }
         }
 
-        private decimal _activo;
+        private double _activo;
 
-        public decimal Activo
+        public double Activo
         {
             get { return _activo; }
             set { _activo = value; }
@@ -236,6 +237,51 @@ namespace papiro.Negocio
             set { _categoria2 = value; }
         }
 
+        public bool LeerProducto()
+        {
+            try
+            {
+                DALC.codigos4 producto = (from c in db.codigos4
+                                          where c.Codigo.Equals(this.Codigo)
+                                          select c).First();
+
+                this.Id_Codigos = producto.id_codigos;
+                this.Codigo = producto.Codigo;
+                this.Marca = producto.Marca;
+                this.Descripcion = producto.Descripcion;
+                this.Tipo_1 = producto.Tipo_1;
+                this.Medidas = producto.medidas;
+                this.Unid_Paquete = producto.unid_paquete;
+                this.Ancho = producto.ancho;
+                this.Largo = producto.largo;
+                this.Area = producto.area;
+                this.Descripcion_2 = producto.descripcion_2;
+                this.Area_Negocio = producto.area_negocio;
+                this.Proveedor = producto.proveedor;
+                this.Mapa = producto.mapa;
+                this.Descripcion_3 = producto.descripcion_3;
+                this.Obs = producto.obs;
+                this.Familia = producto.familia;
+                this.Familia2 = producto.familia_2;
+                this.Familia3 = producto.familia_3;
+                this.Stock = producto.stock;
+                this.Medida_Unidad = producto.medida_unid;
+                this.Precio_Lista = producto.Precio_lista;
+                this.Fecha_Caducidad = producto.fecha_caducidad;
+                this.Precio_Max = producto.precio_max;
+                this.Precio_Min = producto.precio_min;
+                this.Activo = producto.activo;
+                this.Categoria = producto.Categoria;
+                this.Categoria2 = producto.Categoria2;
+
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
 
     }
 }

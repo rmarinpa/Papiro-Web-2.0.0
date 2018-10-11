@@ -187,7 +187,7 @@
                 <div class="form-group col-md-2">
                     <label for="lblFormaPago">Forma de pago</label>
                     <asp:DropDownList ID="ddlformaPago" CssClass="form-control" runat="server" Enabled="False">
-                        <asp:ListItem>Seleccione Forma de Pago</asp:ListItem>
+                        <asp:ListItem Value="Seleccione Forma de Pago">Seleccione Forma de Pago</asp:ListItem>
                         <asp:ListItem>Cheque Anticipado</asp:ListItem>
                         <asp:ListItem>Cheque Contra Entrega</asp:ListItem>
                         <asp:ListItem>Cheque Mensual</asp:ListItem>

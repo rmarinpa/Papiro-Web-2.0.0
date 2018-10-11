@@ -88,7 +88,7 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="ConfigUsuario">
                                 <i class="fa fa-cogs"></i>
                                 Configuración de cuenta</a>
                         </li>

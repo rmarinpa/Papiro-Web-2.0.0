@@ -283,13 +283,13 @@ namespace PapiroWeb.Web.Ventas {
         protected global::System.Web.UI.WebControls.TextBox txtAreaCalculada;
         
         /// <summary>
-        /// Control ddlCantidad.
+        /// Control txtCantidadProducto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCantidad;
+        protected global::System.Web.UI.WebControls.TextBox txtCantidadProducto;
         
         /// <summary>
         /// Control txtPrecioM2.
@@ -355,33 +355,6 @@ namespace PapiroWeb.Web.Ventas {
         protected global::System.Web.UI.WebControls.Button btnGenerarPedido;
         
         /// <summary>
-        /// Control gvHistorialBloqueo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvHistorialBloqueo;
-        
-        /// <summary>
-        /// Control SqlDataSource2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
-        
-        /// <summary>
-        /// Control DropDownList1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
-        
-        /// <summary>
         /// Control gvProductosGuiaPendiente.
         /// </summary>
         /// <remarks>
@@ -398,5 +371,23 @@ namespace PapiroWeb.Web.Ventas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource3;
+        
+        /// <summary>
+        /// Control gvHistorialBloqueo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvHistorialBloqueo;
+        
+        /// <summary>
+        /// Control SqlDataSource2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
     }
 }

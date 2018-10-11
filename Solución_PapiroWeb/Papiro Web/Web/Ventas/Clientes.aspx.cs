@@ -36,14 +36,14 @@ namespace PapiroWeb.Web.Ventas
             txtTelefonoProveedores.Text = "";
             txtEmailProveedores.Text = "";
             txtCondicionPago.Text = "";
-            ddlformaPago.Text = "";
+            ddlformaPago.SelectedIndex= 0;
             //Ejecutivos
-            ddlEjecDigital.Text = "";
-            ddlEjecMedia.Text = "";
-            ddlEjecLed.Text = "";
-            ddlEjecMac.Text = "";
-            ddlEjecNew.Text = "";
-            ddlEjecCob.Text = "";
+            ddlEjecDigital.SelectedIndex= 0;
+            ddlEjecMedia.SelectedIndex = 0;
+            ddlEjecLed.SelectedIndex= 0;
+            ddlEjecMac.SelectedIndex= 0;
+            ddlEjecNew.SelectedIndex = 0;
+            ddlEjecCob.SelectedIndex= 0;
             txtDireccionDespacho.Text = "";
             txtEmailDespacho.Text = "";
             txtTelefonoDespacho.Text = "";

@@ -20,10 +20,10 @@ namespace papiro.DALC
         public string Descripcion { get; set; }
         public string Tipo_1 { get; set; }
         public string medidas { get; set; }
-        public Nullable<double> unid_paquete { get; set; }
-        public Nullable<double> ancho { get; set; }
-        public Nullable<double> largo { get; set; }
-        public Nullable<double> area { get; set; }
+        public double unid_paquete { get; set; }
+        public double ancho { get; set; }
+        public double largo { get; set; }
+        public double area { get; set; }
         public string descripcion_2 { get; set; }
         public string area_negocio { get; set; }
         public string proveedor { get; set; }
@@ -33,13 +33,13 @@ namespace papiro.DALC
         public string familia { get; set; }
         public string familia_2 { get; set; }
         public string familia_3 { get; set; }
-        public Nullable<double> stock { get; set; }
-        public Nullable<double> medida_unid { get; set; }
-        public Nullable<double> Precio_lista { get; set; }
-        public Nullable<System.DateTime> fecha_caducidad { get; set; }
-        public Nullable<double> precio_max { get; set; }
-        public Nullable<double> precio_min { get; set; }
-        public Nullable<double> activo { get; set; }
+        public double stock { get; set; }
+        public double medida_unid { get; set; }
+        public double Precio_lista { get; set; }
+        public DateTime fecha_caducidad { get; set; }
+        public double precio_max { get; set; }
+        public double precio_min { get; set; }
+        public double activo { get; set; }
         public string Categoria { get; set; }
         public string Categoria2 { get; set; }
     }

@@ -49,7 +49,7 @@
                                         <asp:Literal ID="FailureText" runat="server" EnableViewState="False"></asp:Literal>
                                     </div>
                                     <!-- Botón -->
-                                    <asp:Button ID="LoginButton" runat="server" CommandName="Login" CssClass="btn btn-lg btn-primary btn-block text-uppercase" Text="Inicio de sesión" ValidationGroup="loginUsuario" />
+                                    <asp:Button ID="LoginButton" runat="server" CommandName="Login" CssClass="btn btn-lg btn btn-outline-primary btn-block text-uppercase" Text="Inicio de sesión" ValidationGroup="loginUsuario" />
                                     <hr class="my-4" />
                                     <!-- Otros botones-->
                             </LayoutTemplate>

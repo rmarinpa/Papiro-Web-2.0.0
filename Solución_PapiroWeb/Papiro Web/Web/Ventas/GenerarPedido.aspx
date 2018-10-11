@@ -109,8 +109,8 @@
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Cliente</a>
                 <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Historial de Cliente</a>
-                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Venta
-                </a>
+                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Venta</a>
+                <a class="nav-item nav-link" id="nav-pendiente-tab" data-toggle="tab" href="#nav-pendiente" role="tab" aria-controls="nav-pendiente" aria-selected="false">Productos pendientes de cliente </a>
             </div>
         </nav>
         <div class="tab-content" id="nav-tabContent">
@@ -212,12 +212,12 @@
                 </div>
                 <!-- Fin cartas -->
 
+            </div>
 
-                <asp:GridView ID="gvHistorialCliente" CssClass="table-active" runat="server" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None" EnableSortingAndPagingCallbacks="True" OnSelectedIndexChanged="gvHistorialCliente_SelectedIndexChanged">
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+                <asp:GridView ID="gvHistorialCliente" CssClass="table-active" runat="server" DataSourceID="SqlDataSource1" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None" EnableSortingAndPagingCallbacks="True">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                    <Columns>
-                        <asp:CommandField ShowSelectButton="True" />
-                    </Columns>
                     <EditRowStyle BackColor="#999999" />
                     <EmptyDataTemplate>
                         <div class="alert alert-success" role="alert">
@@ -243,9 +243,6 @@
                 </asp:SqlDataSource>
 
             </div>
-
-            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-            </div>
             <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
                 <div class="card-header">
                     <h5>Buscar producto</h5>
@@ -254,7 +251,9 @@
                     <div class="form-group col-md-3">
                         <label for="lblCodigo">Código</label>
                         <asp:TextBox ID="txtCodigoProducto" CssClass="form-control" runat="server"></asp:TextBox>
-                        <asp:Button ID="btnBuscarCodigo" CssClass="btn btn-outline-danger" runat="server" Text="Buscar por código" />
+
+                        <asp:Button ID="btnBuscarCodigo" CssClass="btn btn-outline-danger" runat="server" Text="Buscar por código" OnClick="btnBuscarCodigo_Click" />
+
 
                     </div>
                     <div class="form-group col-md-3">
@@ -295,24 +294,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">Venta</h5>
                                 <label for="lblCantidad">Cantidad</label>
-                                <asp:DropDownList ID="ddlCantidad" CssClass="dropdown-toggle" runat="server">
-                                    <asp:ListItem>0</asp:ListItem>
-                                    <asp:ListItem>1</asp:ListItem>
-                                    <asp:ListItem>2</asp:ListItem>
-                                    <asp:ListItem>3</asp:ListItem>
-                                    <asp:ListItem>4</asp:ListItem>
-                                    <asp:ListItem>5</asp:ListItem>
-                                    <asp:ListItem>6</asp:ListItem>
-                                    <asp:ListItem>7</asp:ListItem>
-                                    <asp:ListItem>8</asp:ListItem>
-                                    <asp:ListItem>9</asp:ListItem>
-                                    <asp:ListItem>10</asp:ListItem>
-                                    <asp:ListItem>11</asp:ListItem>
-                                    <asp:ListItem>12</asp:ListItem>
-                                    <asp:ListItem>13</asp:ListItem>
-                                    <asp:ListItem>14</asp:ListItem>
-                                    <asp:ListItem>15</asp:ListItem>
-                                </asp:DropDownList>
+                                <asp:TextBox ID="txtCantidadProducto" CssClass="form-control" runat="server"></asp:TextBox>
                                 <br />
                                 <label for="lblPrecioM2">Precio M2</label>
                                 <asp:TextBox ID="txtPrecioM2" CssClass="form-control" runat="server"></asp:TextBox>
@@ -321,137 +303,137 @@
                                 <label for="lblPrecioMin">Precio Min</label>
                                 <asp:TextBox ID="txtPrecioMin" Enabled="false" CssClass="form-control" runat="server"></asp:TextBox>
                                 <label for="lblAreaTotal">Área Total</label>
-                                <asp:TextBox ID="txtAreaTotal" Enabled="false" CssClass="form-control" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtAreaTotal" Enabled="false" CssClass="form-control" runat="server" OnTextChanged="txtAreaTotal_TextChanged"></asp:TextBox>
                                 <label for="lblPrecioUn">Precio Un</label>
                                 <asp:TextBox ID="txtPrecioUn" Enabled="false" CssClass="form-control" runat="server"></asp:TextBox>
                                 <label for="lblMontoNeto">Monto Neto</label>
                                 <asp:TextBox ID="txtMontoNeto" Enabled="false" CssClass="form-control" runat="server"></asp:TextBox>
+
                             </div>
                         </div>
                     </div>
+
                 </div>
                 <i class="fas fa-shopping-cart"></i>
                 <asp:Button ID="btnGenerarPedido" runat="server" CssClass="btn btn-outline-danger" Text="Agregar producto" />
 
             </div>
-        </div>
 
-        <!-- Div -->
-
-        <!-- Modal -->
-        <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalCenterTitle">Retiro de documentos</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    </div>
-                </div>
+            <div class="tab-pane fade" id="nav-pendiente" role="tabpanel" aria-labelledby="nav-pendiente-tab">
+                <asp:GridView ID="gvProductosGuiaPendiente" runat="server" DataSourceID="SqlDataSource3" CellPadding="4" ForeColor="#333333" GridLines="None" AllowSorting="True" EnableSortingAndPagingCallbacks="True">
+                    <EmptyDataTemplate>
+                        <div class="alert alert-success" role="alert">
+                            <i class="fas fa-question"></i>
+                            <h4 class="alert-heading">Sin información!</h4>
+                            <p>No se ha encontrado historial de datos del cliente .</p>
+                        </div>
+                    </EmptyDataTemplate>
+                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                    <EditRowStyle BackColor="#999999" />
+                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                    <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                    <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                </asp:GridView>
+                <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:const113_papiroConnectionString %>" ProviderName="<%$ ConnectionStrings:const113_papiroConnectionString.ProviderName %>" SelectCommand="SELECT * FROM dif_producto WHERE (rut = ?) AND CAST(numero_pedido AS UNSIGNED) <> 0 AND Pend > 0 order by numero_pedido desc">
+                    <SelectParameters>
+                        <asp:ControlParameter ControlID="txtRutEmpresa" Name="rut" PropertyName="Text" Type="String" />
+                    </SelectParameters>
+                </asp:SqlDataSource>
             </div>
         </div>
 
-        <!-- Div 2 -->
+    </div>
 
 
-        <!-- Modal -->
-        <div class="modal fade" id="ModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="ModalCenterTitle2">Estado de cuenta cliente</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    </div>
+    <!-- Div -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Retiro de documentos</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-            </div>
-        </div>
-
-        <!-- Modal de bloqueos -->
-        <div class="modal fade bd-example-modal-lg" id="ModalCenter3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="ModalCenterTitle">Historial de bloqueos</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <asp:GridView ID="gvHistorialBloqueo" runat="server" DataSourceID="SqlDataSource2" CellPadding="4" ForeColor="#333333" GridLines="None">
-                            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                            <EditRowStyle BackColor="#999999" />
-                            <EmptyDataTemplate>
-                                No se encuentran datos de bloqueo
-                            </EmptyDataTemplate>
-                            <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                            <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-                            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                            <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                            <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                            <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-                        </asp:GridView>
-
-                        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:const113_papiroConnectionString %>" ProviderName="<%$ ConnectionStrings:const113_papiroConnectionString.ProviderName %>" SelectCommand="SELECT usuario, fecha, hora, bloqueo_desbloqueo, senal_advertencia, razon FROM bloqueo WHERE (rut = ?) order by fecha desc">
-                            <SelectParameters>
-                                <asp:ControlParameter ControlID="txtRutEmpresa" Name="rut" PropertyName="Text" Type="String" />
-                            </SelectParameters>
-                        </asp:SqlDataSource>
-                    </div>
-                    <div class="modal-footer">
-
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Fin del Modal -->
-
-
-
-        <!-- Modal de bloqueos -->
-        <div class="modal fade bd-example-modal-lg" id="ModalCenter5" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="ModalCenterTitle5">Historial de bloqueos</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-
+                <div class="modal-body">
                 </div>
                 <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                    <h1>holi</h1>
-                    <asp:DropDownList ID="DropDownList1" Visible="false" runat="server"></asp:DropDownList>
-                    <asp:GridView ID="gvProductosGuiaPendiente" runat="server" DataSourceID="SqlDataSource3" AllowPaging="True"></asp:GridView>
-                    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:const113_papiroConnectionString %>" ProviderName="<%$ ConnectionStrings:const113_papiroConnectionString.ProviderName %>" SelectCommand="SELECT * FROM dif_producto WHERE (rut = ?) AND CAST(numero_pedido AS UNSIGNED) <> 0 AND Pend > 0 order by numero_pedido desc">
+
+    <!-- Modal -->
+    <div class="modal fade" id="ModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalCenterTitle2">Estado de cuenta cliente</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de bloqueos -->
+    <div class="modal fade bd-example-modal-lg" id="ModalCenter3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalCenterTitle">Historial de bloqueos</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <asp:GridView ID="gvHistorialBloqueo" runat="server" DataSourceID="SqlDataSource2" CellPadding="4" ForeColor="#333333" GridLines="None">
+                        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                        <EditRowStyle BackColor="#999999" />
+                        <EmptyDataTemplate>
+                            No se encuentran datos de bloqueo
+                        </EmptyDataTemplate>
+                        <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                        <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                        <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                        <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                        <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                        <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                    </asp:GridView>
+
+                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:const113_papiroConnectionString %>" ProviderName="<%$ ConnectionStrings:const113_papiroConnectionString.ProviderName %>" SelectCommand="SELECT usuario, fecha, hora, bloqueo_desbloqueo, senal_advertencia, razon FROM bloqueo WHERE (rut = ?) order by fecha desc">
                         <SelectParameters>
                             <asp:ControlParameter ControlID="txtRutEmpresa" Name="rut" PropertyName="Text" Type="String" />
                         </SelectParameters>
                     </asp:SqlDataSource>
+                </div>
+                <div class="modal-footer">
+
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>
-
         </div>
-        <!-- Fin del Modal -->
-
     </div>
+    <!-- Fin del Modal -->
+
+
 </asp:Content>
