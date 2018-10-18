@@ -7,6 +7,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+
+
     <script type="text/javascript">
         $(function () {
             $('#<%=txtDescripcion.ClientID%>').autocomplete({
@@ -129,6 +131,7 @@
                         <asp:TextBox ID="txtRutEmpresa" CssClass="form-control" runat="server"></asp:TextBox>
                         <asp:Button ID="btnBuscarRut" CssClass="btn btn-outline-danger" runat="server" Text="Buscar por rut" OnClick="btnBuscarRut_Click" />
                     </div>
+                    <asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label>
                 </div>
                 <div class="form-group">
                     <label for="inputAddress">Dirección</label>
@@ -152,6 +155,7 @@
                         </asp:DropDownList>
                     </div>
                 </div>
+
                 <div class="card-header">
                     <h5>Contacto Comercial</h5>
                 </div>
@@ -216,7 +220,7 @@
 
             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
 
-                <asp:GridView ID="gvHistorialCliente" CssClass="table-active" runat="server" DataSourceID="SqlDataSource1" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None" EnableSortingAndPagingCallbacks="True">
+                <asp:GridView ID="gvHistorialCliente" CssClass="table table-responsive table-bordered table-hover" PageSize="6" runat="server" DataSourceID="SqlDataSource1" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None" EnableSortingAndPagingCallbacks="True" AllowPaging="True">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <EditRowStyle BackColor="#999999" />
                     <EmptyDataTemplate>
@@ -271,6 +275,10 @@
                         <label for="lblFamiliaII">Familia II</label>
                         <asp:TextBox ID="txtFamiliaII" CssClass="form-control" runat="server"></asp:TextBox>
                     </div>
+                    <div class="form-group col-md-3">
+                        <label for="lblFamiliaIII">Familia III</label>
+                        <asp:TextBox ID="txtFamiliaIII" CssClass="form-control" runat="server"></asp:TextBox>
+                    </div>
                 </div>
 
                 <div class="row">
@@ -278,6 +286,9 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Registro de ventas</h5>
+                                <asp:Label ID="lblFolio" runat="server" Text="Folio"></asp:Label>
+                                <asp:TextBox ID="txtFolio" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtFolioUsado" CssClass="form-control" Enabled="false" runat="server">False</asp:TextBox>
                                 <label for="lblMarca">Marca</label>
                                 <asp:TextBox ID="txtMarca" CssClass="form-control" runat="server"></asp:TextBox>
                                 <label for="lblAncho">Ancho</label>
@@ -299,28 +310,50 @@
                                 <label for="lblPrecioM2">Precio M2</label>
                                 <asp:TextBox ID="txtPrecioM2" CssClass="form-control" runat="server"></asp:TextBox>
                                 <label for="lblPrecioMax">Precio Max</label>
-                                <asp:TextBox ID="txtPrecioMax" Enabled="false" CssClass="form-control" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtPrecioMax" CssClass="form-control" runat="server"></asp:TextBox>
                                 <label for="lblPrecioMin">Precio Min</label>
-                                <asp:TextBox ID="txtPrecioMin" Enabled="false" CssClass="form-control" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtPrecioMin" CssClass="form-control" runat="server"></asp:TextBox>
                                 <label for="lblAreaTotal">Área Total</label>
-                                <asp:TextBox ID="txtAreaTotal" Enabled="false" CssClass="form-control" runat="server" OnTextChanged="txtAreaTotal_TextChanged"></asp:TextBox>
+                                <asp:TextBox ID="txtAreaTotal" CssClass="form-control" runat="server"></asp:TextBox>
                                 <label for="lblPrecioUn">Precio Un</label>
-                                <asp:TextBox ID="txtPrecioUn" Enabled="false" CssClass="form-control" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtPrecioUn" CssClass="form-control" runat="server"></asp:TextBox>
                                 <label for="lblMontoNeto">Monto Neto</label>
-                                <asp:TextBox ID="txtMontoNeto" Enabled="false" CssClass="form-control" runat="server"></asp:TextBox>
-
+                                <asp:TextBox ID="txtMontoNeto" CssClass="form-control" runat="server"></asp:TextBox>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <asp:Label ID="lblNeto" runat="server" Text="NETO"></asp:Label>
+                                <asp:TextBox ID="txtNeto" CssClass="form-control" runat="server"></asp:TextBox>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <asp:Label ID="lblIva" runat="server" Text="IVA"></asp:Label>
+                                <asp:TextBox ID="txtIva" CssClass="form-control" runat="server"></asp:TextBox>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <asp:Label ID="lblTotal" runat="server" Text="TOTAL"></asp:Label>
+                                <asp:TextBox ID="txtTotalPedido" CssClass="form-control" runat="server"></asp:TextBox>
                             </div>
                         </div>
                     </div>
 
                 </div>
+                <!-- Botón para agregar productos -->
+                <!-- TextBox importantes-->
+
                 <i class="fas fa-shopping-cart"></i>
-                <asp:Button ID="btnGenerarPedido" runat="server" CssClass="btn btn-outline-danger" Text="Agregar producto" />
+                <asp:Button ID="btnGenerarPedido" runat="server" CssClass="btn btn-outline-danger" Text="Agregar al carrito" OnClick="btnGenerarPedido_Click" UseSubmitBehavior="False" />
+                <!-- Botón para ver los productos agregados -->
+                <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#ModalPedidosAgregados">
+                    Ver carrito
+                </button>
+
+
 
             </div>
 
             <div class="tab-pane fade" id="nav-pendiente" role="tabpanel" aria-labelledby="nav-pendiente-tab">
-                <asp:GridView ID="gvProductosGuiaPendiente" runat="server" DataSourceID="SqlDataSource3" CellPadding="4" ForeColor="#333333" GridLines="None" AllowSorting="True" EnableSortingAndPagingCallbacks="True">
+                <asp:GridView ID="gvProductosGuiaPendiente" runat="server" CssClass="table table-responsive table-bordered table-hover" DataSourceID="SqlDataSource3" CellPadding="4" ForeColor="#333333" GridLines="None" AllowSorting="True" EnableSortingAndPagingCallbacks="True">
                     <EmptyDataTemplate>
                         <div class="alert alert-success" role="alert">
                             <i class="fas fa-question"></i>
@@ -350,8 +383,35 @@
 
     </div>
 
-
     <!-- Div -->
+
+    <!-- Modal de pedidos agregados table -->
+    <div class="modal fade" id="ModalPedidosAgregados" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Pedidos Agregados</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <asp:GridView ID="gvPedidosAgregados" CssClass="table table-responsive table-bordered table-hover" runat="server" DataSourceID="SqlDataSource4"></asp:GridView>
+                    <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:const113_papiroConnectionString %>" ProviderName="<%$ ConnectionStrings:const113_papiroConnectionString.ProviderName %>" SelectCommand="SELECT fecha, numero_folio, cliente FROM venta4 WHERE (numero_folio = ?)">
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="txtFolio" Name="numero_folio" PropertyName="Text" Type="Double" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <asp:Button ID="btnTerminarPedido" CssClass="btn btn-outline-info" runat="server" Text="Finalizar pedido" OnClick="btnTerminarPedido_Click" />
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Modal -->
     <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -403,7 +463,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <asp:GridView ID="gvHistorialBloqueo" runat="server" DataSourceID="SqlDataSource2" CellPadding="4" ForeColor="#333333" GridLines="None">
+                    <asp:GridView ID="gvHistorialBloqueo" runat="server" CssClass="table table-responsive table-bordered table-hover" DataSourceID="SqlDataSource2" CellPadding="4" ForeColor="#333333" GridLines="None">
                         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                         <EditRowStyle BackColor="#999999" />
                         <EmptyDataTemplate>
@@ -434,6 +494,5 @@
         </div>
     </div>
     <!-- Fin del Modal -->
-
 
 </asp:Content>

@@ -120,33 +120,33 @@ namespace papiro.Negocio
             get { return _descripcion; }
             set { _descripcion = value; }
         }
-        private decimal _areaCal;
+        private double _areaCal;
 
-        public decimal AreaCal
+        public double AreaCal
         {
             get { return _areaCal; }
             set { _areaCal = value; }
         }
 
-        private decimal _cantidad;
+        private double _cantidad;
 
-        public decimal Cantidad
+        public double Cantidad
         {
             get { return _cantidad; }
             set { _cantidad = value; }
         }
 
-        private decimal _areaTotal;
+        private double _areaTotal;
 
-        public decimal AreaTotal
+        public double AreaTotal
         {
             get { return _areaTotal; }
             set { _areaTotal = value; }
         }
 
-        private decimal _ventaRollo;
+        private double _ventaRollo;
 
-        public decimal VentaRollo
+        public double VentaRollo
         {
             get { return _ventaRollo; }
             set { _ventaRollo = value; }
@@ -161,25 +161,25 @@ namespace papiro.Negocio
         }
 
 
-        private decimal _ventaNeta;
+        private double _ventaNeta;
 
-        public decimal VentaNeta
+        public double VentaNeta
         {
             get { return _ventaNeta; }
             set { _ventaNeta = value; }
         }
 
-        private decimal _ventaIva;
+        private double _ventaIva;
 
-        public decimal VentaIva
+        public double VentaIva
         {
             get { return _ventaIva; }
             set { _ventaIva = value; }
         }
 
-        private decimal _ventaTotal;
+        private double _ventaTotal;
 
-        public decimal VentaTotal
+        public double VentaTotal
         {
             get { return _ventaTotal; }
             set { _ventaTotal = value; }
@@ -225,9 +225,9 @@ namespace papiro.Negocio
             set { _observacion = value; }
         }
 
-        private decimal _precioLista;
+        private double _precioLista;
 
-        public decimal PrecioLista
+        public double PrecioLista
         {
             get { return _precioLista; }
             set { _precioLista = value; }
@@ -248,9 +248,9 @@ namespace papiro.Negocio
             get { return _fecha; }
             set { _fecha = value; }
         }
-        private decimal _numeroPedido;
+        private double _numeroPedido;
 
-        public decimal NumeroPedido
+        public double NumeroPedido
         {
             get { return _numeroPedido; }
             set { _numeroPedido = value; }
@@ -273,18 +273,18 @@ namespace papiro.Negocio
         }
 
 
-        private decimal _descuento;
+        private double _descuento;
 
-        public decimal Descuento
+        public double Descuento
         {
             get { return _descuento; }
             set { _descuento = value; }
         }
 
 
-        private decimal _numeroFolio;
+        private double _numeroFolio;
 
-        public decimal NumeroFolio
+        public double NumeroFolio
         {
             get { return _numeroFolio; }
             set { _numeroFolio = value; }
@@ -298,17 +298,17 @@ namespace papiro.Negocio
             get { return _tomaPedido; }
             set { _tomaPedido = value; }
         }
-        private decimal _ancho;
+        private double _ancho;
 
-        public decimal Ancho
+        public double Ancho
         {
             get { return _ancho; }
             set { _ancho = value; }
         }
 
-        private decimal _largo;
+        private double _largo;
 
-        public decimal Largo
+        public double Largo
         {
             get { return _largo; }
             set { _largo = value; }
@@ -322,25 +322,61 @@ namespace papiro.Negocio
             set { _solicitado = value; }
         }
 
-        public bool LeerAreaM2()
+        public bool Create()
         {
             try
             {
-                DALC.venta4 venta = (from v in db.venta4
-                                     where v.codigo_producto.Equals(this.CodigoProducto)
-                                     &&v.cliente.Equals(this.Cliente)*
-                                     select v).First();
+                DALC.venta4 venta = new venta4();
 
-                this.UnitVentaM2 = venta.unit_venta_m2;
+                venta.cliente = this.Cliente;
+                venta.rut = this.Rut;
+                venta.area_negocio = this.AreaNegocio;
+                venta.senal_advertencia = this.SenalAdvertencia;
+                venta.comuna = this.Comuna;
+                venta.familia_1 = this.Familia_1;
+                venta.familia_2 = this.Familia_2;
+                venta.familia_3 = this.Familia_3;
+                venta.medidas = this.Medidas;
+                venta.codigo_producto = this.CodigoProducto;
+                venta.proveedor = this.Proveedor;
+                venta.descripcion = this.Descripcion;
+                venta.area_calc = this.AreaCal;
+                venta.cantidad = this.Cantidad;
+                venta.area_total = this.AreaTotal;
+                venta.venta_rollo = this.VentaRollo;
+                venta.unit_venta_m2 = this.UnitVentaM2;
+                venta.venta_neta = this.VentaNeta;
+                venta.venta_iva = this.VentaIva;
+                venta.venta_total = this.VentaTotal;
+                venta.condicion = this.Condicion;
+                venta.forma_pago = this.FormaPago;
+                venta.dias_pago = this.DiasPago;
+                venta.ejecutivo = this.Ejecutivo;
+                venta.observaciones = this.Observacion;
+                venta.precio_lista = this.PrecioLista;
+                venta.precio_cliente = this.PrecioCliente;
+                venta.fecha = this.Fecha;
+                venta.numero_pedido = this.NumeroPedido;
+                venta.fecha_act = this.FechaAct;
+                venta.hora = this.Hora;
+                venta.descuento = this.Descuento;
+                venta.numero_folio = this.NumeroFolio;
+                venta.toma_pedido = this.TomaPedido;
+                venta.ancho = this.Ancho;
+                venta.largo = this.Largo;
+                venta.solicitado = this.Solicitado;
+
+                db.venta4.Add(venta);
+
+                db.SaveChanges();
                 return true;
             }
-                catch (Exception)
+            catch (Exception)
             {
 
                 return false;
             }
         }
-
 
 
     }

@@ -28,51 +28,55 @@ namespace PapiroWeb.Web.Ventas
             //Validamos que el rut , sea correcto
             if (cliente.validarRut(txtRutEmpresa.Text) == true)
             {
-                gvProductosGuiaPendiente.DataBind();
+
                 //Validamos si el tipo de documento está seleccionado
                 if (ddlTipoDocuento.SelectedIndex != 0)
                 {
+                    gvProductosGuiaPendiente.DataBind();
                     if (gvProductosGuiaPendiente.Rows.Count > 1)
                     {
+
                         Response.Write("<script>alert('Cliente con productos pendientes de acuerdo a guías de despacho parcial');</script>");
                         Response.Write("<script>alert('Favor, verificar en la pestaña de productos pendientes');</script>");
-                        try
+                    }
+                    try
+                    {
+                        cliente.Rut = txtRutEmpresa.Text;
+
+                        if (cliente.ReadRut())
                         {
-                            cliente.Rut = txtRutEmpresa.Text;
+                            txtRazonSocial.Text = cliente.NombreCliente;
+                            txtDireccion.Text = cliente.Direccion;
+                            txtComuna.Text = cliente.Comuna;
+                            txtSenal.Text = cliente.SenalAdvertencia;
+                            txtNombreContacto.Text = cliente.ContactoComercial;
+                            txtEmailContacto.Text = cliente.EmailContactoComercial;
+                            txtTelefonoContacto.Text = cliente.TelefonoContactoComercial;
+                            txtCargoContacto.Text = cliente.CargoContactoComercial;
 
-                            if (cliente.ReadRut())
-                            {
-                                txtRazonSocial.Text = cliente.NombreCliente;
-                                txtDireccion.Text = cliente.Direccion;
-                                txtComuna.Text = cliente.Comuna;
-                                txtSenal.Text = cliente.SenalAdvertencia;
-                                txtNombreContacto.Text = cliente.ContactoComercial;
-                                txtEmailContacto.Text = cliente.EmailContactoComercial;
-                                txtTelefonoContacto.Text = cliente.TelefonoContactoComercial;
-                                txtCargoContacto.Text = cliente.CargoContactoComercial;
 
-                                //Actualizamos el DataGrid
-                                gvHistorialCliente.DataBind();
-                                gvHistorialBloqueo.DataBind();
-                                //Bloqueamos el tipo de documento para que el cliente no pueda verlo
-                                ddlTipoDocuento.Enabled = false;
+                            //Actualizamos el DataGrid
+                            gvHistorialCliente.DataBind();
+                            gvHistorialBloqueo.DataBind();
+                            //Bloqueamos el tipo de documento para que el cliente no pueda interactuar
+                            ddlTipoDocuento.Enabled = false;
 
-                            }
-                            else
-                            {
-                                Response.Write("<script>alert('No se encuentra cliente');</script>");
-                                Limpiar();
-                            }
                         }
-                        catch (ArgumentException)
+                        else
                         {
-                            Response.Write("<script>alert('ArgumentException');</script>");
-                        }
-                        catch (Exception ex)
-                        {
-                            Response.Write(ex.Message);
+                            Response.Write("<script>alert('No se encuentra cliente');</script>");
+                            Limpiar();
                         }
                     }
+                    catch (ArgumentException)
+                    {
+                        Response.Write("<script>alert('ArgumentException');</script>");
+                    }
+                    catch (Exception ex)
+                    {
+                        Response.Write(ex.Message);
+                    }
+
                 }
                 else
                 {
@@ -235,10 +239,6 @@ namespace PapiroWeb.Web.Ventas
             Limpiar();
         }
 
-        protected void txtAreaTotal_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         protected void btnBuscarCodigo_Click(object sender, EventArgs e)
         {
@@ -246,30 +246,18 @@ namespace PapiroWeb.Web.Ventas
             {
                 Producto producto = new Producto();
                 producto.Codigo = txtCodigoProducto.Text;
-                papiro.Negocio.Ventas ventas = new papiro.Negocio.Ventas();
-                txtCodigoProducto.Text = ventas.CodigoProducto;
-                txtRazonSocial.Text = ventas.Cliente;
                 if (producto.LeerProducto())
                 {
+                    txtCodigoProducto.Text = producto.Codigo;
                     txtDescripcion.Text = producto.Descripcion;
                     txtMarca.Text = producto.Marca;
                     txtFamiliaI.Text = producto.Familia;
                     txtFamiliaII.Text = producto.Familia2;
+                    txtFamiliaIII.Text = producto.Familia3;
                     txtAncho.Text = producto.Ancho.ToString();
                     txtLargo.Text = producto.Largo.ToString();
                     txtAreaCalculada.Text = producto.Area.ToString();
 
-
-                    //Leemos el m2 desde ventas4
-                    if (ventas.LeerAreaM2())
-                    {
-
-                        txtPrecioM2.Text = ventas.UnitVentaM2.ToString();
-                    }
-                    else
-                    {
-                        Response.Write("<script>alert('Error en metro cuadrado');</script>");
-                    }
                 }
                 else
                 {
@@ -281,6 +269,104 @@ namespace PapiroWeb.Web.Ventas
 
                 throw;
             }
+        }
+
+        protected void btnGenerarPedido_Click(object sender, EventArgs e)
+        {
+            int x = Convert.ToInt32(txtCantidadProducto.Text);
+            try
+            {
+                if (txtFolioUsado.Text == "False")
+                {
+                    //Creamos el folio de la venta
+                    Folio folio = new Folio();
+                    folio.NumeroPedido = "0";
+                    folio.Cliente = txtRazonSocial.Text.ToString();
+                    //Agregamos el folio
+                    if (folio.UltimoFolio())
+                    {
+                        txtFolio.Text = folio.NroFolio.ToString();
+                        txtFolioUsado.Text = "True";
+                    }
+                }
+                else
+                {
+                    lblMensaje.Text = "Error";
+                }
+
+            }
+            catch (Exception)
+            {
+                Response.Write("<script>alert('Error');</script>");
+            }
+
+            //Se agrega productos al carrito
+            for (int i = 0; i < x; i++)
+            {
+                try
+                {
+                    papiro.Negocio.Ventas ventas = new papiro.Negocio.Ventas();
+                    ventas.Cliente = txtRazonSocial.Text;
+                    ventas.Rut = txtRutEmpresa.Text;
+                    //ventas.AreaNegocio.ToString();
+                    //ventas.SenalAdvertencia = txtSenal.Text;
+                    ventas.Comuna = txtComuna.Text;
+                    ventas.Familia_1 = txtFamiliaI.Text;
+                    ventas.Familia_2 = txtFamiliaII.Text;
+                    ventas.Familia_3 = txtFamiliaIII.Text;
+                    //ventas.tipo_1
+                    //ventas.Medidas
+                    ventas.CodigoProducto = txtCodigoProducto.Text;
+                    ventas.Proveedor = txtMarca.Text;
+                    ventas.Descripcion = txtDescripcion.Text;
+                    ventas.AreaCal = double.Parse(txtAreaCalculada.Text);
+                    ventas.Cantidad = double.Parse(txtCantidadProducto.Text);
+                    ventas.AreaTotal = double.Parse(txtAreaTotal.Text);
+                    ventas.VentaRollo = double.Parse(txtPrecioUn.Text);
+                    ventas.UnitVentaM2 = double.Parse(txtPrecioM2.Text);
+                    ventas.VentaNeta = double.Parse(txtNeto.Text);
+                    ventas.VentaIva = double.Parse(txtIva.Text);
+                    ventas.VentaTotal = double.Parse(txtTotalPedido.Text);
+                    //ventas.Condicion
+                    //ventas.FormaPago
+                    //ventas.DiasPago
+                    //ventas.Ejecutivo
+                    //ventas.PrecioLista 
+                    //ventas.PrecioCliente
+                    ventas.Fecha = DateTime.Now;
+                    ventas.FechaAct = DateTime.Now;
+                    //ventas.Hora 
+                    ventas.NumeroFolio = double.Parse(txtFolio.Text);
+
+                    //Se traen los parametros del usuario.
+
+                    //ventas.TomaPedido = 
+                    ventas.Ancho = double.Parse(txtAncho.Text);
+                    ventas.Largo = double.Parse(txtLargo.Text);
+
+                    if (ventas.Create())
+                    {
+                        Response.Write("<script>alert('Productos agregado correctamente');</script>");
+                        gvPedidosAgregados.DataBind();
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    Response.Write("<script>alert('Exception');</script>");
+                    lblMensaje.Text = ex.Message;
+                }
+            }
+
+
+
+
+        }
+
+        protected void btnTerminarPedido_Click(object sender, EventArgs e)
+        {
+            Response.Write("<script>alert('Redirección');</script>");
+            Response.Redirect("InformacionPedido.aspx", true);
         }
     }
 }

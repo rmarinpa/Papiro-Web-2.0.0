@@ -15,7 +15,7 @@ namespace papiro.DALC
     public partial class folio4
     {
         public int Id_folio { get; set; }
-        public Nullable<double> folio { get; set; }
+        public double folio { get; set; }
         public string numero_pedido { get; set; }
         public string cliente { get; set; }
     }
