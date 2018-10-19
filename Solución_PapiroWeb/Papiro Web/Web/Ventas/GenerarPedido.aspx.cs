@@ -285,8 +285,12 @@ namespace PapiroWeb.Web.Ventas
                     //Agregamos el folio
                     if (folio.UltimoFolio())
                     {
-                        txtFolio.Text = folio.NroFolio.ToString();
-                        txtFolioUsado.Text = "True";
+                        if (folio.Create())
+                        {
+                            txtFolio.Text = folio.NroFolio.ToString();
+                            txtFolioUsado.Text = "True";
+                        }
+
                     }
                 }
                 else
@@ -365,8 +369,22 @@ namespace PapiroWeb.Web.Ventas
 
         protected void btnTerminarPedido_Click(object sender, EventArgs e)
         {
-            Response.Write("<script>alert('Redirección');</script>");
-            Response.Redirect("InformacionPedido.aspx", true);
+            try
+            {
+                NotasPedidos notasPedidos = new NotasPedidos();
+                notasPedidos.Folio = double.Parse(txtFolio.Text);
+
+
+                if (notasPedidos.Create())
+                {
+                    Response.Write("<script>alert('Pedido finalizado');</script>");
+
+                }
+            }
+            catch (Exception ex)
+            {
+                lblMensaje.Text = ex.Message;
+            }
         }
     }
 }

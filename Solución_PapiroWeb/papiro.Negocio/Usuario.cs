@@ -64,9 +64,9 @@ namespace papiro.Negocio
                     Obra = user.Obra
                 };
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                ex.Message.ToString();
                 return null;
             }
         }

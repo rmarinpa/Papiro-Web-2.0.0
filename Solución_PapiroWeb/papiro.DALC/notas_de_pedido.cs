@@ -24,7 +24,7 @@ namespace papiro.DALC
         public string observaciones { get; set; }
         public string comuna_despacho { get; set; }
         public string direccion_despacho { get; set; }
-        public Nullable<bool> despachado { get; set; }
-        public Nullable<bool> retira_cliente { get; set; }
+        public bool despachado { get; set; }
+        public bool retira_cliente { get; set; }
     }
 }
