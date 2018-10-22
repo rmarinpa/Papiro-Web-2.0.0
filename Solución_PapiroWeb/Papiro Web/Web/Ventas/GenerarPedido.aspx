@@ -7,7 +7,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-
+    <script type="text/javascript">
+        function comprueba() {
+            return confirm("Confirme el postback");
+        }
+    </script>
 
     <script type="text/javascript">
         $(function () {
@@ -107,6 +111,7 @@
 
 
     <div class="container">
+        <asp:LoginName ID="LoginName1" Visible="false" runat="server" />
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Cliente</a>
@@ -124,7 +129,7 @@
                     <div class="form-group col-md-6">
                         <label for="lblRazon">Razón Social</label>
                         <asp:TextBox ID="txtRazonSocial" CssClass="form-control" runat="server"></asp:TextBox>
-                        <asp:Button ID="btnBuscarRazon" CssClass="btn btn-outline-danger" runat="server" Text="Buscar por razón" OnClick="btnBuscarRazon_Click" OnClientClick="Confirm()" />
+                        <asp:Button ID="btnBuscarRazon" CssClass="btn btn-outline-danger" runat="server" Text="Buscar por razón" AutoPostback="false" OnClick="btnBuscarRazon_Click" />
                     </div>
                     <div class="form-group col-md-6">
                         <label for="lblRut">Rut Empresa</label>
@@ -133,18 +138,30 @@
                     </div>
                     <asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label>
                 </div>
-                <div class="form-group">
+                <div class="form-group ">
                     <label for="inputAddress">Dirección</label>
                     <asp:TextBox ID="txtDireccion" CssClass="form-control" runat="server" Enabled="False"></asp:TextBox>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-2">
                         <label for="inputCity">Comuna</label>
                         <asp:TextBox ID="txtComuna" CssClass="form-control" runat="server" Enabled="False"></asp:TextBox>
                     </div>
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-2">
                         <label for="inputState">Señal de advertencia</label>
                         <asp:TextBox ID="txtSenal" CssClass="form-control" runat="server" Enabled="False"></asp:TextBox>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputState">Ejecutivo</label>
+                        <asp:TextBox ID="txtEjecutivo" CssClass="form-control" runat="server" Enabled="False"></asp:TextBox>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputState">Forma de Pago</label>
+                        <asp:TextBox ID="txtFormaPago" CssClass="form-control" runat="server" Enabled="False"></asp:TextBox>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputState">Condición</label>
+                        <asp:TextBox ID="txtCondicion" CssClass="form-control" runat="server" Enabled="False"></asp:TextBox>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="lblTipoDocumento">Tipo de documento</label>
@@ -184,14 +201,14 @@
                         <div class="card">
                             <div class="card-body col-sm-6">
                                 <h5 class="card-title">Tipo de contacto</h5>
-                                <asp:RadioButton ID="RadioButton1" runat="server" />
+                                <asp:RadioButton ID="rbWhatsapp" runat="server" />
                                 <i class="fab fa-whatsapp fa-3x"></i>
-                                <asp:RadioButton ID="RadioButton3" runat="server" />
+                                <asp:RadioButton ID="rbMail" runat="server" />
                                 <i class="far fa-envelope fa-3x"></i>
                                 <br />
-                                <asp:RadioButton ID="RadioButton2" runat="server" />
+                                <asp:RadioButton ID="rbLlamada" runat="server" />
                                 <i class="fas fa-phone fa-3x"></i>
-                                <asp:RadioButton ID="RadioButton4" runat="server" />
+                                <asp:RadioButton ID="rdPersonal" runat="server" />
                                 <i class="far fa-user fa-3x"></i>
                             </div>
                         </div>
@@ -201,8 +218,7 @@
                             <div class="card-body">
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#ModalCenter">
-                                    Retiro de documentos
-                                </button>
+                                    Retiro de documentos</button>
                                 <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#ModalCenter2">
                                     Estado De cuenta de clientes        
                                 </button>
@@ -255,10 +271,7 @@
                     <div class="form-group col-md-3">
                         <label for="lblCodigo">Código</label>
                         <asp:TextBox ID="txtCodigoProducto" CssClass="form-control" runat="server"></asp:TextBox>
-
-                        <asp:Button ID="btnBuscarCodigo" CssClass="btn btn-outline-danger" runat="server" Text="Buscar por código" OnClick="btnBuscarCodigo_Click" />
-
-
+                        <asp:Button ID="btnBuscarCodigo" CssClass="btn btn-outline-danger" runat="server" Text="Buscar por código" OnClick="btnBuscarCodigo_Click" UseSubmitBehavior="false" />
                     </div>
                     <div class="form-group col-md-3">
                         <label for="lblDescripcion">Descripción</label>
@@ -278,6 +291,7 @@
                     <div class="form-group col-md-3">
                         <label for="lblFamiliaIII">Familia III</label>
                         <asp:TextBox ID="txtFamiliaIII" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtAreaNegocio" Visible="false" CssClass="form-control" runat="server"></asp:TextBox>
                     </div>
                 </div>
 
@@ -288,7 +302,8 @@
                                 <h5 class="card-title">Registro de ventas</h5>
                                 <asp:Label ID="lblFolio" runat="server" Text="Folio"></asp:Label>
                                 <asp:TextBox ID="txtFolio" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
-                                <asp:TextBox ID="txtFolioUsado" CssClass="form-control" Enabled="false" runat="server">False</asp:TextBox>
+                                <asp:TextBox ID="txtFolioUsado" CssClass="form-control" Visible="false" runat="server">False</asp:TextBox>
+                                <asp:TextBox ID="txtTipo1" Visible="false" runat="server"></asp:TextBox>
                                 <label for="lblMarca">Marca</label>
                                 <asp:TextBox ID="txtMarca" CssClass="form-control" runat="server"></asp:TextBox>
                                 <label for="lblAncho">Ancho</label>
@@ -319,6 +334,7 @@
                                 <asp:TextBox ID="txtPrecioUn" CssClass="form-control" runat="server"></asp:TextBox>
                                 <label for="lblMontoNeto">Monto Neto</label>
                                 <asp:TextBox ID="txtMontoNeto" CssClass="form-control" runat="server"></asp:TextBox>
+                                <asp:Button ID="btnCalcularTodo" runat="server" Text="Button" OnClick="btnCalcularTodo_Click" />
                             </div>
                         </div>
                         <div class="form-row">
@@ -339,14 +355,13 @@
 
                 </div>
                 <!-- Botón para agregar productos -->
-                <!-- TextBox importantes-->
+
 
                 <i class="fas fa-shopping-cart"></i>
                 <asp:Button ID="btnGenerarPedido" runat="server" CssClass="btn btn-outline-danger" Text="Agregar al carrito" OnClick="btnGenerarPedido_Click" UseSubmitBehavior="False" />
                 <!-- Botón para ver los productos agregados -->
                 <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#ModalPedidosAgregados">
-                    Ver carrito
-                </button>
+                    Ver carrito</button>
 
 
 
@@ -391,35 +406,37 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Pedidos Agregados</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-
                     <asp:GridView ID="gvPedidosAgregados" CssClass="table table-responsive table-bordered table-hover" runat="server" DataSourceID="SqlDataSource4"></asp:GridView>
-                    <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:const113_papiroConnectionString %>" ProviderName="<%$ ConnectionStrings:const113_papiroConnectionString.ProviderName %>" SelectCommand="SELECT fecha, numero_folio, cliente FROM venta4 WHERE (numero_folio = ?)">
+                    <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:const113_papiroConnectionString %>" ProviderName="<%$ ConnectionStrings:const113_papiroConnectionString.ProviderName %>" SelectCommand="SELECT fecha, numero_folio, cliente, codigo_producto,toma_pedido FROM venta4 WHERE (numero_folio = ?)">
                         <SelectParameters>
                             <asp:ControlParameter ControlID="txtFolio" Name="numero_folio" PropertyName="Text" Type="Double" />
                         </SelectParameters>
                     </asp:SqlDataSource>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <asp:Button ID="btnTerminarPedido" CssClass="btn btn-outline-info" runat="server" Text="Finalizar pedido" OnClick="btnTerminarPedido_Click" />
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#InformacionPedidoModal">
+                        Generar Nota de Pedido
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 
 
-    <!-- Modal -->
+    <!-- Modal informacion pedido -->
     <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalCenterTitle">Retiro de documentos</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -439,7 +456,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="ModalCenterTitle2">Estado de cuenta cliente</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -458,7 +475,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="ModalCenterTitle">Historial de bloqueos</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -494,5 +511,69 @@
         </div>
     </div>
     <!-- Fin del Modal -->
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="InformacionPedidoModal" tabindex="-1" role="dialog" aria-labelledby="InformacionPedidoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="InformacionPedidoModalLabel">Información de pedido</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputCity">Tipo de despacho</label>
+                            <asp:DropDownList ID="ddlTipoDespacho" CssClass="form-control" runat="server">
+                                <asp:ListItem Value="0">-- Seleccione tipo de despacho --</asp:ListItem>
+                                <asp:ListItem Value="1">Facturación</asp:ListItem>
+                                <asp:ListItem Value="2">Despacho</asp:ListItem>
+                                <asp:ListItem Value="3">Otra</asp:ListItem>
+                            </asp:DropDownList>
+                            <asp:DropDownList ID="ddlFechaDespacho" CssClass="form-control" runat="server">
+                                <asp:ListItem Value="0">--Seleccione día de despacho --</asp:ListItem>
+                                <asp:ListItem Value="Hoy">Hoy</asp:ListItem>
+                                <asp:ListItem>Mañana</asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputState">Dirección</label>
+                            <asp:TextBox ID="txtDireccionDespacho" CssClass="form-control" runat="server"></asp:TextBox>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="inputZip">Otra</label>
+                            <asp:TextBox ID="txtComunaDespacho" CssClass="form-control" runat="server"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputCity">Solicitado por</label>
+                            <asp:TextBox ID="txtSolicitado" CssClass="form-control" runat="server"></asp:TextBox>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputState">Observación</label>
+                            <asp:TextBox ID="txtxObservaciones" CssClass="form-control" runat="server"></asp:TextBox>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="lblRetiraCliente">Retira Cliente</label>
+                            <asp:DropDownList ID="ddlRetiraCliente" CssClass="form-control" runat="server">
+                                <asp:ListItem Value="0">--Seleccione --</asp:ListItem>
+                                <asp:ListItem Value="1">Sí</asp:ListItem>
+                                <asp:ListItem Value="2">No</asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <asp:Button ID="btnTerminarPedido" CssClass="btn btn-outline-info" runat="server" Text="Finalizar pedido" OnClick="btnTerminarPedido_Click" />
+                </div>
+            </div>
+        </div>
+    </div>
 
 </asp:Content>

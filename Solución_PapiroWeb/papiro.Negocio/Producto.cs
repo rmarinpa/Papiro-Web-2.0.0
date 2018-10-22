@@ -237,6 +237,55 @@ namespace papiro.Negocio
             set { _categoria2 = value; }
         }
 
+        public bool CreateProducto()
+        {
+            try
+            {
+                DALC.codigos4 productos = new codigos4();
+
+                producto.id_codigos = this.Id_Codigos;
+                producto.Codigo = this.Codigo;
+                producto.Marca = this.Marca;
+                producto.Descripcion = this.Descripcion;
+                producto.Tipo_1 = this.Tipo_1;
+                producto.medidas = this.Medidas;
+                producto.unid_paquete = this.Unid_Paquete;
+                producto.ancho = this.Ancho;
+                producto.largo = this.Largo;
+                producto.area = this.Area;
+                producto.descripcion_2 = this.Descripcion_2;
+                producto.area_negocio = this.Area_Negocio;
+                producto.proveedor = this.Proveedor;
+                producto.mapa = this.Mapa;
+                producto.descripcion_3 = this.Descripcion_3;
+                producto.obs = this.Obs;
+                producto.familia = this.Familia;
+                producto.familia_2 = this.Familia2;
+                producto.familia_3 = this.Familia3;
+                producto.stock = this.Stock;
+                producto.medida_unid = this.Medida_Unidad;
+                producto.Precio_lista = this.Precio_Lista;
+                producto.fecha_caducidad = this.Fecha_Caducidad;
+                producto.precio_max = this.Precio_Max;
+                producto.precio_min = this.Precio_Min;
+                producto.activo = this.Activo;
+                producto.Categoria = this.Categoria;
+                producto.Categoria2 = this.Categoria2; 
+
+
+                db.codigos4.Add(productos);
+
+                db.SaveChanges();
+
+
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
         public bool LeerProducto()
         {
             try

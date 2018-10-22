@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Cliente.cs" />
     <Compile Include="Conexion.cs" />
+    <Compile Include="ContactoVenta.cs" />
     <Compile Include="Folio.cs" />
     <Compile Include="NotasPedidos.cs" />
     <Compile Include="Producto.cs" />

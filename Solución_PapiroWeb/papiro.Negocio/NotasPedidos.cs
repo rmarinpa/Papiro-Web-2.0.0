@@ -31,7 +31,7 @@ namespace papiro.Negocio
         public DateTime Fecha
         {
             get { return _fecha; }
-            set { _fecha = DateTime.Now; }
+            set { _fecha = value; }
         }
 
         private DateTime _hora;
@@ -89,18 +89,18 @@ namespace papiro.Negocio
             set { _direccionDespacho = value; }
         }
 
-        private byte _despachado;
+        private bool _despachado;
 
-        public byte Despachado
+        public bool Despachado
         {
             get { return _despachado; }
             set { _despachado = value; }
         }
 
 
-        private byte _retiraCliente;
+        private bool _retiraCliente;
 
-        public byte RetiraCliente
+        public bool RetiraCliente
         {
             get { return _retiraCliente; }
             set { _retiraCliente = value; }
@@ -124,8 +124,8 @@ namespace papiro.Negocio
                 notapedido.observaciones = this.Observaciones;
                 notapedido.comuna_despacho = this.ComunaDespacho;
                 notapedido.direccion_despacho = this.DireccionDespacho;
-                //notapedido.despachado = this.Despachado;
-                //notapedido.retira_cliente = this.RetiraCliente;
+                notapedido.despachado = this.Despachado;
+                notapedido.retira_cliente = this.RetiraCliente;
 
                 db.notas_de_pedido.Add(notapedido);
                 db.SaveChanges();

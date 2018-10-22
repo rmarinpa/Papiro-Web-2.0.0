@@ -1,9 +1,5 @@
 ﻿<%@ Page Title="Clientes" Language="C#" MasterPageFile="~/Web/Administracion/LayoutAdmin.Master" AutoEventWireup="true" CodeBehind="Clientes.aspx.cs" Inherits="PapiroWeb.Web.Administracion.Clientes" %>
 
-<%@ Register Assembly="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" Namespace="CrystalDecisions.Web" TagPrefix="CR" %>
-
-
-
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <!-- Todo el script, se deben transformar en archivos JS, para sacarlo del código -->
@@ -18,7 +14,6 @@
         $(function () {
             $('#<%=txtRazonSocial.ClientID%>').autocomplete({
                 source: function (request, response) {
-                    Console.log('HOli')
                     $.ajax({
                         url: "Clientes.aspx/GetRazon",
                         data: "{'pre':'" + request.term + "'}",

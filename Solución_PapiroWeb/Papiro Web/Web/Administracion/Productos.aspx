@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Productos" Language="C#" MasterPageFile="~/Web/Administracion/LayoutAdmin.Master" AutoEventWireup="true" CodeBehind="Clientes.aspx.cs" Inherits="PapiroWeb.Web.Administracion.Clientes" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Web/Administracion/LayoutAdmin.Master" AutoEventWireup="true" CodeBehind="Productos.aspx.cs" Inherits="Papiro_Web.Web.Administracion.Productos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -10,12 +10,13 @@
             <div class="form-group col-md-4">
                 <label for="lblCodigo">Código del producto</label>
                 <asp:TextBox ID="txtCodigo" CssClass="form-control" runat="server"></asp:TextBox>
-                <button type="submit" class="btn btn-primary">Buscar por código</button>
+                <button type="submit" class="btn btn-outline-primary">Buscar por código</button>
+                <asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label>
             </div>
             <div class="form-group col-md-4">
                 <label for="lblDesripcion">Descripcion del producto</label>
                 <asp:TextBox ID="txtDescripcion" CssClass="form-control" runat="server"></asp:TextBox>
-                <button type="submit" class="btn btn-primary">Buscar por descripción</button>
+                <button type="submit" class="btn btn-outline-primary">Buscar por descripción</button>
             </div>
         </div>
         <div class="form-row">
@@ -97,9 +98,10 @@
             </div>
         </div>
         <hr />
-        <asp:Button ID="btnAgregar" CssClass="btn btn-primary" runat="server" Text="Agregar" />
-        <asp:Button ID="btnModificar" CssClass="btn btn-primary" runat="server" Text="Modificar" />
-        <asp:Button ID="btnEliminar" CssClass="btn btn-primary" runat="server" Text="Eliminar" />
+        <asp:Button ID="btnAgregar" CssClass="btn btn-outline-primary" runat="server" Text="Agregar" OnClick="btnAgregar_Click" />
+        <asp:Button ID="btnModificar" CssClass="btn btn-outline-primary" runat="server" Text="Modificar" />
+        <asp:Button ID="btnEliminar" CssClass="btn btn-outline-primary" runat="server" Text="Eliminar" />
     </div>
+
 
 </asp:Content>

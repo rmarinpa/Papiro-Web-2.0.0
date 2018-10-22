@@ -20,6 +20,10 @@ namespace PapiroWeb.Web.Ventas
         protected void Page_Load(object sender, EventArgs e)
         {
             ddlTipoDocuento.Enabled = true;
+            txtMontoNeto.Enabled = false;
+            txtIva.Enabled = false;
+            txtTotalPedido.Enabled = false;
+            txtAreaTotal.Enabled = false;
         }
 
         protected void btnBuscarRut_Click(object sender, EventArgs e)
@@ -53,7 +57,9 @@ namespace PapiroWeb.Web.Ventas
                             txtEmailContacto.Text = cliente.EmailContactoComercial;
                             txtTelefonoContacto.Text = cliente.TelefonoContactoComercial;
                             txtCargoContacto.Text = cliente.CargoContactoComercial;
-
+                            txtFormaPago.Text = cliente.FormaPago;
+                            txtEjecutivo.Text = cliente.EjecCobranza;
+                            txtCondicion.Text = cliente.Cond;
 
                             //Actualizamos el DataGrid
                             gvHistorialCliente.DataBind();
@@ -112,6 +118,9 @@ namespace PapiroWeb.Web.Ventas
                         txtEmailContacto.Text = cliente.EmailContactoComercial;
                         txtTelefonoContacto.Text = cliente.TelefonoContactoComercial;
                         txtCargoContacto.Text = cliente.CargoContactoComercial;
+                        txtFormaPago.Text = cliente.FormaPago;
+                        txtEjecutivo.Text = cliente.EjecCobranza;
+                        txtCondicion.Text = cliente.Cond;
 
                         gvHistorialCliente.DataBind();
                         gvHistorialBloqueo.DataBind();
@@ -251,13 +260,16 @@ namespace PapiroWeb.Web.Ventas
                     txtCodigoProducto.Text = producto.Codigo;
                     txtDescripcion.Text = producto.Descripcion;
                     txtMarca.Text = producto.Marca;
+                    txtAreaNegocio.Text = producto.Area_Negocio;
+                    txtTipo1.Text = producto.Tipo_1;
                     txtFamiliaI.Text = producto.Familia;
                     txtFamiliaII.Text = producto.Familia2;
                     txtFamiliaIII.Text = producto.Familia3;
                     txtAncho.Text = producto.Ancho.ToString();
                     txtLargo.Text = producto.Largo.ToString();
                     txtAreaCalculada.Text = producto.Area.ToString();
-
+                    txtPrecioMax.Text = producto.Precio_Max.ToString();
+                    txtPrecioMin.Text = producto.Precio_Min.ToString();
                 }
                 else
                 {
@@ -271,8 +283,33 @@ namespace PapiroWeb.Web.Ventas
             }
         }
 
+        private void LimpiarProducto()
+        {
+            txtCodigoProducto.Text = String.Empty;
+            txtDescripcion.Text = String.Empty;
+            txtFamiliaI.Text = String.Empty; 
+            txtFamiliaII.Text = String.Empty; 
+            txtFamiliaIII.Text  = String.Empty;
+            txtFolio.Text = String.Empty;
+            txtMarca.Text = String.Empty;
+            txtAncho.Text = String.Empty;
+            txtLargo.Text = String.Empty;
+            txtAreaCalculada.Text = String.Empty;
+            txtCantidadProducto.Text = String.Empty;
+            txtPrecioM2.Text = String.Empty;
+            txtPrecioMax.Text = String.Empty;
+            txtPrecioMin.Text = String.Empty;
+            txtAreaTotal.Text = String.Empty;
+            txtPrecioUn.Text = String.Empty;
+            txtMontoNeto.Text = String.Empty;
+            txtNeto.Text = String.Empty;
+            txtIva.Text = String.Empty;
+            txtTotalPedido.Text  = String.Empty; 
+        }
+
         protected void btnGenerarPedido_Click(object sender, EventArgs e)
         {
+            string userName = Page.User.Identity.Name;
             int x = Convert.ToInt32(txtCantidadProducto.Text);
             try
             {
@@ -303,77 +340,89 @@ namespace PapiroWeb.Web.Ventas
             {
                 Response.Write("<script>alert('Error');</script>");
             }
-
-            //Se agrega productos al carrito
-            for (int i = 0; i < x; i++)
+            try
             {
-                try
+                papiro.Negocio.Ventas ventas = new papiro.Negocio.Ventas();
+                ventas.Cantidad = 1;
+                for (int i = 0; i < x; i++)
                 {
-                    papiro.Negocio.Ventas ventas = new papiro.Negocio.Ventas();
-                    ventas.Cliente = txtRazonSocial.Text;
-                    ventas.Rut = txtRutEmpresa.Text;
-                    //ventas.AreaNegocio.ToString();
-                    //ventas.SenalAdvertencia = txtSenal.Text;
-                    ventas.Comuna = txtComuna.Text;
-                    ventas.Familia_1 = txtFamiliaI.Text;
-                    ventas.Familia_2 = txtFamiliaII.Text;
-                    ventas.Familia_3 = txtFamiliaIII.Text;
-                    //ventas.tipo_1
-                    //ventas.Medidas
-                    ventas.CodigoProducto = txtCodigoProducto.Text;
-                    ventas.Proveedor = txtMarca.Text;
-                    ventas.Descripcion = txtDescripcion.Text;
-                    ventas.AreaCal = double.Parse(txtAreaCalculada.Text);
-                    ventas.Cantidad = double.Parse(txtCantidadProducto.Text);
-                    ventas.AreaTotal = double.Parse(txtAreaTotal.Text);
-                    ventas.VentaRollo = double.Parse(txtPrecioUn.Text);
-                    ventas.UnitVentaM2 = double.Parse(txtPrecioM2.Text);
-                    ventas.VentaNeta = double.Parse(txtNeto.Text);
-                    ventas.VentaIva = double.Parse(txtIva.Text);
-                    ventas.VentaTotal = double.Parse(txtTotalPedido.Text);
-                    //ventas.Condicion
-                    //ventas.FormaPago
-                    //ventas.DiasPago
-                    //ventas.Ejecutivo
-                    //ventas.PrecioLista 
-                    //ventas.PrecioCliente
-                    ventas.Fecha = DateTime.Now;
-                    ventas.FechaAct = DateTime.Now;
-                    //ventas.Hora 
-                    ventas.NumeroFolio = double.Parse(txtFolio.Text);
-
-                    //Se traen los parametros del usuario.
-
-                    //ventas.TomaPedido = 
-                    ventas.Ancho = double.Parse(txtAncho.Text);
-                    ventas.Largo = double.Parse(txtLargo.Text);
-
-                    if (ventas.Create())
+                    try
                     {
-                        Response.Write("<script>alert('Productos agregado correctamente');</script>");
-                        gvPedidosAgregados.DataBind();
-                    }
 
-                }
-                catch (Exception ex)
-                {
-                    Response.Write("<script>alert('Exception');</script>");
-                    lblMensaje.Text = ex.Message;
+                        ventas.Cliente = txtRazonSocial.Text;
+                        ventas.Rut = txtRutEmpresa.Text;
+                        ventas.AreaNegocio = txtAreaNegocio.Text;
+                        ventas.SenalAdvertencia = txtSenal.Text;
+                        ventas.Comuna = txtComuna.Text;
+                        ventas.Familia_1 = txtFamiliaI.Text;
+                        ventas.Familia_2 = txtFamiliaII.Text;
+                        ventas.Familia_3 = txtFamiliaIII.Text;
+                        ventas.Tipo1 = txtTipo1.Text;
+                        //ventas.Medidas
+                        ventas.CodigoProducto = txtCodigoProducto.Text;
+                        ventas.Proveedor = txtMarca.Text;
+                        ventas.Descripcion = txtDescripcion.Text;
+                        ventas.AreaCal = double.Parse(txtAreaCalculada.Text);
+                        ventas.AreaTotal = double.Parse(txtAreaTotal.Text);
+                        ventas.VentaRollo = double.Parse(txtPrecioUn.Text);
+                        ventas.UnitVentaM2 = double.Parse(txtPrecioM2.Text);
+                        ventas.VentaNeta = double.Parse(txtNeto.Text);
+                        ventas.VentaIva = double.Parse(txtIva.Text);
+                        ventas.VentaTotal = double.Parse(txtTotalPedido.Text);
+                        ventas.Condicion = txtCondicion.Text;
+                        ventas.FormaPago = txtFormaPago.Text;
+                        //ventas.DiasPago
+                        ventas.Ejecutivo = txtEjecutivo.Text;
+                        //ventas.PrecioLista 
+                        //ventas.PrecioCliente
+                        ventas.Fecha = DateTime.Now;
+                        ventas.FechaAct = DateTime.Now;
+                        ventas.Hora = DateTime.Now;
+                        ventas.NumeroFolio = double.Parse(txtFolio.Text);
+                        //Se traen los parametros del usuario.
+                        ventas.TomaPedido = userName;
+                        ventas.Ancho = double.Parse(txtAncho.Text);
+                        ventas.Largo = double.Parse(txtLargo.Text);
+
+                        if (ventas.Create())
+                        {
+                            Response.Write("<script>alert('Productos agregado correctamente');</script>");
+                            gvPedidosAgregados.DataBind();
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Response.Write("<script>alert('Exception');</script>");
+                        lblMensaje.Text = ex.Message;
+                    }
                 }
             }
+            catch (Exception)
+            {
 
-
-
-
+                throw;
+            }
+            //Se agrega productos al carrito
         }
 
         protected void btnTerminarPedido_Click(object sender, EventArgs e)
         {
+            string userName = Page.User.Identity.Name;
             try
             {
                 NotasPedidos notasPedidos = new NotasPedidos();
+                
                 notasPedidos.Folio = double.Parse(txtFolio.Text);
-
+                notasPedidos.Fecha = DateTime.Now;
+                notasPedidos.Hora = DateTime.Now;
+                notasPedidos.FechaDespacho = ddlFechaDespacho.SelectedValue;
+                notasPedidos.TomaPedido = userName.ToString();
+                notasPedidos.Solicitado = txtSolicitado.Text;
+                notasPedidos.ComunaDespacho = txtComunaDespacho.Text;
+                notasPedidos.DireccionDespacho = txtDireccionDespacho.Text;
+                notasPedidos.Despachado = false;
+                notasPedidos.RetiraCliente = true;
 
                 if (notasPedidos.Create())
                 {
@@ -385,6 +434,107 @@ namespace PapiroWeb.Web.Ventas
             {
                 lblMensaje.Text = ex.Message;
             }
+        }
+
+
+
+        private void CalcularMontoNeto()
+        {
+            try
+            {
+                double n1 = double.Parse(txtPrecioUn.Text);
+                double n2 = double.Parse(txtCantidadProducto.Text);
+                double r = 0;
+
+                r = n1 * n2;
+
+                txtMontoNeto.Text = r.ToString();
+
+            }
+            catch (Exception ex)
+            {
+
+                ex.Message.ToString();
+            }
+        }
+        private void CalcularIva()
+        {
+            try
+            {
+                double n1 = double.Parse(txtMontoNeto.Text);
+                double n2 = 0.19;
+                double r = 0;
+
+                r = n1 * n2;
+
+                txtIva.Text = r.ToString();
+
+            }
+            catch (Exception ex)
+            {
+
+                ex.Message.ToString();
+            }
+        }
+        private void CalcularTotal()
+        {
+            try
+            {
+                double n1 = double.Parse(txtMontoNeto.Text);
+                double n2 = double.Parse(txtIva.Text);
+                double r = 0;
+
+                r = n1 + n2;
+
+                txtTotalPedido.Text = r.ToString();
+
+            }
+            catch (Exception ex)
+            {
+
+                ex.Message.ToString();
+            }
+        }
+        private void CalcularArea()
+        {
+            try
+            {
+                double n1 = double.Parse(txtAreaCalculada.Text);
+                double n2 = double.Parse(txtCantidadProducto.Text);
+                double r = 0;
+
+                r = n1 * n2;
+
+                txtAreaTotal.Text = r.ToString();
+
+
+            }
+            catch (Exception ex)
+            {
+
+                ex.Message.ToString();
+            }
+        }
+
+        /*private void CalcularM2()
+        {
+            double n1 = double.Parse(txtPrecioUn.Text);
+            double n2 = double.Parse(txtAreaTotal.Text);
+            double r = 0;
+
+            r = n1 / n2;
+            txtPrecioM2.Text = r.ToString();
+
+
+        }
+    */
+        protected void btnCalcularTodo_Click(object sender, EventArgs e)
+        {
+            CalcularMontoNeto();
+            CalcularIva();
+            CalcularTotal();
+            CalcularArea();
+            //CalcularM2();
         }
     }
 }

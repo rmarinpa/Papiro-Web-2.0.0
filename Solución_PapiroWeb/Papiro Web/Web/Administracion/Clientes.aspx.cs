@@ -16,10 +16,8 @@ namespace PapiroWeb.Web.Administracion
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                lblMensaje.Text = string.Empty;
-            }
+
+
         }
 
 
@@ -423,7 +421,5 @@ namespace PapiroWeb.Web.Administracion
             }
             return clientes;
         }
-
-
     }
 }
