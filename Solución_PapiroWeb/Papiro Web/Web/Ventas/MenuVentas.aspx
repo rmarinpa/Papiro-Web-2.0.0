@@ -19,7 +19,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <asp:GridView ID="gvUltimasVentas" runat="server" DataSourceID="SqlDataSource1" AllowPaging="True" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal">
+                            <asp:GridView ID="gvUltimasVentas" CssClass="" runat="server" DataSourceID="SqlDataSource1" AllowPaging="True" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal">
                                 <AlternatingRowStyle BackColor="#F7F7F7" />
                                 <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
                                 <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />

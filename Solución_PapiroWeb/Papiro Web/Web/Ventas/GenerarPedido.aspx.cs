@@ -20,10 +20,10 @@ namespace PapiroWeb.Web.Ventas
         protected void Page_Load(object sender, EventArgs e)
         {
             ddlTipoDocuento.Enabled = true;
-            txtMontoNeto.Enabled = false;
-            txtIva.Enabled = false;
-            txtTotalPedido.Enabled = false;
-            txtAreaTotal.Enabled = false;
+            txtMontoNeto.Enabled = true;
+            txtIva.Enabled = true;
+            txtTotalPedido.Enabled = true;
+            txtAreaTotal.Enabled = true;
         }
 
         protected void btnBuscarRut_Click(object sender, EventArgs e)
@@ -36,53 +36,62 @@ namespace PapiroWeb.Web.Ventas
                 //Validamos si el tipo de documento está seleccionado
                 if (ddlTipoDocuento.SelectedIndex != 0)
                 {
-                    gvProductosGuiaPendiente.DataBind();
-                    if (gvProductosGuiaPendiente.Rows.Count > 1)
-                    {
+                    //if (txtSenal.Text == "OK")
+                    //{
 
-                        Response.Write("<script>alert('Cliente con productos pendientes de acuerdo a guías de despacho parcial');</script>");
-                        Response.Write("<script>alert('Favor, verificar en la pestaña de productos pendientes');</script>");
-                    }
-                    try
-                    {
-                        cliente.Rut = txtRutEmpresa.Text;
-
-                        if (cliente.ReadRut())
+                        gvProductosGuiaPendiente.DataBind();
+                        if (gvProductosGuiaPendiente.Rows.Count > 1)
                         {
-                            txtRazonSocial.Text = cliente.NombreCliente;
-                            txtDireccion.Text = cliente.Direccion;
-                            txtComuna.Text = cliente.Comuna;
-                            txtSenal.Text = cliente.SenalAdvertencia;
-                            txtNombreContacto.Text = cliente.ContactoComercial;
-                            txtEmailContacto.Text = cliente.EmailContactoComercial;
-                            txtTelefonoContacto.Text = cliente.TelefonoContactoComercial;
-                            txtCargoContacto.Text = cliente.CargoContactoComercial;
-                            txtFormaPago.Text = cliente.FormaPago;
-                            txtEjecutivo.Text = cliente.EjecCobranza;
-                            txtCondicion.Text = cliente.Cond;
 
-                            //Actualizamos el DataGrid
-                            gvHistorialCliente.DataBind();
-                            gvHistorialBloqueo.DataBind();
-                            //Bloqueamos el tipo de documento para que el cliente no pueda interactuar
-                            ddlTipoDocuento.Enabled = false;
-
+                            Response.Write("<script>alert('Cliente con productos pendientes de acuerdo a guías de despacho parcial');</script>");
+                            Response.Write("<script>alert('Favor, verificar en la pestaña de productos pendientes');</script>");
                         }
-                        else
+                        try
                         {
-                            Response.Write("<script>alert('No se encuentra cliente');</script>");
-                            Limpiar();
-                        }
-                    }
-                    catch (ArgumentException)
-                    {
-                        Response.Write("<script>alert('ArgumentException');</script>");
-                    }
-                    catch (Exception ex)
-                    {
-                        Response.Write(ex.Message);
-                    }
+                            cliente.Rut = txtRutEmpresa.Text;
 
+                            if (cliente.ReadRut())
+                            {
+                                txtRazonSocial.Text = cliente.NombreCliente;
+                                txtDireccion.Text = cliente.Direccion;
+                                txtComuna.Text = cliente.Comuna;
+                                txtSenal.Text = cliente.SenalAdvertencia;
+                                txtNombreContacto.Text = cliente.ContactoComercial;
+                                txtEmailContacto.Text = cliente.EmailContactoComercial;
+                                txtTelefonoContacto.Text = cliente.TelefonoContactoComercial;
+                                txtCargoContacto.Text = cliente.CargoContactoComercial;
+                                txtFormaPago.Text = cliente.FormaPago;
+                                txtEjecutivo.Text = cliente.EjecCobranza;
+                                txtCondicion.Text = cliente.Cond;
+
+                                //Actualizamos el DataGrid
+                                gvHistorialCliente.DataBind();
+                                gvHistorialBloqueo.DataBind();
+                                //Bloqueamos el tipo de documento para que el cliente no pueda interactuar
+                                ddlTipoDocuento.Enabled = false;
+
+                            }
+                            else
+                            {
+                                Response.Write("<script>alert('No se encuentra cliente');</script>");
+                                Limpiar();
+                            }
+                        }
+                        catch (ArgumentException)
+                        {
+                            Response.Write("<script>alert('ArgumentException');</script>");
+                        }
+                        catch (Exception ex)
+                        {
+                            Response.Write(ex.Message);
+                        }
+
+                    //}
+                    //else
+                    //{
+                    //    Response.Write("<script>alert('Cliente se encuentra bloqueado');</script>");
+                    //    Limpiar();
+                    //}
                 }
                 else
                 {
@@ -95,7 +104,6 @@ namespace PapiroWeb.Web.Ventas
             {
                 Response.Write("<script>alert('Rut no valido, el formato de rut es: 1111111-1');</script>");
             }
-
         }
 
         protected void btnBuscarRazon_Click(object sender, EventArgs e)
@@ -181,7 +189,7 @@ namespace PapiroWeb.Web.Ventas
             gvHistorialCliente.DataSource = null;
         }
 
-        //IMPORTANTE, IMPLEMENTAR LOS WEBMETHOD EN LA INTERFAZ DE AUTENTICACION.CS Y AUTENTICACION.SVC.
+        //IMPORTANTE, IMPLEMENTAR LOS WEBMETHOD EN AUTENTICACION.CS Y AUTENTICACION.SVC.
         //PARA ASÍ, LLAMAR A UN SOLO METODO DE BUSCAR POR RAZÓN O RUT.
 
         [WebMethod]
@@ -287,9 +295,9 @@ namespace PapiroWeb.Web.Ventas
         {
             txtCodigoProducto.Text = String.Empty;
             txtDescripcion.Text = String.Empty;
-            txtFamiliaI.Text = String.Empty; 
-            txtFamiliaII.Text = String.Empty; 
-            txtFamiliaIII.Text  = String.Empty;
+            txtFamiliaI.Text = String.Empty;
+            txtFamiliaII.Text = String.Empty;
+            txtFamiliaIII.Text = String.Empty;
             txtFolio.Text = String.Empty;
             txtMarca.Text = String.Empty;
             txtAncho.Text = String.Empty;
@@ -304,7 +312,7 @@ namespace PapiroWeb.Web.Ventas
             txtMontoNeto.Text = String.Empty;
             txtNeto.Text = String.Empty;
             txtIva.Text = String.Empty;
-            txtTotalPedido.Text  = String.Empty; 
+            txtTotalPedido.Text = String.Empty;
         }
 
         protected void btnGenerarPedido_Click(object sender, EventArgs e)
@@ -313,6 +321,7 @@ namespace PapiroWeb.Web.Ventas
             int x = Convert.ToInt32(txtCantidadProducto.Text);
             try
             {
+                
                 if (txtFolioUsado.Text == "False")
                 {
                     //Creamos el folio de la venta
@@ -358,7 +367,8 @@ namespace PapiroWeb.Web.Ventas
                         ventas.Familia_2 = txtFamiliaII.Text;
                         ventas.Familia_3 = txtFamiliaIII.Text;
                         ventas.Tipo1 = txtTipo1.Text;
-                        //ventas.Medidas
+                        //No dejar como 1x1
+                        ventas.Medidas = "1x1";
                         ventas.CodigoProducto = txtCodigoProducto.Text;
                         ventas.Proveedor = txtMarca.Text;
                         ventas.Descripcion = txtDescripcion.Text;
@@ -371,10 +381,13 @@ namespace PapiroWeb.Web.Ventas
                         ventas.VentaTotal = double.Parse(txtTotalPedido.Text);
                         ventas.Condicion = txtCondicion.Text;
                         ventas.FormaPago = txtFormaPago.Text;
-                        //ventas.DiasPago
+                        //No dejar como 1
+                        ventas.DiasPago = "1";
                         ventas.Ejecutivo = txtEjecutivo.Text;
-                        //ventas.PrecioLista 
-                        //ventas.PrecioCliente
+                        //No dejar como 1
+                        ventas.PrecioLista = 1;
+                        //No dejar como 1
+                        ventas.PrecioCliente = 1;
                         ventas.Fecha = DateTime.Now;
                         ventas.FechaAct = DateTime.Now;
                         ventas.Hora = DateTime.Now;
@@ -412,7 +425,7 @@ namespace PapiroWeb.Web.Ventas
             try
             {
                 NotasPedidos notasPedidos = new NotasPedidos();
-                
+
                 notasPedidos.Folio = double.Parse(txtFolio.Text);
                 notasPedidos.Fecha = DateTime.Now;
                 notasPedidos.Hora = DateTime.Now;

@@ -13,5 +13,10 @@ namespace PapiroWeb.Web.Ventas
         {
 
         }
+
+        public void OrdenarGV()
+        {
+
+        }
     }
 }

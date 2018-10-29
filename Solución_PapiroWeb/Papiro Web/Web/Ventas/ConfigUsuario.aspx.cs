@@ -14,5 +14,9 @@ namespace PapiroWeb.Web.Ventas
 
         }
 
+        protected void ChangePassword1_ChangedPassword(object sender, EventArgs e)
+        {
+
+        }
     }
 }
