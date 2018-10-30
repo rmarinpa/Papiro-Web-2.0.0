@@ -128,7 +128,7 @@ namespace Papiro_Web.Web.Administracion
                     txtStock.Text = producto.Stock.ToString();
                     txtMedidas.Text = producto.Medida_Unidad.ToString();
                     txtPrecioMaximo.Text = producto.Precio_Lista.ToString();
-                    txtFechaCaducidad.Text = producto.Fecha_Caducidad.ToString();
+                    txtFechaCaducidad.Text = producto.Fecha_Caducidad.ToShortDateString();
                     txtPrecioMaximo.Text = producto.Precio_Max.ToString();
                     txtPrecioMin.Text = producto.Precio_Min.ToString();
                     txtTipo.Text = producto.Tipo_1;
@@ -149,7 +149,28 @@ namespace Papiro_Web.Web.Administracion
 
         private void Limpiar()
         {
-
+            txtCodigo.Text = "";
+            txtMarca.Text = "";
+            txtDescripcion.Text = "";
+            txtCodigoPrecio.Text = "";
+            txtMedidas.Text = "";
+            txtUnidadPaquete.Text = "";
+            txtAncho.Text = "";
+            txtLargo.Text = "";
+            txtArea.Text = "";
+            txtAreaNeg.Text = "";
+            txtNombreProveedor.Text = "";
+            txtCodigoPrecio.Text = ""; 
+            txtFamilia1.Text = "";
+            txtFamilia2.Text = "";
+            txtFamilia3.Text = "";
+            txtStock.Text = "";
+            txtMedidas.Text = "";
+            txtPrecioMaximo.Text = "";
+            txtFechaCaducidad.Text = "";
+            txtPrecioMaximo.Text = "";
+            txtPrecioMin.Text = "";
+            txtTipo.Text = "";
         }
     }
 }

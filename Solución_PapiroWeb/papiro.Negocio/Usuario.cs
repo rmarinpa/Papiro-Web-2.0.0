@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using papiro.DALC;
@@ -79,7 +80,7 @@ namespace papiro.Negocio
 
                 DALC.usuario usuario = (from u in db.usuario
                                         where u.nombre.Equals(this.Nombre)
-                                         select u).First();
+                                        select u).First();
                 this.Cod_Usuario = usuario.cod_usuario;
 
                 db.usuario.Find(this.Cod_Usuario);
@@ -100,7 +101,53 @@ namespace papiro.Negocio
                 return false;
             }
         }
+        public bool EncriptarPass(string password, string hash)
+        {
+            try
+            {
+                byte[] data = UTF8Encoding.UTF8.GetBytes(password);
+                using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
+                {
+                    byte[] keys = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(hash));
+                    using (TripleDESCryptoServiceProvider tripleDES = new TripleDESCryptoServiceProvider() { Key = keys, Mode= CipherMode.CBC, Padding= PaddingMode.PKCS7 })
+                    {
+                        ICryptoTransform transform = tripleDES.CreateEncryptor();
+                        byte[] results = transform.TransformFinalBlock(data, 0, data.Length);
+                        password = Convert.ToBase64String(results, 0, results.Length);
+                        DesencriptarPass(password,hash);
+                    }
+                }
+                return true;
+            }
+            catch (Exception)
+            {
 
+                return false;
+            }
+        }
 
+        public bool DesencriptarPass(string password, string hash)
+        {
+            try
+            {
+                byte[] data = Convert.FromBase64String(password);
+                using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
+                {
+                    byte[] keys = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(hash));
+                    using (TripleDESCryptoServiceProvider tripleDES = new TripleDESCryptoServiceProvider() { Key = keys, Mode = CipherMode.CBC, Padding = PaddingMode.PKCS7 })
+                    {
+                        ICryptoTransform transform = tripleDES.CreateDecryptor();
+                        byte[] results = transform.TransformFinalBlock(data, 0, data.Length);
+                        password = UTF8Encoding.UTF8.GetString(results);
+                    }
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
     }
 }

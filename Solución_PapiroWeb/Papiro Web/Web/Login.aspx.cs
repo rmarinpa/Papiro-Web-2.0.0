@@ -18,13 +18,14 @@ namespace Papiro_Web.Web
 
         }
 
-        protected void loginUsuario_Authenticate(object sender, AuthenticateEventArgs e)
+            protected void loginUsuario_Authenticate(object sender, AuthenticateEventArgs e)
         {
             //Creamos un cliente para consumir los metodos del servicio web
             ServicioAutenticacion.AutenticacionClient cliente = new ServicioAutenticacion.AutenticacionClient();
 
             string nombreUsuario = loginUsuario.UserName;
             string password = loginUsuario.Password;
+            string hash = "u^g5GT[Ee1F33n9QnpvM";
 
             //Validamos el usuario y obtenemos el XML
             string xmlUsuario = cliente.LoginUsuario(nombreUsuario, password);
@@ -37,10 +38,11 @@ namespace Papiro_Web.Web
 
             if (usuario != null)
             {
+                usuario.EncriptarPass(password,hash);
                 e.Authenticated = true;
 
                 FormsAuthentication.RedirectFromLoginPage(nombreUsuario, false);
-
+                
             }
 
 

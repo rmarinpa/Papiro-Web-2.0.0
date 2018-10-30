@@ -2,46 +2,29 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div class="container text-center">
-        <h2 class="text-center">Administración de usuarios</h2>
-        <div class="col col-lg-auto">
-
-            <!-- DataTables Example -->
-            <div class="card mb-3">
-                <div class="card-header">
-                    <i class="fas fa-table"></i>
-                    Configuración de usuario
+<div class="container">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="text-center">Cambio de contraseña</h3>
+                <div class="form-group">
+                    <label for="lblPass">Ingresa tu contraseña</label>
+                    <asp:TextBox ID="txtActualPass" CssClass="form-control" runat="server" TextMode="Password"></asp:TextBox>
+                    <small class="form-text text-muted">Ingresa tu contraseña actual.</small>
                 </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <asp:GridView ID="gvUsuario" runat="server" AutoGenerateColumns="False" DataKeyNames="UserName" DataSourceID="EntityDataUsuario" CssClass="table table-borderless" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" AllowPaging="True" AllowSorting="True">
-                            <Columns>
-                                <asp:CommandField ShowEditButton="True" />
-                                <asp:BoundField DataField="UserName" HeaderText="UserName" ReadOnly="True" SortExpression="UserName" />
-                                <asp:BoundField DataField="Password" HeaderText="Password" SortExpression="Password" />
-                                <asp:BoundField DataField="Nombres" HeaderText="Nombres" SortExpression="Nombres" />
-                                <asp:BoundField DataField="Apellidos" HeaderText="Apellidos" SortExpression="Apellidos" />
-                            </Columns>
-                            <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-                            <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
-                            <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
-                            <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
-                            <SortedAscendingCellStyle BackColor="#F7F7F7" />
-                            <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
-                            <SortedDescendingCellStyle BackColor="#E5E5E5" />
-                            <SortedDescendingHeaderStyle BackColor="#242121" />
-                        </asp:GridView>
-                        <asp:EntityDataSource ID="EntityDataUsuario" runat="server" ConnectionString="name=PapiroWebEntities" DefaultContainerName="PapiroWebEntities" EnableFlattening="False" EnableUpdate="True" EntitySetName="Usuarios">
-                        </asp:EntityDataSource>
-
-                    </div>
+                <div class="form-group">
+                    <label for="lblNuevaPass">Nueva Contraseña</label>
+                    <asp:TextBox ID="txtNuevaPass" CssClass="form-control" MaxLength="25" TextMode="Password" runat="server"></asp:TextBox>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="La nueva contraseña debe contener mínimo 8 caracteres" ForeColor="Red" ControlToValidate="txtNuevaPass" ValidationExpression="[0-8,a-z]{8,25}"></asp:RegularExpressionValidator>
+                    <small class="form-text text-muted">Tu nueva contraseña debe contener más de 8 caracteres.</small>
                 </div>
+                <div class="form-group">
+                    <label for="lblNuevaPass">Confirma tu nueva contraseña</label>
+                    <asp:TextBox ID="txtConfirmarPass" CssClass="form-control" MaxLength="25" TextMode="Password" runat="server"></asp:TextBox>
 
+                    <small class="form-text text-muted">Ingresa nuevamente tu nueva contraseña.</small>
+                </div>
+                <asp:Button ID="btnCambiarContraseña" CssClass="btn btn-outline-danger" runat="server" Text="Cambiar contraseña" OnClick="btnCambiarContraseña_Click" />
             </div>
-
-            <!-- Fin del DataTable-->
-
-
         </div>
     </div>
 </asp:Content>

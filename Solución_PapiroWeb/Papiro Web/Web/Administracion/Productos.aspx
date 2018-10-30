@@ -67,7 +67,7 @@
                 <asp:Button ID="btnBuscarCodigo" CssClass="btn btn-outline-danger" runat="server" Text="Buscar por código" OnClick="btnBuscarCodigo_Click" />
                 <asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label>
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-6">
                 <label for="lblDesripcion">Descripcion del producto</label>
                 <asp:TextBox ID="txtDescripcion" CssClass="form-control" runat="server"></asp:TextBox>
             </div>
@@ -89,9 +89,7 @@
                 <label for="lblPrecioMin">Precio mínimo</label>
                 <asp:TextBox ID="txtPrecioMin" CssClass="form-control" runat="server"></asp:TextBox>
             </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group">
+            <div class="form-group col-md-2">
                 <label for="lblNombreProveedor">Nombre proveedor</label>
                 <asp:TextBox ID="txtNombreProveedor" CssClass="form-control" runat="server"></asp:TextBox>
             </div>
@@ -125,19 +123,19 @@
                 <label for="lblStock">Stock</label>
                 <asp:TextBox ID="txtStock" CssClass="form-control" runat="server"></asp:TextBox>
             </div>
-            <div class="form-group col-md-1">
+            <div class="form-group col-md-3">
                 <label for="lblTipo">Tipo</label>
                 <asp:TextBox ID="txtTipo" CssClass="form-control" runat="server"></asp:TextBox>
             </div>
-            <div class="form-group col-md-1">
+            <div class="form-group col-md-4">
                 <label for="lblFamilia1">Familia 1</label>
                 <asp:TextBox ID="txtFamilia1" CssClass="form-control" runat="server"></asp:TextBox>
             </div>
-            <div class="form-group col-md-1">
+            <div class="form-group col-md-4">
                 <label for="lblFamilia2">Familia 2</label>
                 <asp:TextBox ID="txtFamilia2" CssClass="form-control" runat="server"></asp:TextBox>
             </div>
-            <div class="form-group col-md-1">
+            <div class="form-group col-md-2">
                 <label for="lblFamilia3">Familia 3</label>
                 <asp:TextBox ID="txtFamilia3" CssClass="form-control" runat="server"></asp:TextBox>
             </div>
