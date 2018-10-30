@@ -7,11 +7,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-    <script type="text/javascript">
-        function comprueba() {
-            return confirm("Confirme el postback");
-        }
-    </script>
 
     <script type="text/javascript">
         $(function () {
@@ -110,7 +105,7 @@
     </script>
 
 
-    <div class="container">
+    <div class="container"
         <asp:LoginName ID="LoginName1" Visible="false" runat="server" />
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -271,7 +266,8 @@
                     <div class="form-group col-md-3">
                         <label for="lblCodigo">Código</label>
                         <asp:TextBox ID="txtCodigoProducto" CssClass="form-control" runat="server"></asp:TextBox>
-                        <asp:Button ID="btnBuscarCodigo" CssClass="btn btn-outline-danger" runat="server" Text="Buscar por código" OnClick="btnBuscarCodigo_Click" UseSubmitBehavior="false" />
+                        <asp:Button ID="btnBuscarCodigo" CssClass="btn btn-outline-danger" runat="server" Text="Buscar por código" OnClick="btnBuscarCodigo_Click" />
+                        
                     </div>
                     <div class="form-group col-md-3">
                         <label for="lblDescripcion">Descripción</label>
@@ -575,5 +571,5 @@
             </div>
         </div>
     </div>
-
+    
 </asp:Content>

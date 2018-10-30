@@ -1,6 +1,60 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Web/Administracion/LayoutAdmin.Master" AutoEventWireup="true" CodeBehind="Productos.aspx.cs" Inherits="Papiro_Web.Web.Administracion.Productos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <!--IMPORTANTE, AL TERMINAR EL DESARROLLO, MOVER LOS SCRIPT A ARCHIVOS JS -->
+    <!--AutoComplete-->
+    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+    <script type="text/javascript">
+        $(function () {
+            $('#<%=txtDescripcion.ClientID%>').autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "Productos.aspx/GetDescripcion",
+                        data: "{'pre':'" + request.term + "'}",
+                        dataType: "json",
+                        type: "POST",
+                        contentType: "application/json; charset=utf=8",
+                        success: function (data) {
+                            response($.map(data.d, function (item) {
+                                return { value: item }
+                            }))
+                        },
+                        error: function (XMLHttpRequest, textStatus, erroThrown) {
+                            alert(textStatus);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+            $('#<%=txtCodigo.ClientID%>').autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "Productos.aspx/GetCodigo",
+                        data: "{'pre':'" + request.term + "'}",
+                        dataType: "json",
+                        type: "POST",
+                        contentType: "application/json; charset=utf=8",
+                        success: function (data) {
+                            response($.map(data.d, function (item) {
+                                return { value: item }
+                            }))
+                        },
+                        error: function (XMLHttpRequest, textStatus, erroThrown) {
+                            alert(textStatus);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 
     <h1 class="text-center">Productos</h1>
     <hr />
@@ -10,13 +64,12 @@
             <div class="form-group col-md-4">
                 <label for="lblCodigo">Código del producto</label>
                 <asp:TextBox ID="txtCodigo" CssClass="form-control" runat="server"></asp:TextBox>
-                <button type="submit" class="btn btn-outline-primary">Buscar por código</button>
+                <asp:Button ID="btnBuscarCodigo" CssClass="btn btn-outline-danger" runat="server" Text="Buscar por código" OnClick="btnBuscarCodigo_Click" />
                 <asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label>
             </div>
             <div class="form-group col-md-4">
                 <label for="lblDesripcion">Descripcion del producto</label>
                 <asp:TextBox ID="txtDescripcion" CssClass="form-control" runat="server"></asp:TextBox>
-                <button type="submit" class="btn btn-outline-primary">Buscar por descripción</button>
             </div>
         </div>
         <div class="form-row">
@@ -34,7 +87,7 @@
             </div>
             <div class="form-group col-md-2">
                 <label for="lblPrecioMin">Precio mínimo</label>
-                <asp:TextBox ID="TextBox3" CssClass="form-control" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtPrecioMin" CssClass="form-control" runat="server"></asp:TextBox>
             </div>
         </div>
         <div class="form-row">

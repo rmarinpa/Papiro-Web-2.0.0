@@ -72,5 +72,35 @@ namespace papiro.Negocio
         }
 
 
+        public bool UpdateContrasena()
+        {
+            try
+            {
+
+                DALC.usuario usuario = (from u in db.usuario
+                                        where u.nombre.Equals(this.Nombre)
+                                         select u).First();
+                this.Cod_Usuario = usuario.cod_usuario;
+
+                db.usuario.Find(this.Cod_Usuario);
+
+                usuario.password = this.Password;
+
+                db.Entry(usuario).State = System.Data.EntityState.Modified;
+
+                db.SaveChanges();
+
+                return true;
+
+
+            }
+            catch (Exception ex)
+            {
+
+                return false;
+            }
+        }
+
+
     }
 }

@@ -22,6 +22,15 @@ namespace Papiro_Web.Web.Administracion {
         protected global::System.Web.UI.WebControls.TextBox txtCodigo;
         
         /// <summary>
+        /// Control btnBuscarCodigo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBuscarCodigo;
+        
+        /// <summary>
         /// Control lblMensaje.
         /// </summary>
         /// <remarks>
@@ -67,13 +76,13 @@ namespace Papiro_Web.Web.Administracion {
         protected global::System.Web.UI.WebControls.TextBox txtPrecioMaximo;
         
         /// <summary>
-        /// Control TextBox3.
+        /// Control txtPrecioMin.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.TextBox txtPrecioMin;
         
         /// <summary>
         /// Control txtNombreProveedor.

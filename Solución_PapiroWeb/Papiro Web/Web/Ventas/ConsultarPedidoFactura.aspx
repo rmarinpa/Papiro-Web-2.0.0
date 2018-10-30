@@ -27,7 +27,6 @@
                             <label for="lblFechaFinal">Fecha Final</label>
                             <i class="fa fa-calendar"></i>
                             <asp:Button ID="btnFechaFinal" CssClass="btn btn-primary" runat="server" Text="Consultar Fecha" OnClick="btnFechaFinal_Click" />
-
                             <asp:TextBox ID="txtFechaFinal" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
                             <asp:Calendar ID="cldFechaFinal" runat="server" OnSelectionChanged="cldFechaFinal_SelectionChanged"></asp:Calendar>
                         </div>

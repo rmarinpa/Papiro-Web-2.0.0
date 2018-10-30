@@ -2,22 +2,28 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
-        <!-- DataTables Example -->
-        <div class="card mb-3">
-            <div class="card-header">
-                <i class="fas fa-table"></i>
-                Mi cuenta
+        <div class="card">
+            <div class="card-body">
+                <h3 class="text-center">Cambio de contraseña</h3>
+                <div class="form-group">
+                    <label for="lblPass">Ingresa tu contraseña</label>
+                    <asp:TextBox ID="txtActualPass" CssClass="form-control" runat="server" TextMode="Password"></asp:TextBox>
+                    <small class="form-text text-muted">Ingresa tu contraseña actual.</small>
+                </div>
+                <div class="form-group">
+                    <label for="lblNuevaPass">Nueva Contraseña</label>
+                    <asp:TextBox ID="txtNuevaPass" CssClass="form-control" MaxLength="25" TextMode="Password" runat="server"></asp:TextBox>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="La nueva contraseña debe contener mínimo 8 caracteres" ForeColor="Red" ControlToValidate="txtNuevaPass" ValidationExpression="[0-8,a-z]{8,25}"></asp:RegularExpressionValidator>
+                    <small class="form-text text-muted">Tu nueva contraseña debe contener más de 8 caracteres.</small>
+                </div>
+                <div class="form-group">
+                    <label for="lblNuevaPass">Confirma tu nueva contraseña</label>
+                    <asp:TextBox ID="txtConfirmarPass" CssClass="form-control" MaxLength="25" TextMode="Password" runat="server"></asp:TextBox>
+
+                    <small class="form-text text-muted">Ingresa nuevamente tu nueva contraseña.</small>
+                </div>
+                <asp:Button ID="btnCambiarContraseña" CssClass="btn btn-outline-danger" runat="server" Text="Cambiar contraseña" OnClick="btnCambiarContraseña_Click" />
             </div>
-            <asp:ChangePassword ID="ChangePassword1" runat="server" BackColor="#FFFBD6" BorderColor="#FFDFAD" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" OnChangedPassword="ChangePassword1_ChangedPassword">
-                <CancelButtonStyle BackColor="White" BorderColor="#CC9966" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#990000" />
-                <ChangePasswordButtonStyle BackColor="White" BorderColor="#CC9966" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#990000" />
-                <ContinueButtonStyle BackColor="White" BorderColor="#CC9966" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#990000" />
-                <InstructionTextStyle Font-Italic="True" ForeColor="Black" />
-                <PasswordHintStyle Font-Italic="True" ForeColor="#888888" />
-                <TextBoxStyle Font-Size="0.8em" />
-                <TitleTextStyle BackColor="#990000" Font-Bold="True" Font-Size="0.9em" ForeColor="White" />
-            </asp:ChangePassword>
         </div>
     </div>
-    <!-- Fin del DataTable-->
 </asp:Content>

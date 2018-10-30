@@ -15,7 +15,6 @@ namespace PapiroWeb.Web.Ventas
             {
                 cldFechaIniciar.Visible = false;
                 cldFechaFinal.Visible = false;
-
             }
         }
 
