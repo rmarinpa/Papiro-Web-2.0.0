@@ -25,7 +25,7 @@ namespace Papiro_Web.Web
 
             string nombreUsuario = loginUsuario.UserName;
             string password = loginUsuario.Password;
-            string hash = "u^g5GT[Ee1F33n9QnpvM";
+            string hash = "MVbxmVM4Ib";
 
             //Validamos el usuario y obtenemos el XML
             string xmlUsuario = cliente.LoginUsuario(nombreUsuario, password);
