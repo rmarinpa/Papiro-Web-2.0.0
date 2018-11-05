@@ -827,6 +827,7 @@
     <Content Include="Web\Administracion\ClientesEImportacion.aspx" />
     <Content Include="Web\Administracion\Compras.aspx" />
     <Content Include="Web\Administracion\ConfigUsuario.aspx" />
+    <Content Include="Web\Administracion\CreacionUsuario.aspx" />
     <Content Include="Web\Administracion\MenuAdministracion.aspx" />
     <Content Include="Web\Administracion\NotasDePedidos.aspx" />
     <Content Include="Web\Administracion\Productos.aspx" />
@@ -1002,6 +1003,13 @@
     </Compile>
     <Compile Include="Web\Administracion\ConfigUsuario.aspx.designer.cs">
       <DependentUpon>ConfigUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Administracion\CreacionUsuario.aspx.cs">
+      <DependentUpon>CreacionUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Administracion\CreacionUsuario.aspx.designer.cs">
+      <DependentUpon>CreacionUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Web\Administracion\LayoutAdmin.Master.cs">
       <DependentUpon>LayoutAdmin.Master</DependentUpon>

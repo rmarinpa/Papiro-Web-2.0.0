@@ -71,7 +71,35 @@ namespace papiro.Negocio
                 return null;
             }
         }
+        public bool CreateUsuario()
+        {
+            try
+            {
+                DALC.usuario usuario = new usuario();
+                usuario.cod_usuario = this.cod_Usuario;
+                usuario.nombre = this.Nombre;
+                usuario.password = this.Password;
+                usuario.Obra = this.Obra;
+                string hash = "MVbxmVM4Ib";
 
+                EncriptarPass(usuario.password, hash);
+
+
+                usuario.password=  this.Password;
+
+                db.usuario.Add(usuario);
+
+                db.SaveChanges();
+
+
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
 
         public bool UpdateContrasena()
         {
@@ -101,7 +129,7 @@ namespace papiro.Negocio
                 return false;
             }
         }
-        public bool EncriptarPass(string password, string hash)
+        public String EncriptarPass(string password, string hash)
         {
             try
             {
@@ -109,20 +137,20 @@ namespace papiro.Negocio
                 using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
                 {
                     byte[] keys = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(hash));
-                    using (TripleDESCryptoServiceProvider tripleDES = new TripleDESCryptoServiceProvider() { Key = keys, Mode= CipherMode.CBC, Padding= PaddingMode.PKCS7 })
+                    using (TripleDESCryptoServiceProvider tripleDES = new TripleDESCryptoServiceProvider() { Key = keys, Mode = CipherMode.CBC, Padding = PaddingMode.PKCS7 })
                     {
                         ICryptoTransform transform = tripleDES.CreateEncryptor();
                         byte[] results = transform.TransformFinalBlock(data, 0, data.Length);
                         password = Convert.ToBase64String(results, 0, results.Length);
-                        DesencriptarPass(password,hash);
+                        return Convert.ToBase64String(results, 0, results.Length);
+                        //DesencriptarPass(password,hash);
                     }
                 }
-                return true;
             }
             catch (Exception)
             {
 
-                return false;
+                return null;
             }
         }
 
