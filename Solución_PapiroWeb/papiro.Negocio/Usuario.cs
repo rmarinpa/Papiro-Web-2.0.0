@@ -51,6 +51,7 @@ namespace papiro.Negocio
         {
             try
             {
+
                 //Validamos el usuario y lo rescatamos de la BD
                 DALC.usuario user = (from u in db.usuario
                                      where u.nombre.Equals(username)
@@ -80,23 +81,12 @@ namespace papiro.Negocio
                 usuario.nombre = this.Nombre;
                 usuario.password = this.Password;
                 usuario.Obra = this.Obra;
-                string hash = "MVbxmVM4Ib";
-
-                EncriptarPass(usuario.password, hash);
-
-
-                usuario.password=  this.Password;
-
                 db.usuario.Add(usuario);
-
                 db.SaveChanges();
-
-
                 return true;
             }
             catch (Exception)
             {
-
                 return false;
             }
         }
@@ -105,47 +95,68 @@ namespace papiro.Negocio
         {
             try
             {
-
                 DALC.usuario usuario = (from u in db.usuario
                                         where u.nombre.Equals(this.Nombre)
                                         select u).First();
                 this.Cod_Usuario = usuario.cod_usuario;
-
                 db.usuario.Find(this.Cod_Usuario);
-
                 usuario.password = this.Password;
-
                 db.Entry(usuario).State = System.Data.EntityState.Modified;
-
                 db.SaveChanges();
-
                 return true;
-
-
             }
             catch (Exception ex)
             {
-
                 return false;
             }
         }
-        public String EncriptarPass(string password, string hash)
+        public string EncriptarPass(string cadena)
         {
             try
             {
-                byte[] data = UTF8Encoding.UTF8.GetBytes(password);
-                using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
-                {
-                    byte[] keys = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(hash));
-                    using (TripleDESCryptoServiceProvider tripleDES = new TripleDESCryptoServiceProvider() { Key = keys, Mode = CipherMode.CBC, Padding = PaddingMode.PKCS7 })
-                    {
-                        ICryptoTransform transform = tripleDES.CreateEncryptor();
-                        byte[] results = transform.TransformFinalBlock(data, 0, data.Length);
-                        password = Convert.ToBase64String(results, 0, results.Length);
-                        return Convert.ToBase64String(results, 0, results.Length);
-                        //DesencriptarPass(password,hash);
-                    }
-                }
+                string resultado = string.Empty;
+                Byte[] encriptar = System.Text.Encoding.Unicode.GetBytes(cadena);
+                resultado = Convert.ToBase64String(encriptar);
+                return resultado;
+            }
+            catch (Exception ex)
+            {
+                ex.Message.ToString();
+                return null;
+            }
+        }
+
+        public string DesencriptarPass(string cadena)
+        {
+            try
+            {
+                string resultado = string.Empty;
+                Byte[] desencriptar = Convert.FromBase64String(cadena);
+
+                resultado = System.Text.Encoding.Unicode.GetString(desencriptar);
+
+                return resultado;
+            }
+            catch (Exception ex)
+            {
+                ex.Message.ToString();
+                return null;
+            }
+        }
+
+        public IEnumerable<Object> ReadUsuario()
+        {
+            try
+            {
+                var usuario = (from u in db.usuario
+                               select new
+                               {
+                                   nombreUsuario = u.nombre,
+                                   contrasena = u.password,
+                                   departamento = u.Obra
+                               }).ToList();
+                
+                return usuario;
             }
             catch (Exception)
             {
@@ -154,21 +165,17 @@ namespace papiro.Negocio
             }
         }
 
-        public bool DesencriptarPass(string password, string hash)
+        public bool LeerDeptoUsuario()
         {
             try
             {
-                byte[] data = Convert.FromBase64String(password);
-                using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
-                {
-                    byte[] keys = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(hash));
-                    using (TripleDESCryptoServiceProvider tripleDES = new TripleDESCryptoServiceProvider() { Key = keys, Mode = CipherMode.CBC, Padding = PaddingMode.PKCS7 })
-                    {
-                        ICryptoTransform transform = tripleDES.CreateDecryptor();
-                        byte[] results = transform.TransformFinalBlock(data, 0, data.Length);
-                        password = UTF8Encoding.UTF8.GetString(results);
-                    }
-                }
+                DALC.usuario user= (from u in db.usuario
+                                          where u.nombre.Equals(this.Nombre)
+                                          select u).First();
+                this.Nombre = user.nombre;
+                this.Password = user.password;
+                this.Obra = user.Obra;
+               
                 return true;
             }
             catch (Exception)
@@ -177,5 +184,6 @@ namespace papiro.Negocio
                 return false;
             }
         }
+
     }
 }

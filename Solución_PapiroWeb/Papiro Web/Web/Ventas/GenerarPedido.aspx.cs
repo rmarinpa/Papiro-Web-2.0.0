@@ -357,7 +357,6 @@ namespace PapiroWeb.Web.Ventas
                 {
                     try
                     {
-
                         ventas.Cliente = txtRazonSocial.Text;
                         ventas.Rut = txtRutEmpresa.Text;
                         ventas.AreaNegocio = txtAreaNegocio.Text;

@@ -25,23 +25,29 @@ namespace Papiro_Web.Web.Administracion
             }
             try
             {
+                if (txtNombreUsuario.Text != "" || txtPass.Text != "" || txtConfirmarPass.Text != "")
+                {
                 if (txtPass.Text == txtConfirmarPass.Text)
                 {
                     Usuario usuario = new Usuario();
 
                     usuario.Nombre = txtNombreUsuario.Text;
-                    usuario.Password = txtPass.Text;
                     usuario.Obra = ddlDepartamento.SelectedItem.ToString();
-
-                    if (usuario.CreateUsuario())
+                    this.txtPass.Text = usuario.EncriptarPass(this.txtPass.Text);
+                    usuario.Password = txtPass.Text;
+                    ; if (usuario.CreateUsuario())
                     {
                         Response.Write("<script>alert('Usuario creado');</script>");
-
                     }
                 }
                 else
                 {
                     Response.Write("<script>alert('Las contraseñas no coinciden');</script>");
+                }
+                }
+                else
+                {
+                    Response.Write("<script>alert('Campos vacíos');</script>");
                 }
             }
             catch (Exception ex)

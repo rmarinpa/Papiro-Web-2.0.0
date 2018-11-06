@@ -14,5 +14,6 @@ namespace Papiro_Web
             settings.AutoRedirectMode = RedirectMode.Off;
             routes.EnableFriendlyUrls(settings);
         }
+        
     }
 }

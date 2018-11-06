@@ -14,8 +14,7 @@ namespace AutenticacionService
     // NOTA: para iniciar el Cliente de prueba WCF para probar este servicio, seleccione Autenticacion.svc o Autenticacion.svc.cs en el Explorador de soluciones e inicie la depuración.
     public class Autenticacion : IAutenticacion
     {
-
-
+        
         public string LoginUsuario(string nombre, string password)
         {
             Usuario user = new Usuario().LoginUsuario(nombre, password);

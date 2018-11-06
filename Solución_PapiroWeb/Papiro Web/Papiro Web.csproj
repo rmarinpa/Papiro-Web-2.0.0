@@ -832,7 +832,7 @@
     <Content Include="Web\Administracion\NotasDePedidos.aspx" />
     <Content Include="Web\Administracion\Productos.aspx" />
     <Content Include="Web\Administracion\RegistroLlamadas.aspx" />
-    <Content Include="Web\Index.aspx" />
+    <Content Include="Web\Redireccion.aspx" />
     <Content Include="Web\Login.aspx" />
     <Content Include="Web\Ventas\Clientes.aspx" />
     <Content Include="Web\Ventas\ConfigUsuario.aspx" />
@@ -1046,12 +1046,12 @@
     <Compile Include="Web\Administracion\RegistroLlamadas.aspx.designer.cs">
       <DependentUpon>RegistroLlamadas.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web\Index.aspx.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
+    <Compile Include="Web\Redireccion.aspx.cs">
+      <DependentUpon>Redireccion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\Index.aspx.designer.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
+    <Compile Include="Web\Redireccion.aspx.designer.cs">
+      <DependentUpon>Redireccion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Web\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

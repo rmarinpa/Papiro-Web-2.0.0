@@ -115,9 +115,9 @@
                                 Usuario
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <!--<a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="CreacionUsuario">
                                     <i class="fa fa-user-edit"></i>
-                                    Administración de usuario</a> -->
+                                    Creación de usuario</a>
                                 <a class="dropdown-item" href="ConfigUsuario">
                                     <i class="fa fa-cog"></i>
                                     Configuración de usuario</a>
@@ -181,6 +181,10 @@
                     Copyright:
      
                    
+
+                   
+
+
 
                     <a href="https://www.papirochile.cl/">papirochile.cl</a>
                 </div>

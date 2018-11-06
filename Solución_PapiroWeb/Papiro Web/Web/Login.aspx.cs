@@ -15,17 +15,21 @@ namespace Papiro_Web.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                Session.Remove("nom");
+            }
         }
 
-            protected void loginUsuario_Authenticate(object sender, AuthenticateEventArgs e)
+        protected void loginUsuario_Authenticate(object sender, AuthenticateEventArgs e)
         {
             //Creamos un cliente para consumir los metodos del servicio web
             ServicioAutenticacion.AutenticacionClient cliente = new ServicioAutenticacion.AutenticacionClient();
 
             string nombreUsuario = loginUsuario.UserName;
             string password = loginUsuario.Password;
-
+            Usuario user = new Usuario();
+            password = user.EncriptarPass(password);
             //Validamos el usuario y obtenemos el XML
             string xmlUsuario = cliente.LoginUsuario(nombreUsuario, password);
 
@@ -38,7 +42,7 @@ namespace Papiro_Web.Web
             if (usuario != null)
             {
                 e.Authenticated = true;
-
+                Session["nom"] = nombreUsuario;
                 FormsAuthentication.RedirectFromLoginPage(nombreUsuario, false);
             }
 

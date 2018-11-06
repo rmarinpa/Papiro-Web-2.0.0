@@ -94,7 +94,7 @@
                         </li>
                         <li>
                             <i class="fa fa-sign-out-alt"></i>
-                            <asp:LoginStatus ID="LoginStatus1" runat="server" />
+                            <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="RedirectToLoginPage" />
                             <asp:LoginName ID="LoginName1" runat="server" />
                         </li>
                     </ul>
