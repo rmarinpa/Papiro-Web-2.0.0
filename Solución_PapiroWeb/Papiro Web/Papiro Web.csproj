@@ -149,6 +149,7 @@
     <Content Include="Contents\bootstrap-datepicker3.min.css" />
     <Content Include="Contents\bootstrap-datepicker3.standalone.css" />
     <Content Include="Contents\bootstrap-datepicker3.standalone.min.css" />
+    <Content Include="Content\LoginStyle.css" />
     <Content Include="Content\Master.css" />
     <Content Include="img\Background.jpg" />
     <Content Include="img\backgroundWhite.jpg" />

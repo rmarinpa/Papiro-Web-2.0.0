@@ -26,18 +26,20 @@
                         <asp:Login ID="loginUsuario" runat="server" OnAuthenticate="loginUsuario_Authenticate">
                             <LayoutTemplate>
                                 <div class="card-body">
-                                    <h5 class="card-title text-center"><i class="fa fa-sign-in-alt"></i>Ingreso</h5>
+                                    <div class="text-center">
+                                        <img src="../img/Papiro.gif" class="img-fluid" alt="Responsive image">
+                                    </div>
                                     <div class="form-label-group">
                                         <!-- Nombre de usuario -->
                                         <label for="ingresoUsuario">
-                                        Usuario</label>
+                                            Usuario</label>
                                         <asp:TextBox ID="UserName" runat="server" CssClass="form-control"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" ErrorMessage="El nombre de usuario es obligatorio." ToolTip="El nombre de usuario es obligatorio." ValidationGroup="loginUsuario">*</asp:RequiredFieldValidator>
                                     </div>
                                     <!-- Contraseña -->
                                     <div class="form-label-group">
                                         <label for="ingresoPassword">
-                                        Password</label>
+                                            Password</label>
                                         <asp:TextBox ID="Password" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" ErrorMessage="La contraseña es obligatoria." ToolTip="La contraseña es obligatoria." ValidationGroup="loginUsuario">*</asp:RequiredFieldValidator>
                                     </div>
