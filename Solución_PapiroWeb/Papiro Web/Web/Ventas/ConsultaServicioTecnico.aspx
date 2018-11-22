@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Consulta servicio tecnico" Language="C#" MasterPageFile="~/Web/Ventas/Layout.Ventas.Master" AutoEventWireup="true" CodeBehind="ConsultaServicioTecnico.aspx.cs" Inherits="PapiroWeb.Web.Ventas.ConsultaServicioTecnico" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container">
+    <div class="container fadeIn fast">
         <h2>Solicitud de servicio técnico</h2>
         <div class="row">
             <div class="col-sm">
@@ -36,10 +36,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label for="lblComuna">Comuna</label>
-                                <asp:DropDownList ID="ddlComuna" CssClass="form-control" runat="server" DataSourceID="EntityDataComuna" DataTextField="NombreComuna" DataValueField="IdComuna"></asp:DropDownList>
-                                <asp:EntityDataSource ID="EntityDataComuna" runat="server" ConnectionString="name=PapiroWebEntities" DefaultContainerName="PapiroWebEntities" EnableFlattening="False" EntitySetName="Comunas">
-                                </asp:EntityDataSource>
-                            </div>
+                                </div>
                         </div>
                         <div class="form-group">
                             <label for="lblMotivoVisita">Motivo de visita</label>

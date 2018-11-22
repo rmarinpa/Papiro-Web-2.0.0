@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Este archivo se usa en el proceso de publicación y empaquetado del proyecto web. Para personalizar el comportamiento de este proceso,
+edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 para obtener más información. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\inetpub\wwwroot\Service</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="Autenticacion.svc">
+      <publishTime>10/11/2018 12:04:30</publishTime>
+    </File>
+    <File Include="bin/AutenticacionService.dll">
+      <publishTime>11/09/2018 09:09:17</publishTime>
+    </File>
+    <File Include="bin/AutenticacionService.pdb">
+      <publishTime>11/09/2018 09:09:17</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>10/11/2018 12:04:30</publishTime>
+    </File>
+    <File Include="bin/MySql.Data.dll">
+      <publishTime>10/02/2015 17:04:34</publishTime>
+    </File>
+    <File Include="bin/papiro.DALC.dll">
+      <publishTime>11/09/2018 08:48:24</publishTime>
+    </File>
+    <File Include="bin/papiro.DALC.dll.config">
+      <publishTime>10/11/2018 12:04:30</publishTime>
+    </File>
+    <File Include="bin/papiro.DALC.pdb">
+      <publishTime>11/09/2018 08:48:24</publishTime>
+    </File>
+    <File Include="bin/papiro.Negocio.dll">
+      <publishTime>11/09/2018 08:48:25</publishTime>
+    </File>
+    <File Include="bin/papiro.Negocio.pdb">
+      <publishTime>11/09/2018 08:48:25</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>09/11/2018 09:00:52</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

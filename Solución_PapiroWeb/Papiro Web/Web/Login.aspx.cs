@@ -15,9 +15,10 @@ namespace Papiro_Web.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (!Page.IsPostBack)
             {
                 Session.Remove("nom");
+                Session.Clear();
             }
         }
 

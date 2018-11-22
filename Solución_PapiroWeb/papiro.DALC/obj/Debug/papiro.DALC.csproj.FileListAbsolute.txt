@@ -21,4 +21,3 @@ C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\papiro.DA
 C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\papiro.DALC\obj\Debug\papiro.DALC.csproj.CopyComplete
 C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\papiro.DALC\obj\Debug\papiro.DALC.dll
 C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\papiro.DALC\obj\Debug\papiro.DALC.pdb
-C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\papiro.DALC\obj\Debug\papiro.DALC.csprojAssemblyReference.cache

@@ -50,6 +50,7 @@
     <Reference Include="AspNet.ScriptManager.bootstrap, Version=4.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\AspNet.ScriptManager.bootstrap.4.1.1\lib\net45\AspNet.ScriptManager.bootstrap.dll</HintPath>
     </Reference>
+    <Reference Include="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
     <Reference Include="Microsoft.AI.DependencyCollector, Version=2.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.8.1\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
@@ -141,6 +142,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\ServicioAutenticacion\Autenticacion.disco" />
+    <None Include="Connected Services\ServicioAutenticacion\configuration91.svcinfo" />
+    <None Include="Connected Services\ServicioAutenticacion\configuration.svcinfo" />
+    <None Include="Connected Services\ServicioAutenticacion\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Contents\bootstrap-datepicker.css" />
     <Content Include="Contents\bootstrap-datepicker.min.css" />
     <Content Include="Contents\bootstrap-datepicker.standalone.css" />
@@ -149,14 +157,14 @@
     <Content Include="Contents\bootstrap-datepicker3.min.css" />
     <Content Include="Contents\bootstrap-datepicker3.standalone.css" />
     <Content Include="Contents\bootstrap-datepicker3.standalone.min.css" />
+    <Content Include="Content\Animate.css" />
     <Content Include="Content\LoginStyle.css" />
     <Content Include="Content\Master.css" />
-    <Content Include="img\Background.jpg" />
-    <Content Include="img\backgroundWhite.jpg" />
     <Content Include="img\background_login-f94bf29cb8e076b24630a06a9e6a2a7fd3e1eb32b523c467daaec0399dab18b9.png" />
     <Content Include="img\imgAdministracion\1d32a9_01901ef141ac41d9b1ed74df5ed4fad0~mv2.jpg" />
     <Content Include="img\imgAdministracion\1d32a9_1f6b8878ea6643c4bca2409f37b69369~mv2.webp.png" />
     <Content Include="img\imgAdministracion\1d32a9_9a80a14487c14fd38610be9cf61766f7~mv2.jpg" />
+    <Content Include="img\Background1.jpg" />
     <Content Include="img\Papiro.gif" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap-datepicker.min.js" />
@@ -837,6 +845,7 @@
     <Content Include="Web\Login.aspx" />
     <Content Include="Web\Ventas\Clientes.aspx" />
     <Content Include="Web\Ventas\ConfigUsuario.aspx" />
+    <Content Include="Web\Ventas\ConfirmarPedido.aspx" />
     <Content Include="Web\Ventas\ConsultarDespacho.aspx" />
     <Content Include="Web\Ventas\ConsultarPedidoFactura.aspx" />
     <Content Include="Web\Ventas\ConsultaServicioTecnico.aspx" />
@@ -847,13 +856,6 @@
     <Content Include="Web\Ventas\InformacionPedido.aspx" />
     <Content Include="Web\Ventas\MapaDeProducto.aspx" />
     <Content Include="Web\Ventas\MenuVentas.aspx" />
-    <None Include="Connected Services\ServicioAutenticacion\Autenticacion.disco" />
-    <None Include="Connected Services\ServicioAutenticacion\configuration91.svcinfo" />
-    <None Include="Connected Services\ServicioAutenticacion\configuration.svcinfo" />
-    <None Include="Connected Services\ServicioAutenticacion\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -880,13 +882,6 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <None Include="Connected Services\ServicioAutenticacion\Autenticacion.wsdl" />
-    <None Include="Connected Services\ServicioAutenticacion\Autenticacion.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServicioAutenticacion\Autenticacion1.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <Content Include="Scripts\esm\popper.min.js.map" />
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
@@ -895,6 +890,14 @@
     <Content Include="Contents\bootstrap-datepicker3.css.map" />
     <Content Include="Contents\bootstrap-datepicker.standalone.css.map" />
     <Content Include="Contents\bootstrap-datepicker.css.map" />
+    <None Include="Connected Services\ServicioAutenticacion\Autenticacion.wsdl" />
+    <None Include="Connected Services\ServicioAutenticacion\Autenticacion.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServicioAutenticacion\Autenticacion1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -1075,6 +1078,13 @@
     <Compile Include="Web\Ventas\ConfigUsuario.aspx.designer.cs">
       <DependentUpon>ConfigUsuario.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Web\Ventas\ConfirmarPedido.aspx.cs">
+      <DependentUpon>ConfirmarPedido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Ventas\ConfirmarPedido.aspx.designer.cs">
+      <DependentUpon>ConfirmarPedido.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Web\Ventas\ConsultarDespacho.aspx.cs">
       <DependentUpon>ConsultarDespacho.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1194,10 +1204,10 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\ServicioAutenticacion\" />
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="Scripts\index.d.ts" />
+    <WCFMetadataStorage Include="Connected Services\ServicioAutenticacion\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

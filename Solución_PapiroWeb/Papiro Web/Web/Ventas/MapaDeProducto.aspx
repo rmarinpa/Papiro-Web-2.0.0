@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
-    <div class="container">
+    <div class="container fadeIn fast">
 
         <h2 class="text-center">Estado de cuenta de cliente</h2>
         <hr />

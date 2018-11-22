@@ -11,12 +11,13 @@ namespace PapiroWeb.Web.Ventas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            string userName = Page.User.Identity.Name;
+            lblUsuario.Text = userName;
         }
 
         public void OrdenarGV()
         {
-
+            
         }
     }
 }

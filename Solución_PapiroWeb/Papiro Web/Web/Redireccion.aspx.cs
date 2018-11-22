@@ -12,7 +12,7 @@ namespace Papiro_Web.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (!Page.IsPostBack)
             {
                 string userName = Page.User.Identity.Name;
 

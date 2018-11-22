@@ -1,0 +1,12 @@
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\papiro.DALC\bin\Release\papiro.DALC.dll.config
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\papiro.DALC\bin\Release\papiro.DALC.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\papiro.DALC\bin\Release\papiro.DALC.pdb
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\papiro.DALC\bin\Release\EntityFramework.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\papiro.DALC\bin\Release\MySql.Data.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\papiro.DALC\bin\Release\MySql.Data.Entity.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\papiro.DALC\bin\Release\EntityFramework.xml
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\papiro.DALC\obj\Release\papiro.DALC.csprojAssemblyReference.cache
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\papiro.DALC\obj\Release\papiro.DALC.csproj.CoreCompileInputs.cache
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\papiro.DALC\obj\Release\papiro.DALC.csproj.CopyComplete
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\papiro.DALC\obj\Release\papiro.DALC.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\papiro.DALC\obj\Release\papiro.DALC.pdb

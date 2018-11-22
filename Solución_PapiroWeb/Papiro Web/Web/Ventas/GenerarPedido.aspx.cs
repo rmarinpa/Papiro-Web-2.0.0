@@ -39,52 +39,52 @@ namespace PapiroWeb.Web.Ventas
                     //if (txtSenal.Text == "OK")
                     //{
 
-                        gvProductosGuiaPendiente.DataBind();
-                        if (gvProductosGuiaPendiente.Rows.Count > 1)
-                        {
+                    gvProductosGuiaPendiente.DataBind();
+                    if (gvProductosGuiaPendiente.Rows.Count > 1)
+                    {
 
-                            Response.Write("<script>alert('Cliente con productos pendientes de acuerdo a guías de despacho parcial');</script>");
-                            Response.Write("<script>alert('Favor, verificar en la pestaña de productos pendientes');</script>");
-                        }
-                        try
-                        {
-                            cliente.Rut = txtRutEmpresa.Text;
+                        Response.Write("<script>alert('Cliente con productos pendientes de acuerdo a guías de despacho parcial');</script>");
+                        Response.Write("<script>alert('Favor, verificar en la pestaña de productos pendientes');</script>");
+                    }
+                    try
+                    {
+                        cliente.Rut = txtRutEmpresa.Text;
 
-                            if (cliente.ReadRut())
-                            {
-                                txtRazonSocial.Text = cliente.NombreCliente;
-                                txtDireccion.Text = cliente.Direccion;
-                                txtComuna.Text = cliente.Comuna;
-                                txtSenal.Text = cliente.SenalAdvertencia;
-                                txtNombreContacto.Text = cliente.ContactoComercial;
-                                txtEmailContacto.Text = cliente.EmailContactoComercial;
-                                txtTelefonoContacto.Text = cliente.TelefonoContactoComercial;
-                                txtCargoContacto.Text = cliente.CargoContactoComercial;
-                                txtFormaPago.Text = cliente.FormaPago;
-                                txtEjecutivo.Text = cliente.EjecCobranza;
-                                txtCondicion.Text = cliente.Cond;
-
-                                //Actualizamos el DataGrid
-                                gvHistorialCliente.DataBind();
-                                gvHistorialBloqueo.DataBind();
-                                //Bloqueamos el tipo de documento para que el cliente no pueda interactuar
-                                ddlTipoDocuento.Enabled = false;
-
-                            }
-                            else
-                            {
-                                Response.Write("<script>alert('No se encuentra cliente');</script>");
-                                Limpiar();
-                            }
-                        }
-                        catch (ArgumentException)
+                        if (cliente.ReadRut())
                         {
-                            Response.Write("<script>alert('ArgumentException');</script>");
+                            txtRazonSocial.Text = cliente.NombreCliente;
+                            txtDireccion.Text = cliente.Direccion;
+                            txtComuna.Text = cliente.Comuna;
+                            txtSenal.Text = cliente.SenalAdvertencia;
+                            txtNombreContacto.Text = cliente.ContactoComercial;
+                            txtEmailContacto.Text = cliente.EmailContactoComercial;
+                            txtTelefonoContacto.Text = cliente.TelefonoContactoComercial;
+                            txtCargoContacto.Text = cliente.CargoContactoComercial;
+                            txtFormaPago.Text = cliente.FormaPago;
+                            txtEjecutivo.Text = cliente.EjecCobranza;
+                            txtCondicion.Text = cliente.Cond;
+
+                            //Actualizamos el DataGrid
+                            gvHistorialCliente.DataBind();
+                            gvHistorialBloqueo.DataBind();
+                            //Bloqueamos el tipo de documento para que el cliente no pueda interactuar
+                            ddlTipoDocuento.Enabled = false;
+
                         }
-                        catch (Exception ex)
+                        else
                         {
-                            Response.Write(ex.Message);
+                            Response.Write("<script>alert('No se encuentra cliente');</script>");
+                            Limpiar();
                         }
+                    }
+                    catch (ArgumentException)
+                    {
+                        Response.Write("<script>alert('ArgumentException');</script>");
+                    }
+                    catch (Exception ex)
+                    {
+                        Response.Write(ex.Message);
+                    }
 
                     //}
                     //else
@@ -317,11 +317,12 @@ namespace PapiroWeb.Web.Ventas
 
         protected void btnGenerarPedido_Click(object sender, EventArgs e)
         {
-            string userName = Page.User.Identity.Name;
-            int x = Convert.ToInt32(txtCantidadProducto.Text);
+            int x = 0;
+            string userName = "";
             try
             {
-                
+                x = Convert.ToInt32(txtCantidadProducto.Text);
+                userName = Page.User.Identity.Name;
                 if (txtFolioUsado.Text == "False")
                 {
                     //Creamos el folio de la venta
@@ -421,30 +422,32 @@ namespace PapiroWeb.Web.Ventas
         protected void btnTerminarPedido_Click(object sender, EventArgs e)
         {
             string userName = Page.User.Identity.Name;
-            try
             {
-                NotasPedidos notasPedidos = new NotasPedidos();
-
-                notasPedidos.Folio = double.Parse(txtFolio.Text);
-                notasPedidos.Fecha = DateTime.Now;
-                notasPedidos.Hora = DateTime.Now;
-                notasPedidos.FechaDespacho = ddlFechaDespacho.SelectedValue;
-                notasPedidos.TomaPedido = userName.ToString();
-                notasPedidos.Solicitado = txtSolicitado.Text;
-                notasPedidos.ComunaDespacho = txtComunaDespacho.Text;
-                notasPedidos.DireccionDespacho = txtDireccionDespacho.Text;
-                notasPedidos.Despachado = false;
-                notasPedidos.RetiraCliente = true;
-
-                if (notasPedidos.Create())
+                try
                 {
-                    Response.Write("<script>alert('Pedido finalizado');</script>");
+                    NotasPedidos notasPedidos = new NotasPedidos();
 
+                    notasPedidos.Folio = double.Parse(txtFolio.Text);
+                    notasPedidos.Fecha = DateTime.Now;
+                    notasPedidos.Hora = DateTime.Now;
+                    notasPedidos.FechaDespacho = ddlFechaDespacho.SelectedValue;
+                    notasPedidos.TomaPedido = userName.ToString();
+                    notasPedidos.Solicitado = txtSolicitado.Text;
+                    notasPedidos.ComunaDespacho = txtComunaDespacho.Text;
+                    notasPedidos.DireccionDespacho = txtDireccionDespacho.Text;
+                    notasPedidos.Despachado = false;
+                    notasPedidos.RetiraCliente = true;
+
+                    if (notasPedidos.Create())
+                    {
+                        Response.Write("<script>alert('Pedido finalizado');</script>");
+
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                lblMensaje.Text = ex.Message;
+                catch (Exception ex)
+                {
+                    lblMensaje.Text = ex.Message.ToString();
+                }
             }
         }
 
@@ -548,5 +551,6 @@ namespace PapiroWeb.Web.Ventas
             CalcularArea();
             //CalcularM2();
         }
+
     }
 }

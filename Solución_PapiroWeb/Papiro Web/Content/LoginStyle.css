@@ -1,3 +1,7 @@
 ﻿.img-fluid{
     height:50px;
 }
+
+body{
+    background: url(../img/Background1.jpg);
+}

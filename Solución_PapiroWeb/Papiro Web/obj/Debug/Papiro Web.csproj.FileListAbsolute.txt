@@ -152,4 +152,3 @@ C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro We
 C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\obj\Debug\Papiro Web.csproj.CopyComplete
 C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\obj\Debug\Papiro Web.dll
 C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\obj\Debug\Papiro Web.pdb
-C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Papiro Web\obj\Debug\Papiro Web.csprojAssemblyReference.cache

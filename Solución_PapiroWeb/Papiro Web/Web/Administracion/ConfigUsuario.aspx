@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-<div class="container">
+<div class="container fadeIn fast">
         <div class="card">
             <div class="card-body">
                 <h3 class="text-center">Cambio de contraseña</h3>

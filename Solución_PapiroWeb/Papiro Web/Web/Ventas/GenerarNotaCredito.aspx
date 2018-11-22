@@ -35,7 +35,7 @@
 
     <!--FinAutoComplete-->
 
-    <div class="container">
+    <div class="container fadeIn fast">
 
         <h2 class="text-center">Nota de crédito</h2>
         <hr />

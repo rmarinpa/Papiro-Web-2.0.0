@@ -59,7 +59,7 @@
     <div class="container">
 
 
-        <div class="container">
+        <div class="container fadeIn fast">
 
             <h2 class="text-center">Información general</h2>
             <hr />

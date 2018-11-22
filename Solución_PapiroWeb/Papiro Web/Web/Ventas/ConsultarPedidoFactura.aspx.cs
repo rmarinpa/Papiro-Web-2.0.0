@@ -11,11 +11,15 @@ namespace PapiroWeb.Web.Ventas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+
+            if (!Page.IsPostBack)
             {
                 cldFechaIniciar.Visible = false;
                 cldFechaFinal.Visible = false;
+                txtFechaFinal.Text = DateTime.Now.ToLongDateString();
+                txtFechaInicial.Text = DateTime.Now.ToLongDateString();
             }
+
         }
 
         protected void btnConsutarInicial_Click(object sender, EventArgs e)
@@ -53,6 +57,11 @@ namespace PapiroWeb.Web.Ventas
                 cldFechaFinal.Visible = true;
             }
 
+        }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            dgvHistorialPedidos.DataBind();
         }
 
 

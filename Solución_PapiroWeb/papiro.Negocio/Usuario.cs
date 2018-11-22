@@ -132,9 +132,7 @@ namespace papiro.Negocio
             {
                 string resultado = string.Empty;
                 Byte[] desencriptar = Convert.FromBase64String(cadena);
-
                 resultado = System.Text.Encoding.Unicode.GetString(desencriptar);
-
                 return resultado;
             }
             catch (Exception ex)
@@ -145,7 +143,7 @@ namespace papiro.Negocio
         }
 
         public IEnumerable<Object> ReadUsuario()
-        {
+        {   
             try
             {
                 var usuario = (from u in db.usuario
@@ -155,7 +153,6 @@ namespace papiro.Negocio
                                    contrasena = u.password,
                                    departamento = u.Obra
                                }).ToList();
-                
                 return usuario;
             }
             catch (Exception)

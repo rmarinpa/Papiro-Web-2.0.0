@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div class="container">
+    <div class="container fadeIn fast">
         <div class="card">
             <div class="card-body">
                 <h3 class="text-center">Creación de Usuario</h3>
@@ -14,13 +14,13 @@
                 <div class="form-group">
                     <label for="lblNuevaPass">Ingrese una Contraseña</label>
                     <asp:TextBox ID="txtPass" CssClass="form-control" MaxLength="25" TextMode="Password" runat="server"></asp:TextBox>
-                    <small class="form-text text-muted">Tu nueva contraseña debe contener más de 8 caracteres.</small>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="La nueva contraseña debe contener mínimo 8 caracteres" ForeColor="Red" ControlToValidate="txtPass" ValidationExpression="[0-8,a-z]{8,25}"></asp:RegularExpressionValidator>
+                    <small class="form-text text-muted">La contraseña debe contener más de 8 caracteres.</small>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="La nueva contraseña debe contener mínimo 8 caracteres" ForeColor="Red" ControlToValidate="txtPass" ValidationExpression="[0-9a-zA-Z]{8,}"></asp:RegularExpressionValidator>
                 </div>
                 <div class="form-group">
                     <label for="lblNuevaPass">Confirma tu nueva contraseña</label>
                     <asp:TextBox ID="txtConfirmarPass" CssClass="form-control" MaxLength="25" TextMode="Password" runat="server"></asp:TextBox>
-                    <small class="form-text text-muted">Ingresa nuevamente tu nueva contraseña.</small>
+                    <small class="form-text text-muted">Ingresa nuevamente la nueva contraseña.</small>
                 </div>
                 <div class="form-group">
                     <label for="lblDepartamento">Ingresa al Departamento que tendrá acceso el usuario</label>
@@ -37,18 +37,13 @@
                 <!-- Button trigger modal -->
                 <asp:Button ID="btnAgregarUsuario" CssClass="btn btn-outline-danger" runat="server" Text="Ingresar Usuario" OnClick="btnAgregarUsuario_Click" />
             </div>
-            <asp:GridView ID="gvListadoUsuarios" CssClass="table table-responsive table-bordered table-hover" runat="server" DataSourceID="EntityDataSource1" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="cod_usuario">
+            <asp:GridView ID="gvListadoUsuarios" runat="server" AllowPaging="True" DataSourceID="ObjectDataSource1">
                 <Columns>
-                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
-                    <asp:BoundField DataField="cod_usuario" HeaderText="cod_usuario" ReadOnly="True" SortExpression="cod_usuario" />
-                    <asp:BoundField DataField="nombre" HeaderText="nombre" SortExpression="nombre" />
-                    <asp:BoundField DataField="password" HeaderText="password" SortExpression="password" />
-                    <asp:BoundField DataField="Obra" HeaderText="Obra" SortExpression="Obra" />
+                    <asp:CommandField ShowSelectButton="True" />
                 </Columns>
             </asp:GridView>
             
-            <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=const113_papiroEntities" DefaultContainerName="const113_papiroEntities" EnableDelete="True" EnableFlattening="False" EnableInsert="True" EnableUpdate="True" EntitySetName="usuario">
-            </asp:EntityDataSource>
+            <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="ReadUsuario" TypeName="papiro.Negocio.Usuario"></asp:ObjectDataSource>
             
         </div>
     </div>

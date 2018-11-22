@@ -56,6 +56,7 @@
     <Compile Include="Conexion.cs" />
     <Compile Include="ContactoVenta.cs" />
     <Compile Include="Folio.cs" />
+    <Compile Include="NotaCredito.cs" />
     <Compile Include="NotasPedidos.cs" />
     <Compile Include="Producto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -9,6 +9,7 @@
     <title>Iniciar sesión</title>
     <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
     <link href="../Content/LoginStyle.css" rel="stylesheet" />
+    <link href="../Content/Animate.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <script src="../../Scripts/jquery-3.3.1.min.js"></script>
     <script src="../../Scripts/bootstrap.min.js"></script>
@@ -19,7 +20,7 @@
 
 <body>
     <form id="form1" runat="server">
-        <div class="container">
+        <div class="container animated fadeIn slow">
             <div class="row">
                 <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
                     <div class="card card-signin my-5">
@@ -51,7 +52,7 @@
                                         <asp:Literal ID="FailureText" runat="server" EnableViewState="False"></asp:Literal>
                                     </div>
                                     <!-- Botón -->
-                                    <asp:Button ID="LoginButton" runat="server" CommandName="Login" CssClass="btn btn-lg btn btn-outline-danger btn-block text-uppercase" Text="Inicio de sesión" ValidationGroup="loginUsuario" />
+                                    <asp:Button ID="LoginButton" runat="server" CommandName="Login" CssClass="btn btn-lg btn btn-outline-danger btn-block " Text="Inicio de sesión" ValidationGroup="loginUsuario" />
                                     <hr class="my-4" />
                                     <!-- Otros botones-->
                             </LayoutTemplate>
