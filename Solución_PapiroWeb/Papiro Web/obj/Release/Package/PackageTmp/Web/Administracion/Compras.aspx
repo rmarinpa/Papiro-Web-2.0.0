@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="../../Scripts/Reloj.js"></script>
 
-    <div class="container">
+    <div class="container fadeIn fast">
         <h2 class="text-center">Modulo de compras</h2>
         <div class="row">
             <div class="col">

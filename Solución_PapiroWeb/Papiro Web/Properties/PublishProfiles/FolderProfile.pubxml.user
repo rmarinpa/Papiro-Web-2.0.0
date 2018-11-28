@@ -27,6 +27,54 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     <File Include="bin/AspNet.ScriptManager.jQuery.dll">
       <publishTime>10/11/2018 12:04:30</publishTime>
     </File>
+    <File Include="bin/CrystalDecisions.CrystalReports.Engine.dll">
+      <publishTime>10/19/2014 06:46:20</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.ClientDoc.dll">
+      <publishTime>10/19/2014 06:46:20</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.CommLayer.dll">
+      <publishTime>10/19/2014 06:46:20</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.CommonControls.dll">
+      <publishTime>10/19/2014 06:46:20</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.CommonObjectModel.dll">
+      <publishTime>10/19/2014 06:46:20</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.Controllers.dll">
+      <publishTime>10/19/2014 06:46:20</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.CubeDefModel.dll">
+      <publishTime>10/19/2014 06:46:20</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.DataDefModel.dll">
+      <publishTime>10/19/2014 06:46:22</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.DataSetConversion.dll">
+      <publishTime>10/19/2014 06:46:22</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.ObjectFactory.dll">
+      <publishTime>10/19/2014 06:46:22</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.Prompting.dll">
+      <publishTime>10/19/2014 06:46:22</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.ReportDefModel.dll">
+      <publishTime>10/19/2014 06:46:22</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.XmlSerialize.dll">
+      <publishTime>10/19/2014 06:46:22</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportSource.dll">
+      <publishTime>10/19/2014 06:46:22</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.Shared.dll">
+      <publishTime>10/19/2014 06:46:22</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.Web.dll">
+      <publishTime>10/19/2014 06:46:22</publishTime>
+    </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>10/11/2018 12:04:30</publishTime>
     </File>
@@ -85,25 +133,25 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/11/2018 12:04:30</publishTime>
     </File>
     <File Include="bin/Papiro Web.dll">
-      <publishTime>11/12/2018 13:26:12</publishTime>
+      <publishTime>11/22/2018 15:17:06</publishTime>
     </File>
     <File Include="bin/Papiro Web.pdb">
-      <publishTime>11/12/2018 13:26:12</publishTime>
+      <publishTime>11/22/2018 15:17:06</publishTime>
     </File>
     <File Include="bin/papiro.DALC.dll">
-      <publishTime>11/09/2018 08:48:24</publishTime>
+      <publishTime>11/22/2018 11:55:38</publishTime>
     </File>
     <File Include="bin/papiro.DALC.dll.config">
       <publishTime>10/11/2018 12:04:30</publishTime>
     </File>
     <File Include="bin/papiro.DALC.pdb">
-      <publishTime>11/09/2018 08:48:24</publishTime>
+      <publishTime>11/22/2018 11:55:38</publishTime>
     </File>
     <File Include="bin/papiro.Negocio.dll">
-      <publishTime>09/11/2018 11:31:37</publishTime>
+      <publishTime>11/22/2018 11:55:38</publishTime>
     </File>
     <File Include="bin/papiro.Negocio.pdb">
-      <publishTime>09/11/2018 11:31:37</publishTime>
+      <publishTime>11/22/2018 11:55:38</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>10/11/2018 12:04:30</publishTime>
@@ -183,6 +231,9 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     <File Include="bin/roslyn/VBCSCompiler.exe.config">
       <publishTime>10/11/2018 12:04:30</publishTime>
     </File>
+    <File Include="bin/stdole.dll">
+      <publishTime>10/09/2018 10:30:43</publishTime>
+    </File>
     <File Include="bin/System.Diagnostics.DiagnosticSource.dll">
       <publishTime>09/18/2018 19:38:16</publishTime>
     </File>
@@ -194,6 +245,9 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     </File>
     <File Include="Bundle.config">
       <publishTime>10/11/2018 12:04:30</publishTime>
+    </File>
+    <File Include="Content/Animate.css">
+      <publishTime>11/22/2018 10:10:28</publishTime>
     </File>
     <File Include="Content/bootstrap-grid.css">
       <publishTime>10/11/2018 12:04:30</publishTime>
@@ -232,10 +286,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/11/2018 12:04:30</publishTime>
     </File>
     <File Include="Content/LoginStyle.css">
-      <publishTime>11/07/2018 17:49:11</publishTime>
+      <publishTime>11/22/2018 11:17:06</publishTime>
     </File>
     <File Include="Content/Master.css">
-      <publishTime>11/12/2018 09:59:18</publishTime>
+      <publishTime>11/22/2018 14:57:14</publishTime>
     </File>
     <File Include="Content/Site.css">
       <publishTime>10/11/2018 12:04:30</publishTime>
@@ -285,6 +339,9 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     <File Include="img/Background.jpg">
       <publishTime>10/11/2018 12:04:30</publishTime>
     </File>
+    <File Include="img/Background1.jpg">
+      <publishTime>11/22/2018 11:16:34</publishTime>
+    </File>
     <File Include="img/backgroundWhite.jpg">
       <publishTime>10/11/2018 12:04:30</publishTime>
     </File>
@@ -302,6 +359,12 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     </File>
     <File Include="img/Papiro.gif">
       <publishTime>10/11/2018 12:04:30</publishTime>
+    </File>
+    <File Include="Login.aspx">
+      <publishTime>11/22/2018 11:13:25</publishTime>
+    </File>
+    <File Include="Redireccion.aspx">
+      <publishTime>06/11/2018 11:19:36</publishTime>
     </File>
     <File Include="Scripts/bootstrap-datepicker.js">
       <publishTime>10/30/2018 13:29:48</publishTime>
@@ -2440,97 +2503,97 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/11/2018 12:04:30</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/09/2018 09:14:29</publishTime>
+      <publishTime>11/22/2018 12:21:58</publishTime>
     </File>
     <File Include="Web/Administracion/AutorizarFACT.aspx">
-      <publishTime>10/11/2018 12:04:30</publishTime>
+      <publishTime>11/22/2018 10:40:46</publishTime>
     </File>
     <File Include="Web/Administracion/AutorizarGD.aspx">
-      <publishTime>10/11/2018 12:04:30</publishTime>
+      <publishTime>11/22/2018 10:40:50</publishTime>
     </File>
     <File Include="Web/Administracion/AutorizarNotaCredito.aspx">
-      <publishTime>10/11/2018 12:04:30</publishTime>
+      <publishTime>11/22/2018 10:40:54</publishTime>
     </File>
     <File Include="Web/Administracion/AutorizarPedidoGD.aspx">
-      <publishTime>10/11/2018 12:04:30</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Web/Administracion/Clientes.aspx">
-      <publishTime>10/23/2018 09:26:17</publishTime>
+      <publishTime>11/22/2018 10:41:52</publishTime>
     </File>
     <File Include="Web/Administracion/ClientesEImportacion.aspx">
-      <publishTime>10/11/2018 12:04:30</publishTime>
+      <publishTime>11/22/2018 10:42:01</publishTime>
     </File>
     <File Include="Web/Administracion/Compras.aspx">
-      <publishTime>10/11/2018 12:04:30</publishTime>
+      <publishTime>11/22/2018 10:42:04</publishTime>
     </File>
     <File Include="Web/Administracion/ConfigUsuario.aspx">
       <publishTime>11/05/2018 16:47:09</publishTime>
     </File>
     <File Include="Web/Administracion/CreacionUsuario.aspx">
-      <publishTime>09/11/2018 10:26:02</publishTime>
+      <publishTime>11/22/2018 10:42:13</publishTime>
     </File>
     <File Include="Web/Administracion/LayoutAdmin.Master">
-      <publishTime>11/09/2018 08:52:10</publishTime>
+      <publishTime>11/22/2018 10:26:17</publishTime>
     </File>
     <File Include="Web/Administracion/MenuAdministracion.aspx">
-      <publishTime>10/11/2018 12:04:30</publishTime>
+      <publishTime>11/22/2018 10:42:19</publishTime>
     </File>
     <File Include="Web/Administracion/NotasDePedidos.aspx">
-      <publishTime>10/11/2018 12:04:30</publishTime>
+      <publishTime>11/22/2018 10:42:23</publishTime>
     </File>
     <File Include="Web/Administracion/Productos.aspx">
-      <publishTime>10/30/2018 16:28:36</publishTime>
+      <publishTime>11/22/2018 10:42:34</publishTime>
     </File>
     <File Include="Web/Administracion/RegistroLlamadas.aspx">
-      <publishTime>10/11/2018 12:04:30</publishTime>
+      <publishTime>11/22/2018 10:42:40</publishTime>
     </File>
     <File Include="Web/Login.aspx">
-      <publishTime>11/07/2018 17:51:07</publishTime>
+      <publishTime>11/22/2018 11:13:25</publishTime>
     </File>
     <File Include="Web/Redireccion.aspx">
       <publishTime>11/06/2018 11:19:36</publishTime>
     </File>
     <File Include="Web/Ventas/Clientes.aspx">
-      <publishTime>10/29/2018 10:37:49</publishTime>
+      <publishTime>11/22/2018 11:28:36</publishTime>
     </File>
     <File Include="Web/Ventas/ConfigUsuario.aspx">
-      <publishTime>10/30/2018 12:19:07</publishTime>
+      <publishTime>11/22/2018 11:28:41</publishTime>
     </File>
     <File Include="Web/Ventas/ConfirmarPedido.aspx">
       <publishTime>11/12/2018 11:34:35</publishTime>
     </File>
     <File Include="Web/Ventas/ConsultarDespacho.aspx">
-      <publishTime>10/11/2018 12:04:30</publishTime>
+      <publishTime>11/22/2018 11:28:53</publishTime>
     </File>
     <File Include="Web/Ventas/ConsultarPedidoFactura.aspx">
-      <publishTime>11/12/2018 10:50:26</publishTime>
+      <publishTime>11/22/2018 11:28:57</publishTime>
     </File>
     <File Include="Web/Ventas/ConsultaServicioTecnico.aspx">
-      <publishTime>09/11/2018 11:30:23</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Web/Ventas/EstadoCuentaCliente.aspx">
-      <publishTime>10/11/2018 12:04:30</publishTime>
+      <publishTime>11/22/2018 11:29:03</publishTime>
     </File>
     <File Include="Web/Ventas/GenerarNotaCredito.aspx">
-      <publishTime>10/11/2018 12:04:30</publishTime>
+      <publishTime>11/22/2018 11:29:10</publishTime>
     </File>
     <File Include="Web/Ventas/GenerarPedido.aspx">
-      <publishTime>11/12/2018 11:42:46</publishTime>
+      <publishTime>11/22/2018 11:34:40</publishTime>
     </File>
     <File Include="Web/Ventas/ImprimirPedidosNC.aspx">
-      <publishTime>10/11/2018 12:04:30</publishTime>
+      <publishTime>11/22/2018 11:29:17</publishTime>
     </File>
     <File Include="Web/Ventas/InformacionPedido.aspx">
       <publishTime>10/18/2018 12:48:17</publishTime>
     </File>
     <File Include="Web/Ventas/Layout.Ventas.Master">
-      <publishTime>09/11/2018 11:48:33</publishTime>
+      <publishTime>11/22/2018 11:12:58</publishTime>
     </File>
     <File Include="Web/Ventas/MapaDeProducto.aspx">
-      <publishTime>10/11/2018 12:04:30</publishTime>
+      <publishTime>11/22/2018 11:29:24</publishTime>
     </File>
     <File Include="Web/Ventas/MenuVentas.aspx">
-      <publishTime>11/12/2018 10:39:17</publishTime>
+      <publishTime>11/22/2018 15:13:33</publishTime>
     </File>
   </ItemGroup>
 </Project>

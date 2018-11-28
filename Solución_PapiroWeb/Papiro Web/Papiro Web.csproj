@@ -149,14 +149,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="Contents\bootstrap-datepicker.css" />
-    <Content Include="Contents\bootstrap-datepicker.min.css" />
-    <Content Include="Contents\bootstrap-datepicker.standalone.css" />
-    <Content Include="Contents\bootstrap-datepicker.standalone.min.css" />
-    <Content Include="Contents\bootstrap-datepicker3.css" />
-    <Content Include="Contents\bootstrap-datepicker3.min.css" />
-    <Content Include="Contents\bootstrap-datepicker3.standalone.css" />
-    <Content Include="Contents\bootstrap-datepicker3.standalone.min.css" />
     <Content Include="Content\Animate.css" />
     <Content Include="Content\LoginStyle.css" />
     <Content Include="Content\Master.css" />
@@ -841,8 +833,8 @@
     <Content Include="Web\Administracion\NotasDePedidos.aspx" />
     <Content Include="Web\Administracion\Productos.aspx" />
     <Content Include="Web\Administracion\RegistroLlamadas.aspx" />
-    <Content Include="Web\Redireccion.aspx" />
-    <Content Include="Web\Login.aspx" />
+    <Content Include="Redireccion.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="Web\Ventas\Clientes.aspx" />
     <Content Include="Web\Ventas\ConfigUsuario.aspx" />
     <Content Include="Web\Ventas\ConfirmarPedido.aspx" />
@@ -886,10 +878,6 @@
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
-    <Content Include="Contents\bootstrap-datepicker3.standalone.css.map" />
-    <Content Include="Contents\bootstrap-datepicker3.css.map" />
-    <Content Include="Contents\bootstrap-datepicker.standalone.css.map" />
-    <Content Include="Contents\bootstrap-datepicker.css.map" />
     <None Include="Connected Services\ServicioAutenticacion\Autenticacion.wsdl" />
     <None Include="Connected Services\ServicioAutenticacion\Autenticacion.xsd">
       <SubType>Designer</SubType>
@@ -1050,18 +1038,18 @@
     <Compile Include="Web\Administracion\RegistroLlamadas.aspx.designer.cs">
       <DependentUpon>RegistroLlamadas.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web\Redireccion.aspx.cs">
+    <Compile Include="Redireccion.aspx.cs">
       <DependentUpon>Redireccion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\Redireccion.aspx.designer.cs">
+    <Compile Include="Redireccion.aspx.designer.cs">
       <DependentUpon>Redireccion.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web\Login.aspx.cs">
+    <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\Login.aspx.designer.cs">
+    <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Web\Ventas\Clientes.aspx.cs">

@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div class="container">
+    <div class="container fadeIn fast">
         <h2 class="text-center">Autorizar guía de despacho</h2>
         <div class="form-row">
         <div class="col-lg-4 col-lg-offset-4">

@@ -321,7 +321,7 @@ namespace papiro.Negocio
             get { return _solicitado; }
             set { _solicitado = value; }
         }
-
+        //Creación de Venta
         public bool Create()
         {
             try

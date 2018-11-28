@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Consultar pedidos de facturas" Language="C#" MasterPageFile="~/Web/Ventas/Layout.Ventas.Master" AutoEventWireup="true" CodeBehind="ConsultarPedidoFactura.aspx.cs" Inherits="PapiroWeb.Web.Ventas.ConsultarPedidoFactura" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container">
+    <div class="container fadeIn fast">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Notas de pedidos

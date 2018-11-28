@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Registro de llamadas" Language="C#" MasterPageFile="~/Web/Administracion/LayoutAdmin.Master" AutoEventWireup="true" CodeBehind="RegistroLlamadas.aspx.cs" Inherits="PapiroWeb.Web.Administracion.RegistroLlamadas" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container">
+    <div class="container fadeIn fast">
         <h2 class="text-center">Registro de llamadas</h2>
         <hr />
         <div class="form-row">

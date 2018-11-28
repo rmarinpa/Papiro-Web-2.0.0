@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="Generación de pedido" Language="C#" MasterPageFile="~/Web/Ventas/Layout.Ventas.Master" AutoEventWireup="true" CodeBehind="GenerarPedido.aspx.cs" Inherits="PapiroWeb.Web.Ventas.GenerarPedido" %>
 
+<%@ Register Assembly="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" Namespace="CrystalDecisions.Web" TagPrefix="CR" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!--IMPORTANTE, AL TERMINAR EL DESARROLLO, MOVER LOS SCRIPT A ARCHIVOS JS -->
     <!--AutoComplete-->
@@ -81,15 +83,6 @@
     </script>
 
     <script type="text/javascript">
-    function OpenPopup() {
-
-       window.open("www.googlecl", "List", "toolbar=no, location=no,status=yes,menubar=no,scrollbars=yes,resizable=no, width=900,height=500,left=430,top=100");
-        return false;
-    }
-</script>
-
-
-    <script type="text/javascript">
         $(function () {
             $('#<%=txtRutEmpresa.ClientID%>').autocomplete({
                 source: function (request, response) {
@@ -114,8 +107,7 @@
     </script>
 
 
-    <div class="container">
-        <asp:LoginName ID="LoginName1" Visible="false" runat="server" />
+    <div class="container animated fadeIn fast">
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Cliente</a>
@@ -220,6 +212,7 @@
                     <div class="col-sm-6">
                         <div class="card">
                             <div class="card-body">
+
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#ModalCenter">
                                     Retiro de documentos</button>
@@ -367,9 +360,6 @@
                 <!-- Botón para ver los productos agregados -->
                 <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#ModalPedidosAgregados">
                     Ver carrito</button>
-
-
-
             </div>
 
             <div class="tab-pane fade" id="nav-pendiente" role="tabpanel" aria-labelledby="nav-pendiente-tab">
@@ -400,13 +390,12 @@
                 </asp:SqlDataSource>
             </div>
         </div>
-
     </div>
 
     <!-- Div -->
 
     <!-- Modal de pedidos agregados table -->
-    <div class="modal fade" id="ModalPedidosAgregados" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade animated fadeIn fast" id="ModalPedidosAgregados" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -416,7 +405,6 @@
                     </button>
                 </div>
                 <div class="modal-body">
-
                     <asp:GridView ID="gvPedidosAgregados" CssClass="table table-striped table-bordered table-hover" runat="server" DataSourceID="SqlDataSource4">
                         <EmptyDataTemplate>
                             <div class="alert alert-success" role="alert">
@@ -426,7 +414,6 @@
                         </EmptyDataTemplate>
                     </asp:GridView>
                     <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:const113_papiroConnectionString %>" ProviderName="<%$ ConnectionStrings:const113_papiroConnectionString.ProviderName %>" SelectCommand="SELECT fecha, numero_folio, cliente, codigo_producto,toma_pedido FROM venta4 WHERE (numero_folio = ?)">
-
                         <SelectParameters>
                             <asp:ControlParameter ControlID="txtFolio" Name="numero_folio" PropertyName="Text" Type="Double" />
                         </SelectParameters>
@@ -464,8 +451,8 @@
     </div>
 
 
-    <!-- Modal -->
-    <div class="modal fade" id="ModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <!-- Modal Estado Cuenta Clientes -->
+    <div class="modal fade animated fadeIn fast" id="ModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -484,7 +471,7 @@
     </div>
 
     <!-- Modal de bloqueos -->
-    <div class="modal fade bd-example-modal-lg" id="ModalCenter3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal fade bd-example-modal-lg animated fadeIn fast" id="ModalCenter3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -524,12 +511,9 @@
             </div>
         </div>
     </div>
-    <!-- Fin del Modal -->
 
-
-
-    <!-- Modal -->
-    <div class="modal fade" id="InformacionPedidoModal" tabindex="-1" role="dialog" aria-labelledby="InformacionPedidoModalLabel" aria-hidden="true">
+    <!-- Modal Información de Pedido -->
+    <div class="modal fade animated fadeIn fast" id="InformacionPedidoModal" tabindex="-1" role="dialog" aria-labelledby="InformacionPedidoModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -542,7 +526,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="lblRetiraCliente">Retira Cliente</label>
-                            <asp:DropDownList ID="ddlRetiraCliente" CssClass="form-control" AutoPostBack="false" runat="server" OnSelectedIndexChanged="ddlRetiraCliente_SelectedIndexChanged" OnTextChanged="ddlRetiraCliente_TextChanged">
+                            <asp:DropDownList ID="ddlRetiraCliente" CssClass="form-control" AutoPostBack="false" runat="server">
                                 <asp:ListItem Value="0">--Seleccione --</asp:ListItem>
                                 <asp:ListItem Value="1">Sí</asp:ListItem>
                                 <asp:ListItem Value="2">No</asp:ListItem>

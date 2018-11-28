@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Consulta servicio tecnico" Language="C#" MasterPageFile="~/Web/Ventas/Layout.Ventas.Master" AutoEventWireup="true" CodeBehind="ConsultaServicioTecnico.aspx.cs" Inherits="PapiroWeb.Web.Ventas.ConsultaServicioTecnico" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container">
+    <div class="container fadeIn fast">
         <h2>Solicitud de servicio técnico</h2>
         <div class="row">
             <div class="col-sm">

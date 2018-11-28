@@ -2,6 +2,10 @@
     font-family: 'Roboto', sans-serif;
 }
 
+.main-container{
+    margin-top: 20px;
+}
+
 footer {
     font-family: 'Roboto', sans-serif;
     background: #252850;
