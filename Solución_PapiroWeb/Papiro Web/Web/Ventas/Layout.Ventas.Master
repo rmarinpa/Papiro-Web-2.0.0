@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Layout.Ventas.Master.cs" Inherits="PapiroWeb.Web.Ventas.Ventas" %>
+﻿﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Layout.Ventas.Master.cs" Inherits="PapiroWeb.Web.Ventas.Ventas" %>
 
 <!doctype html>
 <html lang="es">
@@ -22,21 +22,18 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <nav class="navbar navbar-light">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa fa-bars"></i>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">Papiro</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="MenuVentas">
-                                <i class="fa fa-home"></i>
-                                Home</a>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="MenuVentas">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink6" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-wrench"></i>
-                                Operativas
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink6" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Operativas
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="GenerarPedido">
@@ -51,9 +48,7 @@
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-toolbox"></i>
-                                Administrativa
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administrativa
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="ConsultarPedidoFactura">
@@ -70,10 +65,9 @@
                                     Mapa de productos</a>
                             </div>
                         </li>
+
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-phone"></i>
-                                Otros departamentos
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Otros departamentos
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="EstadoCuentaCliente">
@@ -87,76 +81,80 @@
                                     Consulta servicio técnico</a>
                             </div>
                         </li>
-                        <li class="nav-item">
+
+                    </ul>
+                    <div class="dropdown">
+                        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Mi Cuenta
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="nav-link" href="ConfigUsuario">
                                 <i class="fa fa-cogs"></i>
-                                Cambiar contraseña</a>
-                        </li>
-                        <li>
-                            <i class="fa fa-sign-out-alt"></i>
-                            <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="RedirectToLoginPage" />
-                            <asp:LoginName ID="LoginName1" runat="server" />
-                        </li>
-                    </ul>
+                                Cambiar contraseña
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="nav-link">
+                                <asp:LoginStatus ID="LoginStatus1" CssClass="text-center" runat="server" TabIndex="3" />
+                            </a>
+                        </div>
+                    </div>
+
                 </div>
             </nav>
-
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-
-            <br />
-
-            <!-- Footer -->
-            <footer class="page-footer font-small blue pt-4">
-                <!-- Footer Links -->
-                <div class="container-fluid text-center text-md-left">
-                    <!-- Grid row -->
-                    <div class="row">
-                        <!-- Grid column -->
-                        <div class="col-md-6 mt-md-0 mt-3">
-                            <!-- Content -->
-                            <h5 class="text-uppercase">Misión y Visión</h5>
-                            <p>Entregar la más diversa gama de materiales de impresión de alta calidad, en distintos formatos ofreciendo todos los conocimientos de la empresa para ayudar a crecer e innovar a nuestros clientes.</p>
-                        </div>
-                        <!-- Grid column -->
-                        <hr class="clearfix w-100 d-md-none pb-3">
-                        <!-- Grid column -->
-                        <!-- Grid column -->
-                        <!-- Grid column -->
-                        <div class="col-md-3 mb-md-0 mb-3">
-                            <!-- Links -->
-                            <h5 class="text-uppercase">Contacto</h5>
-                            <ul class="list-unstyled">
-                                <li>
-                                    <i class="fa fa-map-marker-alt"></i>
-                                    <p>Alberto Riesco 0223, B3. Huechuraba, Stgo de Chile.</p>
-                                </li>
-                                <li>
-                                    <i class="fa fa-phone"></i>
-                                    <p>+562 22477791</p>
-                                </li>
-                                <li>
-                                    <i class="fa fa-envelope"></i>
-                                    <p>info@papirochile.cl</p>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- Grid column -->
-                    </div>
-                    <!-- Grid row -->
-                </div>
-                <!-- Footer Links -->
-                <!-- Copyright -->
-                <div class="footer-copyright text-center py-3">
-                    © Copyright:
-                    <a href="https://www.papirochile.cl/">papirochile.cl</a>
-                </div>
-                <!-- Copyright -->
-            </footer>
-            <!-- Footer -->
         </div>
-    </form>
 
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        <br />
+        <!-- Footer -->
+        <footer class="page-footer font-small blue pt-4">
+            <!-- Footer Links -->
+            <div class="container-fluid text-center text-md-left">
+                <!-- Grid row -->
+                <div class="row">
+                    <!-- Grid column -->
+                    <div class="col-md-6 mt-md-0 mt-3">
+                        <!-- Content -->
+                        <h5 class="text-uppercase">Misión y Visión</h5>
+                        <p>Entregar la más diversa gama de materiales de impresión de alta calidad, en distintos formatos ofreciendo todos los conocimientos de la empresa para ayudar a crecer e innovar a nuestros clientes.</p>
+                    </div>
+                    <!-- Grid column -->
+                    <hr class="clearfix w-100 d-md-none pb-3">
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <div class="col-md-3 mb-md-0 mb-3">
+                        <!-- Links -->
+                        <h5 class="text-uppercase">Contacto</h5>
+                        <ul class="list-unstyled">
+                            <li>
+                                <i class="fa fa-map-marker-alt"></i>
+                                <p>Alberto Riesco 0223, B3. Huechuraba, Stgo de Chile.</p>
+                            </li>
+                            <li>
+                                <i class="fa fa-phone"></i>
+                                <p>+562 22477791</p>
+                            </li>
+                            <li>
+                                <i class="fa fa-envelope"></i>
+                                <p>info@papirochile.cl</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+            </div>
+            <!-- Footer Links -->
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">
+                © Copyright:
+                    <a href="https://www.papirochile.cl/">papirochile.cl</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+        <!-- Footer -->
+    </form>
 </body>
 </html>
 
