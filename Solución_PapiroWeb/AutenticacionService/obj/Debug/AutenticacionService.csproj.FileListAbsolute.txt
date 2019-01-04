@@ -30,3 +30,23 @@ C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\Autentica
 C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\AutenticacionService\obj\Debug\AutenticacionService.csproj.CopyComplete
 C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\AutenticacionService\obj\Debug\AutenticacionService.dll
 C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\AutenticacionService\obj\Debug\AutenticacionService.pdb
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\AutenticacionService\bin\AutenticacionService.dll.config
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\AutenticacionService\bin\AutenticacionService.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\AutenticacionService\bin\AutenticacionService.pdb
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\AutenticacionService\bin\papiro.Negocio.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\AutenticacionService\bin\papiro.DALC.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\AutenticacionService\bin\EntityFramework.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\AutenticacionService\bin\papiro.Negocio.pdb
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\AutenticacionService\bin\papiro.DALC.pdb
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\AutenticacionService\bin\EntityFramework.xml
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\AutenticacionService\obj\Debug\AutenticacionService.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\AutenticacionService\obj\Debug\AutenticacionService.pdb
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\AutenticacionService\bin\AjaxControlToolkit.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\AutenticacionService\bin\MySql.Data.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\AutenticacionService\bin\papiro.Negocio.dll.config
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\AutenticacionService\bin\papiro.DALC.dll.config
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\AutenticacionService\obj\Debug\AutenticacionService.csprojAssemblyReference.cache
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\AutenticacionService\obj\Debug\AutenticacionService.csproj.CoreCompileInputs.cache
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\AutenticacionService\obj\Debug\AutenticacionService.csproj.CopyComplete
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\AutenticacionService\bin\AjaxControlToolkit.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\AutenticacionService\bin\papiro.Negocio.dll.config

@@ -1,4 +1,4 @@
-<%@ Page Title="Generación de pedido" Language="C#" MasterPageFile="~/Web/Ventas/Layout.Ventas.Master" AutoEventWireup="true" CodeBehind="GenerarPedido.aspx.cs" Inherits="PapiroWeb.Web.Ventas.GenerarPedido" %>
+﻿<%@ Page Title="Generación de pedido" Language="C#" MasterPageFile="~/Web/Ventas/Layout.Ventas.Master" AutoEventWireup="true" CodeBehind="GenerarPedido.aspx.cs" Inherits="PapiroWeb.Web.Ventas.GenerarPedido" %>
 
 <%@ Register Assembly="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" Namespace="CrystalDecisions.Web" TagPrefix="CR" %>
 
@@ -8,6 +8,7 @@
     <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 
 
     <script type="text/javascript">
@@ -105,8 +106,7 @@
             });
         });
     </script>
-    <asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label>
-
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <!-- Información Cliente -->
     <div class="main-container">
         <div class="row">
@@ -118,8 +118,8 @@
                             <div class="col-md-8 mb-3">
                                 <label for="lblRazonSocial">Cliente</label>
                                 <asp:TextBox ID="txtRazonSocial" CssClass="form-control" runat="server"></asp:TextBox>
-                                <small id="searchNombre" class="form-text text-muted">Buscar por nombre.</small>
-                                <asp:Button ID="btnBuscarRazon" CssClass="btn btn-outline-danger" runat="server" Text="Buscar por razón" OnClick="btnBuscarRazon_Click" />
+                                <small id="searchNombre" class="form-text text-muted">Buscar por Nombre.</small>
+                                <asp:Button ID="btnBuscarRazon" CssClass="btn btn-outline-danger" runat="server" Text="Buscar" OnClick="btnBuscarRazon_Click" />
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label for="lblRut">Rut</label>
@@ -169,9 +169,7 @@
                         <div class="form-row">
                             <div class="col-md-6 mb-3">
                                 <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#ModalCenter2">
-                                    Estado De cuenta de clientes
-                                </button>
+                                <asp:Button ID="btnEstadoCuentaClientes" CssClass="btn btn-outline-danger" runat="server" Text="Estado Cuenta de Clientes" OnClick="btnEstadoCuentaClientes_Click" />
                             </div>
                             <div class="col-md-6 mb-3">
                                 <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#ModalCenter">
@@ -214,7 +212,7 @@
                     </div>
 
                     <div class="card ">
-                        <h5 class="card-title text-center">Contacto Comercial</h5>
+                        <div class="card-header text-center">Contacto Comercial</div>
                         <div class="card-body">
                             <hr />
                             <div class="form-row">
@@ -241,7 +239,7 @@
                     <!--Historial -->
 
                     <div class="card">
-                        <div class="card-header">Historial de Cliente</div>
+                        <div class="card-header text-center">Historial de Cliente</div>
                         <div class="card-body">
                             <asp:GridView ID="gvHistorialCliente" CssClass="table table-responsive table-bordered table-hover" PageSize="6" runat="server" DataSourceID="SqlDataSource1" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None" EnableSortingAndPagingCallbacks="True" AllowPaging="True">
                                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
@@ -274,7 +272,7 @@
                 </div>
             </div>
             <!-- Ventas -->
-            <div class="col-sm-6">
+            <div class="col-6">
                 <div class="card">
                     <div class="card-header text-center">Venta</div>
                     <div class="card-body">
@@ -309,47 +307,47 @@
                         </div>
 
                         <div class="row">
-                        <div class="col-sm-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Registro de ventas</h5>
-                                    <asp:Label ID="lblFolio" runat="server" Text="Folio"></asp:Label>
-                                    <asp:TextBox ID="txtFolio" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
-                                    <asp:TextBox ID="txtFolioUsado" CssClass="form-control" Visible="false" runat="server">False</asp:TextBox>
-                                    <asp:TextBox ID="txtTipo1" Visible="false" runat="server"></asp:TextBox>
-                                    <label for="lblMarca">Marca</label>
-                                    <asp:TextBox ID="txtMarca" CssClass="form-control" runat="server"></asp:TextBox>
-                                    <label for="lblAncho">Ancho</label>
-                                    <asp:TextBox ID="txtAncho" CssClass="form-control" runat="server"></asp:TextBox>
-                                    <label for="lblLargo">Largo</label>
-                                    <asp:TextBox ID="txtLargo" CssClass="form-control" runat="server"></asp:TextBox>
-                                    <label for="lblAreaCalculada">Área calculada</label>
-                                    <asp:TextBox ID="txtAreaCalculada" CssClass="form-control" runat="server"></asp:TextBox>
+                            <div class="col-sm-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Registro de ventas</h5>
+                                        <asp:Label ID="lblFolio" runat="server" Text="Folio"></asp:Label>
+                                        <asp:TextBox ID="txtFolio" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="txtFolioUsado" CssClass="form-control" Visible="false" runat="server">False</asp:TextBox>
+                                        <asp:TextBox ID="txtTipo1" Visible="false" runat="server"></asp:TextBox>
+                                        <label for="lblMarca">Marca</label>
+                                        <asp:TextBox ID="txtMarca" CssClass="form-control" runat="server"></asp:TextBox>
+                                        <label for="lblAncho">Ancho</label>
+                                        <asp:TextBox ID="txtAncho" CssClass="form-control" runat="server"></asp:TextBox>
+                                        <label for="lblLargo">Largo</label>
+                                        <asp:TextBox ID="txtLargo" CssClass="form-control" runat="server"></asp:TextBox>
+                                        <label for="lblAreaCalculada">Área calculada</label>
+                                        <asp:TextBox ID="txtAreaCalculada" CssClass="form-control" runat="server"></asp:TextBox>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Venta</h5>
-                                    <label for="lblCantidad">Cantidad</label>
-                                    <asp:TextBox ID="txtCantidadProducto" CssClass="form-control" runat="server"></asp:TextBox>
-                                    <br />
-                                    <label for="lblPrecioM2">Precio M2</label>
-                                    <asp:TextBox ID="txtPrecioM2" CssClass="form-control" runat="server"></asp:TextBox>
-                                    <label for="lblPrecioMax">Precio Max</label>
-                                    <asp:TextBox ID="txtPrecioMax" CssClass="form-control" runat="server"></asp:TextBox>
-                                    <label for="lblPrecioMin">Precio Min</label>
-                                    <asp:TextBox ID="txtPrecioMin" CssClass="form-control" runat="server"></asp:TextBox>
-                                    <label for="lblAreaTotal">Área Total</label>
-                                    <asp:TextBox ID="txtAreaTotal" CssClass="form-control" runat="server"></asp:TextBox>
-                                    <label for="lblPrecioUn">Precio Un</label>
-                                    <asp:TextBox ID="txtPrecioUn" CssClass="form-control" runat="server"></asp:TextBox>
-                                    <label for="lblMontoNeto">Monto Neto</label>
-                                    <asp:TextBox ID="txtMontoNeto" CssClass="form-control" runat="server"></asp:TextBox>
-                                    <asp:Button ID="btnCalcularTodo" runat="server" Text="Button" OnClick="btnCalcularTodo_Click" />
+                            <div class="col-sm-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Venta</h5>
+                                        <label for="lblCantidad">Cantidad</label>
+                                        <asp:TextBox ID="txtCantidadProducto" CssClass="form-control" runat="server"></asp:TextBox>
+                                        <br />
+                                        <label for="lblPrecioM2">Precio M2</label>
+                                        <asp:TextBox ID="txtPrecioM2" CssClass="form-control" runat="server"></asp:TextBox>
+                                        <label for="lblPrecioMax">Precio Max</label>
+                                        <asp:TextBox ID="txtPrecioMax" CssClass="form-control" runat="server"></asp:TextBox>
+                                        <label for="lblPrecioMin">Precio Min</label>
+                                        <asp:TextBox ID="txtPrecioMin" CssClass="form-control" runat="server"></asp:TextBox>
+                                        <label for="lblAreaTotal">Área Total</label>
+                                        <asp:TextBox ID="txtAreaTotal" CssClass="form-control" runat="server"></asp:TextBox>
+                                        <label for="lblPrecioUn">Precio Un</label>
+                                        <asp:TextBox ID="txtPrecioUn" CssClass="form-control" runat="server"></asp:TextBox>
+                                        <label for="lblMontoNeto">Monto Neto</label>
+                                        <asp:TextBox ID="txtMontoNeto" CssClass="form-control" runat="server"></asp:TextBox>
+                                        <asp:Button ID="btnCalcularTodo" runat="server" Text="Button" OnClick="btnCalcularTodo_Click" />
+                                    </div>
                                 </div>
-                            </div>
                             </div>
                             <div class="form-row">
                                 <div class="col-md-6 mb-3">
@@ -390,7 +388,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Productos Pendientes</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -495,6 +493,7 @@
                     <h5 class="modal-title" id="ModalCenterTitle2">Estado de cuenta cliente</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
                         <span aria-hidden="true">&times;</span>
+
                     </button>
                 </div>
                 <div class="modal-body">
@@ -612,6 +611,27 @@
         </div>
     </div>
 
-
-
+    <!-- Modal Tipo documento -->
+    <div class="modal fade" id="modalTipoDocumento" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <asp:UpdatePanel ID="upModal" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
+                <ContentTemplate>
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">
+                                <asp:Label ID="lblModalTitle" runat="server" Text=""></asp:Label></h4>
+                        </div>
+                        <div class="modal-body">
+                            <asp:Label ID="lblModalBody" runat="server" Text=""></asp:Label>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-info" data-dismiss="modal" aria-hidden="true">Close</button>
+                        </div>
+                    </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+        </div>
+    </div>
+    <asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label>
 </asp:Content>

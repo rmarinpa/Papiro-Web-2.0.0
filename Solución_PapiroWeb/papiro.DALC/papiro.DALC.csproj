@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=18.1.1.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.18.1.1\lib\net40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -47,6 +50,7 @@
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -250,10 +254,16 @@
     <Compile Include="folio_ruta_llegada_1.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="foo.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="guias_despacho.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="guias_despachos.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="guias_despachos_tabla.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="guias_facturar.cs">
@@ -376,6 +386,9 @@
     <Compile Include="pedidos_despachar.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="perfil.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="programacion_llamadas.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
@@ -476,7 +489,16 @@
     <Compile Include="tabla_asociar.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="tabla_nueva.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tabla_old.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="usuario.cs">
+      <DependentUpon>PapiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usuarioweb.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="usuario_adm.cs">

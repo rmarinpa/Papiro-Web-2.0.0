@@ -1,7 +1,8 @@
-﻿.img-fluid{
-    height:50px;
+﻿body {
+    background: url(../img/Background1.jpg);
+    font-family: 'Roboto', sans-serif;
 }
 
-body{
-    background: url(../img/Background1.jpg);
+.img-fluid {
+    height: 50px;
 }

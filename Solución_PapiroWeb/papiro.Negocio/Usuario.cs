@@ -38,7 +38,6 @@ namespace papiro.Negocio
             get { return _password; }
             set { _password = value; }
         }
-
         private string _obra;
 
         public string Obra
@@ -46,6 +45,16 @@ namespace papiro.Negocio
             get { return _obra; }
             set { _obra = value; }
         }
+
+
+        private int _perfil;
+
+        public int Perfil
+        {
+            get { return _perfil; }
+            set { _perfil = value; }
+        }
+
         //Metodo para validar el usuario
         public Usuario LoginUsuario(string username, string password)
         {
@@ -143,7 +152,7 @@ namespace papiro.Negocio
         }
 
         public IEnumerable<Object> ReadUsuario()
-        {   
+        {
             try
             {
                 var usuario = (from u in db.usuario
@@ -155,9 +164,9 @@ namespace papiro.Negocio
                                }).ToList();
                 return usuario;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                ex.Message.ToString();
                 return null;
             }
         }
@@ -166,13 +175,13 @@ namespace papiro.Negocio
         {
             try
             {
-                DALC.usuario user= (from u in db.usuario
-                                          where u.nombre.Equals(this.Nombre)
-                                          select u).First();
+                DALC.usuario user = (from u in db.usuario
+                                     where u.nombre.Equals(this.Nombre)
+                                     select u).First();
                 this.Nombre = user.nombre;
                 this.Password = user.password;
                 this.Obra = user.Obra;
-               
+
                 return true;
             }
             catch (Exception)

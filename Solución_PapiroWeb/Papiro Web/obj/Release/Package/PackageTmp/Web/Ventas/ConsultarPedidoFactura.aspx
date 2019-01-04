@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Consultar pedidos de facturas" Language="C#" MasterPageFile="~/Web/Ventas/Layout.Ventas.Master" AutoEventWireup="true" CodeBehind="ConsultarPedidoFactura.aspx.cs" Inherits="PapiroWeb.Web.Ventas.ConsultarPedidoFactura" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container fadeIn fast">
+    <div class="container main-container fadeIn fast">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Notas de pedidos
@@ -19,7 +19,7 @@
                         <div class="form-group col-md-4">
                             <label for="lblFechaInicial">Fecha inicial</label>
                             <i class="fa fa-calendar"></i>
-                            <asp:Button ID="btnConsutarInicial" runat="server" CssClass="btn btn-outline-danger" Text="Consultar Fecha" OnClick="btnConsutarInicial_Click" />
+                            <asp:Button ID="btnConsutarInicial" runat="server" CssClass="btn btn-outline-danger" Text="Mostrar Calendario" OnClick="btnConsutarInicial_Click" />
 
                             <asp:TextBox ID="txtFechaInicial" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
                             <asp:Calendar ID="cldFechaIniciar" runat="server" OnSelectionChanged="cldFechaIniciar_SelectionChanged"></asp:Calendar>
@@ -27,7 +27,7 @@
                         <div class="form-group col-md-4">
                             <label for="lblFechaFinal">Fecha Final</label>
                             <i class="fa fa-calendar"></i>
-                            <asp:Button ID="btnFechaFinal" CssClass="btn btn-outline-danger" runat="server" Text="Consultar Fecha" OnClick="btnFechaFinal_Click" />
+                            <asp:Button ID="btnFechaFinal" CssClass="btn btn-outline-danger" runat="server" Text="Mostrar Calendario" OnClick="btnFechaFinal_Click" />
                             <asp:TextBox ID="txtFechaFinal" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
                             <asp:Calendar ID="cldFechaFinal" runat="server" OnSelectionChanged="cldFechaFinal_SelectionChanged"></asp:Calendar>
                         </div>

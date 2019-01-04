@@ -36,7 +36,7 @@ namespace papiro.DALC
         public double stock { get; set; }
         public double medida_unid { get; set; }
         public double Precio_lista { get; set; }
-        public DateTime fecha_caducidad { get; set; }
+        public System.DateTime fecha_caducidad { get; set; }
         public double precio_max { get; set; }
         public double precio_min { get; set; }
         public double activo { get; set; }

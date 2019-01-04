@@ -26,3 +26,21 @@ C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\papiro.Ne
 C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\papiro.Negocio\obj\Debug\papiro.Negocio.csproj.CopyComplete
 C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\papiro.Negocio\obj\Debug\papiro.Negocio.dll
 C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\papiro.Negocio\obj\Debug\papiro.Negocio.pdb
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\papiro.Negocio\bin\Debug\papiro.Negocio.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\papiro.Negocio\bin\Debug\papiro.Negocio.pdb
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\papiro.Negocio\bin\Debug\EntityFramework.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\papiro.Negocio\bin\Debug\papiro.DALC.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\papiro.Negocio\bin\Debug\papiro.DALC.pdb
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\papiro.Negocio\bin\Debug\EntityFramework.xml
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\papiro.Negocio\obj\Debug\papiro.Negocio.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\papiro.Negocio\obj\Debug\papiro.Negocio.pdb
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\papiro.Negocio\bin\Debug\papiro.Negocio.dll.config
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\papiro.Negocio\bin\Debug\AjaxControlToolkit.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\papiro.Negocio\bin\Debug\MySql.Data.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\papiro.Negocio\bin\Debug\MySql.Data.Entity.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\papiro.Negocio\bin\Debug\papiro.DALC.dll.config
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\papiro.Negocio\obj\Debug\papiro.Negocio.csprojAssemblyReference.cache
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\papiro.Negocio\obj\Debug\papiro.Negocio.csproj.CoreCompileInputs.cache
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\papiro.Negocio\obj\Debug\papiro.Negocio.csproj.CopyComplete
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\papiro.Negocio\bin\Debug\papiro.Negocio.dll.config
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\papiro.Negocio\bin\Debug\AjaxControlToolkit.dll

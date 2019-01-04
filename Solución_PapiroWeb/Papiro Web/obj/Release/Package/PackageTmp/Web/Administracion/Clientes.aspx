@@ -63,7 +63,7 @@
 
 
 
-    <div class="container fadeIn fast">
+    <div class="container main-container fadeIn fast">
 
         <h2 class="text-center">Información general</h2>
         <hr />

@@ -614,6 +614,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="foo">
+      <EntityTypeMapping TypeName="const113_papiroModel.foo">
+        <MappingFragment StoreEntitySet="foo">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="value" ColumnName="value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="guias_despacho">
       <EntityTypeMapping TypeName="const113_papiroModel.guias_despacho">
         <MappingFragment StoreEntitySet="guias_despacho">
@@ -934,6 +942,21 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="perfil">
+      <EntityTypeMapping TypeName="const113_papiroModel.perfil">
+        <MappingFragment StoreEntitySet="perfil">
+          <ScalarProperty Name="idPerfil" ColumnName="idPerfil" />
+          <ScalarProperty Name="Venta" ColumnName="Venta" />
+          <ScalarProperty Name="Administracion" ColumnName="Administracion" />
+          <ScalarProperty Name="Cobranza" ColumnName="Cobranza" />
+          <ScalarProperty Name="Logistica" ColumnName="Logistica" />
+          <ScalarProperty Name="ServicioTecnico" ColumnName="ServicioTecnico" />
+          <ScalarProperty Name="AdminII" ColumnName="AdminII" />
+          <ScalarProperty Name="Compras" ColumnName="Compras" />
+          <ScalarProperty Name="Tickets" ColumnName="Tickets" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="programacion_llamadas">
       <EntityTypeMapping TypeName="const113_papiroModel.programacion_llamadas">
         <MappingFragment StoreEntitySet="programacion_llamadas">
@@ -1222,6 +1245,22 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="tabla_nueva">
+      <EntityTypeMapping TypeName="const113_papiroModel.tabla_nueva">
+        <MappingFragment StoreEntitySet="tabla_nueva">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="value" ColumnName="value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tabla_old">
+      <EntityTypeMapping TypeName="const113_papiroModel.tabla_old">
+        <MappingFragment StoreEntitySet="tabla_old">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="value" ColumnName="value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="usuario">
       <EntityTypeMapping TypeName="const113_papiroModel.usuario">
         <MappingFragment StoreEntitySet="usuario">
@@ -1241,6 +1280,16 @@
           <ScalarProperty Name="tipo_id" ColumnName="tipo_id" />
           <ScalarProperty Name="modulo_nombre" ColumnName="modulo_nombre" />
           <ScalarProperty Name="modulo_id" ColumnName="modulo_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuarioweb">
+      <EntityTypeMapping TypeName="const113_papiroModel.usuarioweb">
+        <MappingFragment StoreEntitySet="usuarioweb">
+          <ScalarProperty Name="cod_usuario" ColumnName="cod_usuario" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+          <ScalarProperty Name="Perfil_idPerfil" ColumnName="Perfil_idPerfil" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1400,6 +1449,35 @@
           <ScalarProperty Name="ancho" ColumnName="ancho" />
           <ScalarProperty Name="largo" ColumnName="largo" />
           <ScalarProperty Name="solicitado" ColumnName="solicitado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="guias_despachos_tabla">
+      <EntityTypeMapping TypeName="const113_papiroModel.guias_despachos_tabla">
+        <MappingFragment StoreEntitySet="guias_despachos_tabla">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+          <ScalarProperty Name="RUT" ColumnName="RUT" />
+          <ScalarProperty Name="Senal_de_advertencia" ColumnName="Senal de advertencia" />
+          <ScalarProperty Name="Codigo_de_producto" ColumnName="Codigo de producto" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Medidas" ColumnName="Medidas" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Neto" ColumnName="Neto" />
+          <ScalarProperty Name="IVA" ColumnName="IVA" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Condicion" ColumnName="Condicion" />
+          <ScalarProperty Name="Forma_de_pago" ColumnName="Forma de pago" />
+          <ScalarProperty Name="Ejecutivo" ColumnName="Ejecutivo" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Solicitado" ColumnName="Solicitado" />
+          <ScalarProperty Name="Comuna" ColumnName="Comuna" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+          <ScalarProperty Name="Tipo_documento" ColumnName="Tipo documento" />
+          <ScalarProperty Name="Folio_guia" ColumnName="Folio guia" />
+          <ScalarProperty Name="Numero_de_guia" ColumnName="Numero de guia" />
+          <ScalarProperty Name="Factura" ColumnName="Factura" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -3394,6 +3472,5 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="guia_despacho_parcial" FunctionName="const113_papiroModel.Store.guia_despacho_parcial" />
   </EntityContainerMapping>
 </Mapping>

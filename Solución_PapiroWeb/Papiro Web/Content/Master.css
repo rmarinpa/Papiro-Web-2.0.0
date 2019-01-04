@@ -3,7 +3,11 @@
 }
 
 .main-container{
-    margin-top: 20px;
+    margin-top: 50px;
+    margin-bottom : 50px;
+}
+.card-header {
+    margin-bottom: 10px;
 }
 
 footer {
@@ -11,3 +15,8 @@ footer {
     background: #252850;
     color: white;
 }
+.bg-navbar {
+    background-color: #252850;
+
+}
+

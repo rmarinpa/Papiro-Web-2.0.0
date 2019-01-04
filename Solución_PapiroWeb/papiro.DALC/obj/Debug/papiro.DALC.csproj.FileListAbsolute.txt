@@ -21,3 +21,16 @@ C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\papiro.DA
 C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\papiro.DALC\obj\Debug\papiro.DALC.csproj.CopyComplete
 C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\papiro.DALC\obj\Debug\papiro.DALC.dll
 C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0\Solución_PapiroWeb\papiro.DALC\obj\Debug\papiro.DALC.pdb
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\papiro.DALC\bin\Debug\papiro.DALC.dll.config
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\papiro.DALC\bin\Debug\papiro.DALC.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\papiro.DALC\bin\Debug\papiro.DALC.pdb
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\papiro.DALC\bin\Debug\EntityFramework.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\papiro.DALC\bin\Debug\EntityFramework.xml
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\papiro.DALC\obj\Debug\papiro.DALC.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\papiro.DALC\obj\Debug\papiro.DALC.pdb
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\papiro.DALC\bin\Debug\AjaxControlToolkit.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\papiro.DALC\bin\Debug\MySql.Data.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\papiro.DALC\bin\Debug\MySql.Data.Entity.dll
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\papiro.DALC\obj\Debug\papiro.DALC.csprojAssemblyReference.cache
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\papiro.DALC\obj\Debug\papiro.DALC.csproj.CoreCompileInputs.cache
+C:\Users\USUARIO\Documents\GitHub\Papiro-Web-2.0.0 Reportes Prueba\Solución_PapiroWeb\papiro.DALC\obj\Debug\papiro.DALC.csproj.CopyComplete

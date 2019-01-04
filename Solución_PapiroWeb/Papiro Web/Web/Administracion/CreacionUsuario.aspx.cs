@@ -35,26 +35,37 @@ namespace Papiro_Web.Web.Administracion
                         usuario.Obra = ddlDepartamento.SelectedItem.ToString();
                         this.txtPass.Text = usuario.EncriptarPass(this.txtPass.Text);   
                         usuario.Password = txtPass.Text;
-                        ; if (usuario.CreateUsuario())
+                        if (usuario.CreateUsuario())
                         {
                             Response.Write("<script>alert('Usuario creado');</script>");
+                            Limpiar();
+                            gvListadoUsuarios.DataBind();
                         }
                     }
                     else
                     {
                         Response.Write("<script>alert('Las contraseñas no coinciden');</script>");
+                        Limpiar();
                     }
                 }
                 else
                 {
                     Response.Write("<script>alert('Campos vacíos');</script>");
+                    Limpiar();
                 }
             }
             catch (Exception ex)
             {
-
                 Response.Write(ex.Message);
+                Limpiar();
             }
+        }
+
+        private void Limpiar()
+        {
+            txtNombreUsuario.Text = "";
+            ddlDepartamento.SelectedIndex = 0;
+            txtPass.Text = "";
         }
     }
 }

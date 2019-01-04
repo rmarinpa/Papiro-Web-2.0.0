@@ -325,9 +325,9 @@ namespace papiro.Negocio
 
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex )
             {
-
+                ex.Message.ToString();
                 return false;
             }
         }

@@ -2,8 +2,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <hr />
-    <div class="container fadeIn fast">
+
+    <div class="container main-container fadeIn fast">
         <h3>Bienvenido:</h3>
         <div class="form-row">
             <i class="fa fa-user-circle"></i>

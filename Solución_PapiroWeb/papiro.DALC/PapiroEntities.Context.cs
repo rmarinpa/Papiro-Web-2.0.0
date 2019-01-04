@@ -12,9 +12,6 @@ namespace papiro.DALC
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    using System.Data.Objects;
-    using System.Data.Objects.DataClasses;
-    using System.Linq;
     
     public partial class const113_papiroEntities : DbContext
     {
@@ -60,6 +57,7 @@ namespace papiro.DALC
         public DbSet<folio3> folio3 { get; set; }
         public DbSet<folio4> folio4 { get; set; }
         public DbSet<folios_factura> folios_factura { get; set; }
+        public DbSet<foo> foo { get; set; }
         public DbSet<guias_despacho> guias_despacho { get; set; }
         public DbSet<guias_facturar> guias_facturar { get; set; }
         public DbSet<historial_solicitud_ticket> historial_solicitud_ticket { get; set; }
@@ -82,6 +80,7 @@ namespace papiro.DALC
         public DbSet<observaciones_llegada> observaciones_llegada { get; set; }
         public DbSet<observaciones_llegada1> observaciones_llegada1 { get; set; }
         public DbSet<ofertas> ofertas { get; set; }
+        public DbSet<perfil> perfil { get; set; }
         public DbSet<programacion_llamadas> programacion_llamadas { get; set; }
         public DbSet<proveedores> proveedores { get; set; }
         public DbSet<reemprimir> reemprimir { get; set; }
@@ -99,12 +98,16 @@ namespace papiro.DALC
         public DbSet<stock> stock { get; set; }
         public DbSet<sustituto> sustituto { get; set; }
         public DbSet<tabla_asociar> tabla_asociar { get; set; }
+        public DbSet<tabla_nueva> tabla_nueva { get; set; }
+        public DbSet<tabla_old> tabla_old { get; set; }
         public DbSet<usuario> usuario { get; set; }
         public DbSet<usuario_adm> usuario_adm { get; set; }
+        public DbSet<usuarioweb> usuarioweb { get; set; }
         public DbSet<venta_guias> venta_guias { get; set; }
         public DbSet<venta_mod> venta_mod { get; set; }
         public DbSet<venta4> venta4 { get; set; }
         public DbSet<venta41> venta41 { get; set; }
+        public DbSet<guias_despachos_tabla> guias_despachos_tabla { get; set; }
         public DbSet<autoriza_pedidos_cliente> autoriza_pedidos_cliente { get; set; }
         public DbSet<cancelacion_fact_cen> cancelacion_fact_cen { get; set; }
         public DbSet<compras_agrupadas> compras_agrupadas { get; set; }
@@ -183,14 +186,5 @@ namespace papiro.DALC
         public DbSet<venta2> venta2 { get; set; }
         public DbSet<venta4_clientes> venta4_clientes { get; set; }
         public DbSet<ventas_clientes> ventas_clientes { get; set; }
-    
-        public virtual int guia_despacho_parcial(string p_factura)
-        {
-            var p_facturaParameter = p_factura != null ?
-                new ObjectParameter("p_factura", p_factura) :
-                new ObjectParameter("p_factura", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("guia_despacho_parcial", p_facturaParameter);
-        }
     }
 }

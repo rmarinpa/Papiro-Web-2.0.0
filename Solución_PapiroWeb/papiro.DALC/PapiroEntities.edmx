@@ -619,6 +619,13 @@ advertencia 6013: La tabla o vista 'def.const113_papiro.condiciones' no tiene de
           <Property Name="fol_fin" Type="int" />
           <Property Name="ult_fol" Type="int" />
         </EntityType>
+        <EntityType Name="foo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="value" Type="varchar" MaxLength="10" />
+        </EntityType>
         <EntityType Name="guias_despacho">
           <Key>
             <PropertyRef Name="Id_guia" />
@@ -628,6 +635,36 @@ advertencia 6013: La tabla o vista 'def.const113_papiro.condiciones' no tiene de
           <Property Name="tipo_guia" Type="int" />
           <Property Name="rut_cliente" Type="varchar" MaxLength="255" />
           <Property Name="factura_rel" Type="int" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'def.const113_papiro.guias_despachos_tabla' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="guias_despachos_tabla">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Cliente" Type="varchar" MaxLength="255" />
+          <Property Name="RUT" Type="varchar" MaxLength="255" />
+          <Property Name="Senal de advertencia" Type="varchar" MaxLength="255" />
+          <Property Name="Codigo de producto" Type="varchar" MaxLength="255" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="255" />
+          <Property Name="Medidas" Type="varchar" MaxLength="255" />
+          <Property Name="Cantidad" Type="double" />
+          <Property Name="Neto" Type="double" />
+          <Property Name="IVA" Type="double" />
+          <Property Name="Total" Type="double" />
+          <Property Name="Condicion" Type="varchar" MaxLength="255" />
+          <Property Name="Forma de pago" Type="varchar" MaxLength="255" />
+          <Property Name="Ejecutivo" Type="varchar" MaxLength="255" />
+          <Property Name="Fecha" Type="date" />
+          <Property Name="Solicitado" Type="varchar" MaxLength="45" />
+          <Property Name="Comuna" Type="varchar" MaxLength="45" />
+          <Property Name="Direccion" Type="varchar" MaxLength="150" />
+          <Property Name="Observacion" Type="varchar" MaxLength="200" />
+          <Property Name="Tipo documento" Type="varchar" MaxLength="16" />
+          <Property Name="Folio guia" Type="double" />
+          <Property Name="Numero de guia" Type="varchar" MaxLength="50" />
+          <Property Name="Factura" Type="varchar" MaxLength="45" />
         </EntityType>
         <EntityType Name="guias_facturar">
           <Key>
@@ -917,6 +954,20 @@ advertencia 6013: La tabla o vista 'def.const113_papiro.condiciones' no tiene de
           <Property Name="fecha" Type="datetime" Precision="0" />
           <Property Name="descripcion" Type="varchar" MaxLength="255" />
         </EntityType>
+        <EntityType Name="perfil">
+          <Key>
+            <PropertyRef Name="idPerfil" />
+          </Key>
+          <Property Name="idPerfil" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Venta" Type="tinyint" />
+          <Property Name="Administracion" Type="tinyint" />
+          <Property Name="Cobranza" Type="tinyint" />
+          <Property Name="Logistica" Type="tinyint" />
+          <Property Name="ServicioTecnico" Type="tinyint" />
+          <Property Name="AdminII" Type="tinyint" />
+          <Property Name="Compras" Type="tinyint" />
+          <Property Name="Tickets" Type="tinyint" />
+        </EntityType>
         <EntityType Name="programacion_llamadas">
           <Key>
             <PropertyRef Name="Id_programacion" />
@@ -1205,6 +1256,20 @@ advertencia 6013: La tabla o vista 'def.const113_papiro.registro_subcontrato' no
           <Property Name="corresponde_monto" Type="varchar" MaxLength="255" />
           <Property Name="ejecutivo" Type="varchar" MaxLength="45" />
         </EntityType>
+        <EntityType Name="tabla_nueva">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="value" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="tabla_old">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="value" Type="varchar" MaxLength="10" />
+        </EntityType>
         <EntityType Name="usuario">
           <Key>
             <PropertyRef Name="cod_usuario" />
@@ -1224,6 +1289,15 @@ advertencia 6013: La tabla o vista 'def.const113_papiro.registro_subcontrato' no
           <Property Name="tipo_id" Type="int" />
           <Property Name="modulo_nombre" Type="varchar" MaxLength="255" />
           <Property Name="modulo_id" Type="int" />
+        </EntityType>
+        <EntityType Name="usuarioweb">
+          <Key>
+            <PropertyRef Name="cod_usuario" />
+          </Key>
+          <Property Name="cod_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Usuario" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Contrasena" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Perfil_idPerfil" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="venta_guias">
           <Key>
@@ -5419,9 +5493,18 @@ advertencia 6002: La tabla o vista 'def.const113_papiro.ventas_clientes' no tien
           <Property Name="maquina320" Type="varchar" MaxLength="45" />
           <Property Name="ejec_new" Type="varchar" MaxLength="45" />
         </EntityType>
-        <Function Name="guia_despacho_parcial" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="const113_papiro">
-          <Parameter Name="p_factura" Type="varchar" Mode="In" />
-        </Function>
+        <Association Name="fk_Usuario_Perfil">
+          <End Role="perfil" Type="Self.perfil" Multiplicity="1" />
+          <End Role="usuarioweb" Type="Self.usuarioweb" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="perfil">
+              <PropertyRef Name="idPerfil" />
+            </Principal>
+            <Dependent Role="usuarioweb">
+              <PropertyRef Name="Perfil_idPerfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="const113_papiroModelStoreContainer">
           <EntitySet Name="alerta_precios" EntityType="Self.alerta_precios" Schema="const113_papiro" store:Type="Tables" />
           <EntitySet Name="autorizacion_otros" EntityType="Self.autorizacion_otros" Schema="const113_papiro" store:Type="Tables" />
@@ -5455,6 +5538,7 @@ advertencia 6002: La tabla o vista 'def.const113_papiro.ventas_clientes' no tien
           <EntitySet Name="folio3" EntityType="Self.folio3" Schema="const113_papiro" store:Type="Tables" />
           <EntitySet Name="folio4" EntityType="Self.folio4" Schema="const113_papiro" store:Type="Tables" />
           <EntitySet Name="folios_factura" EntityType="Self.folios_factura" Schema="const113_papiro" store:Type="Tables" />
+          <EntitySet Name="foo" EntityType="Self.foo" Schema="const113_papiro" store:Type="Tables" />
           <EntitySet Name="guias_despacho" EntityType="Self.guias_despacho" Schema="const113_papiro" store:Type="Tables" />
           <EntitySet Name="guias_facturar" EntityType="Self.guias_facturar" Schema="const113_papiro" store:Type="Tables" />
           <EntitySet Name="historial_solicitud_ticket" EntityType="Self.historial_solicitud_ticket" Schema="const113_papiro" store:Type="Tables" />
@@ -5477,6 +5561,7 @@ advertencia 6002: La tabla o vista 'def.const113_papiro.ventas_clientes' no tien
           <EntitySet Name="observaciones_llegada" EntityType="Self.observaciones_llegada" Schema="const113_papiro" store:Type="Tables" />
           <EntitySet Name="observaciones_llegada1" EntityType="Self.observaciones_llegada1" Schema="const113_papiro" store:Type="Tables" />
           <EntitySet Name="ofertas" EntityType="Self.ofertas" Schema="const113_papiro" store:Type="Tables" />
+          <EntitySet Name="perfil" EntityType="Self.perfil" Schema="const113_papiro" store:Type="Tables" />
           <EntitySet Name="programacion_llamadas" EntityType="Self.programacion_llamadas" Schema="const113_papiro" store:Type="Tables" />
           <EntitySet Name="proveedores" EntityType="Self.proveedores" Schema="const113_papiro" store:Type="Tables" />
           <EntitySet Name="reemprimir" EntityType="Self.reemprimir" Schema="const113_papiro" store:Type="Tables" />
@@ -5494,12 +5579,42 @@ advertencia 6002: La tabla o vista 'def.const113_papiro.ventas_clientes' no tien
           <EntitySet Name="stock" EntityType="Self.stock" Schema="const113_papiro" store:Type="Tables" />
           <EntitySet Name="sustituto" EntityType="Self.sustituto" Schema="const113_papiro" store:Type="Tables" />
           <EntitySet Name="tabla_asociar" EntityType="Self.tabla_asociar" Schema="const113_papiro" store:Type="Tables" />
+          <EntitySet Name="tabla_nueva" EntityType="Self.tabla_nueva" Schema="const113_papiro" store:Type="Tables" />
+          <EntitySet Name="tabla_old" EntityType="Self.tabla_old" Schema="const113_papiro" store:Type="Tables" />
           <EntitySet Name="usuario" EntityType="Self.usuario" Schema="const113_papiro" store:Type="Tables" />
           <EntitySet Name="usuario_adm" EntityType="Self.usuario_adm" Schema="const113_papiro" store:Type="Tables" />
+          <EntitySet Name="usuarioweb" EntityType="Self.usuarioweb" Schema="const113_papiro" store:Type="Tables" />
           <EntitySet Name="venta_guias" EntityType="Self.venta_guias" Schema="const113_papiro" store:Type="Tables" />
           <EntitySet Name="venta_mod" EntityType="Self.venta_mod" Schema="const113_papiro" store:Type="Tables" />
           <EntitySet Name="venta4" EntityType="Self.venta4" Schema="const113_papiro" store:Type="Tables" />
           <EntitySet Name="venta41" EntityType="Self.venta41" Schema="const113_papiro" store:Type="Tables" />
+          <EntitySet Name="guias_despachos_tabla" EntityType="Self.guias_despachos_tabla" store:Type="Tables" store:Schema="const113_papiro">
+            <DefiningQuery>SELECT
+`guias_despachos_tabla`.`ID`, 
+`guias_despachos_tabla`.`Cliente`, 
+`guias_despachos_tabla`.`RUT`, 
+`guias_despachos_tabla`.`Senal de advertencia`, 
+`guias_despachos_tabla`.`Codigo de producto`, 
+`guias_despachos_tabla`.`Descripcion`, 
+`guias_despachos_tabla`.`Medidas`, 
+`guias_despachos_tabla`.`Cantidad`, 
+`guias_despachos_tabla`.`Neto`, 
+`guias_despachos_tabla`.`IVA`, 
+`guias_despachos_tabla`.`Total`, 
+`guias_despachos_tabla`.`Condicion`, 
+`guias_despachos_tabla`.`Forma de pago`, 
+`guias_despachos_tabla`.`Ejecutivo`, 
+`guias_despachos_tabla`.`Fecha`, 
+`guias_despachos_tabla`.`Solicitado`, 
+`guias_despachos_tabla`.`Comuna`, 
+`guias_despachos_tabla`.`Direccion`, 
+`guias_despachos_tabla`.`Observacion`, 
+`guias_despachos_tabla`.`Tipo documento`, 
+`guias_despachos_tabla`.`Folio guia`, 
+`guias_despachos_tabla`.`Numero de guia`, 
+`guias_despachos_tabla`.`Factura`
+FROM `guias_despachos_tabla` AS `guias_despachos_tabla`</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="autoriza_pedidos_cliente" EntityType="Self.autoriza_pedidos_cliente" store:Type="Views" store:Schema="const113_papiro">
             <DefiningQuery>SELECT
 `autoriza_pedidos_cliente`.`Id_notas_de_pedido`, 
@@ -7335,6 +7450,10 @@ FROM `venta4_clientes` AS `venta4_clientes`</DefiningQuery>
 `ventas_clientes`.`ejec_new`
 FROM `ventas_clientes` AS `ventas_clientes`</DefiningQuery>
           </EntitySet>
+          <AssociationSet Name="fk_Usuario_Perfil" Association="Self.fk_Usuario_Perfil">
+            <End Role="perfil" EntitySet="perfil" />
+            <End Role="usuarioweb" EntitySet="usuarioweb" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -7922,6 +8041,13 @@ FROM `ventas_clientes` AS `ventas_clientes`</DefiningQuery>
           <Property Name="fol_fin" Type="Int32" />
           <Property Name="ult_fol" Type="Int32" />
         </EntityType>
+        <EntityType Name="foo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="value" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="guias_despacho">
           <Key>
             <PropertyRef Name="Id_guia" />
@@ -8220,6 +8346,21 @@ FROM `ventas_clientes` AS `ventas_clientes`</DefiningQuery>
           <Property Name="fecha" Type="DateTime" />
           <Property Name="descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="perfil">
+          <Key>
+            <PropertyRef Name="idPerfil" />
+          </Key>
+          <Property Name="idPerfil" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Venta" Type="SByte" />
+          <Property Name="Administracion" Type="SByte" />
+          <Property Name="Cobranza" Type="SByte" />
+          <Property Name="Logistica" Type="SByte" />
+          <Property Name="ServicioTecnico" Type="SByte" />
+          <Property Name="AdminII" Type="SByte" />
+          <Property Name="Compras" Type="SByte" />
+          <Property Name="Tickets" Type="SByte" />
+          <NavigationProperty Name="usuarioweb" Relationship="Self.fk_Usuario_Perfil" FromRole="perfil" ToRole="usuarioweb" />
+        </EntityType>
         <EntityType Name="programacion_llamadas">
           <Key>
             <PropertyRef Name="Id_programacion" />
@@ -8491,6 +8632,20 @@ FROM `ventas_clientes` AS `ventas_clientes`</DefiningQuery>
           <Property Name="corresponde_monto" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="ejecutivo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="tabla_nueva">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="value" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tabla_old">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="value" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="usuario">
           <Key>
             <PropertyRef Name="cod_usuario" />
@@ -8510,6 +8665,16 @@ FROM `ventas_clientes` AS `ventas_clientes`</DefiningQuery>
           <Property Name="tipo_id" Type="Int32" />
           <Property Name="modulo_nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="modulo_id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="usuarioweb">
+          <Key>
+            <PropertyRef Name="cod_usuario" />
+          </Key>
+          <Property Name="cod_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Usuario" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Contrasena" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Perfil_idPerfil" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="perfil" Relationship="Self.fk_Usuario_Perfil" FromRole="usuarioweb" ToRole="perfil" />
         </EntityType>
         <EntityType Name="venta_guias">
           <Key>
@@ -8665,6 +8830,34 @@ FROM `ventas_clientes` AS `ventas_clientes`</DefiningQuery>
           <Property Name="ancho" Type="Double" />
           <Property Name="largo" Type="Double" />
           <Property Name="solicitado" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="guias_despachos_tabla">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Cliente" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="RUT" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Senal_de_advertencia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Codigo_de_producto" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Medidas" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Cantidad" Type="Double" />
+          <Property Name="Neto" Type="Double" />
+          <Property Name="IVA" Type="Double" />
+          <Property Name="Total" Type="Double" />
+          <Property Name="Condicion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Forma_de_pago" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Ejecutivo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha" Type="DateTime" />
+          <Property Name="Solicitado" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Comuna" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Observacion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo_documento" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="Folio_guia" Type="Double" />
+          <Property Name="Numero_de_guia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Factura" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="autoriza_pedidos_cliente">
           <Key>
@@ -10588,6 +10781,18 @@ FROM `ventas_clientes` AS `ventas_clientes`</DefiningQuery>
           <Property Name="maquina320" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="ejec_new" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
         </EntityType>
+        <Association Name="fk_Usuario_Perfil">
+          <End Role="perfil" Type="Self.perfil" Multiplicity="1" />
+          <End Role="usuarioweb" Type="Self.usuarioweb" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="perfil">
+              <PropertyRef Name="idPerfil" />
+            </Principal>
+            <Dependent Role="usuarioweb">
+              <PropertyRef Name="Perfil_idPerfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="const113_papiroEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="alerta_precios" EntityType="Self.alerta_precios" />
           <EntitySet Name="autorizacion_otros" EntityType="Self.autorizacion_otros" />
@@ -10621,6 +10826,7 @@ FROM `ventas_clientes` AS `ventas_clientes`</DefiningQuery>
           <EntitySet Name="folio3" EntityType="Self.folio3" />
           <EntitySet Name="folio4" EntityType="Self.folio4" />
           <EntitySet Name="folios_factura" EntityType="Self.folios_factura" />
+          <EntitySet Name="foo" EntityType="Self.foo" />
           <EntitySet Name="guias_despacho" EntityType="Self.guias_despacho" />
           <EntitySet Name="guias_facturar" EntityType="Self.guias_facturar" />
           <EntitySet Name="historial_solicitud_ticket" EntityType="Self.historial_solicitud_ticket" />
@@ -10643,6 +10849,7 @@ FROM `ventas_clientes` AS `ventas_clientes`</DefiningQuery>
           <EntitySet Name="observaciones_llegada" EntityType="Self.observaciones_llegada" />
           <EntitySet Name="observaciones_llegada1" EntityType="Self.observaciones_llegada1" />
           <EntitySet Name="ofertas" EntityType="Self.ofertas" />
+          <EntitySet Name="perfil" EntityType="Self.perfil" />
           <EntitySet Name="programacion_llamadas" EntityType="Self.programacion_llamadas" />
           <EntitySet Name="proveedores" EntityType="Self.proveedores" />
           <EntitySet Name="reemprimir" EntityType="Self.reemprimir" />
@@ -10660,12 +10867,16 @@ FROM `ventas_clientes` AS `ventas_clientes`</DefiningQuery>
           <EntitySet Name="stock" EntityType="Self.stock" />
           <EntitySet Name="sustituto" EntityType="Self.sustituto" />
           <EntitySet Name="tabla_asociar" EntityType="Self.tabla_asociar" />
+          <EntitySet Name="tabla_nueva" EntityType="Self.tabla_nueva" />
+          <EntitySet Name="tabla_old" EntityType="Self.tabla_old" />
           <EntitySet Name="usuario" EntityType="Self.usuario" />
           <EntitySet Name="usuario_adm" EntityType="Self.usuario_adm" />
+          <EntitySet Name="usuarioweb" EntityType="Self.usuarioweb" />
           <EntitySet Name="venta_guias" EntityType="Self.venta_guias" />
           <EntitySet Name="venta_mod" EntityType="Self.venta_mod" />
           <EntitySet Name="venta4" EntityType="Self.venta4" />
           <EntitySet Name="venta41" EntityType="Self.venta41" />
+          <EntitySet Name="guias_despachos_tabla" EntityType="Self.guias_despachos_tabla" />
           <EntitySet Name="autoriza_pedidos_cliente" EntityType="Self.autoriza_pedidos_cliente" />
           <EntitySet Name="cancelacion_fact_cen" EntityType="Self.cancelacion_fact_cen" />
           <EntitySet Name="compras_agrupadas" EntityType="Self.compras_agrupadas" />
@@ -10744,9 +10955,10 @@ FROM `ventas_clientes` AS `ventas_clientes`</DefiningQuery>
           <EntitySet Name="venta2" EntityType="Self.venta2" />
           <EntitySet Name="venta4_clientes" EntityType="Self.venta4_clientes" />
           <EntitySet Name="ventas_clientes" EntityType="Self.ventas_clientes" />
-          <FunctionImport Name="guia_despacho_parcial">
-            <Parameter Name="p_factura" Mode="In" Type="String" />
-          </FunctionImport>
+          <AssociationSet Name="fk_Usuario_Perfil" Association="Self.fk_Usuario_Perfil">
+            <End Role="perfil" EntitySet="perfil" />
+            <End Role="usuarioweb" EntitySet="usuarioweb" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -11367,6 +11579,14 @@ FROM `ventas_clientes` AS `ventas_clientes`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="foo">
+            <EntityTypeMapping TypeName="const113_papiroModel.foo">
+              <MappingFragment StoreEntitySet="foo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="value" ColumnName="value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="guias_despacho">
             <EntityTypeMapping TypeName="const113_papiroModel.guias_despacho">
               <MappingFragment StoreEntitySet="guias_despacho">
@@ -11687,6 +11907,21 @@ FROM `ventas_clientes` AS `ventas_clientes`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="perfil">
+            <EntityTypeMapping TypeName="const113_papiroModel.perfil">
+              <MappingFragment StoreEntitySet="perfil">
+                <ScalarProperty Name="idPerfil" ColumnName="idPerfil" />
+                <ScalarProperty Name="Venta" ColumnName="Venta" />
+                <ScalarProperty Name="Administracion" ColumnName="Administracion" />
+                <ScalarProperty Name="Cobranza" ColumnName="Cobranza" />
+                <ScalarProperty Name="Logistica" ColumnName="Logistica" />
+                <ScalarProperty Name="ServicioTecnico" ColumnName="ServicioTecnico" />
+                <ScalarProperty Name="AdminII" ColumnName="AdminII" />
+                <ScalarProperty Name="Compras" ColumnName="Compras" />
+                <ScalarProperty Name="Tickets" ColumnName="Tickets" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="programacion_llamadas">
             <EntityTypeMapping TypeName="const113_papiroModel.programacion_llamadas">
               <MappingFragment StoreEntitySet="programacion_llamadas">
@@ -11975,6 +12210,22 @@ FROM `ventas_clientes` AS `ventas_clientes`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="tabla_nueva">
+            <EntityTypeMapping TypeName="const113_papiroModel.tabla_nueva">
+              <MappingFragment StoreEntitySet="tabla_nueva">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="value" ColumnName="value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tabla_old">
+            <EntityTypeMapping TypeName="const113_papiroModel.tabla_old">
+              <MappingFragment StoreEntitySet="tabla_old">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="value" ColumnName="value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="usuario">
             <EntityTypeMapping TypeName="const113_papiroModel.usuario">
               <MappingFragment StoreEntitySet="usuario">
@@ -11994,6 +12245,16 @@ FROM `ventas_clientes` AS `ventas_clientes`</DefiningQuery>
                 <ScalarProperty Name="tipo_id" ColumnName="tipo_id" />
                 <ScalarProperty Name="modulo_nombre" ColumnName="modulo_nombre" />
                 <ScalarProperty Name="modulo_id" ColumnName="modulo_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuarioweb">
+            <EntityTypeMapping TypeName="const113_papiroModel.usuarioweb">
+              <MappingFragment StoreEntitySet="usuarioweb">
+                <ScalarProperty Name="cod_usuario" ColumnName="cod_usuario" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+                <ScalarProperty Name="Perfil_idPerfil" ColumnName="Perfil_idPerfil" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -12153,6 +12414,35 @@ FROM `ventas_clientes` AS `ventas_clientes`</DefiningQuery>
                 <ScalarProperty Name="ancho" ColumnName="ancho" />
                 <ScalarProperty Name="largo" ColumnName="largo" />
                 <ScalarProperty Name="solicitado" ColumnName="solicitado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="guias_despachos_tabla">
+            <EntityTypeMapping TypeName="const113_papiroModel.guias_despachos_tabla">
+              <MappingFragment StoreEntitySet="guias_despachos_tabla">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+                <ScalarProperty Name="RUT" ColumnName="RUT" />
+                <ScalarProperty Name="Senal_de_advertencia" ColumnName="Senal de advertencia" />
+                <ScalarProperty Name="Codigo_de_producto" ColumnName="Codigo de producto" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Medidas" ColumnName="Medidas" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Neto" ColumnName="Neto" />
+                <ScalarProperty Name="IVA" ColumnName="IVA" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Condicion" ColumnName="Condicion" />
+                <ScalarProperty Name="Forma_de_pago" ColumnName="Forma de pago" />
+                <ScalarProperty Name="Ejecutivo" ColumnName="Ejecutivo" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Solicitado" ColumnName="Solicitado" />
+                <ScalarProperty Name="Comuna" ColumnName="Comuna" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="Tipo_documento" ColumnName="Tipo documento" />
+                <ScalarProperty Name="Folio_guia" ColumnName="Folio guia" />
+                <ScalarProperty Name="Numero_de_guia" ColumnName="Numero de guia" />
+                <ScalarProperty Name="Factura" ColumnName="Factura" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -14147,7 +14437,6 @@ FROM `ventas_clientes` AS `ventas_clientes`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="guia_despacho_parcial" FunctionName="const113_papiroModel.Store.guia_despacho_parcial" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

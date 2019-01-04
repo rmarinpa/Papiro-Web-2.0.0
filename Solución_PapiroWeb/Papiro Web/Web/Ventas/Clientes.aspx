@@ -56,7 +56,7 @@
 
     <!--FinAutoComplete-->
 
-    <div class="container">
+    <div class="container main-container">
 
 
         <div class="container fadeIn fast">

@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Label ID="lblUsuario" runat="server" Visible="False"></asp:Label>
 
-    <div class="accordion" id="accordionExample">
+    <div class="accordion main-container" id="accordionExample">
         <div class="card">
             <div class="card-header" id="headingOne">
                 <h5 class="mb-0">

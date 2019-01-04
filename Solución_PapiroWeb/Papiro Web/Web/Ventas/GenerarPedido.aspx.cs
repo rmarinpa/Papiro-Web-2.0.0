@@ -32,13 +32,9 @@ namespace PapiroWeb.Web.Ventas
             //Validamos que el rut , sea correcto
             if (cliente.validarRut(txtRutEmpresa.Text) == true)
             {
-
                 //Validamos si el tipo de documento está seleccionado
                 if (ddlTipoDocuento.SelectedIndex != 0)
                 {
-                    //if (txtSenal.Text == "OK")
-                    //{
-
                     gvProductosGuiaPendiente.DataBind();
                     if (gvProductosGuiaPendiente.Rows.Count > 1)
                     {
@@ -69,7 +65,9 @@ namespace PapiroWeb.Web.Ventas
                             gvHistorialBloqueo.DataBind();
                             //Bloqueamos el tipo de documento para que el cliente no pueda interactuar
                             ddlTipoDocuento.Enabled = false;
-
+                            //Se abre el modal
+                            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "modalTipoDocumento", "$('#myModal').modal();", true);
+                            upModal.Update();
                         }
                         else
                         {
@@ -86,12 +84,8 @@ namespace PapiroWeb.Web.Ventas
                         Response.Write(ex.Message);
                     }
 
-                    //}
-                    //else
-                    //{
-                    //    Response.Write("<script>alert('Cliente se encuentra bloqueado');</script>");
-                    //    Limpiar();
-                    //}
+
+
                 }
                 else
                 {
@@ -108,12 +102,18 @@ namespace PapiroWeb.Web.Ventas
 
         protected void btnBuscarRazon_Click(object sender, EventArgs e)
         {
+            Cliente cliente = new Cliente();
+            //Validamos si el tipo de documento está seleccionado
             if (ddlTipoDocuento.SelectedIndex != 0)
             {
-
+                gvProductosGuiaPendiente.DataBind();
+                if (gvProductosGuiaPendiente.Rows.Count > 1)
+                {
+                    Response.Write("<script>alert('Cliente con productos pendientes de acuerdo a guías de despacho parcial');</script>");
+                    Response.Write("<script>alert('Favor, verificar en la pestaña de productos pendientes');</script>");
+                }
                 try
                 {
-                    Cliente cliente = new Cliente();
                     cliente.NombreCliente = txtRazonSocial.Text;
 
                     if (cliente.ReadRazon())
@@ -130,9 +130,23 @@ namespace PapiroWeb.Web.Ventas
                         txtEjecutivo.Text = cliente.EjecCobranza;
                         txtCondicion.Text = cliente.Cond;
 
-                        gvHistorialCliente.DataBind();
-                        gvHistorialBloqueo.DataBind();
+                        //Al traer los datos, verificamos si el cliente está bloqueado o no
+
+                        if (txtSenal.Text == "OK")
+                        {
+                            //Actualizamos el DataGrid
+                            gvHistorialCliente.DataBind();
+                            gvHistorialBloqueo.DataBind();
+                            //Bloqueamos el tipo de documento para que el cliente no pueda interactuar
+                            ddlTipoDocuento.Enabled = false;
+                        }
+                        else
+                        {
+                            Response.Write("<script>alert('Cliente se encuentra bloqueado');</script>");
+                            Limpiar();
+                        }
                     }
+
                     else
                     {
                         Response.Write("<script>alert('No se encuentra cliente');</script>");
@@ -143,18 +157,20 @@ namespace PapiroWeb.Web.Ventas
                 {
                     Response.Write("<script>alert('ArgumentException');</script>");
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    Response.Write("<script>alert('Error al buscar');</script>");
+                    Response.Write(ex.Message);
                 }
 
             }
             else
             {
-                Response.Write("<script>alert('Debes seleccionar un tipo de documento para poder continuar');</script>");
+                Response.Write("<script>alert('Debes seleccionar un tipo de documento para continuar');</script>");
+                Limpiar();
             }
-
         }
+
+
 
         //Metodo limpiar
         private void Limpiar()
@@ -551,6 +567,12 @@ namespace PapiroWeb.Web.Ventas
             CalcularArea();
             //CalcularM2();
         }
+        //Popup de Informe estado cuenta de cliente
+        protected void btnEstadoCuentaClientes_Click(object sender, EventArgs e)
+        {
+            Response.Write("<script>window.open('Informes/EstadoCuenta.aspx','_blank');</script>");
+        }
+
 
     }
 }

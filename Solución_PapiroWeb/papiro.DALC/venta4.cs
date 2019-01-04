@@ -32,7 +32,7 @@ namespace papiro.DALC
         public Nullable<double> cantidad { get; set; }
         public Nullable<double> area_total { get; set; }
         public Nullable<double> venta_rollo { get; set; }
-        public double unit_venta_m2 { get; set; }
+        public Nullable<double> unit_venta_m2 { get; set; }
         public Nullable<double> venta_neta { get; set; }
         public Nullable<double> venta_iva { get; set; }
         public Nullable<double> venta_total { get; set; }

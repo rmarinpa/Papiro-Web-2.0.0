@@ -58,7 +58,7 @@
 
     <h1 class="text-center">Productos</h1>
     <hr />
-    <div class="container fadeIn fast">
+    <div class="container main-container fadeIn fast">
         <h2>Datos de productos</h2>
         <div class="form-row">
             <div class="form-group col-md-4">

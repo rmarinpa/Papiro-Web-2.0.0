@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div class="container fadeIn fast">
+        <div class="container main-container fadeIn fast">
         <div class="card">
             <div class="card-body">
                 <h3 class="text-center">Creación de Usuario</h3>
@@ -34,17 +34,42 @@
                         <asp:ListItem Value="5">Lógistica</asp:ListItem>
                     </asp:DropDownList>
                 </div>
-                <!-- Button trigger modal -->
-                <asp:Button ID="btnAgregarUsuario" CssClass="btn btn-outline-danger" runat="server" Text="Ingresar Usuario" OnClick="btnAgregarUsuario_Click" />
             </div>
-            <asp:GridView ID="gvListadoUsuarios" runat="server" AllowPaging="True" DataSourceID="ObjectDataSource1">
+            <div class="card">
+                <div class="card-header">Nivel de acceso</div>
+                <div class="card-body">
+                    <asp:Label ID="Label1" runat="server" Text="Venta"></asp:Label>
+                    <asp:CheckBox ID="CheckBox1" runat="server" />
+                    <asp:Label ID="Label2" runat="server" Text="Administración"></asp:Label>
+                    <asp:CheckBox ID="CheckBox2" runat="server" />
+                    <asp:Label ID="Label3" runat="server" Text="Cobranza"></asp:Label>
+                    <asp:CheckBox ID="CheckBox3" runat="server" />
+                    <asp:Label ID="Label4" runat="server" Text="Logística"></asp:Label>
+                    <asp:CheckBox ID="CheckBox4" runat="server" />
+                    <asp:Label ID="Label5" runat="server" Text="Servicio Técnico"></asp:Label>
+                    <asp:CheckBox ID="CheckBox5" runat="server" />
+                    <asp:Label ID="Label6" runat="server" Text="Administración II"></asp:Label>
+                    <asp:CheckBox ID="CheckBox6" runat="server" />
+                    <asp:Label ID="Label7" runat="server" Text="Compras"></asp:Label>
+                    <asp:CheckBox ID="CheckBox7" runat="server" />
+                    <asp:Label ID="Label8" runat="server" Text="Tickets"></asp:Label>
+                    <asp:CheckBox ID="CheckBox8" runat="server" />
+                </div>
+            </div>
+
+            <asp:GridView ID="gvListadoUsuarios" runat="server" AllowPaging="True" DataSourceID="EntityDataSource1" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="cod_usuario">
                 <Columns>
-                    <asp:CommandField ShowSelectButton="True" />
+                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+                    <asp:BoundField DataField="cod_usuario" HeaderText="cod_usuario" ReadOnly="True" SortExpression="cod_usuario" />
+                    <asp:BoundField DataField="nombre" HeaderText="nombre" SortExpression="nombre" />
+                    <asp:BoundField DataField="password" HeaderText="password" SortExpression="password" />
+                    <asp:BoundField DataField="Obra" HeaderText="Obra" SortExpression="Obra" />
                 </Columns>
             </asp:GridView>
-            
-            <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="ReadUsuario" TypeName="papiro.Negocio.Usuario"></asp:ObjectDataSource>
-            
+            <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=const113_papiroEntities" DefaultContainerName="const113_papiroEntities" EnableDelete="True" EnableFlattening="False" EnableInsert="True" EnableUpdate="True" EntitySetName="usuario">
+            </asp:EntityDataSource>
         </div>
+            <asp:Button ID="btnAgregarUsuario" CssClass="btn btn-outline-danger" runat="server" Text="Ingresar Usuario" OnClick="btnAgregarUsuario_Click" />
     </div>
+
 </asp:Content>

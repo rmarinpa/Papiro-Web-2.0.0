@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Notas de Pedidos" Language="C#" MasterPageFile="~/Web/Administracion/LayoutAdmin.Master" AutoEventWireup="true" CodeBehind="NotasDePedidos.aspx.cs" Inherits="PapiroWeb.Web.Administracion.NotasDePedidos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container fadeIn fast">
+    <div class="container main-container fadeIn fast">
         <h2 class="text-center">Notas de Pedido - Facturas</h2>
         <hr />
         <div class="form-row">

@@ -581,6 +581,13 @@
     <Property Name="fol_fin" Type="Int32" />
     <Property Name="ult_fol" Type="Int32" />
   </EntityType>
+  <EntityType Name="foo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="value" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
   <EntityType Name="guias_despacho">
     <Key>
       <PropertyRef Name="Id_guia" />
@@ -879,6 +886,21 @@
     <Property Name="fecha" Type="DateTime" />
     <Property Name="descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
   </EntityType>
+  <EntityType Name="perfil">
+    <Key>
+      <PropertyRef Name="idPerfil" />
+    </Key>
+    <Property Name="idPerfil" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Venta" Type="SByte" />
+    <Property Name="Administracion" Type="SByte" />
+    <Property Name="Cobranza" Type="SByte" />
+    <Property Name="Logistica" Type="SByte" />
+    <Property Name="ServicioTecnico" Type="SByte" />
+    <Property Name="AdminII" Type="SByte" />
+    <Property Name="Compras" Type="SByte" />
+    <Property Name="Tickets" Type="SByte" />
+    <NavigationProperty Name="usuarioweb" Relationship="Self.fk_Usuario_Perfil" FromRole="perfil" ToRole="usuarioweb" />
+  </EntityType>
   <EntityType Name="programacion_llamadas">
     <Key>
       <PropertyRef Name="Id_programacion" />
@@ -1150,6 +1172,20 @@
     <Property Name="corresponde_monto" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="ejecutivo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
   </EntityType>
+  <EntityType Name="tabla_nueva">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="value" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tabla_old">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="value" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
   <EntityType Name="usuario">
     <Key>
       <PropertyRef Name="cod_usuario" />
@@ -1169,6 +1205,16 @@
     <Property Name="tipo_id" Type="Int32" />
     <Property Name="modulo_nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="modulo_id" Type="Int32" />
+  </EntityType>
+  <EntityType Name="usuarioweb">
+    <Key>
+      <PropertyRef Name="cod_usuario" />
+    </Key>
+    <Property Name="cod_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Usuario" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Contrasena" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Perfil_idPerfil" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="perfil" Relationship="Self.fk_Usuario_Perfil" FromRole="usuarioweb" ToRole="perfil" />
   </EntityType>
   <EntityType Name="venta_guias">
     <Key>
@@ -1324,6 +1370,34 @@
     <Property Name="ancho" Type="Double" />
     <Property Name="largo" Type="Double" />
     <Property Name="solicitado" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="guias_despachos_tabla">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Cliente" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="RUT" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Senal_de_advertencia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Codigo_de_producto" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Medidas" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Cantidad" Type="Double" />
+    <Property Name="Neto" Type="Double" />
+    <Property Name="IVA" Type="Double" />
+    <Property Name="Total" Type="Double" />
+    <Property Name="Condicion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Forma_de_pago" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Ejecutivo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Fecha" Type="DateTime" />
+    <Property Name="Solicitado" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Comuna" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Direccion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Observacion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo_documento" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="Folio_guia" Type="Double" />
+    <Property Name="Numero_de_guia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Factura" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="autoriza_pedidos_cliente">
     <Key>
@@ -3247,6 +3321,18 @@
     <Property Name="maquina320" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="ejec_new" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
   </EntityType>
+  <Association Name="fk_Usuario_Perfil">
+    <End Role="perfil" Type="Self.perfil" Multiplicity="1" />
+    <End Role="usuarioweb" Type="Self.usuarioweb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="perfil">
+        <PropertyRef Name="idPerfil" />
+      </Principal>
+      <Dependent Role="usuarioweb">
+        <PropertyRef Name="Perfil_idPerfil" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="const113_papiroEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="alerta_precios" EntityType="Self.alerta_precios" />
     <EntitySet Name="autorizacion_otros" EntityType="Self.autorizacion_otros" />
@@ -3280,6 +3366,7 @@
     <EntitySet Name="folio3" EntityType="Self.folio3" />
     <EntitySet Name="folio4" EntityType="Self.folio4" />
     <EntitySet Name="folios_factura" EntityType="Self.folios_factura" />
+    <EntitySet Name="foo" EntityType="Self.foo" />
     <EntitySet Name="guias_despacho" EntityType="Self.guias_despacho" />
     <EntitySet Name="guias_facturar" EntityType="Self.guias_facturar" />
     <EntitySet Name="historial_solicitud_ticket" EntityType="Self.historial_solicitud_ticket" />
@@ -3302,6 +3389,7 @@
     <EntitySet Name="observaciones_llegada" EntityType="Self.observaciones_llegada" />
     <EntitySet Name="observaciones_llegada1" EntityType="Self.observaciones_llegada1" />
     <EntitySet Name="ofertas" EntityType="Self.ofertas" />
+    <EntitySet Name="perfil" EntityType="Self.perfil" />
     <EntitySet Name="programacion_llamadas" EntityType="Self.programacion_llamadas" />
     <EntitySet Name="proveedores" EntityType="Self.proveedores" />
     <EntitySet Name="reemprimir" EntityType="Self.reemprimir" />
@@ -3319,12 +3407,16 @@
     <EntitySet Name="stock" EntityType="Self.stock" />
     <EntitySet Name="sustituto" EntityType="Self.sustituto" />
     <EntitySet Name="tabla_asociar" EntityType="Self.tabla_asociar" />
+    <EntitySet Name="tabla_nueva" EntityType="Self.tabla_nueva" />
+    <EntitySet Name="tabla_old" EntityType="Self.tabla_old" />
     <EntitySet Name="usuario" EntityType="Self.usuario" />
     <EntitySet Name="usuario_adm" EntityType="Self.usuario_adm" />
+    <EntitySet Name="usuarioweb" EntityType="Self.usuarioweb" />
     <EntitySet Name="venta_guias" EntityType="Self.venta_guias" />
     <EntitySet Name="venta_mod" EntityType="Self.venta_mod" />
     <EntitySet Name="venta4" EntityType="Self.venta4" />
     <EntitySet Name="venta41" EntityType="Self.venta41" />
+    <EntitySet Name="guias_despachos_tabla" EntityType="Self.guias_despachos_tabla" />
     <EntitySet Name="autoriza_pedidos_cliente" EntityType="Self.autoriza_pedidos_cliente" />
     <EntitySet Name="cancelacion_fact_cen" EntityType="Self.cancelacion_fact_cen" />
     <EntitySet Name="compras_agrupadas" EntityType="Self.compras_agrupadas" />
@@ -3403,8 +3495,9 @@
     <EntitySet Name="venta2" EntityType="Self.venta2" />
     <EntitySet Name="venta4_clientes" EntityType="Self.venta4_clientes" />
     <EntitySet Name="ventas_clientes" EntityType="Self.ventas_clientes" />
-    <FunctionImport Name="guia_despacho_parcial">
-      <Parameter Name="p_factura" Mode="In" Type="String" />
-    </FunctionImport>
+    <AssociationSet Name="fk_Usuario_Perfil" Association="Self.fk_Usuario_Perfil">
+      <End Role="perfil" EntitySet="perfil" />
+      <End Role="usuarioweb" EntitySet="usuarioweb" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

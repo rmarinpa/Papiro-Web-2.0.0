@@ -15,6 +15,26 @@ namespace PapiroWeb.Web.Ventas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string userName = Page.User.Identity.Name;
+
+            try
+            {
+                Usuario usuario = new Usuario();
+                usuario.Nombre = userName;
+                if (usuario.LeerDeptoUsuario())
+                {
+                    userName = usuario.Nombre;
+                    if (usuario.Obra != "Ventas")
+                    {
+                        Response.Redirect("../../Redireccion.aspx");
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
 
         }
         //Metodo limpiar
